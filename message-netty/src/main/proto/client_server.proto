@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option optimize_for=SPEED;
+
+//option java_package = "com.casino.wp.casinonetty.proto";
+option java_outer_classname = "PBCSMessage";
+
+
+//发送用户道具变化通知
+message proto_ww_user_data_change_req{
+
+    	int64	ply_guid	=	1;
+    	int32	type	=	2;
+}
+
+//接收用户道具变化结果通知
+message proto_ww_user_data_change_noti{
+
+}
+
+//发送好友消息通知
+message proto_ww_friend_msg_req{
+
+    	string	rcv_guid	=	1;
+    	string	message	=	2;
+    	string	type	=	3;
+}
+//接收好友消息通知
+message proto_ww_friend_msg_noti{
+
+}
+
+
