@@ -116,6 +116,7 @@ public abstract class NettyTcpClient extends BaseService {
 //        } else {
 //            createNioClient(listener);
 //        }
+        LOGGER.info("NettyClient--doStart--");
         createNioClient(listener);
     }
 

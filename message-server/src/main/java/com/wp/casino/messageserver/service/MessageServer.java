@@ -9,23 +9,32 @@ import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
 /**
  * @author sn
  * @date 2020/5/15 16:38
  */
 @Slf4j
-@Component
+//@Component
 public class MessageServer extends NettyTcpServer {
 
     private  ChannelHandler channelHandler;
 
     private  MessageDispatcher messageDispatcher;
 
-    public MessageServer() {
+    private String host;
 
-        super(9876);
+    private int port;
+
+    public MessageServer(int port) {
+        super(port);
+        this.messageDispatcher = new MessageDispatcher();
+        this.channelHandler = new MessageServerHandler(messageDispatcher);
+    }
+
+    public MessageServer(String host,int port) {
+        super(port, host);
+        this.host=host;
+        this.port=port;
         this.messageDispatcher = new MessageDispatcher();
         this.channelHandler = new MessageServerHandler(messageDispatcher);
     }

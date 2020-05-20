@@ -1,6 +1,7 @@
 package com.wp.casino.messageclient.service;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelHandler;
@@ -38,6 +39,9 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("建立连接时：" + new Date());
+        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
+
+        ctx.writeAndFlush( msg);
         ctx.fireChannelActive();
     }
 

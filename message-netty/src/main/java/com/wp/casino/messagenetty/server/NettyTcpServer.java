@@ -54,6 +54,7 @@ public abstract class NettyTcpServer extends BaseService {
     }
 
     public void init() {
+        logger.info("nettyserver init--");
         if (!serverState.compareAndSet(State.Created, State.Initialized)) {
             throw new ServiceException("Server already init");
         }
@@ -82,9 +83,9 @@ public abstract class NettyTcpServer extends BaseService {
 
     @Override
     public void start(final Listener listener) {
-//        if (!serverState.compareAndSet(State.Initialized, State.Starting)) {
-//            throw new ServiceException("Server already started or have not init");
-//        }
+        if (!serverState.compareAndSet(State.Initialized, State.Starting)) {
+            throw new ServiceException("Server already started or have not init");
+        }
 //        if (useNettyEpoll()) {//获取配置
 //            createEpollServer(listener);
 //        } else {

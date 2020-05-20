@@ -24,6 +24,7 @@ public class MessageClient extends NettyTcpClient {
 
     @Override
     public void init() {
+        log.info("MessageClient--init--");
         super.init();
         //proto_ww_user_data_change_req协议
         messageDispatcher.registerHandler(PBCSMessage.proto_ww_user_data_change_req.class, (channel, message) -> {

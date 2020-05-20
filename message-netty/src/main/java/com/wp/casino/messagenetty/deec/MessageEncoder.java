@@ -3,6 +3,9 @@ package com.wp.casino.messagenetty.deec;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.utils.MessageMappingHolder;
 import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ByteBufAllocator;
+import io.netty.buffer.ByteBufUtil;
+import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
@@ -15,29 +18,33 @@ import io.netty.handler.codec.MessageToByteEncoder;
 public final class MessageEncoder extends MessageToByteEncoder<MessageLite> {
     public static final MessageEncoder INSTANCE=new MessageEncoder();
     @Override
-    protected void encode(ChannelHandlerContext ctx, MessageLite msg, ByteBuf out) throws Exception {
+    protected void encode(ChannelHandlerContext ctx, MessageLite msg, ByteBuf buf) throws Exception {
         //先获取消息对应的opCode编号
         int openCode = MessageMappingHolder.getopCode(msg);
-        byte[] opcodeBytes=intToBytes(openCode);
-        byte[] body = msg.toByteArray();
-        byte[] resultBody=byteMergerAll(opcodeBytes,body);//合并后的消息体
-        short msgLength=(short)resultBody.length;
 
-        out.writeShort(msgLength);//消息的长度
-        out.writeInt(2);//校验位
-//            out.writeInt(openCode);//opcode
-        out.writeBytes(resultBody);//消息体
+//        ByteBuf buf = Unpooled.buffer(1024 * 40);
+        byte[] body = msg.toByteArray();
+        int bodyLen = body.length + 4;
+        buf.writeShort(bodyLen);
+        buf.writeShort(0);
+        buf.writeByte(0);
+        buf.writeByte(1606);
+        buf.writeInt(openCode);
+        buf.writeBytes(body);
+
         return;
     }
     //int 转为字节数组
-    public static byte[] intToBytes(int value )
+    public static byte[] intToBytes(ByteBuf buf, int value)
     {
-        byte[] src = new byte[4];
-        src[0] =  (byte) (value & 0xFF);
-        src[1] =  (byte) ((value>>8) & 0xFF);
-        src[2] =  (byte) ((value>>16) & 0xFF);
-        src[3] =  (byte) ((value>>24) & 0xFF);
-        return src;
+        buf.writeInt(value);
+//        byte[] src = new byte[4];
+//        src[3] =  (byte) (value & 0xFF);
+//        src[2] =  (byte) ((value>>8) & 0xFF);
+//        src[1] =  (byte) ((value>>16) & 0xFF);
+//        src[0] =  (byte) ((value>>24) & 0xFF);
+//        return src;
+        return null;
     }
 
 //合并字节数组

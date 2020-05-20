@@ -2,7 +2,9 @@ package com.wp.casino.messageserver.service;
 
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
@@ -16,9 +18,10 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 业务处理
  */
 @Slf4j
+@ChannelHandler.Sharable//该注解Sharable主要是为了多个handler可以被多个channel安全地共享，也就是保证线程安全
   public class MessageServerHandler extends SimpleChannelInboundHandler<MessageLite> {
 
-    private final MessageDispatcher messageDispatcher;
+    private  MessageDispatcher messageDispatcher;
 
     public MessageServerHandler(MessageDispatcher messageDispatcher) {
         this.messageDispatcher = messageDispatcher;
@@ -44,6 +47,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 //
 //        ctx.writeAndFlush(msg);
         super.channelActive(ctx);
+
 
     }
 
