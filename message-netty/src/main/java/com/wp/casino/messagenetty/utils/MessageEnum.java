@@ -7,7 +7,10 @@ public enum  MessageEnum {
 
     BDOVS_WW_USER_DATA_CHANGE_REQ(7130,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ww_user_data_change_req"),
     WW_FRIEND_MSG_REQ(7125,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ww_friend_msg_req"),
-
+    LM_REGISTER_REQ(1000,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_register_req"),
+    ML_REGISTER_ACK(1000,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ml_register_ack"),
+    LM_UPDATE_PLY_LOGIN_STATUS_NOT(1001,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_update_ply_login_status_not"),
+    LM_NOTI_MSG(1002,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_noti_msg"),
     ;
     /**
      * 消息id，必须唯一

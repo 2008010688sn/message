@@ -18,8 +18,8 @@
 
 	<properties>
 		<java.version>1.8</java.version>
-		<protobuf.version>3.6.1</protobuf.version>
-		<grpc.version>1.17.1</grpc.version>
+<!--		<protobuf.version>3.6.1</protobuf.version>-->
+<!--		<grpc.version>1.17.1</grpc.version>-->
 	</properties>
 
 	<dependencies>
@@ -29,74 +29,96 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+<!--		<dependency>-->
+<!--			<groupId>io.grpc</groupId>-->
+<!--			<artifactId>grpc-netty</artifactId>-->
+<!--			<version>${grpc.version}</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.grpc</groupId>-->
+<!--			<artifactId>grpc-protobuf</artifactId>-->
+<!--			<version>${grpc.version}</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>io.grpc</groupId>-->
+<!--			<artifactId>grpc-stub</artifactId>-->
+<!--			<version>${grpc.version}</version>-->
+<!--			<scope>provided</scope>-->
+<!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>com.google.protobuf</groupId>-->
+<!--			<artifactId>protobuf-java</artifactId>-->
+<!--			<version>${protobuf.version}</version>-->
+<!--		</dependency>-->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-mongodb -->
 		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-netty</artifactId>
-			<version>${grpc.version}</version>
-			<scope>provided</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
+
+
+
 		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-protobuf</artifactId>
-			<version>${grpc.version}</version>
-			<scope>provided</scope>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
 		<dependency>
-			<groupId>io.grpc</groupId>
-			<artifactId>grpc-stub</artifactId>
-			<version>${grpc.version}</version>
-			<scope>provided</scope>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
 		</dependency>
-		<dependency>
-			<groupId>com.google.protobuf</groupId>
-			<artifactId>protobuf-java</artifactId>
-			<version>${protobuf.version}</version>
-		</dependency>
+
 
 	</dependencies>
 
 
-	<build>
-		<extensions>
-			<extension>
-				<!-- provides os.detected.classifier (i.e. linux-x86_64, osx-x86_64) property -->
-				<groupId>kr.motd.maven</groupId>
-				<artifactId>os-maven-plugin</artifactId>
-				<version>1.6.1</version>
-			</extension>
-		</extensions>
+<!--	<build>-->
+<!--		<extensions>-->
+<!--			<extension>-->
+<!--				&lt;!&ndash; provides os.detected.classifier (i.e. linux-x86_64, osx-x86_64) property &ndash;&gt;-->
+<!--				<groupId>kr.motd.maven</groupId>-->
+<!--				<artifactId>os-maven-plugin</artifactId>-->
+<!--				<version>1.6.1</version>-->
+<!--			</extension>-->
+<!--		</extensions>-->
 
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
+<!--		<plugins>-->
+<!--			<plugin>-->
+<!--				<groupId>org.springframework.boot</groupId>-->
+<!--				<artifactId>spring-boot-maven-plugin</artifactId>-->
+<!--			</plugin>-->
 
-			<plugin>
-				<groupId>org.xolstice.maven.plugins</groupId>
-				<artifactId>protobuf-maven-plugin</artifactId>
-				<version>0.5.1</version>
-				<configuration>
-					<protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>
-					<pluginId>grpc-java</pluginId>
-					<pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>
-					<!-- proto文件目录 -->
-					<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>
-					<!-- 生成的Java文件目录 -->
-					<outputDirectory>${project.basedir}/src/main/java/com/wp/casino/messageserver/proto</outputDirectory>
-					<!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>compile</goal>
-							<goal>test-compile</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-		</plugins>
-	</build>
+<!--			<plugin>-->
+<!--				<groupId>org.xolstice.maven.plugins</groupId>-->
+<!--				<artifactId>protobuf-maven-plugin</artifactId>-->
+<!--				<version>0.5.1</version>-->
+<!--				<configuration>-->
+<!--					<protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}</protocArtifact>-->
+<!--					<pluginId>grpc-java</pluginId>-->
+<!--					<pluginArtifact>io.grpc:protoc-gen-grpc-java:${grpc.version}:exe:${os.detected.classifier}</pluginArtifact>-->
+<!--					&lt;!&ndash; proto文件目录 &ndash;&gt;-->
+<!--					<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>-->
+<!--					&lt;!&ndash; 生成的Java文件目录 &ndash;&gt;-->
+<!--					<outputDirectory>${project.basedir}/src/main/java/com/wp/casino/messageserver/proto</outputDirectory>-->
+<!--					&lt;!&ndash;<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>&ndash;&gt;-->
+<!--				</configuration>-->
+<!--				<executions>-->
+<!--					<execution>-->
+<!--						<goals>-->
+<!--							<goal>compile</goal>-->
+<!--							<goal>test-compile</goal>-->
+<!--						</goals>-->
+<!--					</execution>-->
+<!--				</executions>-->
+<!--			</plugin>-->
+<!--		</plugins>-->
+<!--	</build>-->
 
 
 

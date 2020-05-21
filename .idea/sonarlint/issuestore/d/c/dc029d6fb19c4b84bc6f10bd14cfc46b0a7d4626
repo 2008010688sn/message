@@ -1,0 +1,150 @@
+
+£
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ƒ°‡ıÿÿÿÿ8ëÕá½¡.
+M
+java:S1905Ö"*Remove this unnecessary cast to "Builder".(ˆÎ…•şÿÿÿÿ8ìÕá½¡.
+H
+java:S1905"*Remove this unnecessary cast to "Builder".(ƒ¦†8ëÕá½¡.
+J
+java:S1199J"-Extract this nested code block into a method.(­Ó–Ô8ëÕá½¡.
+i
+java:S1301Á"KReplace this "switch" statement by "if" statements to increase readability.(¹ŠÒÓ8ëÕá½¡.
+
+java:S4144­"cUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 532.(Ä–Õ•8ëÕá½¡.
+s	java:S114×"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ú«±úÿÿÿÿ8ëÕá½¡.
+M
+java:S1905‰"*Remove this unnecessary cast to "Builder".(Æ÷¾¢ûÿÿÿÿ8ëÕá½¡.
+Z
+java:S2589Œ"7Remove this expression which always evaluates to "true"(†íŒƒüÿÿÿÿ8ëÕá½¡.
+G
+java:S1905Ü"*Remove this unnecessary cast to "Builder".(İ¤Â\8ìÕá½¡.
+J
+java:S1948	"'Make "type_" transient or serializable.(åµØ…üÿÿÿÿ8ìÕá½¡.
+Z
+java:S2589ø	"7Remove this expression which always evaluates to "true"(°œÿ­ùÿÿÿÿ8ëÕá½¡.
+H
+java:S1905Ç"*Remove this unnecessary cast to "Builder".(ê„£8ìÕá½¡.
+F	java:S108Ò")Either remove or fill this block of code.(º„ç½8ëÕá½¡.
+M
+java:S1905ò"*Remove this unnecessary cast to "Builder".(ˆÎ…•şÿÿÿÿ8ìÕá½¡.
+n	java:S117œ"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß”â¢8ëÕá½¡.
+H
+java:S1948ü"*Make "message_" transient or serializable.(åÁ²İ8ìÕá½¡.
+F	java:S108’")Either remove or fill this block of code.(º„ç½8ìÕá½¡.
+H
+java:S1905Ğ"*Remove this unnecessary cast to "Builder".(ƒ¦†8ìÕá½¡.
+M
+java:S1905Ë"*Remove this unnecessary cast to "Builder".(Æ÷¾¢ûÿÿÿÿ8ìÕá½¡.
+F	java:S108š")Either remove or fill this block of code.(º„ç½8ìÕá½¡.
+o	java:S101¾"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(êã¯“ÿÿÿÿÿ8ëÕá½¡.
+r	java:S116	"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åµØ…üÿÿÿÿ8ìÕá½¡.
+†
+java:S4144Ñ"cUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 952.(Ù–Øûÿÿÿÿ8ëÕá½¡.
+M
+java:S1905ç"*Remove this unnecessary cast to "Builder".(Æ÷¾¢ûÿÿÿÿ8ìÕá½¡.
+p	java:S116Ú"SRename this field "rcvGuid_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ó™’ù8ìÕá½¡.
+H
+java:S1905Ñ"*Remove this unnecessary cast to "Builder".(ƒ¦†8ìÕá½¡.
+G
+java:S1905ø"*Remove this unnecessary cast to "Builder".(İ¤Â\8ìÕá½¡.
+v
+java:S2975À"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ8ìÕá½¡.
+p	java:S116ü"SRename this field "message_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(åÁ²İ8ìÕá½¡.
+|
+java:S1488«"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~8ëÕá½¡.
+u	java:S116Ù"SRename this field "message_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æø…ˆûÿÿÿÿ8ìÕá½¡.
+p	java:S116Ë"SRename this field "plyGuid_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÕ8ëÕá½¡.
+F	java:S108¶")Either remove or fill this block of code.(º„ç½8ëÕá½¡.
+H
+java:S1905Á"*Remove this unnecessary cast to "Builder".(¥ùšÏ8ìÕá½¡.
+|
+java:S1488ó"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~8ëÕá½¡.
+H
+java:S1948Ú"*Make "rcvGuid_" transient or serializable.(Ó™’ù8ìÕá½¡.
+J
+java:S1199O"-Extract this nested code block into a method.(İ…î½8ëÕá½¡.
+o	java:S116u"SRename this field "plyGuid_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(üÕ8ëÕá½¡.
+M
+java:S1905Ì"*Remove this unnecessary cast to "Builder".(Æ÷¾¢ûÿÿÿÿ8ìÕá½¡.
+u
+java:S3077Ú"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(Ó™’ù8ìÕá½¡.
+i
+java:S1301İ"KReplace this "switch" statement by "if" statements to increase readability.(¹ŠÒÓ8ëÕá½¡.
+o	java:S101€"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ûßı¿ıÿÿÿÿ8ëÕá½¡.
+v
+java:S2975ı"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ8ëÕá½¡.
+j	java:S101¢"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(‡Ñˆ½8ëÕá½¡.
+F
+java:S1604á"(Make this anonymous inner class a lambda(ş¦•Ã8ëÕá½¡.
+P
+java:S1199á"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ëÕá½¡.
+s	java:S114³"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(øÜàáøÿÿÿÿ8ëÕá½¡.
+v
+java:S2975Û"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ8ëÕá½¡.
+n	java:S101$"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(×†ášúÿÿÿÿ8ëÕá½¡.
+M
+java:S1905×"*Remove this unnecessary cast to "Builder".(ˆÎ…•şÿÿÿÿ8ìÕá½¡.
+M
+java:S1905”"*Remove this unnecessary cast to "Builder".(ˆÎ…•şÿÿÿÿ8ëÕá½¡.
+v
+java:S2975¿"SRemove this "clone" implementation; use a copy constructor or copy factory instead.(Îõ¾Òûÿÿÿÿ8ìÕá½¡.
+G
+java:S1905š"*Remove this unnecessary cast to "Builder".(İ¤Â\8ëÕá½¡.
+‡
+java:S4144‘"dUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 1784.(ŒÎµ üÿÿÿÿ8ìÕá½¡.
+|
+java:S1488ë
+"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~8ëÕá½¡.
+u
+java:S3077ü"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(åÁ²İ8ìÕá½¡.
+|
+java:S1488"_Immediately return this expression instead of assigning it to the temporary variable "builder".(«‰Ÿ~8ëÕá½¡.
+m	java:S116å"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ÿ³é8ëÕá½¡.
+P
+java:S1199§"-Extract this nested code block into a method.(ê×Êüÿÿÿÿ8ëÕá½¡.
+T
+java:S1481?"7Remove this unused "mutable_bitField0_" local variable.(ß”â¢8ìÕá½¡.
+P
+java:S1199¹"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ëÕá½¡.
+H
+java:S1905ş"*Remove this unnecessary cast to "Builder".(¥ùšÏ8ëÕá½¡.
+Q
+java:S1172"/Remove this unused method parameter "registry".(•óÊõÿÿÿÿÿ8ëÕá½¡.
+K
+java:S1199­"-Extract this nested code block into a method.(ò‘8ëÕá½¡.
+m	java:S116"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñÔéí8ìÕá½¡.
+Z
+java:S2589¨"7Remove this expression which always evaluates to "true"(†íŒƒüÿÿÿÿ8ëÕá½¡.
+H
+java:S1905Æ"*Remove this unnecessary cast to "Builder".(ê„£8ìÕá½¡.
+H
+java:S1905À"*Remove this unnecessary cast to "Builder".(¥ùšÏ8ìÕá½¡.
+P
+java:S1199Å"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ëÕá½¡.
+m	java:S114"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ª£À8ëÕá½¡.
+H
+java:S1905â"*Remove this unnecessary cast to "Builder".(ê„£8ëÕá½¡.
+m	java:S117?"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ß”â¢8ëÕá½¡.
+U
+java:S1481œ"7Remove this unused "mutable_bitField0_" local variable.(ß”â¢8ìÕá½¡.
+l	java:S116~"PRename this field "type_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ÿ³é8ëÕá½¡.
+H
+java:S1905Ü"*Remove this unnecessary cast to "Builder".(¥ùšÏ8ëÕá½¡.
+P
+java:S1199³"-Extract this nested code block into a method.(­ƒíéşÿÿÿÿ8ëÕá½¡.
+n	java:S114—"QRename this interface name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ËÄãø8ëÕá½¡.
+H
+java:S1905„"*Remove this unnecessary cast to "Builder".(ê„£8ëÕá½¡.
+z
+java:S3077	"WUse a thread-safe type; adding "volatile" is not enough to make this field thread-safe.(åµØ…üÿÿÿÿ8ìÕá½¡.
+H
+java:S1905ì"*Remove this unnecessary cast to "Builder".(ƒ¦†8ìÕá½¡.
+Z
+java:S2589»"7Remove this expression which always evaluates to "true"(“Ò€—úÿÿÿÿ8ëÕá½¡.
+O
+java:S1199T"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ8ëÕá½¡.
+G
+java:S1905İ"*Remove this unnecessary cast to "Builder".(İ¤Â\8ìÕá½¡.
+u	java:S116”"SRename this field "rcvGuid_" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¢Â²¯úÿÿÿÿ8ìÕá½¡.
+‡
+java:S4144µ"dUpdate this method so that its implementation is not identical to "getDefaultInstance" on line 2204.(˜¿ï›üÿÿÿÿ8ìÕá½¡.

@@ -142,8 +142,12 @@ public abstract class BaseService implements Service {
      * @return FutureListener
      */
     public FutureListener wrap(Listener l) {
-        if (l == null) return new FutureListener(started);
-        if (l instanceof FutureListener) return (FutureListener) l;
+        if (l == null) {
+            return new FutureListener(started);
+        }
+        if (l instanceof FutureListener){
+            return (FutureListener) l;
+        }
         return new FutureListener(l, started);
     }
 

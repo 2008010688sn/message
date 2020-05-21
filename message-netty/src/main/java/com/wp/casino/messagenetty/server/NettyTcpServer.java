@@ -41,7 +41,8 @@ public abstract class NettyTcpServer extends BaseService {
     private EventLoopGroup bossGroup;
     private EventLoopGroup workerGroup;
 
-
+    public NettyTcpServer() {
+    }
 
     public NettyTcpServer(int port) {
         this.port = port;

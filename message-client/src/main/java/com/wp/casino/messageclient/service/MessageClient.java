@@ -28,8 +28,8 @@ public class MessageClient extends NettyTcpClient {
         super.init();
         //proto_ww_user_data_change_req协议
         messageDispatcher.registerHandler(PBCSMessage.proto_ww_user_data_change_req.class, (channel, message) -> {
-            log.info("rcv user_data_change_req message.");
-            channel.writeAndFlush(PBCSMessage.proto_ww_user_data_change_noti.newBuilder().build());
+            log.info("worldserver客户端收到messageserver服务端消息后进行处理.....");
+//            channel.writeAndFlush(message);
         });
 
         //proto_ww_friend_msg_req协议

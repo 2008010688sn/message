@@ -4,6 +4,7 @@ package com.wp.casino.messageserver.service;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
+import com.wp.casino.messageserver.utils.HandlerContext;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -40,15 +41,25 @@ import java.util.concurrent.atomic.AtomicInteger;
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("连接的客户端地址:" + ctx.channel().remoteAddress());
+        log.info("messageserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
+        String channelId=ctx.channel().id().asLongText();
+        HandlerContext.getInstance().addChannel(channelId,ctx);
 //        MsgEntity.Msg msg = MsgEntity.Msg.newBuilder().setMsgId("haha").setContent("内容content").setId("123").setName("test").build();
 //       //从mq获取消息，发送
 //
 //
 //        ctx.writeAndFlush(msg);
-        super.channelActive(ctx);
 
+        log.info("MessageServerHandler---active---");
 
+    }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("channel通道注销-"+ctx.channel());
+        String channelId=ctx.channel().id().asLongText();
+        HandlerContext.getInstance().removeChannel(channelId);
+        log.info("MessageServerHandler---channelInactive---");
     }
 
     /**
@@ -75,8 +86,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
-        log.info("第" + count.get() + "次" + ",服务端接受的消息:"  );
+        log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，进行消息处理..."  );
         messageDispatcher.onMessage(ctx.channel(),messageLite);
+
     }
 
     /**
@@ -84,7 +96,8 @@ import java.util.concurrent.atomic.AtomicInteger;
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-//        cause.printStackTrace();
+        String remoteAddress=ctx.channel().remoteAddress().toString();
+        HandlerContext.getInstance().removeChannel(remoteAddress);
         ctx.close();
         log.info("exceptionCaught",cause);
     }

@@ -1,0 +1,15 @@
+
+8
+java:S3626#"Remove this redundant jump.(ûÁİ…8›Ğ˜»¡.
+]	java:S125"<This block of commented-out lines of code should be removed.(Ä÷‚Æùÿÿÿÿ8é‰å¢.
+r	java:S1178"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ËÍªàøÿÿÿÿ8’É»¡.
+Z
+java:S1128"8Remove this unused import 'io.netty.buffer.ByteBufUtil'.(ŠŠ¹úÿÿÿÿ8­íå¢.
+C
+java:S1168/"&Return an empty array instead of null.(¥¹ï8é‰å¢.
+r	java:S1174"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ë„øÿÿÿÿ8’É»¡.
+Y
+java:S1128"=Remove this unused import 'io.netty.buffer.ByteBufAllocator'.(©áÛ 8é‰å¢.
+]	java:S125)"<This block of commented-out lines of code should be removed.(É­İ®şÿÿÿÿ8é‰å¢.
+T
+java:S11443"2Remove this unused private "byteMergerAll" method.(¥Áßÿÿÿÿÿ8é‰å¢.

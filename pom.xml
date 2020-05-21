@@ -17,7 +17,7 @@
 
     <modules>
         <module>message-netty</module>
-        <module>message-client</module>
+        <module>message-tools</module>
         <module>message-server</module>
         <module>message-api</module>
     </modules>

@@ -1,5 +1,17 @@
 server:
     port: 8188
     bind_address: 0.0.0.0
-    bind_port: 9876
-
+    bind_port: 9877
+mongodb:
+    message:
+        database: message
+        host: 3.6.110.15 #s3.hiigame.net
+        port: 27017
+    replay:
+        database: db_replay
+        host: 3.6.110.15 #s3.hiigame.net
+        port: 27017
+    record:
+        database: db_record
+        host: 3.6.110.15 #s3.hiigame.net
+        port: 27017

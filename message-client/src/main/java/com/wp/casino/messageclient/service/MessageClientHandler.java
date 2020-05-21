@@ -4,10 +4,7 @@ import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.EventLoop;
-import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.channel.*;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
@@ -26,9 +23,11 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 
     private  MessageDispatcher messageDispatcher;
 
-    public MessageClientHandler(MessageDispatcher messageDispatcher) {
-    }
 
+
+    public MessageClientHandler(MessageDispatcher messageDispatcher) {
+        this.messageDispatcher = messageDispatcher;
+    }
 
     /** 循环次数 */
     private AtomicInteger fcount = new AtomicInteger(1);
@@ -38,9 +37,9 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("建立连接时：" + new Date());
-        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
 
+        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(200).setType(20).build();
+        log.info("worldserver 建立连接时向message server发消息：" + msg.getPlyGuid()+"--"+msg.getType());
         ctx.writeAndFlush( msg);
         ctx.fireChannelActive();
     }
@@ -106,7 +105,8 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
-        log.info("客户端接受到的信息");
-        messageDispatcher.onMessage(ctx.channel(),messageLite);
+        log.info("worldserver客户端接受到message的信息");
+        Channel channel=ctx.channel();
+        messageDispatcher.onMessage(channel,messageLite);
     }
 }
