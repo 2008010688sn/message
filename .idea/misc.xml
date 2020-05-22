@@ -5,10 +5,11 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/message-netty/pom.xml" />
-        <option value="$PROJECT_DIR$/message-client/pom.xml" />
         <option value="$PROJECT_DIR$/message-server/pom.xml" />
         <option value="$PROJECT_DIR$/message-api/pom.xml" />
         <option value="$PROJECT_DIR$/message-tools/pom.xml" />
+        <option value="$PROJECT_DIR$/login/pom.xml" />
+        <option value="$PROJECT_DIR$/worldserver/pom.xml" />
       </list>
     </option>
   </component>

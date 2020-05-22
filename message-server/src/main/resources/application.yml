@@ -1,7 +1,7 @@
 server:
     port: 8188
     bind_address: 0.0.0.0
-    bind_port: 9877
+    bind_port: 9876
 mongodb:
     message:
         database: message

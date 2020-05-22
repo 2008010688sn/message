@@ -1,24 +1,16 @@
-package com.wp.casino.messageserver.service;
+package com.wp.casino.login.service;
 
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.login.utils.HandlerContext;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.messageserver.utils.HandlerContext;
-import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
-
-import java.net.SocketAddress;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -44,18 +36,14 @@ import java.util.concurrent.atomic.AtomicInteger;
      * 发送次数
      */
     private AtomicInteger count = new AtomicInteger(1);
-
-    private final Timer timer = new Timer("SendMessageTaskMonitor", true);
     /**
      * 建立连接时，发送一条消息
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("messageserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
-        String channelId=ctx.channel().remoteAddress().toString();
-
-
-        HandlerContext.getInstance().addChannel("login-server",ctx);
+        String channelId=ctx.channel().id().asLongText();
+        HandlerContext.getInstance().addChannel(channelId,ctx);
 //        MsgEntity.Msg msg = MsgEntity.Msg.newBuilder().setMsgId("haha").setContent("内容content").setId("123").setName("test").build();
 //       //从mq获取消息，发送
 //
@@ -69,7 +57,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel通道注销-"+ctx.channel());
-        String channelId=ctx.channel().remoteAddress().toString();
+        String channelId=ctx.channel().id().asLongText();
         HandlerContext.getInstance().removeChannel(channelId);
         log.info("MessageServerHandler---channelInactive---");
     }
@@ -98,32 +86,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
-        log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，客户端地址："+ctx.channel().remoteAddress().toString()+"进行消息处理..."  );
+        log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，进行消息处理..."  );
         messageDispatcher.onMessage(ctx.channel(),messageLite);
-
-        HandlerContext.getInstance().addChannel("login-server",ctx);
-
-        log.info("HandlerContext的size--"+HandlerContext.getInstance().getSize());
-
-        //将消息转发至login
-//        log.info("messageserver服务端将接受到worldserver的信息转发至loginserver");
-//        timer.scheduleAtFixedRate(new TimerTask() {
-//            @Override
-//            public void run() {
-//                ConcurrentLinkedQueue<MessageLite> messageList= MessageQueue.getAll();
-//                if (messageList!=null){
-//                    for (MessageLite msl:messageList) {
-//                        messageDispatcher.onMessage(ctx.channel(),msl);
-//                        messageList.remove(msl);
-//                    }
-//                    messageList.clear();
-//
-//                }
-//            }
-//        },1000,1000);
-
-
-
 
     }
 

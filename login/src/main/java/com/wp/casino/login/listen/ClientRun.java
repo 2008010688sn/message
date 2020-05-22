@@ -1,6 +1,6 @@
-package com.wp.casino.messageserver.listen;
+package com.wp.casino.login.listen;
 
-import com.wp.casino.messageserver.service.MessageClient;
+import com.wp.casino.login.service.MessageClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -22,6 +22,6 @@ public class ClientRun implements ApplicationRunner {
     public void run(ApplicationArguments args) throws Exception {
         MessageClient messageClient=new MessageClient();
         messageClient.start();
-        messageClient.connect("127.0.0.1",9123);
+        messageClient.connect("127.0.0.1",9876);
     }
 }

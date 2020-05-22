@@ -1,4 +1,4 @@
-package com.wp.casino.messageserver.service;
+package com.wp.casino.login.service;
 
 import com.wp.casino.messagenetty.client.NettyTcpClient;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
@@ -24,12 +24,12 @@ public class MessageClient extends NettyTcpClient {
 
     @Override
     public void init() {
-        log.info("MessageClient--init--");
+        log.info("login--init--");
         super.init();
         //proto_ww_user_data_change_req协议
         messageDispatcher.registerHandler(PBCSMessage.proto_ww_user_data_change_req.class, (channel, message) -> {
-            log.info("messageserver客户端端接收到proto_ww_user_data_change_req.并回执给worldserver",channel.remoteAddress().toString());
-            channel.writeAndFlush(PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(777).build());
+            log.info("login客户端接收message的proto_ww_user_data_change_req.",channel.remoteAddress().toString());
+//            channel.writeAndFlush(PBCSMessage.proto_ww_user_data_change_noti.newBuilder().build());
         });
 
         //proto_ww_friend_msg_req协议

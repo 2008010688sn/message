@@ -2,12 +2,13 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/login/login.iml" filepath="$PROJECT_DIR$/login/login.iml" />
       <module fileurl="file://$PROJECT_DIR$/message-api/message-api.iml" filepath="$PROJECT_DIR$/message-api/message-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/message-client/message-client.iml" filepath="$PROJECT_DIR$/message-client/message-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/message-netty/message-netty.iml" filepath="$PROJECT_DIR$/message-netty/message-netty.iml" />
       <module fileurl="file://$PROJECT_DIR$/message-server/message-server.iml" filepath="$PROJECT_DIR$/message-server/message-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/message-tools/message-tools.iml" filepath="$PROJECT_DIR$/message-tools/message-tools.iml" />
       <module fileurl="file://$PROJECT_DIR$/messageparent.iml" filepath="$PROJECT_DIR$/messageparent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/worldserver/worldserver.iml" filepath="$PROJECT_DIR$/worldserver/worldserver.iml" />
     </modules>
   </component>
 </project>

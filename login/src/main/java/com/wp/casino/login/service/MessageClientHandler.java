@@ -1,11 +1,9 @@
-package com.wp.casino.messageserver.service;
+package com.wp.casino.login.service;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.login.utils.HandlerContext;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
-import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.messageserver.utils.HandlerContext;
-import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -14,11 +12,7 @@ import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author sn
@@ -27,10 +21,6 @@ import java.util.concurrent.atomic.AtomicReference;
 @ChannelHandler.Sharable//该注解Sharable主要是为了多个handler可以被多个channel安全地共享，也就是保证线程安全
 @Slf4j
 public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLite> {
-
-
-
-    public   static volatile boolean isBegin ;
 
     private  MessageDispatcher messageDispatcher;
 
@@ -47,11 +37,11 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("和worldserver建立连接时：" + new Date());
-        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
-
-        ctx.writeAndFlush( msg);
-        ctx.fireChannelActive();
+        log.info("login和message建立连接时：" + new Date());
+//        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
+//
+//        ctx.writeAndFlush( msg);
+//        ctx.fireChannelActive();
     }
 
     /**
@@ -86,32 +76,9 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
-        log.info("messageserver客户端接受到worldserver信息:{}",ctx.channel().remoteAddress().toString());
+        log.info("login客户端接受到msgserver的信息1:{}",ctx.channel().remoteAddress().toString());
+        //获取login的channel
+//        ChannelHandlerContext loginCtx= HandlerContext.getInstance().getChannel("login-serverid");
         messageDispatcher.onMessage(ctx.channel(),messageLite);
-        //将消息转发至login
-//        log.info("messageserver客户端将接受到worldserver的信息转发至loginserver");
-//        ConcurrentHashMap<String, ChannelHandlerContext> maps= HandlerContext.getInstance().getMaps();
-//        if (maps!=null){
-//            for (Map.Entry<String,ChannelHandlerContext> entry: maps.entrySet()){
-//               ChannelHandlerContext channelHandlerContext= entry.getValue();
-//               log.info("channelHandlerContext--remoteAddress---",channelHandlerContext.channel().remoteAddress().toString());
-//               messageDispatcher.onMessage(channelHandlerContext.channel(),messageLite);
-//            }
-//        }
-
-
-//        int size = HandlerContext.getInstance().getSize();
-//        if (size>0){
-//            log.info("获取login的连接，将接收到的wordserver消息转发给login");
-//            ChannelHandlerContext channelContext = HandlerContext.getInstance().getChannel("login-server");
-//            log.info("loign的连接为--"+channelContext.channel().remoteAddress());
-//            messageDispatcher.onMessage(channelContext.channel(),messageLite);
-//        }else{
-//            log.info("无login连接");
-//        }
-
-        MessageQueue.addMessageLite(messageLite);
-        isBegin=true;
-
     }
 }

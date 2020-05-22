@@ -1,24 +1,15 @@
-package com.wp.casino.messageserver.service;
+package com.wp.casino.login.service;
 
-import com.google.protobuf.MessageLite;
+import com.wp.casino.login.utils.ApplicationContextProvider;
 import com.wp.casino.messageapi.service.Listener;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
-import com.wp.casino.messageserver.domain.MessageContext;
-import com.wp.casino.messageserver.domain.ReceiveObj;
-import com.wp.casino.messageserver.domain.SystemMessage;
-import com.wp.casino.messageserver.utils.ApplicationContextProvider;
-import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * @author sn
@@ -32,8 +23,6 @@ public class MessageServer extends NettyTcpServer {
 
     private  MessageDispatcher messageDispatcher;
 
-    @Autowired
-    private SystemMessageDao systemMessageDao;
 
 
     private String host;
@@ -48,7 +37,6 @@ public class MessageServer extends NettyTcpServer {
         super(port);
         this.messageDispatcher = new MessageDispatcher();
         this.channelHandler = new MessageServerHandler(messageDispatcher);
-        this.systemMessageDao=ApplicationContextProvider.getApplicationContext().getBean(SystemMessageDao.class);
     }
 
     public MessageServer(String host,int port) {
@@ -57,7 +45,6 @@ public class MessageServer extends NettyTcpServer {
         this.port=port;
         this.messageDispatcher = new MessageDispatcher();
         this.channelHandler = new MessageServerHandler(messageDispatcher);
-        this.systemMessageDao=ApplicationContextProvider.getApplicationContext().getBean(SystemMessageDao.class);
 
     }
 
@@ -74,31 +61,10 @@ public class MessageServer extends NettyTcpServer {
             log.info("服务端处理 proto_ww_user_data_change_req proto .start ");
             log.info("处理时的channelid------",channel.id().asLongText());
             log.info("message---guid-{}--type:{}",message.getPlyGuid(),message.getType());
-//            SystemMessage sm=new SystemMessage();
-//            MessageContext mc=new MessageContext();
-//            mc.setContent("这是测试消息");
-//            mc.setText("web--test");
-//            ReceiveObj receiveObj=new ReceiveObj();
-//            receiveObj.setId(111l);
-//            receiveObj.setStatus(1);
-//            sm.setMessageContext(mc);
-//            List array= Arrays.asList(receiveObj);
-//            sm.setReceiveObjList(array);
-            //将客户端的消息写入mongo
-//           SystemMessage re= systemMessageDao.save(sm);
-//            SystemMessage re=ApplicationContextProvider.getApplicationContext().getBean(SystemMessageDao.class).save(sm);
-//            log.info("----re:"+re.getId());
-            //Message回给Login，让Login转发给客户端的
+
             PBCSMessage.proto_ww_user_data_change_req respose = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(333)
                     .build();
             channel.writeAndFlush(respose);
-
-//            Long size= MessageQueue.getSize();
-//            if (size!=null&&size>0){
-//                for (MessageLite msg: MessageQueue.getAll()) {
-//
-//                }
-//            }
         });
 
         //proto_ww_friend_msg_req协议
