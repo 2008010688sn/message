@@ -69,6 +69,24 @@ public class MessageServer extends NettyTcpServer {
     @Override
     public void init() {
         super.init();
+
+        //Login去Message注册
+        messageDispatcher.registerHandler(PBCSMessage.proto_lm_register_req.class,(channel,message)->{
+            //Message回复Login注册结果
+            PBCSMessage.proto_ml_register_ack response=PBCSMessage.proto_ml_register_ack.newBuilder().setRet(1).build();
+            channel.writeAndFlush(response);
+        });
+
+        //若login注册成功，Login所有连接到它的玩家信息告知Message
+        messageDispatcher.registerHandler(PBCSMessage.proto_lm_update_ply_login_status_not.class,(channel,message)->{
+            //mesage的回复
+        });
+
+//        Message回给Login，让Login转发给客户端的
+        messageDispatcher.registerHandler(PBCSMessage.proto_lm_noti_msg.class,(channel,message)->{
+
+        });
+
         //proto_ww_user_data_change_req协议
         messageDispatcher.registerHandler(PBCSMessage.proto_ww_user_data_change_req.class, (channel, message) -> {
             log.info("服务端处理 proto_ww_user_data_change_req proto .start ");

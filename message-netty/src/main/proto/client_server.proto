@@ -30,6 +30,14 @@ message proto_ww_friend_msg_noti{
 
 }
 
+//7134
+message proto_ww_disabled_device_not{
+
+		int64	ply_guid	=	1;
+		int32	type	=	2;
+}
+
+
 //Login去Message注册
 message proto_lm_register_req {
 	 int32 server_id = 1;

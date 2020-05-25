@@ -54,6 +54,7 @@ import java.util.concurrent.atomic.AtomicInteger;
         log.info("messageserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
         String channelId=ctx.channel().remoteAddress().toString();
 
+        //loginserver简历连接后发送
 
         HandlerContext.getInstance().addChannel("login-server",ctx);
 //        MsgEntity.Msg msg = MsgEntity.Msg.newBuilder().setMsgId("haha").setContent("内容content").setId("123").setName("test").build();
