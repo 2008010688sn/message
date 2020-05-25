@@ -61,6 +61,7 @@ public abstract class NettyTcpClient extends BaseService {
                 LOGGER.info("start netty client success, host={}, port={}", host, port);
             } else {
                 if (listener != null) {
+//                    EventLoop eventLoop = f.channel().eventLoop();
 //                    eventLoop.schedule(() -> connect(host, port,listener), 10, TimeUnit.SECONDS);//10s后重连
                     listener.onFailure(f.cause());
                 }

@@ -28,5 +28,9 @@ public class ServerRun implements ApplicationRunner {
 //        MessageServer messageServer=new MessageServer(host,port);
 //        messageServer.init();
 //        messageServer.start();
+
     }
+
+
+
 }

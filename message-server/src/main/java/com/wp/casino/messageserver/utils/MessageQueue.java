@@ -15,22 +15,30 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public class MessageQueue {
 
 
-    private static ConcurrentLinkedQueue<MessageLite> messageLiteList=new ConcurrentLinkedQueue<>();
+    private static ConcurrentLinkedQueue<MessageDispatchTask> messageDispatchTasks=new ConcurrentLinkedQueue<>();
 
-    public static void addMessageLite(MessageLite messageLite) {
-        messageLiteList.add(messageLite);
+    public static void addMessageLite(MessageDispatchTask messageDispatchTask) {
+        messageDispatchTasks.add(messageDispatchTask);
     }
 
-    public static void removeMessageLite(MessageLite messageLite) {
-        messageLiteList.remove(messageLite);
+    public static void removeMessageLite(MessageDispatchTask messageDispatchTask) {
+        messageDispatchTasks.remove(messageDispatchTask);
     }
 
     public static long getSize() {
-        return messageLiteList.size();
+        return messageDispatchTasks.size();
     }
 
-    public static ConcurrentLinkedQueue<MessageLite> getAll() {
-        return messageLiteList;
+    public static ConcurrentLinkedQueue<MessageDispatchTask> getAll() {
+        return messageDispatchTasks;
+    }
+
+    public static MessageDispatchTask getAndRemove(){
+        return messageDispatchTasks.poll();
+    }
+
+    public static MessageDispatchTask get(){
+       return messageDispatchTasks.peek();
     }
 
 

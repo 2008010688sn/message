@@ -1,6 +1,7 @@
 package com.wp.casino.messageserver.listen;
 
 import com.wp.casino.messageserver.service.MessageClient;
+import com.wp.casino.messageserver.service.MessageServer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -23,5 +24,21 @@ public class ClientRun implements ApplicationRunner {
         MessageClient messageClient=new MessageClient();
         messageClient.start();
         messageClient.connect("127.0.0.1",9123);
+        addHook(messageClient);
+    }
+
+    private  void addHook(MessageClient client) {
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> {
+
+                    try {
+                        client.stop();
+                    } catch (Exception e) {
+                        log.error(" server stop ex", e);
+                    }
+                    log.info("jvm exit, all service stopped.");
+
+                }, "messageserver-shutdown-hook-thread")
+        );
     }
 }

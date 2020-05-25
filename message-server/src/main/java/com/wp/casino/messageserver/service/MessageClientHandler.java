@@ -5,6 +5,7 @@ import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messageserver.utils.HandlerContext;
+import com.wp.casino.messageserver.utils.MessageDispatchTask;
 import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -30,7 +31,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 
 
 
-    public   static volatile boolean isBegin ;
+    public  static volatile boolean isBegin ;
 
     private  MessageDispatcher messageDispatcher;
 
@@ -71,11 +72,12 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object obj) throws Exception {
-        log.info("循环请求的时间：" + new Date() + "，次数" + fcount.get());
+        log.info("客户端心跳处理，每4秒发送一次心跳请求;循环请求的时间：" + new Date() + "，次数" + fcount.get());
         if (obj instanceof IdleStateEvent) {
             IdleStateEvent event = (IdleStateEvent) obj;
             // 如果写通道处于空闲状态,就发送心跳命令
             if (IdleState.WRITER_IDLE.equals(event.state())) {
+
 //                MsgEntity.Msg.Builder msg = MsgEntity.Msg.newBuilder().setMsgId("client").setName("qqq");
 //                ctx.channel().writeAndFlush(msg);
 //                fcount.getAndIncrement();
@@ -109,9 +111,14 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 //        }else{
 //            log.info("无login连接");
 //        }
+        //收到wordserver的消息，存放至对列
+        String channelId="login-server";
+        MessageDispatchTask messageDispatchTask=new MessageDispatchTask();
+        messageDispatchTask.setChannelId(channelId);
+        messageDispatchTask.setMessageLite(messageLite);
 
-        MessageQueue.addMessageLite(messageLite);
-        isBegin=true;
+        MessageQueue.addMessageLite(messageDispatchTask);
+//        isBegin=true;
 
     }
 }

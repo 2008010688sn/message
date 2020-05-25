@@ -44,11 +44,11 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("worldserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
-        String channelId=ctx.channel().remoteAddress().toString();
-        HandlerContext.getInstance().addChannel(channelId,ctx);
-        //message建立连接后模拟向message发送一条信息
-        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
-        ctx.writeAndFlush( msg);
+//        String channelId=ctx.channel().remoteAddress().toString();
+//        HandlerContext.getInstance().addChannel(channelId,ctx);
+//        //message建立连接后模拟向message发送一条信息
+//        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
+//        ctx.writeAndFlush( msg);
 
         log.info("WorldServerHandler---active---");
 
