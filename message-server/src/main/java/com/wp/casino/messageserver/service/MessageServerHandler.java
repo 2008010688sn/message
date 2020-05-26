@@ -104,7 +104,7 @@ import java.util.concurrent.atomic.AtomicInteger;
         log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，客户端地址："+ctx.channel().remoteAddress().toString()+"进行消息处理..."  );
         messageDispatcher.onMessage(ctx.channel(),messageLite);
 
-        HandlerContext.getInstance().addChannel("login-server",ctx);
+//        HandlerContext.getInstance().addChannel("login-server",ctx);
 
         log.info("HandlerContext的size--"+HandlerContext.getInstance().getSize());
 

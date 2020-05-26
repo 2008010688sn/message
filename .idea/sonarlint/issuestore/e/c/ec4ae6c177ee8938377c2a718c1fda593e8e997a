@@ -1,0 +1,15 @@
+
+O
+java:S10683"-Remove this unused "flushTask" private field.(¬°ê‹ÿÿÿÿÿ8»ĞÚ÷¤.
+`
+java:S1155X">Use isEmpty() to check whether the collection is empty or not.(Õæ‡°ùÿÿÿÿ8¢óçÚ¤.
+F
+java:S10681")Remove this unused "timer" private field.(·È¾™8ƒ¼Ú¤.
+Q
+java:S3740R"/Provide the parametrized type for this generic.(­¸ë·ÿÿÿÿÿ8‹‰Š×¤.
+e
+java:S1128"CRemove this unused import 'java.util.concurrent.locks.LockSupport'.(§ÿœÅúÿÿÿÿ8Â‡â÷¤.
+M
+java:S1128"0Remove this unused import 'java.util.TimerTask'.(àÀÇÙ8’§Ú÷¤.
+]
+java:S1128	";Remove this unused import 'io.netty.channel.ChannelFuture'.(¥¡ÔĞÿÿÿÿÿ8ÕÆ“ù¤.

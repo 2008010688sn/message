@@ -1,8 +1,16 @@
 
-Q	java:S1253"<This block of commented-out lines of code should be removed.(¬£¾Ş
-P	java:S125C"<This block of commented-out lines of code should be removed.(Îç¬!
-V	java:S125N"<This block of commented-out lines of code should be removed.(–¸Âüÿÿÿÿ
-Q	java:S125P"<This block of commented-out lines of code should be removed.(œê‹
-Q	java:S125W"<This block of commented-out lines of code should be removed.(…ıÖÅ
-V	java:S125["<This block of commented-out lines of code should be removed.(öŠ†Ïøÿÿÿÿ
-P	java:S125^"<This block of commented-out lines of code should be removed.(ÛœİI
+o
+java:S1104""SMake isBegin a static final constant or non-public and provide accessors if needed.(š­]8«­ƒÜ£.
+X	java:S125i"<This block of commented-out lines of code should be removed.(µü‹8ÜÎÌà£.
+e
+java:S1128"HRemove this unused import 'java.util.concurrent.atomic.AtomicReference'.(×‡µó8˜ƒÜ£.
+X	java:S125z"<This block of commented-out lines of code should be removed.(àé£8íÑı×¤.
+I
+java:S1444""-Make this "public static isBegin" field final(š­]8«­ƒÜ£.
+j
+java:S1128"MRemove this unused import 'com.wp.casino.messagenetty.server.NettyTcpServer'.(‰ÅìÂ8óèàÛ£.
+]	java:S125^"<This block of commented-out lines of code should be removed.(¸‘ùûÿÿÿÿ8ÏØÔÕ£.
+P	java:S125Q"<This block of commented-out lines of code should be removed.(Îç¬!
+Q
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëİüÿÿÿÿ8Ô¾ìÔ£.
+X	java:S125@"<This block of commented-out lines of code should be removed.(¬£¾Ş8ÏàÜ¸£.

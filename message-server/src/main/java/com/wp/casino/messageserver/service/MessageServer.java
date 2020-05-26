@@ -92,8 +92,8 @@ public class MessageServer extends NettyTcpServer {
             log.info("服务端处理 proto_ww_user_data_change_req proto .start ");
             log.info("处理时的channelid------",channel.id().asLongText());
             log.info("message---guid-{}--type:{}",message.getPlyGuid(),message.getType());
-//            SystemMessage sm=new SystemMessage();
-//            MessageContext mc=new MessageContext();
+            SystemMessage sm=new SystemMessage();
+            MessageContext mc=new MessageContext();
 //            mc.setContent("这是测试消息");
 //            mc.setText("web--test");
 //            ReceiveObj receiveObj=new ReceiveObj();

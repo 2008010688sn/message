@@ -1,0 +1,21 @@
+
+Y
+java:S1874M"<Remove this use of "SimpleMongoDbFactory"; it is deprecated.(¶Ú™Â8—ºÏ£.
+Y
+java:S1874G"<Remove this use of "SimpleMongoDbFactory"; it is deprecated.(¶Ú™Â8—ºÏ£.
+‰
+java:S1130L"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(·…ñœ8—ºÏ£.
+[	java:S112L"FDefine and throw a dedicated exception instead of using a generic one.(·…ñœ
+l
+java:S1128"QRemove this unused import 'org.springframework.context.annotation.ComponentScan'.(æëòÒûÿÿÿÿ
+
+java:S11308"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(›ÜğÑùÿÿÿÿ8¨³¬«£.
+X	java:S125?"<This block of commented-out lines of code should be removed.(ö×Ü§8 ¬«£.
+`	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(›ÜğÑùÿÿÿÿ
+Y
+java:S1874:"<Remove this use of "SimpleMongoDbFactory"; it is deprecated.(¶Ú™Â8¨³¬«£.
+]	java:S125<"<This block of commented-out lines of code should be removed.(ÇÀ¾Äúÿÿÿÿ8¨³¬«£.
+]	java:S125A"<This block of commented-out lines of code should be removed.(ØÕõûÿÿÿÿ8 ¬«£.
+‰
+java:S1130F"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(¬Ï¸•8—ºÏ£.
+[	java:S112F"FDefine and throw a dedicated exception instead of using a generic one.(¬Ï¸•

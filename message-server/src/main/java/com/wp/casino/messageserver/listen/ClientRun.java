@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-@Order(2)
+@Order(1)
 public class ClientRun implements ApplicationRunner {
 
 
@@ -24,6 +24,7 @@ public class ClientRun implements ApplicationRunner {
         MessageClient messageClient=new MessageClient();
         messageClient.start();
         messageClient.connect("127.0.0.1",9123);
+        messageClient.connect("127.0.0.1",9124);
         addHook(messageClient);
     }
 

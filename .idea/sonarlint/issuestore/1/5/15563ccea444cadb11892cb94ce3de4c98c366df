@@ -1,0 +1,13 @@
+
+>
+java:S11856"(Remove this method to simply inherit it.(Ğ¢¸Ù
+C
+java:S1068 "(Remove this unused "port" private field.(ß³†ÿÿÿÿÿ
+V	java:S125M"<This block of commented-out lines of code should be removed.(£–øÿÿÿÿ
+C
+java:S1068"(Remove this unused "host" private field.(Ø¦øİûÿÿÿÿ
+Q	java:S125B"<This block of commented-out lines of code should be removed.(ÿÑîİ
+Q	java:S125f"<This block of commented-out lines of code should be removed.(Ğİøæ
+u
+java:S1128
+"SRemove this unused import 'org.springframework.beans.factory.annotation.Autowired'.(¡¸Îùÿÿÿÿ8ÿ¶áÒ£.

@@ -1,0 +1,7 @@
+
+Q	java:S1259"<This block of commented-out lines of code should be removed.(•ω€Ο
+ƒ
+java:S1130."mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(‘δ«
+R
+java:S2589+"7Remove this expression which always evaluates to "true"(Ϊσήδώÿÿÿÿ
+Q	java:S125?"<This block of commented-out lines of code should be removed.(’™««

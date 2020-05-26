@@ -1,6 +1,7 @@
 package com.wp.casino.messageserver.utils;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -15,5 +16,7 @@ public class MessageDispatchTask implements Serializable {
     private String channelId;
 
     private MessageLite messageLite;
+
+    private MessageDispatcher messageDispatcher;
 
 }

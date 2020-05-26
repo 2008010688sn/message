@@ -14,7 +14,7 @@ import java.util.List;
 
 @Data
 @Document(collection = "system_message")
-public class SystemMessage  implements Serializable{
+public class SystemMessage<T>  implements Serializable{
 
 
     private static final long serialVersionUID = 8897204663201860790L;
@@ -37,7 +37,7 @@ public class SystemMessage  implements Serializable{
     private Integer showMessageType;
 
     @Field(value = "cm_message")
-    private MessageContext messageContext;
+    private T messageContext;
 
     //
     @Field(value = "cm_send_time")

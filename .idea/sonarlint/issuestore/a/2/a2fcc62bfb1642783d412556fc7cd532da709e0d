@@ -1,0 +1,10 @@
+
+X	java:S125"<This block of commented-out lines of code should be removed.(ìûĞÊ8¡‘¨µ£.
+
+java:S1128"dRemove this unused import 'org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration'.(¦–·Ë8’¡¯£.
+]	java:S125"<This block of commented-out lines of code should be removed.(–ÜÑÑúÿÿÿÿ8öÇ¨µ£.
+}
+java:S1128"`Remove this unused import 'org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration'.(½óÙ’8’¡¯£.
+‹
+java:S1128"iRemove this unused import 'org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration'.(í©ÊÑşÿÿÿÿ8’¡¯£.
+]	java:S125"<This block of commented-out lines of code should be removed.(ìıåüÿÿÿÿ8¡‘¨µ£.

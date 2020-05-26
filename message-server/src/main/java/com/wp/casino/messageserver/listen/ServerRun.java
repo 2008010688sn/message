@@ -1,6 +1,7 @@
 package com.wp.casino.messageserver.listen;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messageserver.service.MessageServer;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageDispatchTask;
@@ -18,6 +19,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.locks.LockSupport;
 
 /**
  * @author sn
@@ -25,7 +27,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
  */
 @Component
 @Slf4j
-@Order(1)
+@Order(2)
 public class ServerRun implements ApplicationRunner {
 
     @Value("${server.bind_port}")
@@ -55,7 +57,8 @@ public class ServerRun implements ApplicationRunner {
         messageServer.start();
         addHook(messageServer);
         //处理消息分发
-        processTask();
+//        processTask();
+
     }
 
     private  void addHook(MessageServer server) {
@@ -81,31 +84,26 @@ public class ServerRun implements ApplicationRunner {
             @Override
             public MessageDispatchTask call() throws Exception {
                 ConcurrentLinkedQueue<MessageDispatchTask> queue=MessageQueue.getAll();
+
                 while (!stoped){
-                    if (queue.size()>0|| flushTask.get() == true){
+                    if (queue.size()>0){
+                        log.info("将消息分发至login---satrt");
                         //处理消息转发
                         MessageDispatchTask messageDispatchTask=MessageQueue.get();
                         MessageLite messageLite=messageDispatchTask.getMessageLite();
                         String channelId=messageDispatchTask.getChannelId();
+                        MessageDispatcher messageDispatcher=messageDispatchTask.getMessageDispatcher();
                         ChannelHandlerContext channel = HandlerContext.getInstance().getChannel(channelId);
-                        ChannelFuture channelFuture = channel.writeAndFlush(messageLite);
-                        if (channelFuture.isSuccess()){
+                        if (channel!=null&&messageLite!=null){
+                            messageDispatcher.onMessage(channel.channel(),messageLite);
                             //处理完一个从对列中移除一个
                             MessageQueue.removeMessageLite(messageDispatchTask);
                         }
-                        flushTask.compareAndSet(true, false);
+
+
                     }
 
-//                    timer.scheduleAtFixedRate(new TimerTask() {
-//
-//                        public void run() {
-//                            try {
-//                                flushTask.compareAndSet(false, true);
-//                            } catch (Exception e) {
-//                                System.out.println("SendMessageTaskMonitor happen exception");
-//                            }
-//                        }
-//                    }, 1000 * 1, 10);
+
                 }
                 return null;
             }

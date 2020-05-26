@@ -1,0 +1,23 @@
+
+O
+java:S1128"4Remove this unused import 'org.bson.types.ObjectId'.(Ü¡‰çıÿÿÿÿ
+v
+java:S3923z"[Remove this conditional structure or edit its code blocks so that they're not all the same.(èåúşÿÿÿÿ
+?
+java:S1148š"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?
+java:S1148¯"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+h
+java:S3776o"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(¾°æˆ
+\
+java:S2147ƒ"ECombine this catch with the one at line 129, which has the same body.(Å¡ß
+\
+java:S2147›"ECombine this catch with the one at line 153, which has the same body.(Å¡ß
+?
+java:S1148„"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?
+java:S1148‚"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Q
+java:S3740b"/Provide the parametrized type for this generic.(Íöæßúÿÿÿÿ8¸´ ª£.
+?
+java:S1148œ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

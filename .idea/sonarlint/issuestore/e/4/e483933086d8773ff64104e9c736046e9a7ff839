@@ -1,33 +1,33 @@
 
 v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
-P
-java:S1874É"2Remove this use of "setIoRatio"; it is deprecated.(–ÚÇş8ùà³º¡.
 ]
-java:S1117¿"?Rename "workerGroup" which hides the field declared at line 42.(ìá£È8ùà³º¡.
-W
-java:S11618":Add the "@Override" annotation above this method signature( Üó8ÓŞö¿¡.
-W
-java:S3400"9Remove this method and declare a constant for this value.(È¸å8ùà³º¡.
-X	java:S125Y"<This block of commented-out lines of code should be removed.(™ôÜÂ8îØ˜Ø¢.
-v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
-P
-java:S1874Ã"2Remove this use of "setIoRatio"; it is deprecated.( ³öî8ùà³º¡.
-]
-java:S1117¬"?Rename "workerGroup" which hides the field declared at line 42.(ìá£È8ùà³º¡.
-I
-java:S1452¨"&Remove usage of generic wildcard type.(ÉÁÕºûÿÿÿÿ8ùà³º¡.
-v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
-W
-java:S3400‘"9Remove this method and declare a constant for this value.(”·³›8ùà³º¡.
-\
-java:S3400"9Remove this method and declare a constant for this value.(œşôûÿÿÿÿ8ùà³º¡.
+java:S1117À"?Rename "workerGroup" which hides the field declared at line 42.(ìá£È8ùà³º¡.
+[
+java:S1117¿"=Rename "bossGroup" which hides the field declared at line 41.(ø‘¯œ8ùà³º¡.
 S
-java:S1144½"6Remove this unused private "createEpollServer" method.(û²‘<8¬Ëıº¡.
+java:S1144¾"6Remove this unused private "createEpollServer" method.(û²‘<8¬Ëıº¡.
+I
+java:S1452©"&Remove usage of generic wildcard type.(ÉÁÕºûÿÿÿÿ8ùà³º¡.
+v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
+P
+java:S1874Ä"2Remove this use of "setIoRatio"; it is deprecated.( ³öî8ùà³º¡.
+W
+java:S3400’"9Remove this method and declare a constant for this value.(”·³›8ùà³º¡.
+[
+java:S1117¬"=Rename "bossGroup" which hides the field declared at line 41.(ø‘¯œ8ùà³º¡.
+X	java:S125Z"<This block of commented-out lines of code should be removed.(™ôÜÂ8îØ˜Ø¢.
+P
+java:S1874Ê"2Remove this use of "setIoRatio"; it is deprecated.(–ÚÇş8ùà³º¡.
+\
+java:S3400"9Remove this method and declare a constant for this value.(œşôûÿÿÿÿ8ùà³º¡.
 v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
 v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.
+]
+java:S1117­"?Rename "workerGroup" which hides the field declared at line 42.(ìá£È8ùà³º¡.
+W
+java:S3400"9Remove this method and declare a constant for this value.(È¸å8ùà³º¡.
+W
+java:S11619":Add the "@Override" annotation above this method signature( Üó8ÓŞö¿¡.
 v
-java:S2139£"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8ùà³º¡.
-[
-java:S1117¾"=Rename "bossGroup" which hides the field declared at line 41.(ø‘¯œ8ùà³º¡.
-[
-java:S1117«"=Rename "bossGroup" which hides the field declared at line 41.(ø‘¯œ8ùà³º¡.
+java:S2139¤"XEither log this exception and handle it, or rethrow it with some contextual information.(”ı¾8ùà³º¡.
+v	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢ıÇò8ùà³º¡.

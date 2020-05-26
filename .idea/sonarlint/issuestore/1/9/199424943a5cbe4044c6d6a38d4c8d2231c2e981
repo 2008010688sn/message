@@ -1,0 +1,7 @@
+
+S	java:S106;"9Replace this use of System.out or System.err by a logger.(‰ýç·ÿÿÿÿÿ
+V	java:S1253"<This block of commented-out lines of code should be removed.(»é„òøÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'com.wp.casino.messagenetty.proto.PBCSMessage'.(÷Èôûÿÿÿÿ
+V	java:S125/"<This block of commented-out lines of code should be removed.(·Ñ‡ëùÿÿÿÿ
+o	java:S116""URename this field "idle_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Î÷Êüÿÿÿÿ

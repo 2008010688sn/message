@@ -4,6 +4,9 @@ import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
+import com.wp.casino.messageserver.event.MessageEventObject;
+import com.wp.casino.messageserver.event.MessageEventSource;
+import com.wp.casino.messageserver.event.MessageQuueEventListener;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageDispatchTask;
 import com.wp.casino.messageserver.utils.MessageQueue;
@@ -116,9 +119,22 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
         MessageDispatchTask messageDispatchTask=new MessageDispatchTask();
         messageDispatchTask.setChannelId(channelId);
         messageDispatchTask.setMessageLite(messageLite);
+        messageDispatchTask.setMessageDispatcher(messageDispatcher);
 
-        MessageQueue.addMessageLite(messageDispatchTask);
+        MessageQuueEventListener messageQuueEventListener=new MessageQuueEventListener();
+        MessageEventSource messageEventSource=new MessageEventSource();
+        messageEventSource.addEventListener(messageQuueEventListener);
+
+        MessageQueue messageQueue=new MessageQueue();
+        messageQueue.addMessageLite(messageDispatchTask);
 //        isBegin=true;
+
+
+        MessageEventObject eventObject=new MessageEventObject(messageQueue);
+        messageEventSource.notifyEvent(eventObject);
+
+
+
 
     }
 }

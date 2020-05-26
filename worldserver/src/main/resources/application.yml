@@ -1,4 +1,4 @@
 server:
-    port: 8180
+    port: 8181
     bind_address: 0.0.0.0
     bind_port: 9123

@@ -1,17 +1,18 @@
 
-a
-java:S1117I"?Rename "workerGroup" which hides the field declared at line 30.(öË×’ÿÿÿÿÿ8š‹Í»¡.
-I
-java:S1452‰"&Remove usage of generic wildcard type.(½íöûùÿÿÿÿ8š‹Í»¡.
-O
-java:S1874T"2Remove this use of "setIoRatio"; it is deprecated.(¿æ´»8š‹Í»¡.
-W	java:S125r"<This block of commented-out lines of code should be removed.(Úèâ8­ˆÔ»¡.
+X	java:S125@"<This block of commented-out lines of code should be removed.(‡³ñ×8³»þÏ¤.
+V
+java:S3400h"9Remove this method and declare a constant for this value.(ãÈÌÿ8š‹Í»¡.
+V
+java:S3400l"9Remove this method and declare a constant for this value.(È¸å8š‹Í»¡.
 S
-java:S1144P"6Remove this unused private "createEpollClient" method.(Ì¡è§8­ˆÔ»¡.
-V
-java:S3400g"9Remove this method and declare a constant for this value.(ãÈÌÿ8š‹Í»¡.
-V
-java:S3400k"9Remove this method and declare a constant for this value.(È¸å8š‹Í»¡.
+java:S1144Q"6Remove this unused private "createEpollClient" method.(Ì¡è§8­ˆÔ»¡.
+W	java:S125s"<This block of commented-out lines of code should be removed.(Úèâ8­ˆÔ»¡.
 [
-java:S1117Q"?Rename "workerGroup" which hides the field declared at line 30.(ŠúÉ:8š‹Í»¡.
+java:S1117R"?Rename "workerGroup" which hides the field declared at line 30.(ŠúÉ:8š‹Í»¡.
+O
+java:S1874U"2Remove this use of "setIoRatio"; it is deprecated.(¿æ´»8š‹Í»¡.
+I
+java:S1452Š"&Remove usage of generic wildcard type.(½íöûùÿÿÿÿ8š‹Í»¡.
 X	java:S1259"<This block of commented-out lines of code should be removed.(ÃÀ»®8‰ÔÐ½¡.
+a
+java:S1117J"?Rename "workerGroup" which hides the field declared at line 30.(öË×’ÿÿÿÿÿ8š‹Í»¡.

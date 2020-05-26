@@ -1,0 +1,4 @@
+server:
+    port: 8183
+    bind_address: 0.0.0.0
+    bind_port: 9124

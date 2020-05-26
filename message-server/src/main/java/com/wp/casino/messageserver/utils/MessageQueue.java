@@ -2,6 +2,7 @@ package com.wp.casino.messageserver.utils;
 
 import com.google.protobuf.MessageLite;
 import io.netty.channel.ChannelHandlerContext;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
  * @author sn
  * @date 2020/5/22 12:48
  */
+@Data
 public class MessageQueue {
 
 
@@ -40,6 +42,9 @@ public class MessageQueue {
     public static MessageDispatchTask get(){
        return messageDispatchTasks.peek();
     }
+
+
+
 
 
 

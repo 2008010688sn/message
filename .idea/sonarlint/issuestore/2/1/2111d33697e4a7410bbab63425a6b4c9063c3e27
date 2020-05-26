@@ -1,0 +1,15 @@
+
+M
+java:S1128"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8††¹Û£.
+Y
+java:S1128"<Remove this unused import 'com.google.protobuf.MessageLite'.(ôƒ×ÿ8Å¼¬Õ¤.
+š
+java:S1319 "}The return type of this method should be an interface such as "Queue" rather than the implementation "ConcurrentLinkedQueue".(¨è®“8½£¹Û£.
+e
+java:S1128"CRemove this unused import 'io.netty.channel.ChannelHandlerContext'.(²Õ¢ùÿÿÿÿ8Ö”õÕ£.
+M
+java:S1128"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ8Å¸Û£.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(ÄŞÈ»şÿÿÿÿ8§¡ñ÷¤.
+e
+java:S1128"CRemove this unused import 'java.util.concurrent.ConcurrentHashMap'.(ÓŠÓøúÿÿÿÿ8³‘†Ö£.
