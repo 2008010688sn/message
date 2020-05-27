@@ -2,8 +2,8 @@ package com.wp.casino.login.service;
 
 
 import com.google.protobuf.MessageLite;
-import com.wp.casino.login.utils.HandlerContext;
-import com.wp.casino.messagenetty.proto.PBCSMessage;
+import com.wp.casino.login.utils.HandlerLoginContext;
+import com.wp.casino.login.utils.HandlerLoginContext;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -43,7 +43,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("messageserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
         String channelId=ctx.channel().id().asLongText();
-        HandlerContext.getInstance().addChannel(channelId,ctx);
+        HandlerLoginContext.getInstance().addChannel(channelId,ctx);
 //        MsgEntity.Msg msg = MsgEntity.Msg.newBuilder().setMsgId("haha").setContent("内容content").setId("123").setName("test").build();
 //       //从mq获取消息，发送
 //
@@ -58,7 +58,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("channel通道注销-"+ctx.channel());
         String channelId=ctx.channel().id().asLongText();
-        HandlerContext.getInstance().removeChannel(channelId);
+        HandlerLoginContext.getInstance().removeChannel(channelId);
         log.info("MessageServerHandler---channelInactive---");
     }
 
@@ -97,7 +97,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         String remoteAddress=ctx.channel().remoteAddress().toString();
-        HandlerContext.getInstance().removeChannel(remoteAddress);
+        HandlerLoginContext.getInstance().removeChannel(remoteAddress);
         ctx.close();
         log.info("exceptionCaught",cause);
     }

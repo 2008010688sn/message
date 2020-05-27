@@ -1,0 +1,96 @@
+syntax = "proto3";
+
+option optimize_for=SPEED;
+
+option java_package = "com.wp.casino.messagenetty.proto";
+option java_outer_classname = "WorldMessage";
+
+// 7136
+message proto_ww_trumpet_req{
+	int64	ply_guid	=	1;
+	string	ply_nickname	=	2;
+	string	message	=	3;
+	int32	game_id	=	4;
+	string	game_name	=	5;
+}
+
+//pt_wf_system_chat_req  7183
+message proto_wf_system_chat_req {
+	int64 ply_guid = 1;
+	string message = 2;
+};
+
+// WEB转发给登陆服务器-----------opcode：20538
+message proto_wf_web_msg_noti
+{
+  int32  msg_type = 1;
+  bytes  msg_data = 2;
+}
+
+
+// web_msg_noti对应的msg_data  20539
+message proto_wl_noti_msg_data
+{
+  int64  sender_id = 1;
+  int64  reciever_id = 2;
+  int32  msg_type = 3;
+  int32  show_msg_type = 4;
+  string  msg_content = 5;
+  int32  club_id = 6;
+  string  msg_rst_id = 7;
+}
+
+// 玩家请求加入房间通知-----opcode：20529
+message proto_wf_join_room_noti {
+  int32  table_id = 1;
+  int64  ply_guid = 2;
+  string  ply_nickname = 3;
+  int32  game_id = 4;
+  int32  server_id = 5;
+  int64  owner_guid = 6;
+  string  table_name = 7;
+  int32  table_create_time = 8;
+  int32  invite_code = 9;
+}
+
+// 俱乐部解散---------------opcode:20540
+message proto_wf_break_up_club_noti
+{
+  int32  club_id   = 1;
+  int64  ply_guid  = 2;
+  string  club_name  = 3;
+  string  ply_nickname = 4;
+}
+
+// 俱乐部成员变更---opcode:20541
+message proto_wf_club_member_update_noti
+{
+  ClubMemberUpdateInfo info = 1;
+}
+
+message ClubMemberUpdateInfo
+{
+	enum TYPE
+	{
+		JoinClub 			= 0;	// 加入俱乐部
+		LeaveClub 			= 1;	// 退出俱乐部
+		KickOut	 			= 2;	// 被踢出俱乐部
+		ImproveAdmin		= 3;	// 提升管理员
+		DemotionAmin		= 4;	// 降级管理员
+		RefuseJoin			= 5;	// 拒绝加入俱乐部
+	};
+	int32	club_id 	 = 1;
+	string	club_name	 = 2;
+	int64	ply_guid	 = 3;	// 玩家guid
+	string	ply_nickname = 4;	// 玩家昵称
+	TYPE	reason		 = 5;
+	int64	who_guid	 = 6;	// 谁触发的变更
+	string	who_name	 = 7;
+	int64	message_id	 = 8;
+}
+
+
+
+
+
+

@@ -15,14 +15,6 @@ import org.springframework.context.annotation.ComponentScan;
 @ComponentScan(basePackages = "com.wp.casino.messageserver.*")
 public class MessageServerApplication {
 
-//	@Bean
-//	public ServletListenerRegistrationBean servletListenerRegistrationBean() {
-//		ServletListenerRegistrationBean servletListenerRegistrationBean =
-//				new ServletListenerRegistrationBean();
-//		servletListenerRegistrationBean.setListener(new NettyServerListener());
-//		return servletListenerRegistrationBean;
-//	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(MessageServerApplication.class, args);
 	}

@@ -16,8 +16,6 @@ import org.springframework.stereotype.Component;
 @Order(2)
 public class ClientRun implements ApplicationRunner {
 
-
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
         MessageClient messageClient=new MessageClient();

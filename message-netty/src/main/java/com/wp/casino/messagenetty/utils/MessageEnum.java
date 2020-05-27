@@ -4,13 +4,43 @@ package com.wp.casino.messagenetty.utils;
  * 对象枚举
  */
 public enum  MessageEnum {
+//worldMessage
+    WF_SYSTEM_CHAT_REQ(7183,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_system_chat_req"),
+    WF_WEB_MSG_NOTI(20538,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_web_msg_noti"),
+    WL_NOTI_MSG_DATA(20539,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wl_noti_msg_data"),
+    WF_JOIN_ROOM_NOTI(20529,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_join_room_noti"),
+    WF_BREAK_UP_CLUB_NOTI(20540,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_break_up_club_noti"),
 
-    BDOVS_WW_USER_DATA_CHANGE_REQ(7130,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ww_user_data_change_req"),
-    WW_FRIEND_MSG_REQ(7125,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ww_friend_msg_req"),
-    LM_REGISTER_REQ(1000,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_register_req"),
-    ML_REGISTER_ACK(1000,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ml_register_ack"),
-    LM_UPDATE_PLY_LOGIN_STATUS_NOT(1001,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_update_ply_login_status_not"),
-    LM_NOTI_MSG(1002,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_noti_msg"),
+    WF_CLUB_MEMBER_UPDATE_NOTI(20541,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_club_member_update_noti"),
+
+//loginMessage
+
+    CLUB_APPLY_JOIN_ACK(20149,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_club_apply_join_ack"),
+    LF_CLUB_APPLY_JOIN_NOTI(20150,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_club_apply_join_noti"),
+    LF_JOIN_ROOM_REPLY_NOTI(20161,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_join_room_reply_noti"),
+
+    CL_LOAD_NOTI_MSG_REQ(20163,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cl_load_noti_msg_req"),
+    LC_LOAD_NOTI_MSG_ACK(20164,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_load_noti_msg_ack"),
+
+    CL_UPDATE_MSG_STATUS_REQ(20179,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cl_update_msg_status_req"),
+    LC_UPDATE_MSG_STATUS_ACK(20180,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_update_msg_status_ack"),
+
+    CL_GET_MSG_COUNT_REQ(20181,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cl_get_msg_count_req"),
+    LC_GET_MSG_COUNT_ACK(20182,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_get_msg_count_ack"),
+
+    CF_ADD_CLUB_CHAT_RECORD_REQ(22026,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_add_club_chat_record_req"),
+    FC_ADD_CLUB_CHAT_RECORD_ACK(22027,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_add_club_chat_record_ack"),
+
+    CF_SYNC_CLUB_CHAT_RECORD_REQ(22029,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_sync_club_chat_record_req"),
+    FC_SYNC_CLUB_CHAT_RECORD_ACK(22030,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_sync_club_chat_record_ack"),
+
+    CF_MESSAGE_WRAP_SYNC(22031,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_message_wrap_sync"),
+
+    LM_REGISTER_REQ(22000,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_register_req"),
+    ML_REGISTER_ACK(22001,"com.wp.casino.messagenetty.proto","LoginMessage","proto_ml_register_ack"),
+
+    LM_UPDATE_PLY_LOGIN_STATUS_NOT(22002,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_update_ply_login_status_not"),
+    LM_NOTI_MSG(22003,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_noti_msg"),
     ;
     /**
      * 消息id，必须唯一

@@ -1,11 +1,7 @@
 package com.wp.casino.messageserver.service;
 
 import com.google.protobuf.MessageLite;
-import com.wp.casino.messagenetty.proto.PBCSMessage;
-import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.messageserver.utils.HandlerContext;
-import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -14,11 +10,7 @@ import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Date;
-import java.util.Map;
-import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicReference;
 
 /**
  * @author sn
@@ -48,9 +40,6 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("和worldserver建立连接时：" + new Date());
-        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
-
-        ctx.writeAndFlush( msg);
         ctx.fireChannelActive();
     }
 
@@ -110,8 +99,8 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 //            log.info("无login连接");
 //        }
 
-        MessageQueue.addMessageLite(messageLite);
-        isBegin=true;
+        /*MessageQueue.addMessageLite(messageLite);
+        isBegin=true;*/
 
     }
 }

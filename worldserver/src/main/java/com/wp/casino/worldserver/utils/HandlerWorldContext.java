@@ -1,4 +1,4 @@
-package com.wp.casino.login.utils;
+package com.wp.casino.worldserver.utils;
 
 import io.netty.channel.ChannelHandlerContext;
 
@@ -8,19 +8,19 @@ import java.util.concurrent.ConcurrentHashMap;
  * @author sn
  * @date 2020/5/20 16:30
  */
-public class HandlerContext {
+public class HandlerWorldContext {
 
     private final static ConcurrentHashMap<String, ChannelHandlerContext> maps=new ConcurrentHashMap<>(0);
 
 
     private static class SingletonHolder {
-        private final static HandlerContext INSTANCE = new HandlerContext();
+        private final static HandlerWorldContext INSTANCE = new HandlerWorldContext();
     }
 
-    private HandlerContext() {
+    private HandlerWorldContext() {
     }
 
-    public static HandlerContext getInstance() {
+    public static HandlerWorldContext getInstance() {
         return SingletonHolder.INSTANCE;
     }
 

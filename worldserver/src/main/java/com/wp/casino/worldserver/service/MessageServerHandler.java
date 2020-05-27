@@ -2,9 +2,8 @@ package com.wp.casino.worldserver.service;
 
 
 import com.google.protobuf.MessageLite;
-import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.worldserver.utils.HandlerContext;
+import com.wp.casino.worldserver.utils.HandlerWorldContext;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
@@ -12,7 +11,6 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 
-import java.net.SocketAddress;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -45,11 +43,11 @@ import java.util.concurrent.atomic.AtomicInteger;
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("worldserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
         String channelId=ctx.channel().remoteAddress().toString();
-        HandlerContext.getInstance().addChannel(channelId,ctx);
-        //message建立连接后模拟向message发送一条信息
-        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
-        ctx.writeAndFlush( msg);
-
+        HandlerWorldContext.getInstance().addChannel("9832",ctx);
+        /*PBCSMessage.proto_ww_user_data_change_req msg =
+                PBCSMessage.proto_ww_user_data_change_req.newBuilder()
+                        .setPlyGuid(777).build();
+        ctx.writeAndFlush(msg);*/
         log.info("WorldServerHandler---active---");
 
     }
@@ -59,7 +57,7 @@ import java.util.concurrent.atomic.AtomicInteger;
         System.out.println("channel通道注销-"+ctx.channel());
         String channelId=ctx.channel().id().asLongText();
         channelId=ctx.channel().remoteAddress().toString();
-        HandlerContext.getInstance().removeChannel(channelId);
+        HandlerWorldContext.getInstance().removeChannel(channelId);
         log.info("WorldServerHandler---channelInactive---");
     }
 
@@ -98,7 +96,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         String remoteAddress=ctx.channel().remoteAddress().toString();
-        HandlerContext.getInstance().removeChannel(remoteAddress);
+        //HandlerContext.getInstance().removeChannel(remoteAddress);
         ctx.close();
         log.info("exceptionCaught",cause);
     }

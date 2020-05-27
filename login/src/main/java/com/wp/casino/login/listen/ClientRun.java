@@ -13,14 +13,12 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-@Order(2)
+@Order(1)
 public class ClientRun implements ApplicationRunner {
-
-
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        MessageClient messageClient=new MessageClient();
+        MessageClient messageClient = new MessageClient();
         messageClient.start();
         messageClient.connect("127.0.0.1",9876);
     }

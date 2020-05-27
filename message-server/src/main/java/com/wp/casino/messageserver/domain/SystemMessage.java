@@ -14,9 +14,7 @@ import java.util.List;
 
 @Data
 @Document(collection = "system_message")
-public class SystemMessage  implements Serializable{
-
-
+public class SystemMessage<T>  implements Serializable{
     private static final long serialVersionUID = 8897204663201860790L;
 
     @Id
@@ -37,7 +35,7 @@ public class SystemMessage  implements Serializable{
     private Integer showMessageType;
 
     @Field(value = "cm_message")
-    private MessageContext messageContext;
+    private T messageContext;
 
     //
     @Field(value = "cm_send_time")
@@ -62,11 +60,11 @@ public class SystemMessage  implements Serializable{
     private Integer expireTime;
 
     @Field(value = "cm_title")
-    private Integer title;
+    private String title;
 
     @Field(value = "_auto_id")
     @AutoValue//字段自增
-    private Integer autoId;
+    private Long autoId;
 
     @Field(value = "cm_reciver_ids")
     private List<ReceiveObj> receiveObjList;
