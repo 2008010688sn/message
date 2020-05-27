@@ -2,7 +2,6 @@ package com.wp.casino.login.service;
 
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.LoginMessage;
-import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -44,18 +43,18 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 //        ctx.fireChannelActive();
 
         //请求注册server
-        LoginMessage.proto_lm_register_req msg =
-                LoginMessage.proto_lm_register_req.newBuilder()
+        LoginMessage.proto_lf_register_req msg =
+                LoginMessage.proto_lf_register_req.newBuilder()
                         .setServerId(1).build();
         ctx.writeAndFlush(msg);
 
-        LoginMessage.proto_lm_update_ply_login_status_not msgUser =
-                LoginMessage.proto_lm_update_ply_login_status_not.newBuilder()
+        LoginMessage.proto_lf_update_ply_login_status_not msgUser =
+                LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
                         .setPlyGuid(777).build();
         ctx.writeAndFlush(msgUser);
 
-        LoginMessage.proto_lm_update_ply_login_status_not msgUser1 =
-                LoginMessage.proto_lm_update_ply_login_status_not.newBuilder()
+        LoginMessage.proto_lf_update_ply_login_status_not msgUser1 =
+                LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
                         .setPlyGuid(888).build();
         ctx.writeAndFlush(msgUser1);
     }

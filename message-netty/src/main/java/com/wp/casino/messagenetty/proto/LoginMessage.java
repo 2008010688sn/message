@@ -11475,8 +11475,8 @@ public final class LoginMessage {
 
   }
 
-  public interface proto_lm_register_reqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proto_lm_register_req)
+  public interface proto_lf_register_reqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_lf_register_req)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11490,18 +11490,18 @@ public final class LoginMessage {
    *Login去Message注册  22000
    * </pre>
    *
-   * Protobuf type {@code proto_lm_register_req}
+   * Protobuf type {@code proto_lf_register_req}
    */
-  public  static final class proto_lm_register_req extends
+  public  static final class proto_lf_register_req extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proto_lm_register_req)
-      proto_lm_register_reqOrBuilder {
+      // @@protoc_insertion_point(message_implements:proto_lf_register_req)
+      proto_lf_register_reqOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use proto_lm_register_req.newBuilder() to construct.
-    private proto_lm_register_req(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use proto_lf_register_req.newBuilder() to construct.
+    private proto_lf_register_req(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private proto_lm_register_req() {
+    private proto_lf_register_req() {
       serverId_ = 0;
     }
 
@@ -11510,7 +11510,7 @@ public final class LoginMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private proto_lm_register_req(
+    private proto_lf_register_req(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -11555,15 +11555,15 @@ public final class LoginMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_register_req_descriptor;
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_register_req_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_register_req_fieldAccessorTable
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_register_req_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.Builder.class);
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.Builder.class);
     }
 
     public static final int SERVER_ID_FIELD_NUMBER = 1;
@@ -11615,10 +11615,10 @@ public final class LoginMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req)) {
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req)) {
         return super.equals(obj);
       }
-      com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req) obj;
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req) obj;
 
       boolean result = true;
       result = result && (getServerId()
@@ -11641,69 +11641,69 @@ public final class LoginMessage {
       return hash;
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(byte[] data)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseDelimitedFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseDelimitedFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -11716,7 +11716,7 @@ public final class LoginMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req prototype) {
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -11737,26 +11737,26 @@ public final class LoginMessage {
      *Login去Message注册  22000
      * </pre>
      *
-     * Protobuf type {@code proto_lm_register_req}
+     * Protobuf type {@code proto_lf_register_req}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proto_lm_register_req)
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_reqOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proto_lf_register_req)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_reqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_register_req_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_register_req_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_register_req_fieldAccessorTable
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_register_req_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.Builder.class);
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.Builder.class);
       }
 
-      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.newBuilder()
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -11782,17 +11782,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_register_req_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_register_req_descriptor;
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req getDefaultInstanceForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.getDefaultInstance();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req build() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req result = buildPartial();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -11800,8 +11800,8 @@ public final class LoginMessage {
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req buildPartial() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req(this);
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req(this);
         result.serverId_ = serverId_;
         onBuilt();
         return result;
@@ -11841,16 +11841,16 @@ public final class LoginMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req) {
-          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req)other);
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req other) {
-        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.getDefaultInstance()) return this;
         if (other.getServerId() != 0) {
           setServerId(other.getServerId());
         }
@@ -11869,11 +11869,11 @@ public final class LoginMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req parsedMessage = null;
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req) e.getUnfinishedMessage();
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -11921,48 +11921,48 @@ public final class LoginMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto_lm_register_req)
+      // @@protoc_insertion_point(builder_scope:proto_lf_register_req)
     }
 
-    // @@protoc_insertion_point(class_scope:proto_lm_register_req)
-    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto_lf_register_req)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req();
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req();
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req getDefaultInstance() {
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lm_register_req>
-        PARSER = new com.google.protobuf.AbstractParser<proto_lm_register_req>() {
+    private static final com.google.protobuf.Parser<proto_lf_register_req>
+        PARSER = new com.google.protobuf.AbstractParser<proto_lf_register_req>() {
       @java.lang.Override
-      public proto_lm_register_req parsePartialFrom(
+      public proto_lf_register_req parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new proto_lm_register_req(input, extensionRegistry);
+        return new proto_lf_register_req(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<proto_lm_register_req> parser() {
+    public static com.google.protobuf.Parser<proto_lf_register_req> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<proto_lm_register_req> getParserForType() {
+    public com.google.protobuf.Parser<proto_lf_register_req> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_register_req getDefaultInstanceForType() {
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface proto_ml_register_ackOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proto_ml_register_ack)
+  public interface proto_fl_register_ackOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_fl_register_ack)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -11975,18 +11975,18 @@ public final class LoginMessage {
    *message回复login注册结果  22001
    * </pre>
    *
-   * Protobuf type {@code proto_ml_register_ack}
+   * Protobuf type {@code proto_fl_register_ack}
    */
-  public  static final class proto_ml_register_ack extends
+  public  static final class proto_fl_register_ack extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proto_ml_register_ack)
-      proto_ml_register_ackOrBuilder {
+      // @@protoc_insertion_point(message_implements:proto_fl_register_ack)
+      proto_fl_register_ackOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use proto_ml_register_ack.newBuilder() to construct.
-    private proto_ml_register_ack(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use proto_fl_register_ack.newBuilder() to construct.
+    private proto_fl_register_ack(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private proto_ml_register_ack() {
+    private proto_fl_register_ack() {
       ret_ = 0;
     }
 
@@ -11995,7 +11995,7 @@ public final class LoginMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private proto_ml_register_ack(
+    private proto_fl_register_ack(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12040,15 +12040,15 @@ public final class LoginMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_ml_register_ack_descriptor;
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_register_ack_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_ml_register_ack_fieldAccessorTable
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_register_ack_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.Builder.class);
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.Builder.class);
     }
 
     public static final int RET_FIELD_NUMBER = 1;
@@ -12100,10 +12100,10 @@ public final class LoginMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack)) {
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack)) {
         return super.equals(obj);
       }
-      com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack) obj;
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack) obj;
 
       boolean result = true;
       result = result && (getRet()
@@ -12126,69 +12126,69 @@ public final class LoginMessage {
       return hash;
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(byte[] data)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseDelimitedFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseDelimitedFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12201,7 +12201,7 @@ public final class LoginMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack prototype) {
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12221,26 +12221,26 @@ public final class LoginMessage {
      *message回复login注册结果  22001
      * </pre>
      *
-     * Protobuf type {@code proto_ml_register_ack}
+     * Protobuf type {@code proto_fl_register_ack}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proto_ml_register_ack)
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ackOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proto_fl_register_ack)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ackOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_ml_register_ack_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_register_ack_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_ml_register_ack_fieldAccessorTable
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_register_ack_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.Builder.class);
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.Builder.class);
       }
 
-      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.newBuilder()
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12266,17 +12266,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_ml_register_ack_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_register_ack_descriptor;
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack getDefaultInstanceForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.getDefaultInstance();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack build() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack result = buildPartial();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12284,8 +12284,8 @@ public final class LoginMessage {
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack buildPartial() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack(this);
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack(this);
         result.ret_ = ret_;
         onBuilt();
         return result;
@@ -12325,16 +12325,16 @@ public final class LoginMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack) {
-          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack)other);
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack other) {
-        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.getDefaultInstance()) return this;
         if (other.getRet() != 0) {
           setRet(other.getRet());
         }
@@ -12353,11 +12353,11 @@ public final class LoginMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack parsedMessage = null;
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack) e.getUnfinishedMessage();
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -12405,48 +12405,48 @@ public final class LoginMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto_ml_register_ack)
+      // @@protoc_insertion_point(builder_scope:proto_fl_register_ack)
     }
 
-    // @@protoc_insertion_point(class_scope:proto_ml_register_ack)
-    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto_fl_register_ack)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack();
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack();
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack getDefaultInstance() {
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_ml_register_ack>
-        PARSER = new com.google.protobuf.AbstractParser<proto_ml_register_ack>() {
+    private static final com.google.protobuf.Parser<proto_fl_register_ack>
+        PARSER = new com.google.protobuf.AbstractParser<proto_fl_register_ack>() {
       @java.lang.Override
-      public proto_ml_register_ack parsePartialFrom(
+      public proto_fl_register_ack parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new proto_ml_register_ack(input, extensionRegistry);
+        return new proto_fl_register_ack(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<proto_ml_register_ack> parser() {
+    public static com.google.protobuf.Parser<proto_fl_register_ack> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<proto_ml_register_ack> getParserForType() {
+    public com.google.protobuf.Parser<proto_fl_register_ack> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ml_register_ack getDefaultInstanceForType() {
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface proto_lm_update_ply_login_status_notOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proto_lm_update_ply_login_status_not)
+  public interface proto_lf_update_ply_login_status_notOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_lf_update_ply_login_status_not)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -12494,18 +12494,18 @@ public final class LoginMessage {
    *Login所有连接到它的玩家信息告知Message 22002
    * </pre>
    *
-   * Protobuf type {@code proto_lm_update_ply_login_status_not}
+   * Protobuf type {@code proto_lf_update_ply_login_status_not}
    */
-  public  static final class proto_lm_update_ply_login_status_not extends
+  public  static final class proto_lf_update_ply_login_status_not extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proto_lm_update_ply_login_status_not)
-      proto_lm_update_ply_login_status_notOrBuilder {
+      // @@protoc_insertion_point(message_implements:proto_lf_update_ply_login_status_not)
+      proto_lf_update_ply_login_status_notOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use proto_lm_update_ply_login_status_not.newBuilder() to construct.
-    private proto_lm_update_ply_login_status_not(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use proto_lf_update_ply_login_status_not.newBuilder() to construct.
+    private proto_lf_update_ply_login_status_not(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private proto_lm_update_ply_login_status_not() {
+    private proto_lf_update_ply_login_status_not() {
       plyGuid_ = 0L;
       plyVip_ = 0;
       plyLevel_ = 0;
@@ -12519,7 +12519,7 @@ public final class LoginMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private proto_lm_update_ply_login_status_not(
+    private proto_lf_update_ply_login_status_not(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -12591,15 +12591,15 @@ public final class LoginMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_update_ply_login_status_not_descriptor;
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_login_status_not_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_update_ply_login_status_not_fieldAccessorTable
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.Builder.class);
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.Builder.class);
     }
 
     public static final int PLY_GUID_FIELD_NUMBER = 1;
@@ -12779,10 +12779,10 @@ public final class LoginMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not)) {
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not)) {
         return super.equals(obj);
       }
-      com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not) obj;
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not) obj;
 
       boolean result = true;
       result = result && (getPlyGuid()
@@ -12826,69 +12826,69 @@ public final class LoginMessage {
       return hash;
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(byte[] data)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseDelimitedFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseDelimitedFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -12901,7 +12901,7 @@ public final class LoginMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not prototype) {
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -12921,26 +12921,26 @@ public final class LoginMessage {
      *Login所有连接到它的玩家信息告知Message 22002
      * </pre>
      *
-     * Protobuf type {@code proto_lm_update_ply_login_status_not}
+     * Protobuf type {@code proto_lf_update_ply_login_status_not}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proto_lm_update_ply_login_status_not)
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_notOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proto_lf_update_ply_login_status_not)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_notOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_update_ply_login_status_not_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_login_status_not_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_update_ply_login_status_not_fieldAccessorTable
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.Builder.class);
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.Builder.class);
       }
 
-      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.newBuilder()
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -12976,17 +12976,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_update_ply_login_status_not_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_login_status_not_descriptor;
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not getDefaultInstanceForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.getDefaultInstance();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not build() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not result = buildPartial();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -12994,8 +12994,8 @@ public final class LoginMessage {
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not buildPartial() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not(this);
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not(this);
         result.plyGuid_ = plyGuid_;
         result.plyVip_ = plyVip_;
         result.plyLevel_ = plyLevel_;
@@ -13040,16 +13040,16 @@ public final class LoginMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not) {
-          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not)other);
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not other) {
-        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.getDefaultInstance()) return this;
         if (other.getPlyGuid() != 0L) {
           setPlyGuid(other.getPlyGuid());
         }
@@ -13085,11 +13085,11 @@ public final class LoginMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not parsedMessage = null;
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not) e.getUnfinishedMessage();
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -13353,41 +13353,41 @@ public final class LoginMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto_lm_update_ply_login_status_not)
+      // @@protoc_insertion_point(builder_scope:proto_lf_update_ply_login_status_not)
     }
 
-    // @@protoc_insertion_point(class_scope:proto_lm_update_ply_login_status_not)
-    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto_lf_update_ply_login_status_not)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not();
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not();
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not getDefaultInstance() {
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lm_update_ply_login_status_not>
-        PARSER = new com.google.protobuf.AbstractParser<proto_lm_update_ply_login_status_not>() {
+    private static final com.google.protobuf.Parser<proto_lf_update_ply_login_status_not>
+        PARSER = new com.google.protobuf.AbstractParser<proto_lf_update_ply_login_status_not>() {
       @java.lang.Override
-      public proto_lm_update_ply_login_status_not parsePartialFrom(
+      public proto_lf_update_ply_login_status_not parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new proto_lm_update_ply_login_status_not(input, extensionRegistry);
+        return new proto_lf_update_ply_login_status_not(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<proto_lm_update_ply_login_status_not> parser() {
+    public static com.google.protobuf.Parser<proto_lf_update_ply_login_status_not> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<proto_lm_update_ply_login_status_not> getParserForType() {
+    public com.google.protobuf.Parser<proto_lf_update_ply_login_status_not> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_update_ply_login_status_not getDefaultInstanceForType() {
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -14070,8 +14070,8 @@ public final class LoginMessage {
 
   }
 
-  public interface proto_lm_noti_msgOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proto_lm_noti_msg)
+  public interface proto_fl_noti_msgOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_fl_noti_msg)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -14089,21 +14089,21 @@ public final class LoginMessage {
   }
   /**
    * <pre>
-   *Message回给Login，让Login转发给客户端的
+   *Message回给Login，让Login转发给客户端的 20162
    * </pre>
    *
-   * Protobuf type {@code proto_lm_noti_msg}
+   * Protobuf type {@code proto_fl_noti_msg}
    */
-  public  static final class proto_lm_noti_msg extends
+  public  static final class proto_fl_noti_msg extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proto_lm_noti_msg)
-      proto_lm_noti_msgOrBuilder {
+      // @@protoc_insertion_point(message_implements:proto_fl_noti_msg)
+      proto_fl_noti_msgOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use proto_lm_noti_msg.newBuilder() to construct.
-    private proto_lm_noti_msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use proto_fl_noti_msg.newBuilder() to construct.
+    private proto_fl_noti_msg(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private proto_lm_noti_msg() {
+    private proto_fl_noti_msg() {
     }
 
     @java.lang.Override
@@ -14111,7 +14111,7 @@ public final class LoginMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private proto_lm_noti_msg(
+    private proto_fl_noti_msg(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -14164,15 +14164,15 @@ public final class LoginMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_noti_msg_descriptor;
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_noti_msg_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_noti_msg_fieldAccessorTable
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_noti_msg_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.Builder.class);
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.Builder.class);
     }
 
     public static final int NOTI_MSG_INFO_FIELD_NUMBER = 1;
@@ -14236,10 +14236,10 @@ public final class LoginMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg)) {
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg)) {
         return super.equals(obj);
       }
-      com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg) obj;
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg) obj;
 
       boolean result = true;
       result = result && (hasNotiMsgInfo() == other.hasNotiMsgInfo());
@@ -14267,69 +14267,69 @@ public final class LoginMessage {
       return hash;
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(byte[] data)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseDelimitedFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseDelimitedFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parseFrom(
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -14342,7 +14342,7 @@ public final class LoginMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg prototype) {
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -14359,29 +14359,29 @@ public final class LoginMessage {
     }
     /**
      * <pre>
-     *Message回给Login，让Login转发给客户端的
+     *Message回给Login，让Login转发给客户端的 20162
      * </pre>
      *
-     * Protobuf type {@code proto_lm_noti_msg}
+     * Protobuf type {@code proto_fl_noti_msg}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proto_lm_noti_msg)
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msgOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proto_fl_noti_msg)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msgOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_noti_msg_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_noti_msg_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_noti_msg_fieldAccessorTable
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_noti_msg_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.Builder.class);
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.Builder.class);
       }
 
-      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.newBuilder()
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -14411,17 +14411,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lm_noti_msg_descriptor;
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fl_noti_msg_descriptor;
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg getDefaultInstanceForType() {
-        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.getDefaultInstance();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg build() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg result = buildPartial();
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -14429,8 +14429,8 @@ public final class LoginMessage {
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg buildPartial() {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg(this);
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg(this);
         if (notiMsgInfoBuilder_ == null) {
           result.notiMsgInfo_ = notiMsgInfo_;
         } else {
@@ -14474,16 +14474,16 @@ public final class LoginMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg) {
-          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg)other);
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg other) {
-        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.getDefaultInstance()) return this;
         if (other.hasNotiMsgInfo()) {
           mergeNotiMsgInfo(other.getNotiMsgInfo());
         }
@@ -14502,11 +14502,11 @@ public final class LoginMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg parsedMessage = null;
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg) e.getUnfinishedMessage();
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -14645,41 +14645,41 @@ public final class LoginMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto_lm_noti_msg)
+      // @@protoc_insertion_point(builder_scope:proto_fl_noti_msg)
     }
 
-    // @@protoc_insertion_point(class_scope:proto_lm_noti_msg)
-    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto_fl_noti_msg)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg();
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg();
     }
 
-    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg getDefaultInstance() {
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lm_noti_msg>
-        PARSER = new com.google.protobuf.AbstractParser<proto_lm_noti_msg>() {
+    private static final com.google.protobuf.Parser<proto_fl_noti_msg>
+        PARSER = new com.google.protobuf.AbstractParser<proto_fl_noti_msg>() {
       @java.lang.Override
-      public proto_lm_noti_msg parsePartialFrom(
+      public proto_fl_noti_msg parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new proto_lm_noti_msg(input, extensionRegistry);
+        return new proto_fl_noti_msg(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<proto_lm_noti_msg> parser() {
+    public static com.google.protobuf.Parser<proto_fl_noti_msg> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<proto_lm_noti_msg> getParserForType() {
+    public com.google.protobuf.Parser<proto_fl_noti_msg> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lm_noti_msg getDefaultInstanceForType() {
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -17208,30 +17208,30 @@ public final class LoginMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_cf_message_wrap_sync_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_lm_register_req_descriptor;
+    internal_static_proto_lf_register_req_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_lm_register_req_fieldAccessorTable;
+      internal_static_proto_lf_register_req_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_ml_register_ack_descriptor;
+    internal_static_proto_fl_register_ack_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_ml_register_ack_fieldAccessorTable;
+      internal_static_proto_fl_register_ack_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_lm_update_ply_login_status_not_descriptor;
+    internal_static_proto_lf_update_ply_login_status_not_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_lm_update_ply_login_status_not_fieldAccessorTable;
+      internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_fl_club_notify_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_fl_club_notify_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_lm_noti_msg_descriptor;
+    internal_static_proto_fl_noti_msg_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_lm_noti_msg_fieldAccessorTable;
+      internal_static_proto_fl_noti_msg_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_NotiMsgInfo_descriptor;
   private static final 
@@ -17294,15 +17294,15 @@ public final class LoginMessage {
       "ult\032(\n\006Result\022\017\n\007club_id\030\001 \001(\005\022\r\n\005count\030" +
       "\002 \001(\005\"L\n\032proto_cf_message_wrap_sync\022\020\n\010p" +
       "ly_guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 " +
-      "\001(\014\"*\n\025proto_lm_register_req\022\021\n\tserver_i" +
-      "d\030\001 \001(\005\"$\n\025proto_ml_register_ack\022\013\n\003ret\030" +
-      "\001 \001(\005\"\230\001\n$proto_lm_update_ply_login_stat" +
+      "\001(\014\"*\n\025proto_lf_register_req\022\021\n\tserver_i" +
+      "d\030\001 \001(\005\"$\n\025proto_fl_register_ack\022\013\n\003ret\030" +
+      "\001 \001(\005\"\230\001\n$proto_lf_update_ply_login_stat" +
       "us_not\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007ply_vip\030\002 \001(" +
       "\005\022\021\n\tply_level\030\003 \001(\005\022\021\n\tnick_name\030\004 \001(\t\022" +
       "\020\n\010head_img\030\005 \001(\t\022\025\n\ruser_language\030\006 \001(\005" +
       "\"^\n\024proto_fl_club_notify\022\017\n\007club_id\030\001 \001(" +
       "\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\022\027\n\017excep" +
-      "t_ply_guid\030\004 \001(\003\">\n\021proto_lm_noti_msg\022)\n" +
+      "t_ply_guid\030\004 \001(\003\">\n\021proto_fl_noti_msg\022)\n" +
       "\rnoti_msg_info\030\001 \001(\0132\022.proto_NotiMsgInfo" +
       "\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006autoid\030\001 \001(\003\022\021" +
       "\n\tsender_id\030\002 \001(\003\022\023\n\013reciever_id\030\003 \001(\003\022\020" +
@@ -17418,23 +17418,23 @@ public final class LoginMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_cf_message_wrap_sync_descriptor,
         new java.lang.String[] { "PlyGuid", "Opcode", "Data", });
-    internal_static_proto_lm_register_req_descriptor =
+    internal_static_proto_lf_register_req_descriptor =
       getDescriptor().getMessageTypes().get(14);
-    internal_static_proto_lm_register_req_fieldAccessorTable = new
+    internal_static_proto_lf_register_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_lm_register_req_descriptor,
+        internal_static_proto_lf_register_req_descriptor,
         new java.lang.String[] { "ServerId", });
-    internal_static_proto_ml_register_ack_descriptor =
+    internal_static_proto_fl_register_ack_descriptor =
       getDescriptor().getMessageTypes().get(15);
-    internal_static_proto_ml_register_ack_fieldAccessorTable = new
+    internal_static_proto_fl_register_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_ml_register_ack_descriptor,
+        internal_static_proto_fl_register_ack_descriptor,
         new java.lang.String[] { "Ret", });
-    internal_static_proto_lm_update_ply_login_status_not_descriptor =
+    internal_static_proto_lf_update_ply_login_status_not_descriptor =
       getDescriptor().getMessageTypes().get(16);
-    internal_static_proto_lm_update_ply_login_status_not_fieldAccessorTable = new
+    internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_lm_update_ply_login_status_not_descriptor,
+        internal_static_proto_lf_update_ply_login_status_not_descriptor,
         new java.lang.String[] { "PlyGuid", "PlyVip", "PlyLevel", "NickName", "HeadImg", "UserLanguage", });
     internal_static_proto_fl_club_notify_descriptor =
       getDescriptor().getMessageTypes().get(17);
@@ -17442,11 +17442,11 @@ public final class LoginMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fl_club_notify_descriptor,
         new java.lang.String[] { "ClubId", "Opcode", "Data", "ExceptPlyGuid", });
-    internal_static_proto_lm_noti_msg_descriptor =
+    internal_static_proto_fl_noti_msg_descriptor =
       getDescriptor().getMessageTypes().get(18);
-    internal_static_proto_lm_noti_msg_fieldAccessorTable = new
+    internal_static_proto_fl_noti_msg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_lm_noti_msg_descriptor,
+        internal_static_proto_fl_noti_msg_descriptor,
         new java.lang.String[] { "NotiMsgInfo", });
     internal_static_proto_NotiMsgInfo_descriptor =
       getDescriptor().getMessageTypes().get(19);

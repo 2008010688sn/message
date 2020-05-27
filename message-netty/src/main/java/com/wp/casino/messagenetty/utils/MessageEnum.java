@@ -35,12 +35,14 @@ public enum  MessageEnum {
     FC_SYNC_CLUB_CHAT_RECORD_ACK(22030,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_sync_club_chat_record_ack"),
 
     CF_MESSAGE_WRAP_SYNC(22031,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_message_wrap_sync"),
+    FL_CLUB_NOTIFY(22033,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_club_notify"),
 
-    LM_REGISTER_REQ(22000,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_register_req"),
-    ML_REGISTER_ACK(22001,"com.wp.casino.messagenetty.proto","LoginMessage","proto_ml_register_ack"),
 
-    LM_UPDATE_PLY_LOGIN_STATUS_NOT(22002,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_update_ply_login_status_not"),
-    LM_NOTI_MSG(22003,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lm_noti_msg"),
+    LF_REGISTER_REQ(22000,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_register_req"),
+    FL_REGISTER_ACK(22001,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_register_ack"),
+
+    LF_UPDATE_PLY_LOGIN_STATUS_NOT(22002,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_update_ply_login_status_not"),
+    FL_NOTI_MSG(20162,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_noti_msg"),
     ;
     /**
      * 消息id，必须唯一

@@ -20,7 +20,6 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -118,7 +117,7 @@ public class MessageClient extends NettyTcpClient {
             SystemMessage sm = systemMessageDao.save(systemMessage);
 
             // 转发消息至login
-            LoginMessage.proto_lm_noti_msg.Builder msg = LoginMessage.proto_lm_noti_msg.newBuilder();
+            LoginMessage.proto_fl_noti_msg.Builder msg = LoginMessage.proto_fl_noti_msg.newBuilder();
             LoginMessage.proto_NotiMsgInfo.Builder msgBody = LoginMessage.proto_NotiMsgInfo.newBuilder();
             msgBody.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
             msgBody.setAutoid(sm.getAutoId());
@@ -144,7 +143,7 @@ public class MessageClient extends NettyTcpClient {
         });
     }
 
-    private void transferMessage(long recieverId, LoginMessage.proto_lm_noti_msg message) {
+    private void transferMessage(long recieverId, LoginMessage.proto_fl_noti_msg message) {
         String channelId = HandlerServerContext.getInstance().getChannel(recieverId);
         if (StringUtils.isNotBlank(channelId)) {
             Channel ch = HandlerContext.getInstance().getChannel(channelId);

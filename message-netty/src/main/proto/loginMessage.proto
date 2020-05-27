@@ -127,15 +127,15 @@ message proto_cf_message_wrap_sync {
 
 //==============message2login============================
 //Login去Message注册  22000
-message proto_lm_register_req {
+message proto_lf_register_req {
 	 int32 server_id = 1;
 };
 //message回复login注册结果  22001
-message proto_ml_register_ack {
+message proto_fl_register_ack {
 	 int32 ret = 1;
 };
 //Login所有连接到它的玩家信息告知Message 22002
-message proto_lm_update_ply_login_status_not {
+message proto_lf_update_ply_login_status_not {
 	 int64 ply_guid = 1;
 	 int32 ply_vip = 2;
 	 int32 ply_level = 3;
@@ -155,8 +155,8 @@ message proto_fl_club_notify
 }
 
 
-//Message回给Login，让Login转发给客户端的
-message proto_lm_noti_msg{
+//Message回给Login，让Login转发给客户端的 20162
+message proto_fl_noti_msg{
 	proto_NotiMsgInfo noti_msg_info = 1;
 }
 
