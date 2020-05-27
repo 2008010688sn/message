@@ -3,6 +3,7 @@ package com.wp.casino.messageserver.listen;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messageserver.service.MessageServer;
+import com.wp.casino.messageserver.utils.DispatcherObj;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageDispatchTask;
 import com.wp.casino.messageserver.utils.MessageQueue;
@@ -93,9 +94,10 @@ public class ServerRun implements ApplicationRunner {
                         MessageLite messageLite=messageDispatchTask.getMessageLite();
                         String channelId=messageDispatchTask.getChannelId();
                         MessageDispatcher messageDispatcher=messageDispatchTask.getMessageDispatcher();
-                        ChannelHandlerContext channel = HandlerContext.getInstance().getChannel(channelId);
-                        if (channel!=null&&messageLite!=null){
-                            messageDispatcher.onMessage(channel.channel(),messageLite);
+                        DispatcherObj dispatcherObj = HandlerContext.getInstance().getChannel(channelId);
+                        ChannelHandlerContext channelHandlerContext = dispatcherObj.getChannelHandlerContext();
+                        if (channelHandlerContext!=null&&messageLite!=null){
+                            messageDispatcher.onMessage(channelHandlerContext.channel(),messageLite);
                             //处理完一个从对列中移除一个
                             MessageQueue.removeMessageLite(messageDispatchTask);
                         }

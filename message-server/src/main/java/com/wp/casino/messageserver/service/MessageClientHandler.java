@@ -7,6 +7,7 @@ import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messageserver.event.MessageEventObject;
 import com.wp.casino.messageserver.event.MessageEventSource;
 import com.wp.casino.messageserver.event.MessageQuueEventListener;
+import com.wp.casino.messageserver.utils.DispatcherObj;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageDispatchTask;
 import com.wp.casino.messageserver.utils.MessageQueue;
@@ -119,7 +120,10 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
         MessageDispatchTask messageDispatchTask=new MessageDispatchTask();
         messageDispatchTask.setChannelId(channelId);
         messageDispatchTask.setMessageLite(messageLite);
-        messageDispatchTask.setMessageDispatcher(messageDispatcher);
+        //根据channelId查找messageDispatcher
+        DispatcherObj dispatcherObj = HandlerContext.getInstance().getChannel(channelId);
+        MessageDispatcher md = dispatcherObj.getMessageDispatcher();
+        messageDispatchTask.setMessageDispatcher(md);
 
         MessageQuueEventListener messageQuueEventListener=new MessageQuueEventListener();
         MessageEventSource messageEventSource=new MessageEventSource();

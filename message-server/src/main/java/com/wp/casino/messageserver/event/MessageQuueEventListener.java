@@ -2,6 +2,7 @@ package com.wp.casino.messageserver.event;
 
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
+import com.wp.casino.messageserver.utils.DispatcherObj;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageDispatchTask;
 import com.wp.casino.messageserver.utils.MessageQueue;
@@ -43,15 +44,16 @@ public class MessageQuueEventListener implements EventListener {
             @Override
             public MessageDispatchTask call() throws Exception {
 
-                log.info("将消息分发至login---satrt");
+                log.info("将消息分发至login---start");
                 //处理消息转发
                 MessageDispatchTask messageDispatchTask=messageQueue.get();
                 MessageLite messageLite=messageDispatchTask.getMessageLite();
                 String channelId=messageDispatchTask.getChannelId();
                 MessageDispatcher messageDispatcher=messageDispatchTask.getMessageDispatcher();
-                ChannelHandlerContext channel = HandlerContext.getInstance().getChannel(channelId);
-                if (channel!=null&&messageLite!=null){
-                    messageDispatcher.onMessage(channel.channel(),messageLite);
+                DispatcherObj dispatcherObj = HandlerContext.getInstance().getChannel(channelId);
+                ChannelHandlerContext channelHandlerContext=dispatcherObj.getChannelHandlerContext();
+                if (channelHandlerContext!=null&&messageLite!=null){
+                    messageDispatcher.onMessage(channelHandlerContext.channel(),messageLite);
                     //处理完一个从对列中移除一个
                     MessageQueue.removeMessageLite(messageDispatchTask);
                 }

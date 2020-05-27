@@ -11,6 +11,7 @@ public enum  MessageEnum {
     ML_REGISTER_ACK(1000,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_ml_register_ack"),
     LM_UPDATE_PLY_LOGIN_STATUS_NOT(1001,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_update_ply_login_status_not"),
     LM_NOTI_MSG(1002,"com.wp.casino.messagenetty.proto","PBCSMessage","proto_lm_noti_msg"),
+
     ;
     /**
      * 消息id，必须唯一

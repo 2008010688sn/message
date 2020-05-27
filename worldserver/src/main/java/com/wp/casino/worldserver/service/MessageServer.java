@@ -7,11 +7,17 @@ import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
+import org.omg.PortableServer.THREAD_POLICY_ID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import sun.util.locale.provider.LocaleServiceProviderPool;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Timer;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author sn
@@ -78,9 +84,17 @@ public class MessageServer extends NettyTcpServer {
 //            SystemMessage re=ApplicationContextProvider.getApplicationContext().getBean(SystemMessageDao.class).save(sm);
 //            log.info("----re:"+re.getId());
             //Message回给Login，让Login转发给客户端的
-            PBCSMessage.proto_ww_user_data_change_req respose = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(333)
-                    .build();
-            channel.writeAndFlush(respose);
+            ScheduledExecutorService scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
+            scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+                @Override
+                public void run() {
+                    log.info("world定时转给message---");
+                    PBCSMessage.proto_ww_user_data_change_req respose = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(333)
+                            .build();
+                    channel.writeAndFlush(respose);
+                }
+            },60,60, TimeUnit.SECONDS);
+
         });
 
         //proto_ww_friend_msg_req协议

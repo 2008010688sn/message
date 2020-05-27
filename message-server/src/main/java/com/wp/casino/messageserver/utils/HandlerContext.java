@@ -1,5 +1,6 @@
 package com.wp.casino.messageserver.utils;
 
+import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -10,7 +11,9 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class HandlerContext {
 
-    private  static ConcurrentHashMap<String, ChannelHandlerContext> maps=new ConcurrentHashMap<>(0);
+
+
+    private  static ConcurrentHashMap<String, DispatcherObj> maps=new ConcurrentHashMap<>(0);
 
 
     private static class SingletonHolder {
@@ -24,20 +27,20 @@ public class HandlerContext {
         return SingletonHolder.INSTANCE;
     }
 
-    public void addChannel(String id,ChannelHandlerContext socket) {
-        maps.put(id,socket);
+    public void addChannel(String id,DispatcherObj dispatcherObj) {
+        maps.put(id,dispatcherObj);
     }
 
     public void removeChannel(String id) {
         maps.remove(id);
     }
 
-    public ChannelHandlerContext getChannel(String id){
-        ChannelHandlerContext ctx=maps.get(id);
-        return ctx;
+    public DispatcherObj getChannel(String id){
+        DispatcherObj dispatcherObj=maps.get(id);
+        return dispatcherObj;
     }
 
-    public ConcurrentHashMap<String, ChannelHandlerContext> getMaps(){
+    public ConcurrentHashMap<String, DispatcherObj> getMaps(){
         return maps;
     }
 

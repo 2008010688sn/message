@@ -4,6 +4,7 @@ package com.wp.casino.messageserver.service;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.PBCSMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
+import com.wp.casino.messageserver.utils.DispatcherObj;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.MessageQueue;
 import io.netty.channel.ChannelHandler;
@@ -55,10 +56,13 @@ import java.util.concurrent.atomic.AtomicInteger;
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("messageserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
         String channelId=ctx.channel().remoteAddress().toString();
+        channelId="login-server";
+        DispatcherObj dispatcherObj=new DispatcherObj();
+        dispatcherObj.setChannelHandlerContext(ctx);
+        dispatcherObj.setMessageDispatcher(messageDispatcher);
+        dispatcherObj.setChannelId(channelId);
 
-        //loginserver简历连接后发送
-
-        HandlerContext.getInstance().addChannel("login-server",ctx);
+        HandlerContext.getInstance().addChannel(channelId,dispatcherObj);
 //        MsgEntity.Msg msg = MsgEntity.Msg.newBuilder().setMsgId("haha").setContent("内容content").setId("123").setName("test").build();
 //       //从mq获取消息，发送
 //
