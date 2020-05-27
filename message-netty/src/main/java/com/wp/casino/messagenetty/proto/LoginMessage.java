@@ -7974,39 +7974,55 @@ public final class LoginMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
+       * 无用
+       * </pre>
+       *
+       * <code>null = 0;</code>
+       */
+      null(0),
+      /**
+       * <pre>
        * 已读
        * </pre>
        *
-       * <code>READ = 0;</code>
+       * <code>READ = 1;</code>
        */
-      READ(0),
+      READ(1),
       /**
        * <pre>
        * 删除
        * </pre>
        *
-       * <code>DELETED = 1;</code>
+       * <code>DELETED = 2;</code>
        */
-      DELETED(1),
+      DELETED(2),
       UNRECOGNIZED(-1),
       ;
 
       /**
        * <pre>
+       * 无用
+       * </pre>
+       *
+       * <code>null = 0;</code>
+       */
+      public static final int null_VALUE = 0;
+      /**
+       * <pre>
        * 已读
        * </pre>
        *
-       * <code>READ = 0;</code>
+       * <code>READ = 1;</code>
        */
-      public static final int READ_VALUE = 0;
+      public static final int READ_VALUE = 1;
       /**
        * <pre>
        * 删除
        * </pre>
        *
-       * <code>DELETED = 1;</code>
+       * <code>DELETED = 2;</code>
        */
-      public static final int DELETED_VALUE = 1;
+      public static final int DELETED_VALUE = 2;
 
 
       public final int getNumber() {
@@ -8027,8 +8043,9 @@ public final class LoginMessage {
 
       public static STATUS forNumber(int value) {
         switch (value) {
-          case 0: return READ;
-          case 1: return DELETED;
+          case 0: return null;
+          case 1: return READ;
+          case 2: return DELETED;
           default: return null;
         }
       }
@@ -8132,7 +8149,7 @@ public final class LoginMessage {
       if (autoIdList_ != 0L) {
         output.writeInt64(1, autoIdList_);
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.READ.getNumber()) {
+      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.null.getNumber()) {
         output.writeEnum(2, status_);
       }
       unknownFields.writeTo(output);
@@ -8148,7 +8165,7 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, autoIdList_);
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.READ.getNumber()) {
+      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.null.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, status_);
       }
@@ -17282,39 +17299,40 @@ public final class LoginMessage {
       "_uid\030\001 \001(\005\022\017\n\007game_id\030\002 \001(\005\022\025\n\rsend_msg_" +
       "time\030\003 \001(\005\022\017\n\007auto_id\030\004 \001(\005\022\016\n\006ply_id\030\005 " +
       "\001(\003\022\020\n\010chat_msg\030\006 \001(\t\022\014\n\004type\030\007 \001(\005\022\027\n\017c" +
-      "lub_message_id\030\010 \001(\005\"\217\001\n\036proto_cl_update" +
+      "lub_message_id\030\010 \001(\005\"\231\001\n\036proto_cl_update" +
       "_msg_status_req\022\024\n\014auto_id_list\030\001 \001(\003\0226\n" +
       "\006status\030\002 \001(\0162&.proto_cl_update_msg_stat" +
-      "us_req.STATUS\"\037\n\006STATUS\022\010\n\004READ\020\000\022\013\n\007DEL" +
-      "ETED\020\001\">\n\036proto_lc_update_msg_status_ack" +
-      "\022\013\n\003ret\030\001 \001(\005\022\017\n\007err_msg\030\002 \001(\t\"-\n\032proto_" +
-      "cl_get_msg_count_req\022\017\n\007club_id\030\001 \001(\005\"~\n" +
-      "\032proto_lc_get_msg_count_ack\0226\n\nresult_se" +
-      "t\030\001 \001(\0132\".proto_lc_get_msg_count_ack.Res" +
-      "ult\032(\n\006Result\022\017\n\007club_id\030\001 \001(\005\022\r\n\005count\030" +
-      "\002 \001(\005\"L\n\032proto_cf_message_wrap_sync\022\020\n\010p" +
-      "ly_guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 " +
-      "\001(\014\"*\n\025proto_lf_register_req\022\021\n\tserver_i" +
-      "d\030\001 \001(\005\"$\n\025proto_fl_register_ack\022\013\n\003ret\030" +
-      "\001 \001(\005\"\230\001\n$proto_lf_update_ply_login_stat" +
-      "us_not\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007ply_vip\030\002 \001(" +
-      "\005\022\021\n\tply_level\030\003 \001(\005\022\021\n\tnick_name\030\004 \001(\t\022" +
-      "\020\n\010head_img\030\005 \001(\t\022\025\n\ruser_language\030\006 \001(\005" +
-      "\"^\n\024proto_fl_club_notify\022\017\n\007club_id\030\001 \001(" +
-      "\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\022\027\n\017excep" +
-      "t_ply_guid\030\004 \001(\003\">\n\021proto_fl_noti_msg\022)\n" +
-      "\rnoti_msg_info\030\001 \001(\0132\022.proto_NotiMsgInfo" +
-      "\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006autoid\030\001 \001(\003\022\021" +
-      "\n\tsender_id\030\002 \001(\003\022\023\n\013reciever_id\030\003 \001(\003\022\020" +
-      "\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_show_type\030\005 \001(\005\022" +
-      "\013\n\003msg\030\006 \001(\t\022\022\n\nmsg_status\030\007 \001(\005\022\021\n\tsend" +
-      "_time\030\010 \001(\005\022\017\n\007club_id\030\t \001(\005\022\023\n\013expire_t" +
-      "ime\030\n \001(\005\022)\n\006status\030\013 \001(\0162\031.proto_NotiMs" +
-      "gInfo.STATUS\022\r\n\005title\030\014 \001(\t\"+\n\006STATUS\022\n\n" +
-      "\006UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DELETED\020\002\"<\n\034prot" +
-      "o_lc_club_apply_join_ack\022\017\n\007err_msg\030\001 \001(" +
-      "\t\022\013\n\003ret\030\002 \001(\005B2\n com.wp.casino.messagen" +
-      "etty.protoB\014LoginMessageH\001b\006proto3"
+      "us_req.STATUS\")\n\006STATUS\022\010\n\004null\020\000\022\010\n\004REA" +
+      "D\020\001\022\013\n\007DELETED\020\002\">\n\036proto_lc_update_msg_" +
+      "status_ack\022\013\n\003ret\030\001 \001(\005\022\017\n\007err_msg\030\002 \001(\t" +
+      "\"-\n\032proto_cl_get_msg_count_req\022\017\n\007club_i" +
+      "d\030\001 \001(\005\"~\n\032proto_lc_get_msg_count_ack\0226\n" +
+      "\nresult_set\030\001 \001(\0132\".proto_lc_get_msg_cou" +
+      "nt_ack.Result\032(\n\006Result\022\017\n\007club_id\030\001 \001(\005" +
+      "\022\r\n\005count\030\002 \001(\005\"L\n\032proto_cf_message_wrap" +
+      "_sync\022\020\n\010ply_guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022" +
+      "\014\n\004data\030\003 \001(\014\"*\n\025proto_lf_register_req\022\021" +
+      "\n\tserver_id\030\001 \001(\005\"$\n\025proto_fl_register_a" +
+      "ck\022\013\n\003ret\030\001 \001(\005\"\230\001\n$proto_lf_update_ply_" +
+      "login_status_not\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007pl" +
+      "y_vip\030\002 \001(\005\022\021\n\tply_level\030\003 \001(\005\022\021\n\tnick_n" +
+      "ame\030\004 \001(\t\022\020\n\010head_img\030\005 \001(\t\022\025\n\ruser_lang" +
+      "uage\030\006 \001(\005\"^\n\024proto_fl_club_notify\022\017\n\007cl" +
+      "ub_id\030\001 \001(\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(" +
+      "\014\022\027\n\017except_ply_guid\030\004 \001(\003\">\n\021proto_fl_n" +
+      "oti_msg\022)\n\rnoti_msg_info\030\001 \001(\0132\022.proto_N" +
+      "otiMsgInfo\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006auto" +
+      "id\030\001 \001(\003\022\021\n\tsender_id\030\002 \001(\003\022\023\n\013reciever_" +
+      "id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_show_t" +
+      "ype\030\005 \001(\005\022\013\n\003msg\030\006 \001(\t\022\022\n\nmsg_status\030\007 \001" +
+      "(\005\022\021\n\tsend_time\030\010 \001(\005\022\017\n\007club_id\030\t \001(\005\022\023" +
+      "\n\013expire_time\030\n \001(\005\022)\n\006status\030\013 \001(\0162\031.pr" +
+      "oto_NotiMsgInfo.STATUS\022\r\n\005title\030\014 \001(\t\"+\n" +
+      "\006STATUS\022\n\n\006UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DELETED" +
+      "\020\002\"<\n\034proto_lc_club_apply_join_ack\022\017\n\007er" +
+      "r_msg\030\001 \001(\t\022\013\n\003ret\030\002 \001(\005B2\n com.wp.casin" +
+      "o.messagenetty.protoB\014LoginMessageH\001b\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

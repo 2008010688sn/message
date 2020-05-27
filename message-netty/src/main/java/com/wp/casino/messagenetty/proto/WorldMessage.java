@@ -5941,103 +5941,119 @@ public final class WorldMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
+       * 无用
+       * </pre>
+       *
+       * <code>null = 0;</code>
+       */
+      null(0),
+      /**
+       * <pre>
        * 加入俱乐部
        * </pre>
        *
-       * <code>JoinClub = 0;</code>
+       * <code>JoinClub = 1;</code>
        */
-      JoinClub(0),
+      JoinClub(1),
       /**
        * <pre>
        * 退出俱乐部
        * </pre>
        *
-       * <code>LeaveClub = 1;</code>
+       * <code>LeaveClub = 2;</code>
        */
-      LeaveClub(1),
+      LeaveClub(2),
       /**
        * <pre>
        * 被踢出俱乐部
        * </pre>
        *
-       * <code>KickOut = 2;</code>
+       * <code>KickOut = 3;</code>
        */
-      KickOut(2),
+      KickOut(3),
       /**
        * <pre>
        * 提升管理员
        * </pre>
        *
-       * <code>ImproveAdmin = 3;</code>
+       * <code>ImproveAdmin = 4;</code>
        */
-      ImproveAdmin(3),
+      ImproveAdmin(4),
       /**
        * <pre>
        * 降级管理员
        * </pre>
        *
-       * <code>DemotionAmin = 4;</code>
+       * <code>DemotionAmin = 5;</code>
        */
-      DemotionAmin(4),
+      DemotionAmin(5),
       /**
        * <pre>
        * 拒绝加入俱乐部
        * </pre>
        *
-       * <code>RefuseJoin = 5;</code>
+       * <code>RefuseJoin = 6;</code>
        */
-      RefuseJoin(5),
+      RefuseJoin(6),
       UNRECOGNIZED(-1),
       ;
 
       /**
        * <pre>
+       * 无用
+       * </pre>
+       *
+       * <code>null = 0;</code>
+       */
+      public static final int null_VALUE = 0;
+      /**
+       * <pre>
        * 加入俱乐部
        * </pre>
        *
-       * <code>JoinClub = 0;</code>
+       * <code>JoinClub = 1;</code>
        */
-      public static final int JoinClub_VALUE = 0;
+      public static final int JoinClub_VALUE = 1;
       /**
        * <pre>
        * 退出俱乐部
        * </pre>
        *
-       * <code>LeaveClub = 1;</code>
+       * <code>LeaveClub = 2;</code>
        */
-      public static final int LeaveClub_VALUE = 1;
+      public static final int LeaveClub_VALUE = 2;
       /**
        * <pre>
        * 被踢出俱乐部
        * </pre>
        *
-       * <code>KickOut = 2;</code>
+       * <code>KickOut = 3;</code>
        */
-      public static final int KickOut_VALUE = 2;
+      public static final int KickOut_VALUE = 3;
       /**
        * <pre>
        * 提升管理员
        * </pre>
        *
-       * <code>ImproveAdmin = 3;</code>
+       * <code>ImproveAdmin = 4;</code>
        */
-      public static final int ImproveAdmin_VALUE = 3;
+      public static final int ImproveAdmin_VALUE = 4;
       /**
        * <pre>
        * 降级管理员
        * </pre>
        *
-       * <code>DemotionAmin = 4;</code>
+       * <code>DemotionAmin = 5;</code>
        */
-      public static final int DemotionAmin_VALUE = 4;
+      public static final int DemotionAmin_VALUE = 5;
       /**
        * <pre>
        * 拒绝加入俱乐部
        * </pre>
        *
-       * <code>RefuseJoin = 5;</code>
+       * <code>RefuseJoin = 6;</code>
        */
-      public static final int RefuseJoin_VALUE = 5;
+      public static final int RefuseJoin_VALUE = 6;
 
 
       public final int getNumber() {
@@ -6058,12 +6074,13 @@ public final class WorldMessage {
 
       public static TYPE forNumber(int value) {
         switch (value) {
-          case 0: return JoinClub;
-          case 1: return LeaveClub;
-          case 2: return KickOut;
-          case 3: return ImproveAdmin;
-          case 4: return DemotionAmin;
-          case 5: return RefuseJoin;
+          case 0: return null;
+          case 1: return JoinClub;
+          case 2: return LeaveClub;
+          case 3: return KickOut;
+          case 4: return ImproveAdmin;
+          case 5: return DemotionAmin;
+          case 6: return RefuseJoin;
           default: return null;
         }
       }
@@ -6313,7 +6330,7 @@ public final class WorldMessage {
       if (!getPlyNicknameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, plyNickname_);
       }
-      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub.getNumber()) {
+      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.null.getNumber()) {
         output.writeEnum(5, reason_);
       }
       if (whoGuid_ != 0L) {
@@ -6348,7 +6365,7 @@ public final class WorldMessage {
       if (!getPlyNicknameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, plyNickname_);
       }
-      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub.getNumber()) {
+      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.null.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, reason_);
       }
@@ -7232,16 +7249,16 @@ public final class WorldMessage {
       "\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\021\n\tclub_name\030\003 \001" +
       "(\t\022\024\n\014ply_nickname\030\004 \001(\t\"G\n proto_wf_clu" +
       "b_member_update_noti\022#\n\004info\030\001 \001(\0132\025.Clu" +
-      "bMemberUpdateInfo\"\254\002\n\024ClubMemberUpdateIn" +
+      "bMemberUpdateInfo\"\266\002\n\024ClubMemberUpdateIn" +
       "fo\022\017\n\007club_id\030\001 \001(\005\022\021\n\tclub_name\030\002 \001(\t\022\020" +
       "\n\010ply_guid\030\003 \001(\003\022\024\n\014ply_nickname\030\004 \001(\t\022*" +
       "\n\006reason\030\005 \001(\0162\032.ClubMemberUpdateInfo.TY" +
       "PE\022\020\n\010who_guid\030\006 \001(\003\022\020\n\010who_name\030\007 \001(\t\022\022" +
-      "\n\nmessage_id\030\010 \001(\003\"d\n\004TYPE\022\014\n\010JoinClub\020\000" +
-      "\022\r\n\tLeaveClub\020\001\022\013\n\007KickOut\020\002\022\020\n\014ImproveA" +
-      "dmin\020\003\022\020\n\014DemotionAmin\020\004\022\016\n\nRefuseJoin\020\005" +
-      "B2\n com.wp.casino.messagenetty.protoB\014Wo" +
-      "rldMessageH\001b\006proto3"
+      "\n\nmessage_id\030\010 \001(\003\"n\n\004TYPE\022\010\n\004null\020\000\022\014\n\010" +
+      "JoinClub\020\001\022\r\n\tLeaveClub\020\002\022\013\n\007KickOut\020\003\022\020" +
+      "\n\014ImproveAdmin\020\004\022\020\n\014DemotionAmin\020\005\022\016\n\nRe" +
+      "fuseJoin\020\006B2\n com.wp.casino.messagenetty" +
+      ".protoB\014WorldMessageH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
