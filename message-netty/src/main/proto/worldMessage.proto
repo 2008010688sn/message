@@ -5,14 +5,15 @@ option optimize_for=SPEED;
 option java_package = "com.wp.casino.messagenetty.proto";
 option java_outer_classname = "WorldMessage";
 
-// 7136
-message proto_ww_trumpet_req{
-	int64	ply_guid	=	1;
-	string	ply_nickname	=	2;
-	string	message	=	3;
-	int32	game_id	=	4;
-	string	game_name	=	5;
-}
+//pt_fw_register_req 7180
+message proto_fw_register_req {
+	int32 server_id = 1;
+};
+
+//pt_wf_register_ack 7181
+message proto_wf_register_ack {
+	int32 ret = 1;
+};
 
 //pt_wf_system_chat_req  7183
 message proto_wf_system_chat_req {

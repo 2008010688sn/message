@@ -125,6 +125,14 @@ message proto_cf_message_wrap_sync {
     bytes data = 3;
 }
 
+// message让login原封不动的转发给客户端的消息封装
+message proto_fc_message_wrap_sync
+{
+	int64		ply_guid = 1;
+	int32		opcode = 2;
+	bytes		data = 3;
+}
+
 
 //==============message2login============================
 //Login去Message注册  22000

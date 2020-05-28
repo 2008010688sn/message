@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Data
 public class ReceiveObj implements Serializable {
 
-    private Long id;
+    private long id;
 
     private Integer status;
 

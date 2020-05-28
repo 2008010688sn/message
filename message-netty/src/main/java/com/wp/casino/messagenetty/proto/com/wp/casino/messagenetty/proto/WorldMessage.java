@@ -14,72 +14,33 @@ public final class WorldMessage {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface proto_ww_trumpet_reqOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:proto_ww_trumpet_req)
+  public interface proto_fw_register_reqOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_fw_register_req)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>int32 server_id = 1;</code>
      */
-    long getPlyGuid();
-
-    /**
-     * <code>string ply_nickname = 2;</code>
-     */
-    java.lang.String getPlyNickname();
-    /**
-     * <code>string ply_nickname = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getPlyNicknameBytes();
-
-    /**
-     * <code>string message = 3;</code>
-     */
-    java.lang.String getMessage();
-    /**
-     * <code>string message = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getMessageBytes();
-
-    /**
-     * <code>int32 game_id = 4;</code>
-     */
-    int getGameId();
-
-    /**
-     * <code>string game_name = 5;</code>
-     */
-    java.lang.String getGameName();
-    /**
-     * <code>string game_name = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getGameNameBytes();
+    int getServerId();
   }
   /**
    * <pre>
-   * 7136
+   *pt_fw_register_req 7180
    * </pre>
    *
-   * Protobuf type {@code proto_ww_trumpet_req}
+   * Protobuf type {@code proto_fw_register_req}
    */
-  public  static final class proto_ww_trumpet_req extends
+  public  static final class proto_fw_register_req extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:proto_ww_trumpet_req)
-      proto_ww_trumpet_reqOrBuilder {
+      // @@protoc_insertion_point(message_implements:proto_fw_register_req)
+      proto_fw_register_reqOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use proto_ww_trumpet_req.newBuilder() to construct.
-    private proto_ww_trumpet_req(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use proto_fw_register_req.newBuilder() to construct.
+    private proto_fw_register_req(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private proto_ww_trumpet_req() {
-      plyGuid_ = 0L;
-      plyNickname_ = "";
-      message_ = "";
-      gameId_ = 0;
-      gameName_ = "";
+    private proto_fw_register_req() {
+      serverId_ = 0;
     }
 
     @java.lang.Override
@@ -87,7 +48,7 @@ public final class WorldMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private proto_ww_trumpet_req(
+    private proto_fw_register_req(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -108,30 +69,7 @@ public final class WorldMessage {
               break;
             case 8: {
 
-              plyGuid_ = input.readInt64();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              plyNickname_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              message_ = s;
-              break;
-            }
-            case 32: {
-
-              gameId_ = input.readInt32();
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              gameName_ = s;
+              serverId_ = input.readInt32();
               break;
             }
             default: {
@@ -155,135 +93,24 @@ public final class WorldMessage {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_ww_trumpet_req_descriptor;
+      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_fw_register_req_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_ww_trumpet_req_fieldAccessorTable
+      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_fw_register_req_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.Builder.class);
+              com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.Builder.class);
     }
 
-    public static final int PLY_GUID_FIELD_NUMBER = 1;
-    private long plyGuid_;
+    public static final int SERVER_ID_FIELD_NUMBER = 1;
+    private int serverId_;
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>int32 server_id = 1;</code>
      */
-    public long getPlyGuid() {
-      return plyGuid_;
-    }
-
-    public static final int PLY_NICKNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object plyNickname_;
-    /**
-     * <code>string ply_nickname = 2;</code>
-     */
-    public java.lang.String getPlyNickname() {
-      java.lang.Object ref = plyNickname_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        plyNickname_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string ply_nickname = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getPlyNicknameBytes() {
-      java.lang.Object ref = plyNickname_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        plyNickname_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int MESSAGE_FIELD_NUMBER = 3;
-    private volatile java.lang.Object message_;
-    /**
-     * <code>string message = 3;</code>
-     */
-    public java.lang.String getMessage() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        message_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string message = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMessageBytes() {
-      java.lang.Object ref = message_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        message_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int GAME_ID_FIELD_NUMBER = 4;
-    private int gameId_;
-    /**
-     * <code>int32 game_id = 4;</code>
-     */
-    public int getGameId() {
-      return gameId_;
-    }
-
-    public static final int GAME_NAME_FIELD_NUMBER = 5;
-    private volatile java.lang.Object gameName_;
-    /**
-     * <code>string game_name = 5;</code>
-     */
-    public java.lang.String getGameName() {
-      java.lang.Object ref = gameName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        gameName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string game_name = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getGameNameBytes() {
-      java.lang.Object ref = gameName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        gameName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getServerId() {
+      return serverId_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -300,20 +127,8 @@ public final class WorldMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (plyGuid_ != 0L) {
-        output.writeInt64(1, plyGuid_);
-      }
-      if (!getPlyNicknameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, plyNickname_);
-      }
-      if (!getMessageBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, message_);
-      }
-      if (gameId_ != 0) {
-        output.writeInt32(4, gameId_);
-      }
-      if (!getGameNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, gameName_);
+      if (serverId_ != 0) {
+        output.writeInt32(1, serverId_);
       }
       unknownFields.writeTo(output);
     }
@@ -324,22 +139,9 @@ public final class WorldMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (plyGuid_ != 0L) {
+      if (serverId_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, plyGuid_);
-      }
-      if (!getPlyNicknameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, plyNickname_);
-      }
-      if (!getMessageBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, message_);
-      }
-      if (gameId_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, gameId_);
-      }
-      if (!getGameNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, gameName_);
+          .computeInt32Size(1, serverId_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -351,22 +153,14 @@ public final class WorldMessage {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req)) {
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req)) {
         return super.equals(obj);
       }
-      com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req) obj;
+      com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req) obj;
 
       boolean result = true;
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && getPlyNickname()
-          .equals(other.getPlyNickname());
-      result = result && getMessage()
-          .equals(other.getMessage());
-      result = result && (getGameId()
-          == other.getGameId());
-      result = result && getGameName()
-          .equals(other.getGameName());
+      result = result && (getServerId()
+          == other.getServerId());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -378,85 +172,76 @@ public final class WorldMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + PLY_NICKNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getPlyNickname().hashCode();
-      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getMessage().hashCode();
-      hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getGameId();
-      hash = (37 * hash) + GAME_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getGameName().hashCode();
+      hash = (37 * hash) + SERVER_ID_FIELD_NUMBER;
+      hash = (53 * hash) + getServerId();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(byte[] data)
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseDelimitedFrom(java.io.InputStream input)
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseDelimitedFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parseFrom(
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -469,7 +254,7 @@ public final class WorldMessage {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req prototype) {
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -486,29 +271,29 @@ public final class WorldMessage {
     }
     /**
      * <pre>
-     * 7136
+     *pt_fw_register_req 7180
      * </pre>
      *
-     * Protobuf type {@code proto_ww_trumpet_req}
+     * Protobuf type {@code proto_fw_register_req}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:proto_ww_trumpet_req)
-        com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_reqOrBuilder {
+        // @@protoc_insertion_point(builder_implements:proto_fw_register_req)
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_reqOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_ww_trumpet_req_descriptor;
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_fw_register_req_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_ww_trumpet_req_fieldAccessorTable
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_fw_register_req_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.Builder.class);
+                com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.Builder.class);
       }
 
-      // Construct using com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.newBuilder()
+      // Construct using com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -526,15 +311,7 @@ public final class WorldMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        plyGuid_ = 0L;
-
-        plyNickname_ = "";
-
-        message_ = "";
-
-        gameId_ = 0;
-
-        gameName_ = "";
+        serverId_ = 0;
 
         return this;
       }
@@ -542,17 +319,17 @@ public final class WorldMessage {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_ww_trumpet_req_descriptor;
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_fw_register_req_descriptor;
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req getDefaultInstanceForType() {
-        return com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.getDefaultInstance();
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req build() {
-        com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req result = buildPartial();
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req build() {
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -560,13 +337,9 @@ public final class WorldMessage {
       }
 
       @java.lang.Override
-      public com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req buildPartial() {
-        com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req result = new com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req(this);
-        result.plyGuid_ = plyGuid_;
-        result.plyNickname_ = plyNickname_;
-        result.message_ = message_;
-        result.gameId_ = gameId_;
-        result.gameName_ = gameName_;
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req buildPartial() {
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req result = new com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req(this);
+        result.serverId_ = serverId_;
         onBuilt();
         return result;
       }
@@ -605,33 +378,18 @@ public final class WorldMessage {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req) {
-          return mergeFrom((com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req)other);
+        if (other instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req other) {
-        if (other == com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req.getDefaultInstance()) return this;
-        if (other.getPlyGuid() != 0L) {
-          setPlyGuid(other.getPlyGuid());
-        }
-        if (!other.getPlyNickname().isEmpty()) {
-          plyNickname_ = other.plyNickname_;
-          onChanged();
-        }
-        if (!other.getMessage().isEmpty()) {
-          message_ = other.message_;
-          onChanged();
-        }
-        if (other.getGameId() != 0) {
-          setGameId(other.getGameId());
-        }
-        if (!other.getGameName().isEmpty()) {
-          gameName_ = other.gameName_;
-          onChanged();
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req other) {
+        if (other == com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req.getDefaultInstance()) return this;
+        if (other.getServerId() != 0) {
+          setServerId(other.getServerId());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -648,11 +406,11 @@ public final class WorldMessage {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req parsedMessage = null;
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req) e.getUnfinishedMessage();
+          parsedMessage = (com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -662,261 +420,28 @@ public final class WorldMessage {
         return this;
       }
 
-      private long plyGuid_ ;
+      private int serverId_ ;
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>int32 server_id = 1;</code>
        */
-      public long getPlyGuid() {
-        return plyGuid_;
+      public int getServerId() {
+        return serverId_;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>int32 server_id = 1;</code>
        */
-      public Builder setPlyGuid(long value) {
+      public Builder setServerId(int value) {
         
-        plyGuid_ = value;
+        serverId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>int32 server_id = 1;</code>
        */
-      public Builder clearPlyGuid() {
+      public Builder clearServerId() {
         
-        plyGuid_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object plyNickname_ = "";
-      /**
-       * <code>string ply_nickname = 2;</code>
-       */
-      public java.lang.String getPlyNickname() {
-        java.lang.Object ref = plyNickname_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          plyNickname_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string ply_nickname = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getPlyNicknameBytes() {
-        java.lang.Object ref = plyNickname_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          plyNickname_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string ply_nickname = 2;</code>
-       */
-      public Builder setPlyNickname(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        plyNickname_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string ply_nickname = 2;</code>
-       */
-      public Builder clearPlyNickname() {
-        
-        plyNickname_ = getDefaultInstance().getPlyNickname();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string ply_nickname = 2;</code>
-       */
-      public Builder setPlyNicknameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        plyNickname_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object message_ = "";
-      /**
-       * <code>string message = 3;</code>
-       */
-      public java.lang.String getMessage() {
-        java.lang.Object ref = message_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          message_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string message = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getMessageBytes() {
-        java.lang.Object ref = message_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          message_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string message = 3;</code>
-       */
-      public Builder setMessage(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        message_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 3;</code>
-       */
-      public Builder clearMessage() {
-        
-        message_ = getDefaultInstance().getMessage();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string message = 3;</code>
-       */
-      public Builder setMessageBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        message_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int gameId_ ;
-      /**
-       * <code>int32 game_id = 4;</code>
-       */
-      public int getGameId() {
-        return gameId_;
-      }
-      /**
-       * <code>int32 game_id = 4;</code>
-       */
-      public Builder setGameId(int value) {
-        
-        gameId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int32 game_id = 4;</code>
-       */
-      public Builder clearGameId() {
-        
-        gameId_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object gameName_ = "";
-      /**
-       * <code>string game_name = 5;</code>
-       */
-      public java.lang.String getGameName() {
-        java.lang.Object ref = gameName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          gameName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string game_name = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getGameNameBytes() {
-        java.lang.Object ref = gameName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          gameName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string game_name = 5;</code>
-       */
-      public Builder setGameName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        gameName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string game_name = 5;</code>
-       */
-      public Builder clearGameName() {
-        
-        gameName_ = getDefaultInstance().getGameName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string game_name = 5;</code>
-       */
-      public Builder setGameNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        gameName_ = value;
+        serverId_ = 0;
         onChanged();
         return this;
       }
@@ -933,41 +458,525 @@ public final class WorldMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:proto_ww_trumpet_req)
+      // @@protoc_insertion_point(builder_scope:proto_fw_register_req)
     }
 
-    // @@protoc_insertion_point(class_scope:proto_ww_trumpet_req)
-    private static final com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:proto_fw_register_req)
+    private static final com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req();
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req();
     }
 
-    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req getDefaultInstance() {
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_ww_trumpet_req>
-        PARSER = new com.google.protobuf.AbstractParser<proto_ww_trumpet_req>() {
+    private static final com.google.protobuf.Parser<proto_fw_register_req>
+        PARSER = new com.google.protobuf.AbstractParser<proto_fw_register_req>() {
       @java.lang.Override
-      public proto_ww_trumpet_req parsePartialFrom(
+      public proto_fw_register_req parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new proto_ww_trumpet_req(input, extensionRegistry);
+        return new proto_fw_register_req(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<proto_ww_trumpet_req> parser() {
+    public static com.google.protobuf.Parser<proto_fw_register_req> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<proto_ww_trumpet_req> getParserForType() {
+    public com.google.protobuf.Parser<proto_fw_register_req> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.wp.casino.messagenetty.proto.WorldMessage.proto_ww_trumpet_req getDefaultInstanceForType() {
+    public com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface proto_wf_register_ackOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_wf_register_ack)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int32 ret = 1;</code>
+     */
+    int getRet();
+  }
+  /**
+   * <pre>
+   *pt_wf_register_ack 7181
+   * </pre>
+   *
+   * Protobuf type {@code proto_wf_register_ack}
+   */
+  public  static final class proto_wf_register_ack extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto_wf_register_ack)
+      proto_wf_register_ackOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use proto_wf_register_ack.newBuilder() to construct.
+    private proto_wf_register_ack(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private proto_wf_register_ack() {
+      ret_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private proto_wf_register_ack(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              ret_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_wf_register_ack_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_wf_register_ack_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.Builder.class);
+    }
+
+    public static final int RET_FIELD_NUMBER = 1;
+    private int ret_;
+    /**
+     * <code>int32 ret = 1;</code>
+     */
+    public int getRet() {
+      return ret_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (ret_ != 0) {
+        output.writeInt32(1, ret_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (ret_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, ret_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack)) {
+        return super.equals(obj);
+      }
+      com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack) obj;
+
+      boolean result = true;
+      result = result && (getRet()
+          == other.getRet());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + RET_FIELD_NUMBER;
+      hash = (53 * hash) + getRet();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     *pt_wf_register_ack 7181
+     * </pre>
+     *
+     * Protobuf type {@code proto_wf_register_ack}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto_wf_register_ack)
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ackOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_wf_register_ack_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_wf_register_ack_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.class, com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.Builder.class);
+      }
+
+      // Construct using com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        ret_ = 0;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.wp.casino.messagenetty.proto.WorldMessage.internal_static_proto_wf_register_ack_descriptor;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack build() {
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack buildPartial() {
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack result = new com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack(this);
+        result.ret_ = ret_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack other) {
+        if (other == com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack.getDefaultInstance()) return this;
+        if (other.getRet() != 0) {
+          setRet(other.getRet());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int ret_ ;
+      /**
+       * <code>int32 ret = 1;</code>
+       */
+      public int getRet() {
+        return ret_;
+      }
+      /**
+       * <code>int32 ret = 1;</code>
+       */
+      public Builder setRet(int value) {
+        
+        ret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int32 ret = 1;</code>
+       */
+      public Builder clearRet() {
+        
+        ret_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto_wf_register_ack)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto_wf_register_ack)
+    private static final com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack();
+    }
+
+    public static com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<proto_wf_register_ack>
+        PARSER = new com.google.protobuf.AbstractParser<proto_wf_register_ack>() {
+      @java.lang.Override
+      public proto_wf_register_ack parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new proto_wf_register_ack(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<proto_wf_register_ack> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<proto_wf_register_ack> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -7181,10 +7190,15 @@ public final class WorldMessage {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_ww_trumpet_req_descriptor;
+    internal_static_proto_fw_register_req_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_ww_trumpet_req_fieldAccessorTable;
+      internal_static_proto_fw_register_req_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_wf_register_ack_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_wf_register_ack_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_wf_system_chat_req_descriptor;
   private static final 
@@ -7229,36 +7243,35 @@ public final class WorldMessage {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022worldMessage.proto\"s\n\024proto_ww_trumpet" +
-      "_req\022\020\n\010ply_guid\030\001 \001(\003\022\024\n\014ply_nickname\030\002" +
-      " \001(\t\022\017\n\007message\030\003 \001(\t\022\017\n\007game_id\030\004 \001(\005\022\021" +
-      "\n\tgame_name\030\005 \001(\t\"=\n\030proto_wf_system_cha" +
-      "t_req\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007message\030\002 \001(\t" +
-      "\";\n\025proto_wf_web_msg_noti\022\020\n\010msg_type\030\001 " +
-      "\001(\005\022\020\n\010msg_data\030\002 \001(\014\"\243\001\n\026proto_wl_noti_" +
-      "msg_data\022\021\n\tsender_id\030\001 \001(\003\022\023\n\013reciever_" +
-      "id\030\002 \001(\003\022\020\n\010msg_type\030\003 \001(\005\022\025\n\rshow_msg_t" +
-      "ype\030\004 \001(\005\022\023\n\013msg_content\030\005 \001(\t\022\017\n\007club_i" +
-      "d\030\006 \001(\005\022\022\n\nmsg_rst_id\030\007 \001(\t\"\317\001\n\027proto_wf" +
-      "_join_room_noti\022\020\n\010table_id\030\001 \001(\005\022\020\n\010ply" +
-      "_guid\030\002 \001(\003\022\024\n\014ply_nickname\030\003 \001(\t\022\017\n\007gam" +
-      "e_id\030\004 \001(\005\022\021\n\tserver_id\030\005 \001(\005\022\022\n\nowner_g" +
-      "uid\030\006 \001(\003\022\022\n\ntable_name\030\007 \001(\t\022\031\n\021table_c" +
-      "reate_time\030\010 \001(\005\022\023\n\013invite_code\030\t \001(\005\"i\n" +
-      "\033proto_wf_break_up_club_noti\022\017\n\007club_id\030" +
-      "\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\021\n\tclub_name\030\003 \001" +
-      "(\t\022\024\n\014ply_nickname\030\004 \001(\t\"G\n proto_wf_clu" +
-      "b_member_update_noti\022#\n\004info\030\001 \001(\0132\025.Clu" +
-      "bMemberUpdateInfo\"\273\002\n\024ClubMemberUpdateIn" +
-      "fo\022\017\n\007club_id\030\001 \001(\005\022\021\n\tclub_name\030\002 \001(\t\022\020" +
-      "\n\010ply_guid\030\003 \001(\003\022\024\n\014ply_nickname\030\004 \001(\t\022*" +
-      "\n\006reason\030\005 \001(\0162\032.ClubMemberUpdateInfo.TY" +
-      "PE\022\020\n\010who_guid\030\006 \001(\003\022\020\n\010who_name\030\007 \001(\t\022\022" +
-      "\n\nmessage_id\030\010 \001(\003\"s\n\004TYPE\022\r\n\tnullValue\020" +
-      "\000\022\014\n\010JoinClub\020\001\022\r\n\tLeaveClub\020\002\022\013\n\007KickOu" +
-      "t\020\003\022\020\n\014ImproveAdmin\020\004\022\020\n\014DemotionAmin\020\005\022" +
-      "\016\n\nRefuseJoin\020\006B2\n com.wp.casino.message" +
-      "netty.protoB\014WorldMessageH\001b\006proto3"
+      "\n\022worldMessage.proto\"*\n\025proto_fw_registe" +
+      "r_req\022\021\n\tserver_id\030\001 \001(\005\"$\n\025proto_wf_reg" +
+      "ister_ack\022\013\n\003ret\030\001 \001(\005\"=\n\030proto_wf_syste" +
+      "m_chat_req\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007message\030" +
+      "\002 \001(\t\";\n\025proto_wf_web_msg_noti\022\020\n\010msg_ty" +
+      "pe\030\001 \001(\005\022\020\n\010msg_data\030\002 \001(\014\"\243\001\n\026proto_wl_" +
+      "noti_msg_data\022\021\n\tsender_id\030\001 \001(\003\022\023\n\013reci" +
+      "ever_id\030\002 \001(\003\022\020\n\010msg_type\030\003 \001(\005\022\025\n\rshow_" +
+      "msg_type\030\004 \001(\005\022\023\n\013msg_content\030\005 \001(\t\022\017\n\007c" +
+      "lub_id\030\006 \001(\005\022\022\n\nmsg_rst_id\030\007 \001(\t\"\317\001\n\027pro" +
+      "to_wf_join_room_noti\022\020\n\010table_id\030\001 \001(\005\022\020" +
+      "\n\010ply_guid\030\002 \001(\003\022\024\n\014ply_nickname\030\003 \001(\t\022\017" +
+      "\n\007game_id\030\004 \001(\005\022\021\n\tserver_id\030\005 \001(\005\022\022\n\now" +
+      "ner_guid\030\006 \001(\003\022\022\n\ntable_name\030\007 \001(\t\022\031\n\021ta" +
+      "ble_create_time\030\010 \001(\005\022\023\n\013invite_code\030\t \001" +
+      "(\005\"i\n\033proto_wf_break_up_club_noti\022\017\n\007clu" +
+      "b_id\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\021\n\tclub_nam" +
+      "e\030\003 \001(\t\022\024\n\014ply_nickname\030\004 \001(\t\"G\n proto_w" +
+      "f_club_member_update_noti\022#\n\004info\030\001 \001(\0132" +
+      "\025.ClubMemberUpdateInfo\"\273\002\n\024ClubMemberUpd" +
+      "ateInfo\022\017\n\007club_id\030\001 \001(\005\022\021\n\tclub_name\030\002 " +
+      "\001(\t\022\020\n\010ply_guid\030\003 \001(\003\022\024\n\014ply_nickname\030\004 " +
+      "\001(\t\022*\n\006reason\030\005 \001(\0162\032.ClubMemberUpdateIn" +
+      "fo.TYPE\022\020\n\010who_guid\030\006 \001(\003\022\020\n\010who_name\030\007 " +
+      "\001(\t\022\022\n\nmessage_id\030\010 \001(\003\"s\n\004TYPE\022\r\n\tnullV" +
+      "alue\020\000\022\014\n\010JoinClub\020\001\022\r\n\tLeaveClub\020\002\022\013\n\007K" +
+      "ickOut\020\003\022\020\n\014ImproveAdmin\020\004\022\020\n\014DemotionAm" +
+      "in\020\005\022\016\n\nRefuseJoin\020\006B2\n com.wp.casino.me" +
+      "ssagenetty.protoB\014WorldMessageH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7272,50 +7285,56 @@ public final class WorldMessage {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_proto_ww_trumpet_req_descriptor =
+    internal_static_proto_fw_register_req_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_proto_ww_trumpet_req_fieldAccessorTable = new
+    internal_static_proto_fw_register_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_ww_trumpet_req_descriptor,
-        new java.lang.String[] { "PlyGuid", "PlyNickname", "Message", "GameId", "GameName", });
-    internal_static_proto_wf_system_chat_req_descriptor =
+        internal_static_proto_fw_register_req_descriptor,
+        new java.lang.String[] { "ServerId", });
+    internal_static_proto_wf_register_ack_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_proto_wf_register_ack_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_wf_register_ack_descriptor,
+        new java.lang.String[] { "Ret", });
+    internal_static_proto_wf_system_chat_req_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_proto_wf_system_chat_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wf_system_chat_req_descriptor,
         new java.lang.String[] { "PlyGuid", "Message", });
     internal_static_proto_wf_web_msg_noti_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_proto_wf_web_msg_noti_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wf_web_msg_noti_descriptor,
         new java.lang.String[] { "MsgType", "MsgData", });
     internal_static_proto_wl_noti_msg_data_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_proto_wl_noti_msg_data_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wl_noti_msg_data_descriptor,
         new java.lang.String[] { "SenderId", "RecieverId", "MsgType", "ShowMsgType", "MsgContent", "ClubId", "MsgRstId", });
     internal_static_proto_wf_join_room_noti_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_proto_wf_join_room_noti_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wf_join_room_noti_descriptor,
         new java.lang.String[] { "TableId", "PlyGuid", "PlyNickname", "GameId", "ServerId", "OwnerGuid", "TableName", "TableCreateTime", "InviteCode", });
     internal_static_proto_wf_break_up_club_noti_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_proto_wf_break_up_club_noti_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wf_break_up_club_noti_descriptor,
         new java.lang.String[] { "ClubId", "PlyGuid", "ClubName", "PlyNickname", });
     internal_static_proto_wf_club_member_update_noti_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_proto_wf_club_member_update_noti_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_wf_club_member_update_noti_descriptor,
         new java.lang.String[] { "Info", });
     internal_static_ClubMemberUpdateInfo_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_ClubMemberUpdateInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ClubMemberUpdateInfo_descriptor,

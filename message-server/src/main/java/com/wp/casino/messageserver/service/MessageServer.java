@@ -77,7 +77,11 @@ public class MessageServer extends NettyTcpServer {
     @Override
     public void init() {
         super.init();
-        //客户端发送给消息服务器的消息包装
+
+        //客户端发送给消息服务器的消息包装(login原封不动的转发)
+        //proto_cl_load_noti_msg_req
+        //proto_cl_update_msg_status_req
+        //proto_cl_get_msg_count_req
         messageDispatcher.registerHandler(LoginMessage.proto_cf_message_wrap_sync.class,
                 (channel, message) -> {
             int opcode = message.getOpcode();
@@ -88,6 +92,47 @@ public class MessageServer extends NettyTcpServer {
             }
             MessageLite messageLite = (MessageLite) parser.parseFrom(data.toByteArray());
             messageDispatcher.onMessage(channel, messageLite);
+        });
+
+        //消息通知请求
+        messageDispatcher.registerHandler(LoginMessage.proto_cl_load_noti_msg_req.class,
+                (channel, message) -> {
+            //拉取消息记录
+
+            // 回执
+            LoginMessage.proto_lc_load_noti_msg_ack response = LoginMessage
+                    .proto_lc_load_noti_msg_ack.newBuilder()
+                    .build();
+            channel.writeAndFlush(response);
+        });
+
+        //修改消息的状态
+        messageDispatcher.registerHandler(LoginMessage.proto_cl_update_msg_status_req.class,
+                (channel, message) -> {
+            //修改mongo状态
+            Query query = new Query(Criteria.where("id").is(message.getAutoIdList()));
+            Update update = new Update();
+            update.set("ReceiveObj.0.status", message.getStatusValue());
+            systemMessageDao.update(query,update);
+
+            // 回执
+            LoginMessage.proto_lc_update_msg_status_ack response = LoginMessage
+                    .proto_lc_update_msg_status_ack.newBuilder()
+                    .setRet(0).build();
+            channel.writeAndFlush(response);
+
+        });
+
+        // 获取未读消息数目
+        messageDispatcher.registerHandler(LoginMessage.proto_cl_get_msg_count_req.class,
+            (channel, message) -> {
+            // 查找数目
+
+            // 回执
+            LoginMessage.proto_lc_get_msg_count_ack response = LoginMessage
+                    .proto_lc_get_msg_count_ack.newBuilder()
+                    .build();
+            channel.writeAndFlush(response);
         });
 
         //Login去Message注册,
@@ -131,17 +176,7 @@ public class MessageServer extends NettyTcpServer {
             // 统一回执
         });
 
-        //消息通知请求
-        messageDispatcher.registerHandler(LoginMessage.proto_cl_load_noti_msg_req.class,
-                (channel, message) -> {
-            //拉取消息记录
 
-            // 回执
-            LoginMessage.proto_lc_load_noti_msg_ack response = LoginMessage
-                    .proto_lc_load_noti_msg_ack.newBuilder()
-                    .build();
-            channel.writeAndFlush(response);
-        });
         //获取俱乐部聊天记录-
         messageDispatcher.registerHandler(LoginMessage.proto_cf_add_club_chat_record_req.class,
                 (channel, message) -> {
@@ -168,34 +203,9 @@ public class MessageServer extends NettyTcpServer {
         });
 
 
-        //修改消息的状态
-        messageDispatcher.registerHandler(LoginMessage.proto_cl_update_msg_status_req.class,
-                (channel, message) -> {
-            //修改mongo状态
-            Query query = new Query(Criteria.where("id").is(message.getAutoIdList()));
-            Update update = new Update();
-            update.set("ReceiveObj.0.status", message.getStatusValue());
-            systemMessageDao.update(query,update);
 
-            // 回执
-            LoginMessage.proto_lc_update_msg_status_ack response = LoginMessage
-                    .proto_lc_update_msg_status_ack.newBuilder()
-                    .setRet(0).build();
-            channel.writeAndFlush(response);
 
-        });
 
-        // 获取未读消息数目
-        messageDispatcher.registerHandler(LoginMessage.proto_cl_get_msg_count_req.class,
-                (channel, message) -> {
-            // 查找数目
-
-            // 回执
-            LoginMessage.proto_lc_get_msg_count_ack response = LoginMessage
-                    .proto_lc_get_msg_count_ack.newBuilder()
-                    .build();
-            channel.writeAndFlush(response);
-        });
 
 
 //        Message回给Login，让Login转发给客户端的
