@@ -88,19 +88,19 @@ public class MessageServer extends NettyTcpServer {
 
         //Login去Message注册,
         // message回复login注册结果
-        messageDispatcher.registerHandler(LoginMessage.proto_lm_register_req.class,
+        messageDispatcher.registerHandler(LoginMessage.proto_lf_register_req.class,
                 (channel, message)->{
             //维护channel
             String channelId=channel.remoteAddress().toString();
             HandlerContext.getInstance().addChannel(channelId,channel);
             //Message回复Login注册结果
-            LoginMessage.proto_ml_register_ack response=LoginMessage.proto_ml_register_ack
+            LoginMessage.proto_fl_register_ack response=LoginMessage.proto_fl_register_ack
                     .newBuilder().setRet(1).build();
             channel.writeAndFlush(response);
         });
 
         //Login所有连接到它的玩家信息告知Message;
-        messageDispatcher.registerHandler(LoginMessage.proto_lm_update_ply_login_status_not.class,
+        messageDispatcher.registerHandler(LoginMessage.proto_lf_update_ply_login_status_not.class,
                 (channel,message)->{
             // 用户注册，维护用户和地址
             String channelId=channel.remoteAddress().toString();
@@ -195,7 +195,7 @@ public class MessageServer extends NettyTcpServer {
 
 
 //        Message回给Login，让Login转发给客户端的
-        messageDispatcher.registerHandler(LoginMessage.proto_lm_noti_msg.class,
+        messageDispatcher.registerHandler(LoginMessage.proto_fl_noti_msg.class,
                 (channel,message)->{
 
 
