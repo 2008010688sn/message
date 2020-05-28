@@ -91,7 +91,7 @@ message proto_ClubChatRecordInfoStruct {
 message proto_cl_update_msg_status_req {
   enum STATUS
   {
-    null = 0; // 无用
+    nullValue = 0; // 无用
     READ = 1;    // 已读
     DELETED = 2;  // 删除
   }
