@@ -10,6 +10,8 @@ import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messagenetty.utils.MessageMappingHolder;
 import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
+import com.wp.casino.messageserver.dao.mysql.ClubRepository;
+import com.wp.casino.messageserver.domain.PyqClubMembers;
 import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.HandlerServerContext;
@@ -21,6 +23,8 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 /**
  * @author sn
@@ -243,5 +247,16 @@ public class MessageServer extends NettyTcpServer {
     @Override
     public ChannelHandler getChannelHandler() {
         return channelHandler;
+    }
+
+    /**
+     * 根据clubId获取俱乐部创建者和管理员信息
+     * @param clubId
+     * @return
+     */
+    public List<PyqClubMembers> getClubAdminList(Integer clubId){
+        ClubRepository clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubRepository.class);
+        List<PyqClubMembers> clubAdminLlist = clubRepository.findClubAdmin(clubId);
+        return clubAdminLlist;
     }
 }
