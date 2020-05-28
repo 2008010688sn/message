@@ -5944,9 +5944,9 @@ public final class WorldMessage {
        * 无用
        * </pre>
        *
-       * <code>null = 0;</code>
+       * <code>nullValue = 0;</code>
        */
-      null(0),
+      nullValue(0),
       /**
        * <pre>
        * 加入俱乐部
@@ -6003,9 +6003,9 @@ public final class WorldMessage {
        * 无用
        * </pre>
        *
-       * <code>null = 0;</code>
+       * <code>nullValue = 0;</code>
        */
-      public static final int null_VALUE = 0;
+      public static final int nullValue_VALUE = 0;
       /**
        * <pre>
        * 加入俱乐部
@@ -6074,7 +6074,7 @@ public final class WorldMessage {
 
       public static TYPE forNumber(int value) {
         switch (value) {
-          case 0: return null;
+          case 0: return nullValue;
           case 1: return JoinClub;
           case 2: return LeaveClub;
           case 3: return KickOut;
@@ -6330,7 +6330,7 @@ public final class WorldMessage {
       if (!getPlyNicknameBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, plyNickname_);
       }
-      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.null.getNumber()) {
+      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.nullValue.getNumber()) {
         output.writeEnum(5, reason_);
       }
       if (whoGuid_ != 0L) {
@@ -6365,7 +6365,7 @@ public final class WorldMessage {
       if (!getPlyNicknameBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, plyNickname_);
       }
-      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.null.getNumber()) {
+      if (reason_ != com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.TYPE.nullValue.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(5, reason_);
       }
@@ -7249,16 +7249,16 @@ public final class WorldMessage {
       "\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\021\n\tclub_name\030\003 \001" +
       "(\t\022\024\n\014ply_nickname\030\004 \001(\t\"G\n proto_wf_clu" +
       "b_member_update_noti\022#\n\004info\030\001 \001(\0132\025.Clu" +
-      "bMemberUpdateInfo\"\266\002\n\024ClubMemberUpdateIn" +
+      "bMemberUpdateInfo\"\273\002\n\024ClubMemberUpdateIn" +
       "fo\022\017\n\007club_id\030\001 \001(\005\022\021\n\tclub_name\030\002 \001(\t\022\020" +
       "\n\010ply_guid\030\003 \001(\003\022\024\n\014ply_nickname\030\004 \001(\t\022*" +
       "\n\006reason\030\005 \001(\0162\032.ClubMemberUpdateInfo.TY" +
       "PE\022\020\n\010who_guid\030\006 \001(\003\022\020\n\010who_name\030\007 \001(\t\022\022" +
-      "\n\nmessage_id\030\010 \001(\003\"n\n\004TYPE\022\010\n\004null\020\000\022\014\n\010" +
-      "JoinClub\020\001\022\r\n\tLeaveClub\020\002\022\013\n\007KickOut\020\003\022\020" +
-      "\n\014ImproveAdmin\020\004\022\020\n\014DemotionAmin\020\005\022\016\n\nRe" +
-      "fuseJoin\020\006B2\n com.wp.casino.messagenetty" +
-      ".protoB\014WorldMessageH\001b\006proto3"
+      "\n\nmessage_id\030\010 \001(\003\"s\n\004TYPE\022\r\n\tnullValue\020" +
+      "\000\022\014\n\010JoinClub\020\001\022\r\n\tLeaveClub\020\002\022\013\n\007KickOu" +
+      "t\020\003\022\020\n\014ImproveAdmin\020\004\022\020\n\014DemotionAmin\020\005\022" +
+      "\016\n\nRefuseJoin\020\006B2\n com.wp.casino.message" +
+      "netty.protoB\014WorldMessageH\001b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
