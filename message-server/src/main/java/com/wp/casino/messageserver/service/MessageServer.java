@@ -98,12 +98,22 @@ public class MessageServer extends NettyTcpServer {
         messageDispatcher.registerHandler(LoginMessage.proto_cl_load_noti_msg_req.class,
                 (channel, message) -> {
             //拉取消息记录
+            long plyguid = message.getPlyGuid();
+            int type = message.getType();
+            long autoid = message.getAutoId();
+            int clubId = message.getClubId();
+            int maxCount = message.getMaxCount();
+
+            //List<SystemMessageDao> list = systemMessageDao.findByPage()
+
 
             // 回执
-            LoginMessage.proto_lc_load_noti_msg_ack response = LoginMessage
-                    .proto_lc_load_noti_msg_ack.newBuilder()
-                    .build();
-            channel.writeAndFlush(response);
+            LoginMessage.proto_lc_load_noti_msg_ack.Builder response = LoginMessage
+                    .proto_lc_load_noti_msg_ack.newBuilder();
+            LoginMessage.proto_NotiMsgInfo.Builder notiMsg = LoginMessage.proto_NotiMsgInfo.newBuilder();
+            response.setNotiMsgInfo(notiMsg);
+
+            channel.writeAndFlush(response.build());
         });
 
         //修改消息的状态
