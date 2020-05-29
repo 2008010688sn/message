@@ -11,15 +11,15 @@ server:
 mongodb:
     message:
         database: message
-        host: 3.6.110.15 #s3.hiigame.net
+        host: 192.168.0.123
         port: 27017
     replay:
         database: db_replay
-        host: 3.6.110.15 #s3.hiigame.net
+        host: 192.168.0.123
         port: 27017
     record:
         database: db_record
-        host: 3.6.110.15 #s3.hiigame.net
+        host: 192.168.0.123
         port: 27017
 spring:
     datasource:

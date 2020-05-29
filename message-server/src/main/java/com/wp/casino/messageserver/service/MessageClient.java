@@ -20,12 +20,15 @@ import com.wp.casino.messageserver.utils.ClubDataUtil;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.HandlerServerContext;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
+import io.netty.channel.EventLoop;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author sn
@@ -45,6 +48,16 @@ public class MessageClient extends NettyTcpClient {
         this.channelHandler = new MessageClientHandler(messageDispatcher);
         this.systemMessageDao= ApplicationContextProvider.getApplicationContext()
                 .getBean(SystemMessageDao.class);
+    }
+    public ChannelFuture connect(String host, int port, int heartbeat, int interval) {
+        return super.connect(host, port).addListener((ChannelFuture f)->{
+            if (heartbeat==1){//保持心跳
+                EventLoop eventLoop = f.channel().eventLoop();
+                if (!f.isSuccess()) {//断线重连
+                    eventLoop.schedule(() -> connect(host, port), interval, TimeUnit.MILLISECONDS);//10ms后重连
+                }
+            }
+        });
     }
 
     @Override
