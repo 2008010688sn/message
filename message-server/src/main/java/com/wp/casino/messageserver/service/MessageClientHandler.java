@@ -1,15 +1,22 @@
 package com.wp.casino.messageserver.service;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.messagenetty.proto.LoginMessage;
+import com.wp.casino.messagenetty.proto.WorldMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.EventLoop;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.WeakHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -60,17 +67,33 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object obj) throws Exception {
-        log.info("循环请求的时间：" + new Date() + "，次数" + fcount.get());
+        log.info("心跳请求：" + new Date() + "，次数" + fcount.get());
         if (obj instanceof IdleStateEvent) {
             IdleStateEvent event = (IdleStateEvent) obj;
             // 如果写通道处于空闲状态,就发送心跳命令
             if (IdleState.WRITER_IDLE.equals(event.state())) {
-//                MsgEntity.Msg.Builder msg = MsgEntity.Msg.newBuilder().setMsgId("client").setName("qqq");
-//                ctx.channel().writeAndFlush(msg);
-//                fcount.getAndIncrement();
+                //发送ping
+              sendPingMsg(ctx);
+            } else {
+                super.userEventTriggered(ctx, obj);
             }
         }
     }
+
+    /**
+     * 发送ping消息
+     * @param context
+     */
+    protected void sendPingMsg(ChannelHandlerContext context) {
+        Timestamp timestamp= Timestamp.valueOf(LocalDateTime.now());
+        int time = (int)(timestamp.getTime()/1000);
+        WorldMessage.prt_ping ping=WorldMessage.prt_ping.newBuilder().setNowTime(time).build();
+        context.channel().writeAndFlush(ping);
+        int i = fcount.incrementAndGet();
+        log.info("心跳请求次数{}",i);
+
+    }
+
 
 
     @Override

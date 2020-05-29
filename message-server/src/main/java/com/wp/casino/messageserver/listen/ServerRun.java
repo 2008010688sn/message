@@ -28,5 +28,21 @@ public class ServerRun implements ApplicationRunner {
         MessageServer messageServer=new MessageServer(host,port);
         messageServer.init();
         messageServer.start();
+        addHook(messageServer);
+    }
+
+    private  void addHook(MessageServer server) {
+        Runtime.getRuntime().addShutdownHook(
+                new Thread(() -> {
+
+                    try {
+                        server.stop();
+                    } catch (Exception e) {
+                        log.error(" server stop ex", e);
+                    }
+                    log.info("jvm exit, all service stopped.");
+
+                }, "messageserver-shutdown-hook-thread")
+        );
     }
 }

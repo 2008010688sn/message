@@ -1,7 +1,13 @@
 server:
     port: 8188
+    #作为服务端监听的端口
     bind_address: 0.0.0.0
     bind_port: 9876
+    #作为客户端连接的服务端的地址和端口
+    client_address: 127.0.0.1
+    client_port: 9123
+    client_heartbeat: 1 #1为断线重连，其他值不重连
+    client_interval: 10 #断线重连的心跳间隔，单位s
 mongodb:
     message:
         database: message

@@ -90,7 +90,16 @@ message ClubMemberUpdateInfo
 	int64	message_id	 = 8;
 }
 
-
+//opcode---7200
+message prt_ping
+{
+	int32	now_time=1;
+}
+//opcode---7201
+message prt_pong
+{
+	int32	now_time=1;
+}
 
 
 
