@@ -1,11 +1,8 @@
-package com.wp.casino.messageserver.domain;
+package com.wp.casino.messageserver.domain.mysql.casino;
 
 import lombok.Data;
-import org.omg.CORBA.LongLongSeqHelper;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Generated;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -17,7 +14,9 @@ import java.io.Serializable;
 @Table(name = "tb_pyq_club_members")
 public class PyqClubMembers implements Serializable {
 
+
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY) // MYSQL时可以这样使用自增
     Integer cmAutoId;
 
     Integer cmClubId;

@@ -15,14 +15,13 @@ import com.wp.casino.messageserver.common.MsgContentType;
 import com.wp.casino.messageserver.common.MsgType;
 import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
 import com.wp.casino.messageserver.domain.*;
+import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.ClubDataUtil;
 import com.wp.casino.messageserver.utils.HandlerContext;
 import com.wp.casino.messageserver.utils.HandlerServerContext;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelHandler;
-import io.netty.channel.EventLoop;
+import io.netty.channel.*;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -345,5 +344,12 @@ public class MessageClient extends NettyTcpClient {
     @Override
     public ChannelHandler getChannelHandler() {
         return channelHandler;
+    }
+
+    @Override
+    protected void initPipeline(ChannelPipeline pipeline) {
+        //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
+        pipeline.addLast(new IdleStateHandler(0, 10, 0, TimeUnit.MICROSECONDS));
+        super.initPipeline(pipeline);
     }
 }
