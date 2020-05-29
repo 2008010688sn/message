@@ -107,7 +107,7 @@
 					<!-- proto文件目录 -->
 <!--					<protoSourceRoot>${project.basedir}/src/main/proto</protoSourceRoot>-->
 					<!-- 生成的Java文件目录 -->
-<!--					<outputDirectory>${project.basedir}/src/main/java/com/wp/casino/messagenetty/proto</outputDirectory>-->
+					<outputDirectory>${project.basedir}/src/main/java/com/wp/casino/messagenetty/proto</outputDirectory>
 					<!--<outputDirectory>${project.build.directory}/generated-sources/protobuf/java</outputDirectory>-->
 				</configuration>
 				<executions>
