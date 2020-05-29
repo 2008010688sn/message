@@ -40,6 +40,7 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_fw_register_req() {
+      serverId_ = 0;
     }
 
     @java.lang.Override
@@ -72,7 +73,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -157,10 +158,11 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_fw_register_req) obj;
 
-      if (getServerId()
-          != other.getServerId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getServerId()
+          == other.getServerId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -344,35 +346,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -446,7 +448,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -522,6 +524,7 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wf_register_ack() {
+      ret_ = 0;
     }
 
     @java.lang.Override
@@ -554,7 +557,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -639,10 +642,11 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_register_ack) obj;
 
-      if (getRet()
-          != other.getRet()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getRet()
+          == other.getRet());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -826,35 +830,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -928,7 +932,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1014,6 +1018,7 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wf_system_chat_req() {
+      plyGuid_ = 0L;
       message_ = "";
     }
 
@@ -1053,7 +1058,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1178,12 +1183,13 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_system_chat_req other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_system_chat_req) obj;
 
-      if (getPlyGuid()
-          != other.getPlyGuid()) return false;
-      if (!getMessage()
-          .equals(other.getMessage())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getPlyGuid()
+          == other.getPlyGuid());
+      result = result && getMessage()
+          .equals(other.getMessage());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -1373,35 +1379,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1548,7 +1554,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -1629,6 +1635,7 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wf_web_msg_noti() {
+      msgType_ = 0;
       msgData_ = com.google.protobuf.ByteString.EMPTY;
     }
 
@@ -1667,7 +1674,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1768,12 +1775,13 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_web_msg_noti other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_web_msg_noti) obj;
 
-      if (getMsgType()
-          != other.getMsgType()) return false;
-      if (!getMsgData()
-          .equals(other.getMsgData())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getMsgType()
+          == other.getMsgType());
+      result = result && getMsgData()
+          .equals(other.getMsgData());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -1962,35 +1970,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2096,7 +2104,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -2212,7 +2220,12 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wl_noti_msg_data() {
+      senderId_ = 0L;
+      recieverId_ = 0L;
+      msgType_ = 0;
+      showMsgType_ = 0;
       msgContent_ = "";
+      clubId_ = 0;
       msgRstId_ = "";
     }
 
@@ -2278,7 +2291,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2507,22 +2520,23 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wl_noti_msg_data other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wl_noti_msg_data) obj;
 
-      if (getSenderId()
-          != other.getSenderId()) return false;
-      if (getRecieverId()
-          != other.getRecieverId()) return false;
-      if (getMsgType()
-          != other.getMsgType()) return false;
-      if (getShowMsgType()
-          != other.getShowMsgType()) return false;
-      if (!getMsgContent()
-          .equals(other.getMsgContent())) return false;
-      if (getClubId()
-          != other.getClubId()) return false;
-      if (!getMsgRstId()
-          .equals(other.getMsgRstId())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getSenderId()
+          == other.getSenderId());
+      result = result && (getRecieverId()
+          == other.getRecieverId());
+      result = result && (getMsgType()
+          == other.getMsgType());
+      result = result && (getShowMsgType()
+          == other.getShowMsgType());
+      result = result && getMsgContent()
+          .equals(other.getMsgContent());
+      result = result && (getClubId()
+          == other.getClubId());
+      result = result && getMsgRstId()
+          .equals(other.getMsgRstId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -2738,35 +2752,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -3102,7 +3116,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -3228,8 +3242,15 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wf_join_room_noti() {
+      tableId_ = 0;
+      plyGuid_ = 0L;
       plyNickname_ = "";
+      gameId_ = 0;
+      serverId_ = 0;
+      ownerGuid_ = 0L;
       tableName_ = "";
+      tableCreateTime_ = 0;
+      inviteCode_ = 0;
     }
 
     @java.lang.Override
@@ -3304,7 +3325,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3565,26 +3586,27 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_join_room_noti other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_join_room_noti) obj;
 
-      if (getTableId()
-          != other.getTableId()) return false;
-      if (getPlyGuid()
-          != other.getPlyGuid()) return false;
-      if (!getPlyNickname()
-          .equals(other.getPlyNickname())) return false;
-      if (getGameId()
-          != other.getGameId()) return false;
-      if (getServerId()
-          != other.getServerId()) return false;
-      if (getOwnerGuid()
-          != other.getOwnerGuid()) return false;
-      if (!getTableName()
-          .equals(other.getTableName())) return false;
-      if (getTableCreateTime()
-          != other.getTableCreateTime()) return false;
-      if (getInviteCode()
-          != other.getInviteCode()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getTableId()
+          == other.getTableId());
+      result = result && (getPlyGuid()
+          == other.getPlyGuid());
+      result = result && getPlyNickname()
+          .equals(other.getPlyNickname());
+      result = result && (getGameId()
+          == other.getGameId());
+      result = result && (getServerId()
+          == other.getServerId());
+      result = result && (getOwnerGuid()
+          == other.getOwnerGuid());
+      result = result && getTableName()
+          .equals(other.getTableName());
+      result = result && (getTableCreateTime()
+          == other.getTableCreateTime());
+      result = result && (getInviteCode()
+          == other.getInviteCode());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -3810,35 +3832,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -4232,7 +4254,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -4333,6 +4355,8 @@ public final class WorldMessage {
       super(builder);
     }
     private proto_wf_break_up_club_noti() {
+      clubId_ = 0;
+      plyGuid_ = 0L;
       clubName_ = "";
       plyNickname_ = "";
     }
@@ -4384,7 +4408,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4565,16 +4589,17 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_break_up_club_noti other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_break_up_club_noti) obj;
 
-      if (getClubId()
-          != other.getClubId()) return false;
-      if (getPlyGuid()
-          != other.getPlyGuid()) return false;
-      if (!getClubName()
-          .equals(other.getClubName())) return false;
-      if (!getPlyNickname()
-          .equals(other.getPlyNickname())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getClubId()
+          == other.getClubId());
+      result = result && (getPlyGuid()
+          == other.getPlyGuid());
+      result = result && getClubName()
+          .equals(other.getClubName());
+      result = result && getPlyNickname()
+          .equals(other.getPlyNickname());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -4774,35 +4799,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5051,7 +5076,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -5175,7 +5200,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5272,13 +5297,14 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_club_member_update_noti other = (com.wp.casino.messagenetty.proto.WorldMessage.proto_wf_club_member_update_noti) obj;
 
-      if (hasInfo() != other.hasInfo()) return false;
+      boolean result = true;
+      result = result && (hasInfo() == other.hasInfo());
       if (hasInfo()) {
-        if (!getInfo()
-            .equals(other.getInfo())) return false;
+        result = result && getInfo()
+            .equals(other.getInfo());
       }
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -5472,35 +5498,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -5546,7 +5572,7 @@ public final class WorldMessage {
         return this;
       }
 
-      private com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo info_;
+      private com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo info_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo, com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo.Builder, com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfoOrBuilder> infoBuilder_;
       /**
@@ -5665,7 +5691,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -5807,10 +5833,14 @@ public final class WorldMessage {
       super(builder);
     }
     private ClubMemberUpdateInfo() {
+      clubId_ = 0;
       clubName_ = "";
+      plyGuid_ = 0L;
       plyNickname_ = "";
       reason_ = 0;
+      whoGuid_ = 0L;
       whoName_ = "";
+      messageId_ = 0L;
     }
 
     @java.lang.Override
@@ -5882,7 +5912,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6374,23 +6404,24 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo other = (com.wp.casino.messagenetty.proto.WorldMessage.ClubMemberUpdateInfo) obj;
 
-      if (getClubId()
-          != other.getClubId()) return false;
-      if (!getClubName()
-          .equals(other.getClubName())) return false;
-      if (getPlyGuid()
-          != other.getPlyGuid()) return false;
-      if (!getPlyNickname()
-          .equals(other.getPlyNickname())) return false;
-      if (reason_ != other.reason_) return false;
-      if (getWhoGuid()
-          != other.getWhoGuid()) return false;
-      if (!getWhoName()
-          .equals(other.getWhoName())) return false;
-      if (getMessageId()
-          != other.getMessageId()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getClubId()
+          == other.getClubId());
+      result = result && getClubName()
+          .equals(other.getClubName());
+      result = result && (getPlyGuid()
+          == other.getPlyGuid());
+      result = result && getPlyNickname()
+          .equals(other.getPlyNickname());
+      result = result && reason_ == other.reason_;
+      result = result && (getWhoGuid()
+          == other.getWhoGuid());
+      result = result && getWhoName()
+          .equals(other.getWhoName());
+      result = result && (getMessageId()
+          == other.getMessageId());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -6608,35 +6639,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7108,7 +7139,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -7184,6 +7215,7 @@ public final class WorldMessage {
       super(builder);
     }
     private prt_ping() {
+      nowTime_ = 0;
     }
 
     @java.lang.Override
@@ -7216,7 +7248,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7301,10 +7333,11 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.prt_ping other = (com.wp.casino.messagenetty.proto.WorldMessage.prt_ping) obj;
 
-      if (getNowTime()
-          != other.getNowTime()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getNowTime()
+          == other.getNowTime());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -7488,35 +7521,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -7590,7 +7623,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override
@@ -7666,6 +7699,7 @@ public final class WorldMessage {
       super(builder);
     }
     private prt_pong() {
+      nowTime_ = 0;
     }
 
     @java.lang.Override
@@ -7698,7 +7732,7 @@ public final class WorldMessage {
               break;
             }
             default: {
-              if (!parseUnknownField(
+              if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7783,10 +7817,11 @@ public final class WorldMessage {
       }
       com.wp.casino.messagenetty.proto.WorldMessage.prt_pong other = (com.wp.casino.messagenetty.proto.WorldMessage.prt_pong) obj;
 
-      if (getNowTime()
-          != other.getNowTime()) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
+      boolean result = true;
+      result = result && (getNowTime()
+          == other.getNowTime());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
     }
 
     @java.lang.Override
@@ -7970,35 +8005,35 @@ public final class WorldMessage {
 
       @java.lang.Override
       public Builder clone() {
-        return super.clone();
+        return (Builder) super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.setField(field, value);
+        return (Builder) super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
+        return (Builder) super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
+        return (Builder) super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
+        return (Builder) super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return super.addRepeatedField(field, value);
+        return (Builder) super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -8072,7 +8107,7 @@ public final class WorldMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
+        return super.setUnknownFieldsProto3(unknownFields);
       }
 
       @java.lang.Override

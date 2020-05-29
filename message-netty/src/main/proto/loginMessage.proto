@@ -39,7 +39,7 @@ message proto_cl_load_noti_msg_req{
 }
 //20164
 message proto_lc_load_noti_msg_ack{
-	proto_NotiMsgInfo noti_msg_info = 1;
+	repeated proto_NotiMsgInfo noti_msg_info = 1;
 	int64	auto_id = 2;	// 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
 }
 
@@ -55,7 +55,7 @@ message proto_cf_add_club_chat_record_req{
 //回执的协议为：-------opcode:22027
 message proto_fc_add_club_chat_record_ack{
     int32		ret = 1;   //0   sucess
-    proto_ClubChatRecordInfoStruct  club_chat_record_info = 2;
+    repeated proto_ClubChatRecordInfoStruct  club_chat_record_info = 2;
     string	err_msg = 3;
 }
 
@@ -71,7 +71,7 @@ message proto_cf_sync_club_chat_record_req{
 message proto_fc_sync_club_chat_record_ack{
 	int32		ret = 1;
 	int64		ply_guid = 2;
-	proto_ClubChatRecordInfoStruct  club_chat_record_info = 3;
+	repeated proto_ClubChatRecordInfoStruct  club_chat_record_info = 3;
 	string	err_msg = 4;
 }
 
@@ -95,7 +95,7 @@ message proto_cl_update_msg_status_req {
     READ = 1;    // 已读
     DELETED = 2;  // 删除
   }
-  int64  auto_id_list  = 1;
+  repeated  int64  auto_id_list  = 1;
   STATUS  status    = 2;  // 消息标记状态
 }
 //回执：---opcode: 20180
@@ -114,7 +114,7 @@ message proto_lc_get_msg_count_ack {
 			int32	club_id = 1;
 			int32	count = 2;
 	}
-	Result 	result_set = 1;
+	repeated Result 	result_set = 1;
 }
 
 
@@ -166,7 +166,7 @@ message proto_fl_club_notify
 
 //Message回给Login，让Login转发给客户端的 20162
 message proto_fl_noti_msg{
-	proto_NotiMsgInfo noti_msg_info = 1;
+	repeated  proto_NotiMsgInfo noti_msg_info = 1;
 }
 
 message proto_NotiMsgInfo

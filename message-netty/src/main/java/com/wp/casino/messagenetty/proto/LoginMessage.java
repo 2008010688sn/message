@@ -2960,17 +2960,28 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    boolean hasNotiMsgInfo();
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> 
+        getNotiMsgInfoList();
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo();
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index);
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder();
+    int getNotiMsgInfoCount();
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+        getNotiMsgInfoOrBuilderList();
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -2998,6 +3009,7 @@ public final class LoginMessage {
       super(builder);
     }
     private proto_lc_load_noti_msg_ack() {
+      notiMsgInfo_ = java.util.Collections.emptyList();
       autoId_ = 0L;
     }
 
@@ -3026,16 +3038,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 10: {
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder subBuilder = null;
-              if (notiMsgInfo_ != null) {
-                subBuilder = notiMsgInfo_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                notiMsgInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo>();
+                mutable_bitField0_ |= 0x00000001;
               }
-              notiMsgInfo_ = input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notiMsgInfo_);
-                notiMsgInfo_ = subBuilder.buildPartial();
-              }
-
+              notiMsgInfo_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry));
               break;
             }
             case 16: {
@@ -3058,6 +3066,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          notiMsgInfo_ = java.util.Collections.unmodifiableList(notiMsgInfo_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -3075,25 +3086,40 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int NOTI_MSG_INFO_FIELD_NUMBER = 1;
-    private com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo notiMsgInfo_;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> notiMsgInfo_;
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public boolean hasNotiMsgInfo() {
-      return notiMsgInfo_ != null;
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> getNotiMsgInfoList() {
+      return notiMsgInfo_;
     }
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo() {
-      return notiMsgInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+        getNotiMsgInfoOrBuilderList() {
+      return notiMsgInfo_;
     }
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder() {
-      return getNotiMsgInfo();
+    public int getNotiMsgInfoCount() {
+      return notiMsgInfo_.size();
+    }
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index) {
+      return notiMsgInfo_.get(index);
+    }
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+        int index) {
+      return notiMsgInfo_.get(index);
     }
 
     public static final int AUTO_ID_FIELD_NUMBER = 2;
@@ -3123,8 +3149,8 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (notiMsgInfo_ != null) {
-        output.writeMessage(1, getNotiMsgInfo());
+      for (int i = 0; i < notiMsgInfo_.size(); i++) {
+        output.writeMessage(1, notiMsgInfo_.get(i));
       }
       if (autoId_ != 0L) {
         output.writeInt64(2, autoId_);
@@ -3138,9 +3164,9 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (notiMsgInfo_ != null) {
+      for (int i = 0; i < notiMsgInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getNotiMsgInfo());
+          .computeMessageSize(1, notiMsgInfo_.get(i));
       }
       if (autoId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
@@ -3162,11 +3188,8 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack) obj;
 
       boolean result = true;
-      result = result && (hasNotiMsgInfo() == other.hasNotiMsgInfo());
-      if (hasNotiMsgInfo()) {
-        result = result && getNotiMsgInfo()
-            .equals(other.getNotiMsgInfo());
-      }
+      result = result && getNotiMsgInfoList()
+          .equals(other.getNotiMsgInfoList());
       result = result && (getAutoId()
           == other.getAutoId());
       result = result && unknownFields.equals(other.unknownFields);
@@ -3180,9 +3203,9 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasNotiMsgInfo()) {
+      if (getNotiMsgInfoCount() > 0) {
         hash = (37 * hash) + NOTI_MSG_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getNotiMsgInfo().hashCode();
+        hash = (53 * hash) + getNotiMsgInfoList().hashCode();
       }
       hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -3319,16 +3342,17 @@ public final class LoginMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getNotiMsgInfoFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = null;
+          notiMsgInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          notiMsgInfo_ = null;
-          notiMsgInfoBuilder_ = null;
+          notiMsgInfoBuilder_.clear();
         }
         autoId_ = 0L;
 
@@ -3358,12 +3382,19 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         if (notiMsgInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            notiMsgInfo_ = java.util.Collections.unmodifiableList(notiMsgInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
           result.notiMsgInfo_ = notiMsgInfo_;
         } else {
           result.notiMsgInfo_ = notiMsgInfoBuilder_.build();
         }
         result.autoId_ = autoId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -3412,8 +3443,31 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_load_noti_msg_ack.getDefaultInstance()) return this;
-        if (other.hasNotiMsgInfo()) {
-          mergeNotiMsgInfo(other.getNotiMsgInfo());
+        if (notiMsgInfoBuilder_ == null) {
+          if (!other.notiMsgInfo_.isEmpty()) {
+            if (notiMsgInfo_.isEmpty()) {
+              notiMsgInfo_ = other.notiMsgInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNotiMsgInfoIsMutable();
+              notiMsgInfo_.addAll(other.notiMsgInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.notiMsgInfo_.isEmpty()) {
+            if (notiMsgInfoBuilder_.isEmpty()) {
+              notiMsgInfoBuilder_.dispose();
+              notiMsgInfoBuilder_ = null;
+              notiMsgInfo_ = other.notiMsgInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              notiMsgInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNotiMsgInfoFieldBuilder() : null;
+            } else {
+              notiMsgInfoBuilder_.addAllMessages(other.notiMsgInfo_);
+            }
+          }
         }
         if (other.getAutoId() != 0L) {
           setAutoId(other.getAutoId());
@@ -3446,117 +3500,241 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
-      private com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo notiMsgInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> notiMsgInfoBuilder_;
-      /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
-       */
-      public boolean hasNotiMsgInfo() {
-        return notiMsgInfoBuilder_ != null || notiMsgInfo_ != null;
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> notiMsgInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureNotiMsgInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          notiMsgInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo>(notiMsgInfo_);
+          bitField0_ |= 0x00000001;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> notiMsgInfoBuilder_;
+
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo() {
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> getNotiMsgInfoList() {
         if (notiMsgInfoBuilder_ == null) {
-          return notiMsgInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+          return java.util.Collections.unmodifiableList(notiMsgInfo_);
         } else {
-          return notiMsgInfoBuilder_.getMessage();
+          return notiMsgInfoBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public Builder setNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+      public int getNotiMsgInfoCount() {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.size();
+        } else {
+          return notiMsgInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.get(index);
+        } else {
+          return notiMsgInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder setNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
         if (notiMsgInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          notiMsgInfo_ = value;
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.set(index, value);
           onChanged();
         } else {
-          notiMsgInfoBuilder_.setMessage(value);
+          notiMsgInfoBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
       public Builder setNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+        if (notiMsgInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(value);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+        if (notiMsgInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(index, value);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(
           com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = builderForValue.build();
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(builderForValue.build());
           onChanged();
         } else {
-          notiMsgInfoBuilder_.setMessage(builderForValue.build());
+          notiMsgInfoBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public Builder mergeNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+      public Builder addNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
         if (notiMsgInfoBuilder_ == null) {
-          if (notiMsgInfo_ != null) {
-            notiMsgInfo_ =
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.newBuilder(notiMsgInfo_).mergeFrom(value).buildPartial();
-          } else {
-            notiMsgInfo_ = value;
-          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(index, builderForValue.build());
           onChanged();
         } else {
-          notiMsgInfoBuilder_.mergeFrom(value);
+          notiMsgInfoBuilder_.addMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addAllNotiMsgInfo(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> values) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, notiMsgInfo_);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
       public Builder clearNotiMsgInfo() {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = null;
+          notiMsgInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          notiMsgInfo_ = null;
-          notiMsgInfoBuilder_ = null;
+          notiMsgInfoBuilder_.clear();
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder getNotiMsgInfoBuilder() {
-        
-        onChanged();
-        return getNotiMsgInfoFieldBuilder().getBuilder();
+      public Builder removeNotiMsgInfo(int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.remove(index);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.remove(index);
+        }
+        return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder() {
-        if (notiMsgInfoBuilder_ != null) {
-          return notiMsgInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return notiMsgInfo_ == null ?
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder getNotiMsgInfoBuilder(
+          int index) {
+        return getNotiMsgInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+          int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.get(index);  } else {
+          return notiMsgInfoBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+           getNotiMsgInfoOrBuilderList() {
+        if (notiMsgInfoBuilder_ != null) {
+          return notiMsgInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(notiMsgInfo_);
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder addNotiMsgInfoBuilder() {
+        return getNotiMsgInfoFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder addNotiMsgInfoBuilder(
+          int index) {
+        return getNotiMsgInfoFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder> 
+           getNotiMsgInfoBuilderList() {
+        return getNotiMsgInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
           getNotiMsgInfoFieldBuilder() {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          notiMsgInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder>(
-                  getNotiMsgInfo(),
+                  notiMsgInfo_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           notiMsgInfo_ = null;
@@ -4479,17 +4657,28 @@ public final class LoginMessage {
     int getRet();
 
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    boolean hasClubChatRecordInfo();
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> 
+        getClubChatRecordInfoList();
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo();
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index);
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder();
+    int getClubChatRecordInfoCount();
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList();
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index);
 
     /**
      * <code>string err_msg = 3;</code>
@@ -4519,6 +4708,7 @@ public final class LoginMessage {
     }
     private proto_fc_add_club_chat_record_ack() {
       ret_ = 0;
+      clubChatRecordInfo_ = java.util.Collections.emptyList();
       errMsg_ = "";
     }
 
@@ -4552,16 +4742,12 @@ public final class LoginMessage {
               break;
             }
             case 18: {
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder subBuilder = null;
-              if (clubChatRecordInfo_ != null) {
-                subBuilder = clubChatRecordInfo_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>();
+                mutable_bitField0_ |= 0x00000002;
               }
-              clubChatRecordInfo_ = input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(clubChatRecordInfo_);
-                clubChatRecordInfo_ = subBuilder.buildPartial();
-              }
-
+              clubChatRecordInfo_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
               break;
             }
             case 26: {
@@ -4585,6 +4771,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -4602,6 +4791,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RET_FIELD_NUMBER = 1;
     private int ret_;
     /**
@@ -4616,24 +4806,38 @@ public final class LoginMessage {
     }
 
     public static final int CLUB_CHAT_RECORD_INFO_FIELD_NUMBER = 2;
-    private com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct clubChatRecordInfo_;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_;
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    public boolean hasClubChatRecordInfo() {
-      return clubChatRecordInfo_ != null;
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
+      return clubChatRecordInfo_;
     }
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo() {
-      return clubChatRecordInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList() {
+      return clubChatRecordInfo_;
     }
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder() {
-      return getClubChatRecordInfo();
+    public int getClubChatRecordInfoCount() {
+      return clubChatRecordInfo_.size();
+    }
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+      return clubChatRecordInfo_.get(index);
+    }
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index) {
+      return clubChatRecordInfo_.get(index);
     }
 
     public static final int ERR_MSG_FIELD_NUMBER = 3;
@@ -4687,8 +4891,8 @@ public final class LoginMessage {
       if (ret_ != 0) {
         output.writeInt32(1, ret_);
       }
-      if (clubChatRecordInfo_ != null) {
-        output.writeMessage(2, getClubChatRecordInfo());
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
+        output.writeMessage(2, clubChatRecordInfo_.get(i));
       }
       if (!getErrMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errMsg_);
@@ -4706,9 +4910,9 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, ret_);
       }
-      if (clubChatRecordInfo_ != null) {
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getClubChatRecordInfo());
+          .computeMessageSize(2, clubChatRecordInfo_.get(i));
       }
       if (!getErrMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errMsg_);
@@ -4731,11 +4935,8 @@ public final class LoginMessage {
       boolean result = true;
       result = result && (getRet()
           == other.getRet());
-      result = result && (hasClubChatRecordInfo() == other.hasClubChatRecordInfo());
-      if (hasClubChatRecordInfo()) {
-        result = result && getClubChatRecordInfo()
-            .equals(other.getClubChatRecordInfo());
-      }
+      result = result && getClubChatRecordInfoList()
+          .equals(other.getClubChatRecordInfoList());
       result = result && getErrMsg()
           .equals(other.getErrMsg());
       result = result && unknownFields.equals(other.unknownFields);
@@ -4751,9 +4952,9 @@ public final class LoginMessage {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + RET_FIELD_NUMBER;
       hash = (53 * hash) + getRet();
-      if (hasClubChatRecordInfo()) {
+      if (getClubChatRecordInfoCount() > 0) {
         hash = (37 * hash) + CLUB_CHAT_RECORD_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getClubChatRecordInfo().hashCode();
+        hash = (53 * hash) + getClubChatRecordInfoList().hashCode();
       }
       hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
       hash = (53 * hash) + getErrMsg().hashCode();
@@ -4889,6 +5090,7 @@ public final class LoginMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getClubChatRecordInfoFieldBuilder();
         }
       }
       @java.lang.Override
@@ -4897,10 +5099,10 @@ public final class LoginMessage {
         ret_ = 0;
 
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = null;
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
         } else {
-          clubChatRecordInfo_ = null;
-          clubChatRecordInfoBuilder_ = null;
+          clubChatRecordInfoBuilder_.clear();
         }
         errMsg_ = "";
 
@@ -4930,13 +5132,20 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.ret_ = ret_;
         if (clubChatRecordInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
           result.clubChatRecordInfo_ = clubChatRecordInfo_;
         } else {
           result.clubChatRecordInfo_ = clubChatRecordInfoBuilder_.build();
         }
         result.errMsg_ = errMsg_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4988,8 +5197,31 @@ public final class LoginMessage {
         if (other.getRet() != 0) {
           setRet(other.getRet());
         }
-        if (other.hasClubChatRecordInfo()) {
-          mergeClubChatRecordInfo(other.getClubChatRecordInfo());
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfo_.isEmpty()) {
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureClubChatRecordInfoIsMutable();
+              clubChatRecordInfo_.addAll(other.clubChatRecordInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfoBuilder_.isEmpty()) {
+              clubChatRecordInfoBuilder_.dispose();
+              clubChatRecordInfoBuilder_ = null;
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              clubChatRecordInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClubChatRecordInfoFieldBuilder() : null;
+            } else {
+              clubChatRecordInfoBuilder_.addAllMessages(other.clubChatRecordInfo_);
+            }
+          }
         }
         if (!other.getErrMsg().isEmpty()) {
           errMsg_ = other.errMsg_;
@@ -5023,6 +5255,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int ret_ ;
       /**
@@ -5062,116 +5295,239 @@ public final class LoginMessage {
         return this;
       }
 
-      private com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct clubChatRecordInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> clubChatRecordInfoBuilder_;
-      /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
-       */
-      public boolean hasClubChatRecordInfo() {
-        return clubChatRecordInfoBuilder_ != null || clubChatRecordInfo_ != null;
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureClubChatRecordInfoIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>(clubChatRecordInfo_);
+          bitField0_ |= 0x00000002;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> clubChatRecordInfoBuilder_;
+
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo() {
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
         if (clubChatRecordInfoBuilder_ == null) {
-          return clubChatRecordInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
         } else {
-          return clubChatRecordInfoBuilder_.getMessage();
+          return clubChatRecordInfoBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      public Builder setClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+      public int getClubChatRecordInfoCount() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.size();
+        } else {
+          return clubChatRecordInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);
+        } else {
+          return clubChatRecordInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
         if (clubChatRecordInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          clubChatRecordInfo_ = value;
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, value);
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.setMessage(value);
+          clubChatRecordInfoBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
       public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public Builder addClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public Builder addClubChatRecordInfo(
           com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = builderForValue.build();
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(builderForValue.build());
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.setMessage(builderForValue.build());
+          clubChatRecordInfoBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      public Builder mergeClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
         if (clubChatRecordInfoBuilder_ == null) {
-          if (clubChatRecordInfo_ != null) {
-            clubChatRecordInfo_ =
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder(clubChatRecordInfo_).mergeFrom(value).buildPartial();
-          } else {
-            clubChatRecordInfo_ = value;
-          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, builderForValue.build());
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.mergeFrom(value);
+          clubChatRecordInfoBuilder_.addMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public Builder addAllClubChatRecordInfo(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> values) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clubChatRecordInfo_);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
       public Builder clearClubChatRecordInfo() {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = null;
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
           onChanged();
         } else {
-          clubChatRecordInfo_ = null;
-          clubChatRecordInfoBuilder_ = null;
+          clubChatRecordInfoBuilder_.clear();
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder getClubChatRecordInfoBuilder() {
-        
-        onChanged();
-        return getClubChatRecordInfoFieldBuilder().getBuilder();
+      public Builder removeClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.remove(index);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.remove(index);
+        }
+        return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder() {
-        if (clubChatRecordInfoBuilder_ != null) {
-          return clubChatRecordInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return clubChatRecordInfo_ == null ?
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder getClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+          int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);  } else {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+           getClubChatRecordInfoOrBuilderList() {
+        if (clubChatRecordInfoBuilder_ != null) {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder() {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 2;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder> 
+           getClubChatRecordInfoBuilderList() {
+        return getClubChatRecordInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
           getClubChatRecordInfoFieldBuilder() {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          clubChatRecordInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder>(
-                  getClubChatRecordInfo(),
+                  clubChatRecordInfo_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
                   getParentForChildren(),
                   isClean());
           clubChatRecordInfo_ = null;
@@ -5989,17 +6345,28 @@ public final class LoginMessage {
     long getPlyGuid();
 
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    boolean hasClubChatRecordInfo();
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> 
+        getClubChatRecordInfoList();
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo();
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index);
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder();
+    int getClubChatRecordInfoCount();
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList();
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index);
 
     /**
      * <code>string err_msg = 4;</code>
@@ -6030,6 +6397,7 @@ public final class LoginMessage {
     private proto_fc_sync_club_chat_record_ack() {
       ret_ = 0;
       plyGuid_ = 0L;
+      clubChatRecordInfo_ = java.util.Collections.emptyList();
       errMsg_ = "";
     }
 
@@ -6068,16 +6436,12 @@ public final class LoginMessage {
               break;
             }
             case 26: {
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder subBuilder = null;
-              if (clubChatRecordInfo_ != null) {
-                subBuilder = clubChatRecordInfo_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+                clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>();
+                mutable_bitField0_ |= 0x00000004;
               }
-              clubChatRecordInfo_ = input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(clubChatRecordInfo_);
-                clubChatRecordInfo_ = subBuilder.buildPartial();
-              }
-
+              clubChatRecordInfo_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
               break;
             }
             case 34: {
@@ -6101,6 +6465,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
+          clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -6118,6 +6485,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RET_FIELD_NUMBER = 1;
     private int ret_;
     /**
@@ -6137,24 +6505,38 @@ public final class LoginMessage {
     }
 
     public static final int CLUB_CHAT_RECORD_INFO_FIELD_NUMBER = 3;
-    private com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct clubChatRecordInfo_;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_;
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    public boolean hasClubChatRecordInfo() {
-      return clubChatRecordInfo_ != null;
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
+      return clubChatRecordInfo_;
     }
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo() {
-      return clubChatRecordInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList() {
+      return clubChatRecordInfo_;
     }
     /**
-     * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder() {
-      return getClubChatRecordInfo();
+    public int getClubChatRecordInfoCount() {
+      return clubChatRecordInfo_.size();
+    }
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+      return clubChatRecordInfo_.get(index);
+    }
+    /**
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index) {
+      return clubChatRecordInfo_.get(index);
     }
 
     public static final int ERR_MSG_FIELD_NUMBER = 4;
@@ -6211,8 +6593,8 @@ public final class LoginMessage {
       if (plyGuid_ != 0L) {
         output.writeInt64(2, plyGuid_);
       }
-      if (clubChatRecordInfo_ != null) {
-        output.writeMessage(3, getClubChatRecordInfo());
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
+        output.writeMessage(3, clubChatRecordInfo_.get(i));
       }
       if (!getErrMsgBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, errMsg_);
@@ -6234,9 +6616,9 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, plyGuid_);
       }
-      if (clubChatRecordInfo_ != null) {
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getClubChatRecordInfo());
+          .computeMessageSize(3, clubChatRecordInfo_.get(i));
       }
       if (!getErrMsgBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, errMsg_);
@@ -6261,11 +6643,8 @@ public final class LoginMessage {
           == other.getRet());
       result = result && (getPlyGuid()
           == other.getPlyGuid());
-      result = result && (hasClubChatRecordInfo() == other.hasClubChatRecordInfo());
-      if (hasClubChatRecordInfo()) {
-        result = result && getClubChatRecordInfo()
-            .equals(other.getClubChatRecordInfo());
-      }
+      result = result && getClubChatRecordInfoList()
+          .equals(other.getClubChatRecordInfoList());
       result = result && getErrMsg()
           .equals(other.getErrMsg());
       result = result && unknownFields.equals(other.unknownFields);
@@ -6284,9 +6663,9 @@ public final class LoginMessage {
       hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPlyGuid());
-      if (hasClubChatRecordInfo()) {
+      if (getClubChatRecordInfoCount() > 0) {
         hash = (37 * hash) + CLUB_CHAT_RECORD_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getClubChatRecordInfo().hashCode();
+        hash = (53 * hash) + getClubChatRecordInfoList().hashCode();
       }
       hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
       hash = (53 * hash) + getErrMsg().hashCode();
@@ -6422,6 +6801,7 @@ public final class LoginMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getClubChatRecordInfoFieldBuilder();
         }
       }
       @java.lang.Override
@@ -6432,10 +6812,10 @@ public final class LoginMessage {
         plyGuid_ = 0L;
 
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = null;
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
         } else {
-          clubChatRecordInfo_ = null;
-          clubChatRecordInfoBuilder_ = null;
+          clubChatRecordInfoBuilder_.clear();
         }
         errMsg_ = "";
 
@@ -6465,14 +6845,21 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.ret_ = ret_;
         result.plyGuid_ = plyGuid_;
         if (clubChatRecordInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004)) {
+            clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+            bitField0_ = (bitField0_ & ~0x00000004);
+          }
           result.clubChatRecordInfo_ = clubChatRecordInfo_;
         } else {
           result.clubChatRecordInfo_ = clubChatRecordInfoBuilder_.build();
         }
         result.errMsg_ = errMsg_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -6527,8 +6914,31 @@ public final class LoginMessage {
         if (other.getPlyGuid() != 0L) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.hasClubChatRecordInfo()) {
-          mergeClubChatRecordInfo(other.getClubChatRecordInfo());
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfo_.isEmpty()) {
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+            } else {
+              ensureClubChatRecordInfoIsMutable();
+              clubChatRecordInfo_.addAll(other.clubChatRecordInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfoBuilder_.isEmpty()) {
+              clubChatRecordInfoBuilder_.dispose();
+              clubChatRecordInfoBuilder_ = null;
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000004);
+              clubChatRecordInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClubChatRecordInfoFieldBuilder() : null;
+            } else {
+              clubChatRecordInfoBuilder_.addAllMessages(other.clubChatRecordInfo_);
+            }
+          }
         }
         if (!other.getErrMsg().isEmpty()) {
           errMsg_ = other.errMsg_;
@@ -6562,6 +6972,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int ret_ ;
       /**
@@ -6615,116 +7026,239 @@ public final class LoginMessage {
         return this;
       }
 
-      private com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct clubChatRecordInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> clubChatRecordInfoBuilder_;
-      /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
-       */
-      public boolean hasClubChatRecordInfo() {
-        return clubChatRecordInfoBuilder_ != null || clubChatRecordInfo_ != null;
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureClubChatRecordInfoIsMutable() {
+        if (!((bitField0_ & 0x00000004) == 0x00000004)) {
+          clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>(clubChatRecordInfo_);
+          bitField0_ |= 0x00000004;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> clubChatRecordInfoBuilder_;
+
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo() {
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
         if (clubChatRecordInfoBuilder_ == null) {
-          return clubChatRecordInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
         } else {
-          return clubChatRecordInfoBuilder_.getMessage();
+          return clubChatRecordInfoBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      public Builder setClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+      public int getClubChatRecordInfoCount() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.size();
+        } else {
+          return clubChatRecordInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);
+        } else {
+          return clubChatRecordInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
         if (clubChatRecordInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          clubChatRecordInfo_ = value;
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, value);
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.setMessage(value);
+          clubChatRecordInfoBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
       public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public Builder addClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public Builder addClubChatRecordInfo(
           com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = builderForValue.build();
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(builderForValue.build());
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.setMessage(builderForValue.build());
+          clubChatRecordInfoBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      public Builder mergeClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
         if (clubChatRecordInfoBuilder_ == null) {
-          if (clubChatRecordInfo_ != null) {
-            clubChatRecordInfo_ =
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder(clubChatRecordInfo_).mergeFrom(value).buildPartial();
-          } else {
-            clubChatRecordInfo_ = value;
-          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, builderForValue.build());
           onChanged();
         } else {
-          clubChatRecordInfoBuilder_.mergeFrom(value);
+          clubChatRecordInfoBuilder_.addMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public Builder addAllClubChatRecordInfo(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> values) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clubChatRecordInfo_);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
       public Builder clearClubChatRecordInfo() {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfo_ = null;
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000004);
           onChanged();
         } else {
-          clubChatRecordInfo_ = null;
-          clubChatRecordInfoBuilder_ = null;
+          clubChatRecordInfoBuilder_.clear();
         }
-
         return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder getClubChatRecordInfoBuilder() {
-        
-        onChanged();
-        return getClubChatRecordInfoFieldBuilder().getBuilder();
+      public Builder removeClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.remove(index);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.remove(index);
+        }
+        return this;
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder() {
-        if (clubChatRecordInfoBuilder_ != null) {
-          return clubChatRecordInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return clubChatRecordInfo_ == null ?
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance() : clubChatRecordInfo_;
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder getClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+          int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);  } else {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+           getClubChatRecordInfoOrBuilderList() {
+        if (clubChatRecordInfoBuilder_ != null) {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder() {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 3;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder> 
+           getClubChatRecordInfoBuilderList() {
+        return getClubChatRecordInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
           getClubChatRecordInfoFieldBuilder() {
         if (clubChatRecordInfoBuilder_ == null) {
-          clubChatRecordInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          clubChatRecordInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder>(
-                  getClubChatRecordInfo(),
+                  clubChatRecordInfo_,
+                  ((bitField0_ & 0x00000004) == 0x00000004),
                   getParentForChildren(),
                   isClean());
           clubChatRecordInfo_ = null;
@@ -7858,9 +8392,17 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 auto_id_list = 1;</code>
+     * <code>repeated int64 auto_id_list = 1;</code>
      */
-    long getAutoIdList();
+    java.util.List<java.lang.Long> getAutoIdListList();
+    /**
+     * <code>repeated int64 auto_id_list = 1;</code>
+     */
+    int getAutoIdListCount();
+    /**
+     * <code>repeated int64 auto_id_list = 1;</code>
+     */
+    long getAutoIdList(int index);
 
     /**
      * <pre>
@@ -7896,7 +8438,7 @@ public final class LoginMessage {
       super(builder);
     }
     private proto_cl_update_msg_status_req() {
-      autoIdList_ = 0L;
+      autoIdList_ = java.util.Collections.emptyList();
       status_ = 0;
     }
 
@@ -7925,8 +8467,24 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
-              autoIdList_ = input.readInt64();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                autoIdList_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              autoIdList_.add(input.readInt64());
+              break;
+            }
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001) && input.getBytesUntilLimit() > 0) {
+                autoIdList_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                autoIdList_.add(input.readInt64());
+              }
+              input.popLimit(limit);
               break;
             }
             case 16: {
@@ -7950,6 +8508,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          autoIdList_ = java.util.Collections.unmodifiableList(autoIdList_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -8098,14 +8659,29 @@ public final class LoginMessage {
       // @@protoc_insertion_point(enum_scope:proto_cl_update_msg_status_req.STATUS)
     }
 
+    private int bitField0_;
     public static final int AUTO_ID_LIST_FIELD_NUMBER = 1;
-    private long autoIdList_;
+    private java.util.List<java.lang.Long> autoIdList_;
     /**
-     * <code>int64 auto_id_list = 1;</code>
+     * <code>repeated int64 auto_id_list = 1;</code>
      */
-    public long getAutoIdList() {
+    public java.util.List<java.lang.Long>
+        getAutoIdListList() {
       return autoIdList_;
     }
+    /**
+     * <code>repeated int64 auto_id_list = 1;</code>
+     */
+    public int getAutoIdListCount() {
+      return autoIdList_.size();
+    }
+    /**
+     * <code>repeated int64 auto_id_list = 1;</code>
+     */
+    public long getAutoIdList(int index) {
+      return autoIdList_.get(index);
+    }
+    private int autoIdListMemoizedSerializedSize = -1;
 
     public static final int STATUS_FIELD_NUMBER = 2;
     private int status_;
@@ -8146,8 +8722,13 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (autoIdList_ != 0L) {
-        output.writeInt64(1, autoIdList_);
+      getSerializedSize();
+      if (getAutoIdListList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(autoIdListMemoizedSerializedSize);
+      }
+      for (int i = 0; i < autoIdList_.size(); i++) {
+        output.writeInt64NoTag(autoIdList_.get(i));
       }
       if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.nullValue.getNumber()) {
         output.writeEnum(2, status_);
@@ -8161,9 +8742,19 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (autoIdList_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, autoIdList_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < autoIdList_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(autoIdList_.get(i));
+        }
+        size += dataSize;
+        if (!getAutoIdListList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        autoIdListMemoizedSerializedSize = dataSize;
       }
       if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.nullValue.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -8185,8 +8776,8 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req) obj;
 
       boolean result = true;
-      result = result && (getAutoIdList()
-          == other.getAutoIdList());
+      result = result && getAutoIdListList()
+          .equals(other.getAutoIdListList());
       result = result && status_ == other.status_;
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -8199,9 +8790,10 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + AUTO_ID_LIST_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAutoIdList());
+      if (getAutoIdListCount() > 0) {
+        hash = (37 * hash) + AUTO_ID_LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getAutoIdListList().hashCode();
+      }
       hash = (37 * hash) + STATUS_FIELD_NUMBER;
       hash = (53 * hash) + status_;
       hash = (29 * hash) + unknownFields.hashCode();
@@ -8341,8 +8933,8 @@ public final class LoginMessage {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        autoIdList_ = 0L;
-
+        autoIdList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         status_ = 0;
 
         return this;
@@ -8371,8 +8963,15 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          autoIdList_ = java.util.Collections.unmodifiableList(autoIdList_);
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.autoIdList_ = autoIdList_;
         result.status_ = status_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -8421,8 +9020,15 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.getDefaultInstance()) return this;
-        if (other.getAutoIdList() != 0L) {
-          setAutoIdList(other.getAutoIdList());
+        if (!other.autoIdList_.isEmpty()) {
+          if (autoIdList_.isEmpty()) {
+            autoIdList_ = other.autoIdList_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureAutoIdListIsMutable();
+            autoIdList_.addAll(other.autoIdList_);
+          }
+          onChanged();
         }
         if (other.status_ != 0) {
           setStatusValue(other.getStatusValue());
@@ -8455,29 +9061,70 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
-      private long autoIdList_ ;
-      /**
-       * <code>int64 auto_id_list = 1;</code>
-       */
-      public long getAutoIdList() {
-        return autoIdList_;
+      private java.util.List<java.lang.Long> autoIdList_ = java.util.Collections.emptyList();
+      private void ensureAutoIdListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          autoIdList_ = new java.util.ArrayList<java.lang.Long>(autoIdList_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>int64 auto_id_list = 1;</code>
+       * <code>repeated int64 auto_id_list = 1;</code>
        */
-      public Builder setAutoIdList(long value) {
-        
-        autoIdList_ = value;
+      public java.util.List<java.lang.Long>
+          getAutoIdListList() {
+        return java.util.Collections.unmodifiableList(autoIdList_);
+      }
+      /**
+       * <code>repeated int64 auto_id_list = 1;</code>
+       */
+      public int getAutoIdListCount() {
+        return autoIdList_.size();
+      }
+      /**
+       * <code>repeated int64 auto_id_list = 1;</code>
+       */
+      public long getAutoIdList(int index) {
+        return autoIdList_.get(index);
+      }
+      /**
+       * <code>repeated int64 auto_id_list = 1;</code>
+       */
+      public Builder setAutoIdList(
+          int index, long value) {
+        ensureAutoIdListIsMutable();
+        autoIdList_.set(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>int64 auto_id_list = 1;</code>
+       * <code>repeated int64 auto_id_list = 1;</code>
+       */
+      public Builder addAutoIdList(long value) {
+        ensureAutoIdListIsMutable();
+        autoIdList_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 auto_id_list = 1;</code>
+       */
+      public Builder addAllAutoIdList(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureAutoIdListIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, autoIdList_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 auto_id_list = 1;</code>
        */
       public Builder clearAutoIdList() {
-        
-        autoIdList_ = 0L;
+        autoIdList_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -9729,17 +10376,28 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    boolean hasResultSet();
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> 
+        getResultSetList();
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet();
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet(int index);
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder();
+    int getResultSetCount();
+    /**
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> 
+        getResultSetOrBuilderList();
+    /**
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -9758,6 +10416,7 @@ public final class LoginMessage {
       super(builder);
     }
     private proto_lc_get_msg_count_ack() {
+      resultSet_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -9785,16 +10444,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 10: {
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder subBuilder = null;
-              if (resultSet_ != null) {
-                subBuilder = resultSet_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                resultSet_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result>();
+                mutable_bitField0_ |= 0x00000001;
               }
-              resultSet_ = input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(resultSet_);
-                resultSet_ = subBuilder.buildPartial();
-              }
-
+              resultSet_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -9812,6 +10467,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          resultSet_ = java.util.Collections.unmodifiableList(resultSet_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -10369,24 +11027,38 @@ public final class LoginMessage {
     }
 
     public static final int RESULT_SET_FIELD_NUMBER = 1;
-    private com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result resultSet_;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> resultSet_;
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    public boolean hasResultSet() {
-      return resultSet_ != null;
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> getResultSetList() {
+      return resultSet_;
     }
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet() {
-      return resultSet_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance() : resultSet_;
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> 
+        getResultSetOrBuilderList() {
+      return resultSet_;
     }
     /**
-     * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder() {
-      return getResultSet();
+    public int getResultSetCount() {
+      return resultSet_.size();
+    }
+    /**
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet(int index) {
+      return resultSet_.get(index);
+    }
+    /**
+     * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder(
+        int index) {
+      return resultSet_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -10403,8 +11075,8 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (resultSet_ != null) {
-        output.writeMessage(1, getResultSet());
+      for (int i = 0; i < resultSet_.size(); i++) {
+        output.writeMessage(1, resultSet_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -10415,9 +11087,9 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (resultSet_ != null) {
+      for (int i = 0; i < resultSet_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getResultSet());
+          .computeMessageSize(1, resultSet_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -10435,11 +11107,8 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack) obj;
 
       boolean result = true;
-      result = result && (hasResultSet() == other.hasResultSet());
-      if (hasResultSet()) {
-        result = result && getResultSet()
-            .equals(other.getResultSet());
-      }
+      result = result && getResultSetList()
+          .equals(other.getResultSetList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10451,9 +11120,9 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasResultSet()) {
+      if (getResultSetCount() > 0) {
         hash = (37 * hash) + RESULT_SET_FIELD_NUMBER;
-        hash = (53 * hash) + getResultSet().hashCode();
+        hash = (53 * hash) + getResultSetList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -10587,16 +11256,17 @@ public final class LoginMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getResultSetFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (resultSetBuilder_ == null) {
-          resultSet_ = null;
+          resultSet_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          resultSet_ = null;
-          resultSetBuilder_ = null;
+          resultSetBuilder_.clear();
         }
         return this;
       }
@@ -10624,7 +11294,12 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack(this);
+        int from_bitField0_ = bitField0_;
         if (resultSetBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            resultSet_ = java.util.Collections.unmodifiableList(resultSet_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
           result.resultSet_ = resultSet_;
         } else {
           result.resultSet_ = resultSetBuilder_.build();
@@ -10677,8 +11352,31 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.getDefaultInstance()) return this;
-        if (other.hasResultSet()) {
-          mergeResultSet(other.getResultSet());
+        if (resultSetBuilder_ == null) {
+          if (!other.resultSet_.isEmpty()) {
+            if (resultSet_.isEmpty()) {
+              resultSet_ = other.resultSet_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResultSetIsMutable();
+              resultSet_.addAll(other.resultSet_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.resultSet_.isEmpty()) {
+            if (resultSetBuilder_.isEmpty()) {
+              resultSetBuilder_.dispose();
+              resultSetBuilder_ = null;
+              resultSet_ = other.resultSet_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              resultSetBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getResultSetFieldBuilder() : null;
+            } else {
+              resultSetBuilder_.addAllMessages(other.resultSet_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -10708,117 +11406,241 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
-      private com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result resultSet_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> resultSetBuilder_;
-      /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
-       */
-      public boolean hasResultSet() {
-        return resultSetBuilder_ != null || resultSet_ != null;
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> resultSet_ =
+        java.util.Collections.emptyList();
+      private void ensureResultSetIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          resultSet_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result>(resultSet_);
+          bitField0_ |= 0x00000001;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> resultSetBuilder_;
+
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet() {
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> getResultSetList() {
         if (resultSetBuilder_ == null) {
-          return resultSet_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance() : resultSet_;
+          return java.util.Collections.unmodifiableList(resultSet_);
         } else {
-          return resultSetBuilder_.getMessage();
+          return resultSetBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      public Builder setResultSet(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result value) {
+      public int getResultSetCount() {
+        if (resultSetBuilder_ == null) {
+          return resultSet_.size();
+        } else {
+          return resultSetBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result getResultSet(int index) {
+        if (resultSetBuilder_ == null) {
+          return resultSet_.get(index);
+        } else {
+          return resultSetBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public Builder setResultSet(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result value) {
         if (resultSetBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          resultSet_ = value;
+          ensureResultSetIsMutable();
+          resultSet_.set(index, value);
           onChanged();
         } else {
-          resultSetBuilder_.setMessage(value);
+          resultSetBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
       public Builder setResultSet(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder builderForValue) {
+        if (resultSetBuilder_ == null) {
+          ensureResultSetIsMutable();
+          resultSet_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          resultSetBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public Builder addResultSet(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result value) {
+        if (resultSetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResultSetIsMutable();
+          resultSet_.add(value);
+          onChanged();
+        } else {
+          resultSetBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public Builder addResultSet(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result value) {
+        if (resultSetBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResultSetIsMutable();
+          resultSet_.add(index, value);
+          onChanged();
+        } else {
+          resultSetBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public Builder addResultSet(
           com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder builderForValue) {
         if (resultSetBuilder_ == null) {
-          resultSet_ = builderForValue.build();
+          ensureResultSetIsMutable();
+          resultSet_.add(builderForValue.build());
           onChanged();
         } else {
-          resultSetBuilder_.setMessage(builderForValue.build());
+          resultSetBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      public Builder mergeResultSet(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result value) {
+      public Builder addResultSet(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder builderForValue) {
         if (resultSetBuilder_ == null) {
-          if (resultSet_ != null) {
-            resultSet_ =
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.newBuilder(resultSet_).mergeFrom(value).buildPartial();
-          } else {
-            resultSet_ = value;
-          }
+          ensureResultSetIsMutable();
+          resultSet_.add(index, builderForValue.build());
           onChanged();
         } else {
-          resultSetBuilder_.mergeFrom(value);
+          resultSetBuilder_.addMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public Builder addAllResultSet(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result> values) {
+        if (resultSetBuilder_ == null) {
+          ensureResultSetIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, resultSet_);
+          onChanged();
+        } else {
+          resultSetBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
       public Builder clearResultSet() {
         if (resultSetBuilder_ == null) {
-          resultSet_ = null;
+          resultSet_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          resultSet_ = null;
-          resultSetBuilder_ = null;
+          resultSetBuilder_.clear();
         }
-
         return this;
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder getResultSetBuilder() {
-        
-        onChanged();
-        return getResultSetFieldBuilder().getBuilder();
+      public Builder removeResultSet(int index) {
+        if (resultSetBuilder_ == null) {
+          ensureResultSetIsMutable();
+          resultSet_.remove(index);
+          onChanged();
+        } else {
+          resultSetBuilder_.remove(index);
+        }
+        return this;
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder() {
-        if (resultSetBuilder_ != null) {
-          return resultSetBuilder_.getMessageOrBuilder();
-        } else {
-          return resultSet_ == null ?
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance() : resultSet_;
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder getResultSetBuilder(
+          int index) {
+        return getResultSetFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder getResultSetOrBuilder(
+          int index) {
+        if (resultSetBuilder_ == null) {
+          return resultSet_.get(index);  } else {
+          return resultSetBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> 
+           getResultSetOrBuilderList() {
+        if (resultSetBuilder_ != null) {
+          return resultSetBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(resultSet_);
+        }
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder addResultSetBuilder() {
+        return getResultSetFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder addResultSetBuilder(
+          int index) {
+        return getResultSetFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_lc_get_msg_count_ack.Result result_set = 1;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder> 
+           getResultSetBuilderList() {
+        return getResultSetFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder> 
           getResultSetFieldBuilder() {
         if (resultSetBuilder_ == null) {
-          resultSetBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          resultSetBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.ResultOrBuilder>(
-                  getResultSet(),
+                  resultSet_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           resultSet_ = null;
@@ -14706,17 +15528,28 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    boolean hasNotiMsgInfo();
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> 
+        getNotiMsgInfoList();
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo();
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index);
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder();
+    int getNotiMsgInfoCount();
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+        getNotiMsgInfoOrBuilderList();
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+        int index);
   }
   /**
    * <pre>
@@ -14735,6 +15568,7 @@ public final class LoginMessage {
       super(builder);
     }
     private proto_fl_noti_msg() {
+      notiMsgInfo_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -14762,16 +15596,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 10: {
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder subBuilder = null;
-              if (notiMsgInfo_ != null) {
-                subBuilder = notiMsgInfo_.toBuilder();
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                notiMsgInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo>();
+                mutable_bitField0_ |= 0x00000001;
               }
-              notiMsgInfo_ = input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(notiMsgInfo_);
-                notiMsgInfo_ = subBuilder.buildPartial();
-              }
-
+              notiMsgInfo_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry));
               break;
             }
             default: {
@@ -14789,6 +15619,9 @@ public final class LoginMessage {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          notiMsgInfo_ = java.util.Collections.unmodifiableList(notiMsgInfo_);
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -14807,24 +15640,38 @@ public final class LoginMessage {
     }
 
     public static final int NOTI_MSG_INFO_FIELD_NUMBER = 1;
-    private com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo notiMsgInfo_;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> notiMsgInfo_;
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public boolean hasNotiMsgInfo() {
-      return notiMsgInfo_ != null;
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> getNotiMsgInfoList() {
+      return notiMsgInfo_;
     }
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo() {
-      return notiMsgInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+        getNotiMsgInfoOrBuilderList() {
+      return notiMsgInfo_;
     }
     /**
-     * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
      */
-    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder() {
-      return getNotiMsgInfo();
+    public int getNotiMsgInfoCount() {
+      return notiMsgInfo_.size();
+    }
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index) {
+      return notiMsgInfo_.get(index);
+    }
+    /**
+     * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+        int index) {
+      return notiMsgInfo_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -14841,8 +15688,8 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (notiMsgInfo_ != null) {
-        output.writeMessage(1, getNotiMsgInfo());
+      for (int i = 0; i < notiMsgInfo_.size(); i++) {
+        output.writeMessage(1, notiMsgInfo_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -14853,9 +15700,9 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (notiMsgInfo_ != null) {
+      for (int i = 0; i < notiMsgInfo_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getNotiMsgInfo());
+          .computeMessageSize(1, notiMsgInfo_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -14873,11 +15720,8 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg) obj;
 
       boolean result = true;
-      result = result && (hasNotiMsgInfo() == other.hasNotiMsgInfo());
-      if (hasNotiMsgInfo()) {
-        result = result && getNotiMsgInfo()
-            .equals(other.getNotiMsgInfo());
-      }
+      result = result && getNotiMsgInfoList()
+          .equals(other.getNotiMsgInfoList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -14889,9 +15733,9 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      if (hasNotiMsgInfo()) {
+      if (getNotiMsgInfoCount() > 0) {
         hash = (37 * hash) + NOTI_MSG_INFO_FIELD_NUMBER;
-        hash = (53 * hash) + getNotiMsgInfo().hashCode();
+        hash = (53 * hash) + getNotiMsgInfoList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -15025,16 +15869,17 @@ public final class LoginMessage {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getNotiMsgInfoFieldBuilder();
         }
       }
       @java.lang.Override
       public Builder clear() {
         super.clear();
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = null;
+          notiMsgInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
         } else {
-          notiMsgInfo_ = null;
-          notiMsgInfoBuilder_ = null;
+          notiMsgInfoBuilder_.clear();
         }
         return this;
       }
@@ -15062,7 +15907,12 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg(this);
+        int from_bitField0_ = bitField0_;
         if (notiMsgInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            notiMsgInfo_ = java.util.Collections.unmodifiableList(notiMsgInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
           result.notiMsgInfo_ = notiMsgInfo_;
         } else {
           result.notiMsgInfo_ = notiMsgInfoBuilder_.build();
@@ -15115,8 +15965,31 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_noti_msg.getDefaultInstance()) return this;
-        if (other.hasNotiMsgInfo()) {
-          mergeNotiMsgInfo(other.getNotiMsgInfo());
+        if (notiMsgInfoBuilder_ == null) {
+          if (!other.notiMsgInfo_.isEmpty()) {
+            if (notiMsgInfo_.isEmpty()) {
+              notiMsgInfo_ = other.notiMsgInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureNotiMsgInfoIsMutable();
+              notiMsgInfo_.addAll(other.notiMsgInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.notiMsgInfo_.isEmpty()) {
+            if (notiMsgInfoBuilder_.isEmpty()) {
+              notiMsgInfoBuilder_.dispose();
+              notiMsgInfoBuilder_ = null;
+              notiMsgInfo_ = other.notiMsgInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              notiMsgInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getNotiMsgInfoFieldBuilder() : null;
+            } else {
+              notiMsgInfoBuilder_.addAllMessages(other.notiMsgInfo_);
+            }
+          }
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -15146,117 +16019,241 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
-      private com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo notiMsgInfo_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> notiMsgInfoBuilder_;
-      /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
-       */
-      public boolean hasNotiMsgInfo() {
-        return notiMsgInfoBuilder_ != null || notiMsgInfo_ != null;
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> notiMsgInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureNotiMsgInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          notiMsgInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo>(notiMsgInfo_);
+          bitField0_ |= 0x00000001;
+         }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> notiMsgInfoBuilder_;
+
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo() {
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> getNotiMsgInfoList() {
         if (notiMsgInfoBuilder_ == null) {
-          return notiMsgInfo_ == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+          return java.util.Collections.unmodifiableList(notiMsgInfo_);
         } else {
-          return notiMsgInfoBuilder_.getMessage();
+          return notiMsgInfoBuilder_.getMessageList();
         }
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public Builder setNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+      public int getNotiMsgInfoCount() {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.size();
+        } else {
+          return notiMsgInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo getNotiMsgInfo(int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.get(index);
+        } else {
+          return notiMsgInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder setNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
         if (notiMsgInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          notiMsgInfo_ = value;
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.set(index, value);
           onChanged();
         } else {
-          notiMsgInfoBuilder_.setMessage(value);
+          notiMsgInfoBuilder_.setMessage(index, value);
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
       public Builder setNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+        if (notiMsgInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(value);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+        if (notiMsgInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(index, value);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addNotiMsgInfo(
           com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = builderForValue.build();
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(builderForValue.build());
           onChanged();
         } else {
-          notiMsgInfoBuilder_.setMessage(builderForValue.build());
+          notiMsgInfoBuilder_.addMessage(builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public Builder mergeNotiMsgInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo value) {
+      public Builder addNotiMsgInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder builderForValue) {
         if (notiMsgInfoBuilder_ == null) {
-          if (notiMsgInfo_ != null) {
-            notiMsgInfo_ =
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.newBuilder(notiMsgInfo_).mergeFrom(value).buildPartial();
-          } else {
-            notiMsgInfo_ = value;
-          }
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.add(index, builderForValue.build());
           onChanged();
         } else {
-          notiMsgInfoBuilder_.mergeFrom(value);
+          notiMsgInfoBuilder_.addMessage(index, builderForValue.build());
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public Builder addAllNotiMsgInfo(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo> values) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, notiMsgInfo_);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
       public Builder clearNotiMsgInfo() {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfo_ = null;
+          notiMsgInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
         } else {
-          notiMsgInfo_ = null;
-          notiMsgInfoBuilder_ = null;
+          notiMsgInfoBuilder_.clear();
         }
-
         return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder getNotiMsgInfoBuilder() {
-        
-        onChanged();
-        return getNotiMsgInfoFieldBuilder().getBuilder();
+      public Builder removeNotiMsgInfo(int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          ensureNotiMsgInfoIsMutable();
+          notiMsgInfo_.remove(index);
+          onChanged();
+        } else {
+          notiMsgInfoBuilder_.remove(index);
+        }
+        return this;
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder() {
-        if (notiMsgInfoBuilder_ != null) {
-          return notiMsgInfoBuilder_.getMessageOrBuilder();
-        } else {
-          return notiMsgInfo_ == null ?
-              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance() : notiMsgInfo_;
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder getNotiMsgInfoBuilder(
+          int index) {
+        return getNotiMsgInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder getNotiMsgInfoOrBuilder(
+          int index) {
+        if (notiMsgInfoBuilder_ == null) {
+          return notiMsgInfo_.get(index);  } else {
+          return notiMsgInfoBuilder_.getMessageOrBuilder(index);
         }
       }
       /**
-       * <code>.proto_NotiMsgInfo noti_msg_info = 1;</code>
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
        */
-      private com.google.protobuf.SingleFieldBuilderV3<
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
+           getNotiMsgInfoOrBuilderList() {
+        if (notiMsgInfoBuilder_ != null) {
+          return notiMsgInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(notiMsgInfo_);
+        }
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder addNotiMsgInfoBuilder() {
+        return getNotiMsgInfoFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder addNotiMsgInfoBuilder(
+          int index) {
+        return getNotiMsgInfoFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .proto_NotiMsgInfo noti_msg_info = 1;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder> 
+           getNotiMsgInfoBuilderList() {
+        return getNotiMsgInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
           com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder> 
           getNotiMsgInfoFieldBuilder() {
         if (notiMsgInfoBuilder_ == null) {
-          notiMsgInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+          notiMsgInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfoOrBuilder>(
-                  getNotiMsgInfo(),
+                  notiMsgInfo_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
                   getParentForChildren(),
                   isClean());
           notiMsgInfo_ = null;
@@ -17900,33 +18897,33 @@ public final class LoginMessage {
       " \001(\005\022\017\n\007club_id\030\002 \001(\005\022\020\n\010ply_guid\030\003 \001(\003\022" +
       "\017\n\007auto_id\030\004 \001(\003\022\021\n\tmax_count\030\005 \001(\005\"X\n\032p" +
       "roto_lc_load_noti_msg_ack\022)\n\rnoti_msg_in" +
-      "fo\030\001 \001(\0132\022.proto_NotiMsgInfo\022\017\n\007auto_id\030" +
+      "fo\030\001 \003(\0132\022.proto_NotiMsgInfo\022\017\n\007auto_id\030" +
       "\002 \001(\003\"x\n!proto_cf_add_club_chat_record_r" +
       "eq\022\020\n\010club_uid\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\020" +
       "\n\010chat_msg\030\003 \001(\t\022\017\n\007game_id\030\004 \001(\005\022\014\n\004typ" +
       "e\030\005 \001(\005\"\201\001\n!proto_fc_add_club_chat_recor" +
       "d_ack\022\013\n\003ret\030\001 \001(\005\022>\n\025club_chat_record_i" +
-      "nfo\030\002 \001(\0132\037.proto_ClubChatRecordInfoStru" +
+      "nfo\030\002 \003(\0132\037.proto_ClubChatRecordInfoStru" +
       "ct\022\017\n\007err_msg\030\003 \001(\t\"i\n\"proto_cf_sync_clu" +
       "b_chat_record_req\022\020\n\010club_uid\030\001 \001(\005\022\020\n\010p" +
       "ly_guid\030\002 \001(\003\022\016\n\006autoid\030\003 \001(\005\022\017\n\007req_num" +
       "\030\004 \001(\005\"\224\001\n\"proto_fc_sync_club_chat_recor" +
       "d_ack\022\013\n\003ret\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022>\n\025" +
-      "club_chat_record_info\030\003 \001(\0132\037.proto_Club" +
+      "club_chat_record_info\030\003 \003(\0132\037.proto_Club" +
       "ChatRecordInfoStruct\022\017\n\007err_msg\030\004 \001(\t\"\264\001" +
       "\n\036proto_ClubChatRecordInfoStruct\022\020\n\010club" +
       "_uid\030\001 \001(\005\022\017\n\007game_id\030\002 \001(\005\022\025\n\rsend_msg_" +
       "time\030\003 \001(\005\022\017\n\007auto_id\030\004 \001(\005\022\016\n\006ply_id\030\005 " +
       "\001(\003\022\020\n\010chat_msg\030\006 \001(\t\022\014\n\004type\030\007 \001(\005\022\027\n\017c" +
       "lub_message_id\030\010 \001(\005\"\236\001\n\036proto_cl_update" +
-      "_msg_status_req\022\024\n\014auto_id_list\030\001 \001(\003\0226\n" +
+      "_msg_status_req\022\024\n\014auto_id_list\030\001 \003(\003\0226\n" +
       "\006status\030\002 \001(\0162&.proto_cl_update_msg_stat" +
       "us_req.STATUS\".\n\006STATUS\022\r\n\tnullValue\020\000\022\010" +
       "\n\004READ\020\001\022\013\n\007DELETED\020\002\">\n\036proto_lc_update" +
       "_msg_status_ack\022\013\n\003ret\030\001 \001(\005\022\017\n\007err_msg\030" +
       "\002 \001(\t\"-\n\032proto_cl_get_msg_count_req\022\017\n\007c" +
       "lub_id\030\001 \001(\005\"~\n\032proto_lc_get_msg_count_a" +
-      "ck\0226\n\nresult_set\030\001 \001(\0132\".proto_lc_get_ms" +
+      "ck\0226\n\nresult_set\030\001 \003(\0132\".proto_lc_get_ms" +
       "g_count_ack.Result\032(\n\006Result\022\017\n\007club_id\030" +
       "\001 \001(\005\022\r\n\005count\030\002 \001(\005\"L\n\032proto_cf_message" +
       "_wrap_sync\022\020\n\010ply_guid\030\001 \001(\003\022\016\n\006opcode\030\002" +
@@ -17941,7 +18938,7 @@ public final class LoginMessage {
       "anguage\030\006 \001(\005\"^\n\024proto_fl_club_notify\022\017\n" +
       "\007club_id\030\001 \001(\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003" +
       " \001(\014\022\027\n\017except_ply_guid\030\004 \001(\003\">\n\021proto_f" +
-      "l_noti_msg\022)\n\rnoti_msg_info\030\001 \001(\0132\022.prot" +
+      "l_noti_msg\022)\n\rnoti_msg_info\030\001 \003(\0132\022.prot" +
       "o_NotiMsgInfo\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006a" +
       "utoid\030\001 \001(\003\022\021\n\tsender_id\030\002 \001(\003\022\023\n\013reciev" +
       "er_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_sho" +
