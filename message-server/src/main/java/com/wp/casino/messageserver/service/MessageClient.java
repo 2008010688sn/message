@@ -102,7 +102,14 @@ public class MessageClient extends NettyTcpClient {
             MessageContext messageContext = new MessageContext();
             messageContext.setContent(message.getMsgContent());
             messageContext.setText("web noti msg");
-            SystemMessage sm = save2Mongo (message.getSenderId(), message.getRecieverId(), message.getMsgType(),
+
+            List<ReceiveObj> list = new ArrayList<>();
+            ReceiveObj receiveObj = new ReceiveObj();
+            receiveObj.setId(message.getRecieverId());
+            receiveObj.setStatus(0);
+            list.add(receiveObj);
+
+            SystemMessage sm = save2Mongo (message.getSenderId(), list, message.getMsgType(),
                     message.getShowMsgType(), messageContext, 0,
                     message.getClubId(), message.getMsgRstId(), -1);
 
@@ -126,7 +133,14 @@ public class MessageClient extends NettyTcpClient {
             rmc.setMagic_id("apply_join_room_msg");
             rmc.setTableCreateTime(message.getTableCreateTime());
             rmc.setInvitecode(message.getInviteCode());
-            SystemMessage sm = save2Mongo (message.getPlyGuid(), message.getOwnerGuid(), MsgType.GAME_NOTI_MSG.getMsgType(),
+
+            List<ReceiveObj> list = new ArrayList<>();
+            ReceiveObj receiveObj = new ReceiveObj();
+            receiveObj.setId(message.getOwnerGuid());
+            receiveObj.setStatus(0);
+            list.add(receiveObj);
+
+            SystemMessage sm = save2Mongo (message.getPlyGuid(), list, MsgType.GAME_NOTI_MSG.getMsgType(),
                     MsgContentType.ACK_MSG.getMsgContentType(), rmc, 0,
                     0, MagicId.APPLY_JOIN_ROOM_MSG.getMagicId(), -1);
 
@@ -143,15 +157,21 @@ public class MessageClient extends NettyTcpClient {
             clubMessageContext.setNickName("");
             List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(message.getClubId());
 
+            List<ReceiveObj> list = new ArrayList<>();
             for (PyqClubMembers pcm : members) {
-                clubMessageContext.setPlyId(pcm.getCmPlyGuid());
-
-                SystemMessage sm = save2Mongo(message.getPlyGuid(), pcm.getCmPlyGuid(), MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                        MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0,
-                        message.getClubId(), MagicId.DISMISS_CLUB_MSG.getMagicId(), -1);
-
-                trans2Login(sm);
+                ReceiveObj receiveObj = new ReceiveObj();
+                receiveObj.setId(pcm.getCmPlyGuid());
+                receiveObj.setStatus(0);
+                list.add(receiveObj);
             }
+            clubMessageContext.setPlyId(message.getPlyGuid());
+
+            SystemMessage sm = save2Mongo(message.getPlyGuid(), list, MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0,
+                    message.getClubId(), MagicId.DISMISS_CLUB_MSG.getMagicId(), -1);
+
+            trans2Login(sm);
+
         });
 
         //俱乐部成员变更---opcode:20541
@@ -169,6 +189,8 @@ public class MessageClient extends NettyTcpClient {
             clubMessageContext.setPlyId(clubMemberUpdateInfo.getPlyGuid());
             clubMessageContext.setNickName(clubMemberUpdateInfo.getPlyNickname());
             SystemMessage sm = null;
+            List<ReceiveObj> list = new ArrayList<>();
+            ReceiveObj receiveObj = null;
             switch (reason) {
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE:
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.RefuseJoin_VALUE:
@@ -176,7 +198,13 @@ public class MessageClient extends NettyTcpClient {
                     clubMessageContext.setText("reply join club");
                     // 申请结果
                     int result = reason == WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE ? 1 : 0;
-                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), clubMemberUpdateInfo.getPlyGuid(),MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                    // 接收人
+                    receiveObj = new ReceiveObj();
+                    receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                    receiveObj.setStatus(0);
+                    list.add(receiveObj);
+
+                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
                             MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
                             result == 1 ? MagicId.AGREE_JOIN_CLUB_MSG.getMagicId() : MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId(),
                             -1);
@@ -187,18 +215,26 @@ public class MessageClient extends NettyTcpClient {
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.LeaveClub_VALUE:
                     //退出俱乐部 通知所有管理员
                     List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(clubMemberUpdateInfo.getClubId());
-                    for (PyqClubMembers pcm: members
-                         ) {
-                        sm = save2Mongo(clubMemberUpdateInfo.getPlyGuid(), pcm.getCmPlyGuid() ,MsgType.CLUB_NOTI_MSG.getMsgType(),
-                                MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
-                                MagicId.DROP_OUT_CLUB_MSG.getMagicId(), -1);
-                        trans2Login(sm);
+                    for (PyqClubMembers pcm: members) {
+                        receiveObj = new ReceiveObj();
+                        receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                        receiveObj.setStatus(0);
+                        list.add(receiveObj);
                     }
+                    sm = save2Mongo(clubMemberUpdateInfo.getPlyGuid(), list ,MsgType.CLUB_NOTI_MSG.getMsgType(),
+                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
+                            MagicId.DROP_OUT_CLUB_MSG.getMagicId(), -1);
+                    trans2Login(sm);
                     break;
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.KickOut_VALUE:
                     //被踢出俱乐部
+                    // 接收人
+                    receiveObj = new ReceiveObj();
+                    receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                    receiveObj.setStatus(0);
+                    list.add(receiveObj);
                     // 数据落地
-                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), clubMemberUpdateInfo.getPlyGuid(),MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
                             MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
                             MagicId.KICK_OUT_CLUB_MSG.getMagicId(), -1);
                     trans2Login(sm);
@@ -211,7 +247,7 @@ public class MessageClient extends NettyTcpClient {
 
     /**
      *  @param sendId
-     * @param receiveId
+     * @param receiveObjList
      * @param messageType
      * @param showMessageType
      * @param messageContext
@@ -221,19 +257,13 @@ public class MessageClient extends NettyTcpClient {
      * @param expireTime
      * @return
      */
-    private SystemMessage save2Mongo (long sendId, long receiveId, Integer messageType,
+    private SystemMessage save2Mongo (long sendId, List<ReceiveObj> receiveObjList, Integer messageType,
                                 Integer showMessageType, Object messageContext, Integer messageStatus,
                                 Integer clubId, String magicId, Integer expireTime) {
         SystemMessage systemMessage = new SystemMessage();
         systemMessage.setSendId(sendId);
 
-        List<ReceiveObj> list = new ArrayList<>();
-        ReceiveObj receiveObj = new ReceiveObj();
-        receiveObj.setId(receiveId);
-        receiveObj.setStatus(0);
-        list.add(receiveObj);
-
-        systemMessage.setReceiveObjList(list);
+        systemMessage.setReceiveObjList(receiveObjList);
         systemMessage.setMessageType(messageType);
         systemMessage.setShowMessageType(showMessageType);
         systemMessage.setMessageContext(messageContext);
@@ -279,7 +309,10 @@ public class MessageClient extends NettyTcpClient {
             ReceiveObj receiveObj1 = (ReceiveObj) obj;
             msgBody.setRecieverId(receiveObj1.getId());
             msgBody.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
-            msg.setNotiMsgInfo(msgBody);
+
+            List<LoginMessage.proto_NotiMsgInfo> noti = new ArrayList<>();
+            noti.add(msgBody.build());
+            msg.addAllNotiMsgInfo(noti);
 
             LoginMessage.proto_fc_message_wrap_sync.Builder builder = LoginMessage.proto_fc_message_wrap_sync.newBuilder();
             builder.setPlyGuid(receiveObj1.getId());
