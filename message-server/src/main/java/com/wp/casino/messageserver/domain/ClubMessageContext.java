@@ -15,13 +15,13 @@ public class ClubMessageContext implements Serializable {
 
     private String clubName;
 
-    private Integer code;
-
     private String content;
 
     private String nickName;
 
-    private String plyId;
+    private long plyId;
 
     private String text;
+
+    private Integer code;
 }

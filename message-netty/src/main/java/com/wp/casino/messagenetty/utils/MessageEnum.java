@@ -5,6 +5,8 @@ package com.wp.casino.messagenetty.utils;
  */
 public enum  MessageEnum {
 //worldMessage
+    FW_REGISTER_REQ(7180,"com.wp.casino.messagenetty.proto","WorldMessage","proto_fw_register_req"),
+    WF_REGISTER_ACK(7181,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_register_ack"),
     WF_SYSTEM_CHAT_REQ(7183,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_system_chat_req"),
     WF_WEB_MSG_NOTI(20538,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_web_msg_noti"),
     WL_NOTI_MSG_DATA(20539,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wl_noti_msg_data"),
