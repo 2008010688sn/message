@@ -2,6 +2,7 @@ package com.wp.casino.messageserver.service;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.ByteString;
+import com.google.protobuf.Message;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
 import com.wp.casino.messageapi.service.Listener;
@@ -16,9 +17,9 @@ import com.wp.casino.messageserver.common.MsgContentType;
 import com.wp.casino.messageserver.common.MsgType;
 import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
 import com.wp.casino.messageserver.domain.ClubMessageContext;
-import com.wp.casino.messageserver.domain.PyqClubMembers;
 import com.wp.casino.messageserver.domain.ReceiveObj;
 import com.wp.casino.messageserver.domain.SystemMessage;
+import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.ClubDataUtil;
 import com.wp.casino.messageserver.utils.HandlerContext;
@@ -100,7 +101,15 @@ public class MessageServer extends NettyTcpServer {
                 throw new IllegalArgumentException("illegal opCode " + opcode);
             }
             MessageLite messageLite = (MessageLite) parser.parseFrom(data.toByteArray());
-            messageDispatcher.onMessage(channel, messageLite);
+            switch (opcode) {
+                case MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpcode :
+                    handleLoadNotiMsg(message.getPluid, messageLite);
+                case MessageEnum.CL_UPDATE_MSG_STATUS_REQ.getOpcode :
+                    handleUpdateMsg(message.getPluid, messageLite);
+                case MessageEnum.CL_GET_MSG_COUNT_REQ.getOpcode :
+                    handleGetMsgCount(message.getPluid, messageLite);
+
+            }
         });
 
         //消息拉取
@@ -340,6 +349,8 @@ public class MessageServer extends NettyTcpServer {
         });
     }
 
+    handleLoadNotiMsg()
+
     /**
      *  @param sendId
      * @param receiveObjList
@@ -428,6 +439,85 @@ public class MessageServer extends NettyTcpServer {
 
         // 第二次封装 统一回执
         sendProtoPack(MessageEnum.FL_NOTI_MSG.getOpCode(), fnm.build(), recieverId);
+    }
+
+    /**
+     * 处理拉取消息
+     */
+    handleLoadNotiMsg(long uid, MessageLite message) {
+        //拉取消息记录
+        long plyguid = message.getPlyGuid();
+        int type = message.getType();
+        long autoid = message.getAutoId();
+        int clubId = message.getClubId();
+        int limit = message.getMaxCount();
+        Query query = new Query();
+
+
+
+        // 根据条件查询所有消息
+        List<SystemMessage> list = systemMessageDao.find(query);
+
+
+        // 封装公共回执
+        LoginMessage.proto_fc_message_wrap_sync.Builder commRes = LoginMessage.
+                proto_fc_message_wrap_sync.newBuilder();
+        // 消息包装
+        LoginMessage.proto_lc_load_noti_msg_ack.Builder response = LoginMessage
+                .proto_lc_load_noti_msg_ack.newBuilder();
+        // 消息体
+        LoginMessage.proto_NotiMsgInfo.Builder notiMsg = LoginMessage.proto_NotiMsgInfo.newBuilder();
+        //response.setNotiMsgInfo(notiMsg);
+        //response.setAutoId();
+
+        commRes.setOpcode(MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpCode());
+        commRes.setData(response.build().toByteString());
+        //commRes.setPlyGuid();
+
+        channel.writeAndFlush(response.build());
+
+    }
+
+    /**
+     * 处理修改消息状态
+     * @param uid
+     * @param messageLite
+     */
+    handleUpdateMsg(long uid, MessageLite message) {
+        List<Long> autoList = message.getAutoIdListList();
+
+        //修改mongo状态
+        Query query = new Query();
+        Criteria criteria = Criteria.where("_auto_id").in(autoList)
+                .and("cm_reciver_ids.$.id").is(111)
+                .and("cm_reciver_ids.$.status").lt(message.getStatusValue());
+        query.addCriteria(criteria);
+
+        Update update = new Update().set("cm_reciver_ids.$.status", message.getStatusValue());
+        systemMessageDao.update(query, update);
+
+        // 回执
+        LoginMessage.proto_lc_update_msg_status_ack response = LoginMessage
+                .proto_lc_update_msg_status_ack.newBuilder()
+                .setRet(0).setErrMsg("").build();
+        sendProtoPack(MessageEnum.LC_UPDATE_MSG_STATUS_ACK.getOpCode(), response, 1);
+
+    }
+
+    /**
+     * 处理获取消息数目
+     * @param uid
+     * @param messageLite
+     */
+    handleGetMsgCount(long uid, MessageLite message) {
+        // 查找数目
+
+        // 回执
+        LoginMessage.proto_lc_get_msg_count_ack response = LoginMessage
+                .proto_lc_get_msg_count_ack.newBuilder()
+                .build();
+        sendProtoPack(MessageEnum.LC_GET_MSG_COUNT_ACK.getOpCode(), response, 1);
+
     }
 
 
