@@ -5,12 +5,12 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
 import com.wp.casino.messagenetty.client.NettyTcpClient;
-import com.wp.casino.messagenetty.proto.LoginMessage;
 import com.wp.casino.messagenetty.proto.WorldMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messagenetty.utils.MessageEnum;
 import com.wp.casino.messagenetty.utils.MessageMappingHolder;
 import com.wp.casino.messageserver.common.MagicId;
+import com.wp.casino.messageserver.common.MsgConstants;
 import com.wp.casino.messageserver.common.MsgContentType;
 import com.wp.casino.messageserver.common.MsgType;
 import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
@@ -18,12 +18,13 @@ import com.wp.casino.messageserver.domain.*;
 import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.ClubDataUtil;
-import com.wp.casino.messageserver.utils.HandlerContext;
-import com.wp.casino.messageserver.utils.HandlerServerContext;
-import io.netty.channel.*;
+import com.wp.casino.messageserver.utils.SendMsgUtil;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.EventLoop;
 import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -73,23 +74,23 @@ public class MessageClient extends NettyTcpClient {
 
         //7183  TODO
         messageDispatcher.registerHandler(WorldMessage.proto_wf_system_chat_req.class, (channel, message) -> {
-            log.info("messageserver客户端端接收到proto_ww_system_chat_req.并回执给worldserver",channel.remoteAddress().toString());
+            /*log.info("messageserver客户端端接收到proto_ww_system_chat_req.并回执给worldserver",channel.remoteAddress().toString());
             channel.writeAndFlush(WorldMessage.proto_wf_system_chat_req.newBuilder()
                     .setPlyGuid(message.getPlyGuid()).build());
             // 获取通道
             Channel ch = getChannel(message.getPlyGuid());
             if (ch != null) {
                 ch.writeAndFlush(message);
-            }
+            }*/
         });
 
         // wordServer的web通知20538
         messageDispatcher.registerHandler(WorldMessage.proto_wf_web_msg_noti.class, (channel, message) -> {
             Integer type = message.getMsgType();
             ByteString data  = message.getMsgData();
-            Parser<?> parser= MessageMappingHolder.getParser(20539);
+            Parser<?> parser= MessageMappingHolder.getParser(MessageEnum.WL_NOTI_MSG_DATA.getOpCode());
             if (parser==null){
-                throw new IllegalArgumentException("illegal opCode " + 20539);
+                throw new IllegalArgumentException("illegal opCode " + MessageEnum.WL_NOTI_MSG_DATA.getOpCode());
             }
             MessageLite messageLite = (MessageLite) parser.parseFrom(data.toByteArray());
             messageDispatcher.onMessage(channel, messageLite);
@@ -105,15 +106,17 @@ public class MessageClient extends NettyTcpClient {
             List<ReceiveObj> list = new ArrayList<>();
             ReceiveObj receiveObj = new ReceiveObj();
             receiveObj.setId(message.getRecieverId());
-            receiveObj.setStatus(0);
+            receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
             list.add(receiveObj);
 
             SystemMessage sm = save2Mongo (message.getSenderId(), list, message.getMsgType(),
-                    message.getShowMsgType(), messageContext, 0,
+                    message.getShowMsgType(), messageContext, MsgConstants.SENDED,
                     message.getClubId(), message.getMsgRstId(), -1);
 
             // 转发协议到login
-            trans2Login(sm);
+            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, message.getMsgType(),message.getShowMsgType(),
+                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                    sm.getMagicId());
         });
 
         // 玩家请求加入房间通知-----opcode：20529
@@ -129,21 +132,23 @@ public class MessageClient extends NettyTcpClient {
             rmc.setText("join room req");
             rmc.setContent("");
             rmc.setCode(0);
-            rmc.setMagic_id("apply_join_room_msg");
+            rmc.setMagic_id(MagicId.APPLY_JOIN_ROOM_MSG.getMagicId());
             rmc.setTableCreateTime(message.getTableCreateTime());
             rmc.setInvitecode(message.getInviteCode());
 
             List<ReceiveObj> list = new ArrayList<>();
             ReceiveObj receiveObj = new ReceiveObj();
             receiveObj.setId(message.getOwnerGuid());
-            receiveObj.setStatus(0);
+            receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
             list.add(receiveObj);
 
             SystemMessage sm = save2Mongo (message.getPlyGuid(), list, MsgType.GAME_NOTI_MSG.getMsgType(),
-                    MsgContentType.ACK_MSG.getMsgContentType(), rmc, 0,
+                    MsgContentType.ACK_MSG.getMsgContentType(), rmc, MsgConstants.SENDED,
                     0, MagicId.APPLY_JOIN_ROOM_MSG.getMagicId(), -1);
 
-            trans2Login(sm);
+            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                    sm.getMagicId());
         });
 
         // 俱乐部解散---------------opcode:20540
@@ -160,17 +165,19 @@ public class MessageClient extends NettyTcpClient {
             for (PyqClubMembers pcm : members) {
                 ReceiveObj receiveObj = new ReceiveObj();
                 receiveObj.setId(pcm.getCmPlyGuid());
-                receiveObj.setStatus(0);
+                receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                 list.add(receiveObj);
             }
             clubMessageContext.setPlyId(message.getPlyGuid());
 
+            // 落表
             SystemMessage sm = save2Mongo(message.getPlyGuid(), list, MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0,
+                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED,
                     message.getClubId(), MagicId.DISMISS_CLUB_MSG.getMagicId(), -1);
-
-            trans2Login(sm);
-
+            // 发送
+            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                    sm.getMagicId());
         });
 
         //俱乐部成员变更---opcode:20541
@@ -200,15 +207,21 @@ public class MessageClient extends NettyTcpClient {
                     // 接收人
                     receiveObj = new ReceiveObj();
                     receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                    receiveObj.setStatus(0);
+                    receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                     list.add(receiveObj);
 
                     sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
+                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
                             result == 1 ? MagicId.AGREE_JOIN_CLUB_MSG.getMagicId() : MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId(),
                             -1);
-                    trans2Login(sm);
-                    //修改 根据result修改请求的消息体的code值   TODO
+
+                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                            sm.getMagicId());
+
+                    //修改 根据result修改请求的消息体的code值
+                    systemMessageDao.updateMsgCode(clubMemberUpdateInfo.getMessageId(),
+                            result == 0 ? 0 : 1, clubMemberUpdateInfo.getWhoGuid());
 
                     break;
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.LeaveClub_VALUE:
@@ -217,32 +230,37 @@ public class MessageClient extends NettyTcpClient {
                     for (PyqClubMembers pcm: members) {
                         receiveObj = new ReceiveObj();
                         receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                        receiveObj.setStatus(0);
+                        receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                         list.add(receiveObj);
                     }
                     sm = save2Mongo(clubMemberUpdateInfo.getPlyGuid(), list ,MsgType.CLUB_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
+                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
                             MagicId.DROP_OUT_CLUB_MSG.getMagicId(), -1);
-                    trans2Login(sm);
+                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                            sm.getMagicId());
                     break;
                 case WorldMessage.ClubMemberUpdateInfo.TYPE.KickOut_VALUE:
                     //被踢出俱乐部
                     // 接收人
                     receiveObj = new ReceiveObj();
                     receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                    receiveObj.setStatus(0);
+                    receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                     list.add(receiveObj);
                     // 数据落地
                     sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, 0, clubMemberUpdateInfo.getClubId(),
+                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
                             MagicId.KICK_OUT_CLUB_MSG.getMagicId(), -1);
-                    trans2Login(sm);
+                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                            sm.getMagicId());
                     break;
             }
         });
 
 
     }
+
 
     /**
      *  @param sendId
@@ -279,67 +297,9 @@ public class MessageClient extends NettyTcpClient {
         systemMessage.setReceiveTime(Integer.valueOf(String.valueOf(System.currentTimeMillis() / 1000)));
         // 数据落地
         SystemMessage sm = systemMessageDao.save(systemMessage);
-
         return sm;
     }
 
-    /**
-     *
-     * @param sm
-     */
-    private void trans2Login(SystemMessage sm) {
-        LoginMessage.proto_fl_noti_msg.Builder msg = LoginMessage.proto_fl_noti_msg.newBuilder();
-        LoginMessage.proto_NotiMsgInfo.Builder msgBody = LoginMessage.proto_NotiMsgInfo.newBuilder();
-        msgBody.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
-        msgBody.setAutoid(sm.getAutoId());
-        msgBody.setSenderId(sm.getSendId());
-        msgBody.setMsgType(sm.getMessageType());
-        msgBody.setMsgShowType(sm.getShowMessageType());
-        msgBody.setMsg(JSON.toJSONString(sm.getMessageContext()));
-        msgBody.setMsgStatus(sm.getMessageStatus());
-        msgBody.setSendTime(sm.getSendTime());
-        msgBody.setClubId(sm.getClubId());
-        msgBody.setExpireTime(sm.getExpireTime());
-        msgBody.setTitle(sm.getTitle());
-
-        for (Object obj: sm.getReceiveObjList()
-            // 根据接收人列表循环发送
-        ) {
-            ReceiveObj receiveObj1 = (ReceiveObj) obj;
-            msgBody.setRecieverId(receiveObj1.getId());
-            msgBody.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
-
-            List<LoginMessage.proto_NotiMsgInfo> noti = new ArrayList<>();
-            noti.add(msgBody.build());
-            msg.addAllNotiMsgInfo(noti);
-
-            LoginMessage.proto_fc_message_wrap_sync.Builder builder = LoginMessage.proto_fc_message_wrap_sync.newBuilder();
-            builder.setPlyGuid(receiveObj1.getId());
-            builder.setOpcode(MessageEnum.FL_NOTI_MSG.getOpCode());
-            builder.setData(msg.build().toByteString());
-            transferMessage(receiveObj1.getId(), builder.build());
-        }
-    }
-
-    // 获取通道
-    private Channel getChannel(Long plyGuid) {
-        String channelId = HandlerServerContext.getInstance().getChannel(plyGuid);
-        if (StringUtils.isBlank(channelId)) {
-            return null;
-        }
-        Channel ch = HandlerContext.getInstance().getChannel(channelId);
-        return  ch;
-    }
-
-    private void transferMessage(long recieverId, LoginMessage.proto_fc_message_wrap_sync message) {
-        String channelId = HandlerServerContext.getInstance().getChannel(recieverId);
-        if (StringUtils.isNotBlank(channelId)) {
-            Channel ch = HandlerContext.getInstance().getChannel(channelId);
-            if (ch != null) {
-                ch.writeAndFlush(message);
-            }
-        }
-    }
 
     @Override
     public ChannelHandler getChannelHandler() {

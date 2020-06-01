@@ -159,13 +159,30 @@ public class ClubDataUtil {
         return  byUid;
     }
 
+    /**
+     *
+     * 查找消息
+     * @param plyGuid
+     * @param autoid
+     * @param reqNum
+     * @param clubUid
+     * @return
+     */
+    public static List<ClubChatInfo> syncClubChatRecord(long plyGuid, int autoid, int reqNum, int clubUid) {
+        // TODO
+        return null;
+    }
 
-
-
-
-
-
-
-
-
+    /**
+     *
+     * @param plyGuid
+     * @param clubUid
+     * @param gameId
+     * @param chatMsg
+     * @param type
+     * @return
+     */
+    public static ClubChatInfo addClubChatRecord(long plyGuid, int clubUid, int gameId, String chatMsg, int type) {
+        return null;
+    }
 }

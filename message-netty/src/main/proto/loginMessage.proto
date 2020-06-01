@@ -59,6 +59,11 @@ message proto_fc_add_club_chat_record_ack{
     string	err_msg = 3;
 }
 
+// 通知广播 需要用proto_fl_club_notify封装
+message proto_fc_add_club_chat_record_noti{
+	repeated	proto_ClubChatRecordInfoStruct  club_chat_record_info = 1;	//1 图片 2.文字 3.语音 4.表情 5.开房信息
+}
+
 //俱乐部聊天-----opcode:22029------------有回执，如下
 message proto_cf_sync_club_chat_record_req{
   int32    club_uid = 1;
@@ -143,7 +148,8 @@ message proto_lf_register_req {
 message proto_fl_register_ack {
 	 int32 ret = 1;
 };
-//Login所有连接到它的玩家信息告知Message 22002
+
+//玩家上线：Login所有连接到它的玩家信息告知Message 22002
 message proto_lf_update_ply_login_status_not {
 	 int64 ply_guid = 1;
 	 int32 ply_vip = 2;
@@ -152,6 +158,11 @@ message proto_lf_update_ply_login_status_not {
 	 string head_img = 5;
 	 int32 user_language = 6;
 };
+
+// 玩家下线通知
+message proto_lf_update_ply_logout_status_not {
+    int64 ply_guid = 1;
+}
 
 
 //-----opcode:22033

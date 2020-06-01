@@ -5656,6 +5656,908 @@ public final class LoginMessage {
 
   }
 
+  public interface proto_fc_add_club_chat_record_notiOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_fc_add_club_chat_record_noti)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> 
+        getClubChatRecordInfoList();
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index);
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    int getClubChatRecordInfoCount();
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList();
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * 通知广播 需要用proto_fl_club_notify封装
+   * </pre>
+   *
+   * Protobuf type {@code proto_fc_add_club_chat_record_noti}
+   */
+  public  static final class proto_fc_add_club_chat_record_noti extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto_fc_add_club_chat_record_noti)
+      proto_fc_add_club_chat_record_notiOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use proto_fc_add_club_chat_record_noti.newBuilder() to construct.
+    private proto_fc_add_club_chat_record_noti(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private proto_fc_add_club_chat_record_noti() {
+      clubChatRecordInfo_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private proto_fc_add_club_chat_record_noti(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              clubChatRecordInfo_.add(
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fc_add_club_chat_record_noti_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fc_add_club_chat_record_noti_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.Builder.class);
+    }
+
+    public static final int CLUB_CHAT_RECORD_INFO_FIELD_NUMBER = 1;
+    private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_;
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
+      return clubChatRecordInfo_;
+    }
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+        getClubChatRecordInfoOrBuilderList() {
+      return clubChatRecordInfo_;
+    }
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    public int getClubChatRecordInfoCount() {
+      return clubChatRecordInfo_.size();
+    }
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+      return clubChatRecordInfo_.get(index);
+    }
+    /**
+     * <pre>
+     *1 图片 2.文字 3.语音 4.表情 5.开房信息
+     * </pre>
+     *
+     * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+     */
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+        int index) {
+      return clubChatRecordInfo_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
+        output.writeMessage(1, clubChatRecordInfo_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, clubChatRecordInfo_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti)) {
+        return super.equals(obj);
+      }
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti) obj;
+
+      boolean result = true;
+      result = result && getClubChatRecordInfoList()
+          .equals(other.getClubChatRecordInfoList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getClubChatRecordInfoCount() > 0) {
+        hash = (37 * hash) + CLUB_CHAT_RECORD_INFO_FIELD_NUMBER;
+        hash = (53 * hash) + getClubChatRecordInfoList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 通知广播 需要用proto_fl_club_notify封装
+     * </pre>
+     *
+     * Protobuf type {@code proto_fc_add_club_chat_record_noti}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto_fc_add_club_chat_record_noti)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_notiOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fc_add_club_chat_record_noti_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fc_add_club_chat_record_noti_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.Builder.class);
+      }
+
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getClubChatRecordInfoFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (clubChatRecordInfoBuilder_ == null) {
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          clubChatRecordInfoBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_fc_add_club_chat_record_noti_descriptor;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti(this);
+        int from_bitField0_ = bitField0_;
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            clubChatRecordInfo_ = java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.clubChatRecordInfo_ = clubChatRecordInfo_;
+        } else {
+          result.clubChatRecordInfo_ = clubChatRecordInfoBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti.getDefaultInstance()) return this;
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfo_.isEmpty()) {
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureClubChatRecordInfoIsMutable();
+              clubChatRecordInfo_.addAll(other.clubChatRecordInfo_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.clubChatRecordInfo_.isEmpty()) {
+            if (clubChatRecordInfoBuilder_.isEmpty()) {
+              clubChatRecordInfoBuilder_.dispose();
+              clubChatRecordInfoBuilder_ = null;
+              clubChatRecordInfo_ = other.clubChatRecordInfo_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              clubChatRecordInfoBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getClubChatRecordInfoFieldBuilder() : null;
+            } else {
+              clubChatRecordInfoBuilder_.addAllMessages(other.clubChatRecordInfo_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> clubChatRecordInfo_ =
+        java.util.Collections.emptyList();
+      private void ensureClubChatRecordInfoIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          clubChatRecordInfo_ = new java.util.ArrayList<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct>(clubChatRecordInfo_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> clubChatRecordInfoBuilder_;
+
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> getClubChatRecordInfoList() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        } else {
+          return clubChatRecordInfoBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public int getClubChatRecordInfoCount() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.size();
+        } else {
+          return clubChatRecordInfoBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct getClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);
+        } else {
+          return clubChatRecordInfoBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder setClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder addClubChatRecordInfo(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct value) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, value);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder addClubChatRecordInfo(
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(builderForValue.build());
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder addClubChatRecordInfo(
+          int index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder builderForValue) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder addAllClubChatRecordInfo(
+          java.lang.Iterable<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct> values) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, clubChatRecordInfo_);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder clearClubChatRecordInfo() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          clubChatRecordInfo_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public Builder removeClubChatRecordInfo(int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          ensureClubChatRecordInfoIsMutable();
+          clubChatRecordInfo_.remove(index);
+          onChanged();
+        } else {
+          clubChatRecordInfoBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder getClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder getClubChatRecordInfoOrBuilder(
+          int index) {
+        if (clubChatRecordInfoBuilder_ == null) {
+          return clubChatRecordInfo_.get(index);  } else {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public java.util.List<? extends com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+           getClubChatRecordInfoOrBuilderList() {
+        if (clubChatRecordInfoBuilder_ != null) {
+          return clubChatRecordInfoBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(clubChatRecordInfo_);
+        }
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder() {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder addClubChatRecordInfoBuilder(
+          int index) {
+        return getClubChatRecordInfoFieldBuilder().addBuilder(
+            index, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       *1 图片 2.文字 3.语音 4.表情 5.开房信息
+       * </pre>
+       *
+       * <code>repeated .proto_ClubChatRecordInfoStruct club_chat_record_info = 1;</code>
+       */
+      public java.util.List<com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder> 
+           getClubChatRecordInfoBuilderList() {
+        return getClubChatRecordInfoFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder> 
+          getClubChatRecordInfoFieldBuilder() {
+        if (clubChatRecordInfoBuilder_ == null) {
+          clubChatRecordInfoBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStructOrBuilder>(
+                  clubChatRecordInfo_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          clubChatRecordInfo_ = null;
+        }
+        return clubChatRecordInfoBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto_fc_add_club_chat_record_noti)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto_fc_add_club_chat_record_noti)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti();
+    }
+
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<proto_fc_add_club_chat_record_noti>
+        PARSER = new com.google.protobuf.AbstractParser<proto_fc_add_club_chat_record_noti>() {
+      @java.lang.Override
+      public proto_fc_add_club_chat_record_noti parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new proto_fc_add_club_chat_record_noti(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<proto_fc_add_club_chat_record_noti> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<proto_fc_add_club_chat_record_noti> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_noti getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface proto_cf_sync_club_chat_record_reqOrBuilder extends
       // @@protoc_insertion_point(interface_extends:proto_cf_sync_club_chat_record_req)
       com.google.protobuf.MessageOrBuilder {
@@ -13944,7 +14846,7 @@ public final class LoginMessage {
   }
   /**
    * <pre>
-   *Login所有连接到它的玩家信息告知Message 22002
+   *玩家上线：Login所有连接到它的玩家信息告知Message 22002
    * </pre>
    *
    * Protobuf type {@code proto_lf_update_ply_login_status_not}
@@ -14371,7 +15273,7 @@ public final class LoginMessage {
     }
     /**
      * <pre>
-     *Login所有连接到它的玩家信息告知Message 22002
+     *玩家上线：Login所有连接到它的玩家信息告知Message 22002
      * </pre>
      *
      * Protobuf type {@code proto_lf_update_ply_login_status_not}
@@ -14841,6 +15743,491 @@ public final class LoginMessage {
 
     @java.lang.Override
     public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface proto_lf_update_ply_logout_status_notOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:proto_lf_update_ply_logout_status_not)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>int64 ply_guid = 1;</code>
+     */
+    long getPlyGuid();
+  }
+  /**
+   * <pre>
+   * 玩家下线通知
+   * </pre>
+   *
+   * Protobuf type {@code proto_lf_update_ply_logout_status_not}
+   */
+  public  static final class proto_lf_update_ply_logout_status_not extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:proto_lf_update_ply_logout_status_not)
+      proto_lf_update_ply_logout_status_notOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use proto_lf_update_ply_logout_status_not.newBuilder() to construct.
+    private proto_lf_update_ply_logout_status_not(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private proto_lf_update_ply_logout_status_not() {
+      plyGuid_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private proto_lf_update_ply_logout_status_not(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 8: {
+
+              plyGuid_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_logout_status_not_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_logout_status_not_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.Builder.class);
+    }
+
+    public static final int PLY_GUID_FIELD_NUMBER = 1;
+    private long plyGuid_;
+    /**
+     * <code>int64 ply_guid = 1;</code>
+     */
+    public long getPlyGuid() {
+      return plyGuid_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (plyGuid_ != 0L) {
+        output.writeInt64(1, plyGuid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (plyGuid_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, plyGuid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not)) {
+        return super.equals(obj);
+      }
+      com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not) obj;
+
+      boolean result = true;
+      result = result && (getPlyGuid()
+          == other.getPlyGuid());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getPlyGuid());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 玩家下线通知
+     * </pre>
+     *
+     * Protobuf type {@code proto_lf_update_ply_logout_status_not}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:proto_lf_update_ply_logout_status_not)
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_notOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_logout_status_not_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_logout_status_not_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.Builder.class);
+      }
+
+      // Construct using com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        plyGuid_ = 0L;
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.internal_static_proto_lf_update_ply_logout_status_not_descriptor;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not getDefaultInstanceForType() {
+        return com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not build() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not buildPartial() {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not(this);
+        result.plyGuid_ = plyGuid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not) {
+          return mergeFrom((com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not other) {
+        if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.getDefaultInstance()) return this;
+        if (other.getPlyGuid() != 0L) {
+          setPlyGuid(other.getPlyGuid());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private long plyGuid_ ;
+      /**
+       * <code>int64 ply_guid = 1;</code>
+       */
+      public long getPlyGuid() {
+        return plyGuid_;
+      }
+      /**
+       * <code>int64 ply_guid = 1;</code>
+       */
+      public Builder setPlyGuid(long value) {
+        
+        plyGuid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 ply_guid = 1;</code>
+       */
+      public Builder clearPlyGuid() {
+        
+        plyGuid_ = 0L;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:proto_lf_update_ply_logout_status_not)
+    }
+
+    // @@protoc_insertion_point(class_scope:proto_lf_update_ply_logout_status_not)
+    private static final com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not();
+    }
+
+    public static com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<proto_lf_update_ply_logout_status_not>
+        PARSER = new com.google.protobuf.AbstractParser<proto_lf_update_ply_logout_status_not>() {
+      @java.lang.Override
+      public proto_lf_update_ply_logout_status_not parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new proto_lf_update_ply_logout_status_not(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<proto_lf_update_ply_logout_status_not> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<proto_lf_update_ply_logout_status_not> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -18791,6 +20178,11 @@ public final class LoginMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_fc_add_club_chat_record_ack_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_fc_add_club_chat_record_noti_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_fc_add_club_chat_record_noti_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_cf_sync_club_chat_record_req_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18856,6 +20248,11 @@ public final class LoginMessage {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_proto_lf_update_ply_logout_status_not_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_proto_lf_update_ply_logout_status_not_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_proto_fl_club_notify_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -18904,53 +20301,57 @@ public final class LoginMessage {
       "e\030\005 \001(\005\"\201\001\n!proto_fc_add_club_chat_recor" +
       "d_ack\022\013\n\003ret\030\001 \001(\005\022>\n\025club_chat_record_i" +
       "nfo\030\002 \003(\0132\037.proto_ClubChatRecordInfoStru" +
-      "ct\022\017\n\007err_msg\030\003 \001(\t\"i\n\"proto_cf_sync_clu" +
-      "b_chat_record_req\022\020\n\010club_uid\030\001 \001(\005\022\020\n\010p" +
-      "ly_guid\030\002 \001(\003\022\016\n\006autoid\030\003 \001(\005\022\017\n\007req_num" +
-      "\030\004 \001(\005\"\224\001\n\"proto_fc_sync_club_chat_recor" +
-      "d_ack\022\013\n\003ret\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022>\n\025" +
-      "club_chat_record_info\030\003 \003(\0132\037.proto_Club" +
-      "ChatRecordInfoStruct\022\017\n\007err_msg\030\004 \001(\t\"\264\001" +
-      "\n\036proto_ClubChatRecordInfoStruct\022\020\n\010club" +
-      "_uid\030\001 \001(\005\022\017\n\007game_id\030\002 \001(\005\022\025\n\rsend_msg_" +
-      "time\030\003 \001(\005\022\017\n\007auto_id\030\004 \001(\005\022\016\n\006ply_id\030\005 " +
-      "\001(\003\022\020\n\010chat_msg\030\006 \001(\t\022\014\n\004type\030\007 \001(\005\022\027\n\017c" +
-      "lub_message_id\030\010 \001(\005\"\236\001\n\036proto_cl_update" +
-      "_msg_status_req\022\024\n\014auto_id_list\030\001 \003(\003\0226\n" +
-      "\006status\030\002 \001(\0162&.proto_cl_update_msg_stat" +
-      "us_req.STATUS\".\n\006STATUS\022\r\n\tnullValue\020\000\022\010" +
-      "\n\004READ\020\001\022\013\n\007DELETED\020\002\">\n\036proto_lc_update" +
-      "_msg_status_ack\022\013\n\003ret\030\001 \001(\005\022\017\n\007err_msg\030" +
-      "\002 \001(\t\"-\n\032proto_cl_get_msg_count_req\022\017\n\007c" +
-      "lub_id\030\001 \001(\005\"~\n\032proto_lc_get_msg_count_a" +
-      "ck\0226\n\nresult_set\030\001 \003(\0132\".proto_lc_get_ms" +
-      "g_count_ack.Result\032(\n\006Result\022\017\n\007club_id\030" +
-      "\001 \001(\005\022\r\n\005count\030\002 \001(\005\"L\n\032proto_cf_message" +
-      "_wrap_sync\022\020\n\010ply_guid\030\001 \001(\003\022\016\n\006opcode\030\002" +
-      " \001(\005\022\014\n\004data\030\003 \001(\014\"L\n\032proto_fc_message_w" +
-      "rap_sync\022\020\n\010ply_guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001" +
-      "(\005\022\014\n\004data\030\003 \001(\014\"*\n\025proto_lf_register_re" +
-      "q\022\021\n\tserver_id\030\001 \001(\005\"$\n\025proto_fl_registe" +
-      "r_ack\022\013\n\003ret\030\001 \001(\005\"\230\001\n$proto_lf_update_p" +
-      "ly_login_status_not\022\020\n\010ply_guid\030\001 \001(\003\022\017\n" +
-      "\007ply_vip\030\002 \001(\005\022\021\n\tply_level\030\003 \001(\005\022\021\n\tnic" +
-      "k_name\030\004 \001(\t\022\020\n\010head_img\030\005 \001(\t\022\025\n\ruser_l" +
-      "anguage\030\006 \001(\005\"^\n\024proto_fl_club_notify\022\017\n" +
-      "\007club_id\030\001 \001(\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003" +
-      " \001(\014\022\027\n\017except_ply_guid\030\004 \001(\003\">\n\021proto_f" +
-      "l_noti_msg\022)\n\rnoti_msg_info\030\001 \003(\0132\022.prot" +
-      "o_NotiMsgInfo\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006a" +
-      "utoid\030\001 \001(\003\022\021\n\tsender_id\030\002 \001(\003\022\023\n\013reciev" +
-      "er_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_sho" +
-      "w_type\030\005 \001(\005\022\013\n\003msg\030\006 \001(\t\022\022\n\nmsg_status\030" +
-      "\007 \001(\005\022\021\n\tsend_time\030\010 \001(\005\022\017\n\007club_id\030\t \001(" +
-      "\005\022\023\n\013expire_time\030\n \001(\005\022)\n\006status\030\013 \001(\0162\031" +
-      ".proto_NotiMsgInfo.STATUS\022\r\n\005title\030\014 \001(\t" +
-      "\"+\n\006STATUS\022\n\n\006UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DELE" +
-      "TED\020\002\"<\n\034proto_lc_club_apply_join_ack\022\017\n" +
-      "\007err_msg\030\001 \001(\t\022\013\n\003ret\030\002 \001(\005B2\n com.wp.ca" +
-      "sino.messagenetty.protoB\014LoginMessageH\001b" +
-      "\006proto3"
+      "ct\022\017\n\007err_msg\030\003 \001(\t\"d\n\"proto_fc_add_club" +
+      "_chat_record_noti\022>\n\025club_chat_record_in" +
+      "fo\030\001 \003(\0132\037.proto_ClubChatRecordInfoStruc" +
+      "t\"i\n\"proto_cf_sync_club_chat_record_req\022" +
+      "\020\n\010club_uid\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\016\n\006a" +
+      "utoid\030\003 \001(\005\022\017\n\007req_num\030\004 \001(\005\"\224\001\n\"proto_f" +
+      "c_sync_club_chat_record_ack\022\013\n\003ret\030\001 \001(\005" +
+      "\022\020\n\010ply_guid\030\002 \001(\003\022>\n\025club_chat_record_i" +
+      "nfo\030\003 \003(\0132\037.proto_ClubChatRecordInfoStru" +
+      "ct\022\017\n\007err_msg\030\004 \001(\t\"\264\001\n\036proto_ClubChatRe" +
+      "cordInfoStruct\022\020\n\010club_uid\030\001 \001(\005\022\017\n\007game" +
+      "_id\030\002 \001(\005\022\025\n\rsend_msg_time\030\003 \001(\005\022\017\n\007auto" +
+      "_id\030\004 \001(\005\022\016\n\006ply_id\030\005 \001(\003\022\020\n\010chat_msg\030\006 " +
+      "\001(\t\022\014\n\004type\030\007 \001(\005\022\027\n\017club_message_id\030\010 \001" +
+      "(\005\"\236\001\n\036proto_cl_update_msg_status_req\022\024\n" +
+      "\014auto_id_list\030\001 \003(\003\0226\n\006status\030\002 \001(\0162&.pr" +
+      "oto_cl_update_msg_status_req.STATUS\".\n\006S" +
+      "TATUS\022\r\n\tnullValue\020\000\022\010\n\004READ\020\001\022\013\n\007DELETE" +
+      "D\020\002\">\n\036proto_lc_update_msg_status_ack\022\013\n" +
+      "\003ret\030\001 \001(\005\022\017\n\007err_msg\030\002 \001(\t\"-\n\032proto_cl_" +
+      "get_msg_count_req\022\017\n\007club_id\030\001 \001(\005\"~\n\032pr" +
+      "oto_lc_get_msg_count_ack\0226\n\nresult_set\030\001" +
+      " \003(\0132\".proto_lc_get_msg_count_ack.Result" +
+      "\032(\n\006Result\022\017\n\007club_id\030\001 \001(\005\022\r\n\005count\030\002 \001" +
+      "(\005\"L\n\032proto_cf_message_wrap_sync\022\020\n\010ply_" +
+      "guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014" +
+      "\"L\n\032proto_fc_message_wrap_sync\022\020\n\010ply_gu" +
+      "id\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\"*" +
+      "\n\025proto_lf_register_req\022\021\n\tserver_id\030\001 \001" +
+      "(\005\"$\n\025proto_fl_register_ack\022\013\n\003ret\030\001 \001(\005" +
+      "\"\230\001\n$proto_lf_update_ply_login_status_no" +
+      "t\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007ply_vip\030\002 \001(\005\022\021\n\t" +
+      "ply_level\030\003 \001(\005\022\021\n\tnick_name\030\004 \001(\t\022\020\n\010he" +
+      "ad_img\030\005 \001(\t\022\025\n\ruser_language\030\006 \001(\005\"9\n%p" +
+      "roto_lf_update_ply_logout_status_not\022\020\n\010" +
+      "ply_guid\030\001 \001(\003\"^\n\024proto_fl_club_notify\022\017" +
+      "\n\007club_id\030\001 \001(\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030" +
+      "\003 \001(\014\022\027\n\017except_ply_guid\030\004 \001(\003\">\n\021proto_" +
+      "fl_noti_msg\022)\n\rnoti_msg_info\030\001 \003(\0132\022.pro" +
+      "to_NotiMsgInfo\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006" +
+      "autoid\030\001 \001(\003\022\021\n\tsender_id\030\002 \001(\003\022\023\n\013recie" +
+      "ver_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_sh" +
+      "ow_type\030\005 \001(\005\022\013\n\003msg\030\006 \001(\t\022\022\n\nmsg_status" +
+      "\030\007 \001(\005\022\021\n\tsend_time\030\010 \001(\005\022\017\n\007club_id\030\t \001" +
+      "(\005\022\023\n\013expire_time\030\n \001(\005\022)\n\006status\030\013 \001(\0162" +
+      "\031.proto_NotiMsgInfo.STATUS\022\r\n\005title\030\014 \001(" +
+      "\t\"+\n\006STATUS\022\n\n\006UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DEL" +
+      "ETED\020\002\"<\n\034proto_lc_club_apply_join_ack\022\017" +
+      "\n\007err_msg\030\001 \001(\t\022\013\n\003ret\030\002 \001(\005B2\n com.wp.c" +
+      "asino.messagenetty.protoB\014LoginMessageH\001" +
+      "b\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -19000,44 +20401,50 @@ public final class LoginMessage {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fc_add_club_chat_record_ack_descriptor,
         new java.lang.String[] { "Ret", "ClubChatRecordInfo", "ErrMsg", });
-    internal_static_proto_cf_sync_club_chat_record_req_descriptor =
+    internal_static_proto_fc_add_club_chat_record_noti_descriptor =
       getDescriptor().getMessageTypes().get(6);
+    internal_static_proto_fc_add_club_chat_record_noti_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_fc_add_club_chat_record_noti_descriptor,
+        new java.lang.String[] { "ClubChatRecordInfo", });
+    internal_static_proto_cf_sync_club_chat_record_req_descriptor =
+      getDescriptor().getMessageTypes().get(7);
     internal_static_proto_cf_sync_club_chat_record_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_cf_sync_club_chat_record_req_descriptor,
         new java.lang.String[] { "ClubUid", "PlyGuid", "Autoid", "ReqNum", });
     internal_static_proto_fc_sync_club_chat_record_ack_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_proto_fc_sync_club_chat_record_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fc_sync_club_chat_record_ack_descriptor,
         new java.lang.String[] { "Ret", "PlyGuid", "ClubChatRecordInfo", "ErrMsg", });
     internal_static_proto_ClubChatRecordInfoStruct_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_proto_ClubChatRecordInfoStruct_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_ClubChatRecordInfoStruct_descriptor,
         new java.lang.String[] { "ClubUid", "GameId", "SendMsgTime", "AutoId", "PlyId", "ChatMsg", "Type", "ClubMessageId", });
     internal_static_proto_cl_update_msg_status_req_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_proto_cl_update_msg_status_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_cl_update_msg_status_req_descriptor,
         new java.lang.String[] { "AutoIdList", "Status", });
     internal_static_proto_lc_update_msg_status_ack_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_proto_lc_update_msg_status_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_lc_update_msg_status_ack_descriptor,
         new java.lang.String[] { "Ret", "ErrMsg", });
     internal_static_proto_cl_get_msg_count_req_descriptor =
-      getDescriptor().getMessageTypes().get(11);
+      getDescriptor().getMessageTypes().get(12);
     internal_static_proto_cl_get_msg_count_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_cl_get_msg_count_req_descriptor,
         new java.lang.String[] { "ClubId", });
     internal_static_proto_lc_get_msg_count_ack_descriptor =
-      getDescriptor().getMessageTypes().get(12);
+      getDescriptor().getMessageTypes().get(13);
     internal_static_proto_lc_get_msg_count_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_lc_get_msg_count_ack_descriptor,
@@ -19049,55 +20456,61 @@ public final class LoginMessage {
         internal_static_proto_lc_get_msg_count_ack_Result_descriptor,
         new java.lang.String[] { "ClubId", "Count", });
     internal_static_proto_cf_message_wrap_sync_descriptor =
-      getDescriptor().getMessageTypes().get(13);
+      getDescriptor().getMessageTypes().get(14);
     internal_static_proto_cf_message_wrap_sync_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_cf_message_wrap_sync_descriptor,
         new java.lang.String[] { "PlyGuid", "Opcode", "Data", });
     internal_static_proto_fc_message_wrap_sync_descriptor =
-      getDescriptor().getMessageTypes().get(14);
+      getDescriptor().getMessageTypes().get(15);
     internal_static_proto_fc_message_wrap_sync_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fc_message_wrap_sync_descriptor,
         new java.lang.String[] { "PlyGuid", "Opcode", "Data", });
     internal_static_proto_lf_register_req_descriptor =
-      getDescriptor().getMessageTypes().get(15);
+      getDescriptor().getMessageTypes().get(16);
     internal_static_proto_lf_register_req_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_lf_register_req_descriptor,
         new java.lang.String[] { "ServerId", });
     internal_static_proto_fl_register_ack_descriptor =
-      getDescriptor().getMessageTypes().get(16);
+      getDescriptor().getMessageTypes().get(17);
     internal_static_proto_fl_register_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fl_register_ack_descriptor,
         new java.lang.String[] { "Ret", });
     internal_static_proto_lf_update_ply_login_status_not_descriptor =
-      getDescriptor().getMessageTypes().get(17);
+      getDescriptor().getMessageTypes().get(18);
     internal_static_proto_lf_update_ply_login_status_not_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_lf_update_ply_login_status_not_descriptor,
         new java.lang.String[] { "PlyGuid", "PlyVip", "PlyLevel", "NickName", "HeadImg", "UserLanguage", });
+    internal_static_proto_lf_update_ply_logout_status_not_descriptor =
+      getDescriptor().getMessageTypes().get(19);
+    internal_static_proto_lf_update_ply_logout_status_not_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_proto_lf_update_ply_logout_status_not_descriptor,
+        new java.lang.String[] { "PlyGuid", });
     internal_static_proto_fl_club_notify_descriptor =
-      getDescriptor().getMessageTypes().get(18);
+      getDescriptor().getMessageTypes().get(20);
     internal_static_proto_fl_club_notify_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fl_club_notify_descriptor,
         new java.lang.String[] { "ClubId", "Opcode", "Data", "ExceptPlyGuid", });
     internal_static_proto_fl_noti_msg_descriptor =
-      getDescriptor().getMessageTypes().get(19);
+      getDescriptor().getMessageTypes().get(21);
     internal_static_proto_fl_noti_msg_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_fl_noti_msg_descriptor,
         new java.lang.String[] { "NotiMsgInfo", });
     internal_static_proto_NotiMsgInfo_descriptor =
-      getDescriptor().getMessageTypes().get(20);
+      getDescriptor().getMessageTypes().get(22);
     internal_static_proto_NotiMsgInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_NotiMsgInfo_descriptor,
         new java.lang.String[] { "Autoid", "SenderId", "RecieverId", "MsgType", "MsgShowType", "Msg", "MsgStatus", "SendTime", "ClubId", "ExpireTime", "Status", "Title", });
     internal_static_proto_lc_club_apply_join_ack_descriptor =
-      getDescriptor().getMessageTypes().get(21);
+      getDescriptor().getMessageTypes().get(23);
     internal_static_proto_lc_club_apply_join_ack_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_proto_lc_club_apply_join_ack_descriptor,

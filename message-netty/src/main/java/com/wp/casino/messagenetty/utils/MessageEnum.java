@@ -34,6 +34,8 @@ public enum  MessageEnum {
 
     CF_ADD_CLUB_CHAT_RECORD_REQ(22026,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_add_club_chat_record_req"),
     FC_ADD_CLUB_CHAT_RECORD_ACK(22027,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_add_club_chat_record_ack"),
+    FC_ADD_CLUB_CHAT_RECORD_NOTI(22028,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_add_club_chat_record_noti"),
+
 
     CF_SYNC_CLUB_CHAT_RECORD_REQ(22029,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_sync_club_chat_record_req"),
     FC_SYNC_CLUB_CHAT_RECORD_ACK(22030,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_sync_club_chat_record_ack"),
@@ -46,6 +48,8 @@ public enum  MessageEnum {
     FL_REGISTER_ACK(22001,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_register_ack"),
 
     LF_UPDATE_PLY_LOGIN_STATUS_NOT(22002,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_update_ply_login_status_not"),
+    LF_UPDATE_PLY_LOGOUT_STATUS_NOT(22003,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_update_ply_logout_status_not"),
+
     FL_NOTI_MSG(20162,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_noti_msg"),
 
     ;

@@ -24,16 +24,16 @@ public class HandlerServerContext {
         return SingletonHolder.INSTANCE;
     }
 
-    public void addChannel(Long serverId,String channelId) {
-        chServermaps.put(serverId, channelId);
+    public void addChannel(Long plyGuid,String channelId) {
+        chServermaps.put(plyGuid, channelId);
     }
 
-    public void removeChannel(Long id) {
-        chServermaps.remove(id);
+    public void removeChannel(Long plyGuid) {
+        chServermaps.remove(plyGuid);
     }
 
-    public String getChannel(Long serverId){
-        String channelId = chServermaps.get(serverId);
+    public String getChannel(Long plyGuid){
+        String channelId = chServermaps.get(plyGuid);
         return channelId;
     }
 
