@@ -100,15 +100,13 @@ public class MessageServer extends NettyTcpServer {
             if (parser==null){
                 throw new IllegalArgumentException("illegal opCode " + opcode);
             }
-            MessageLite messageLite = (MessageLite) parser.parseFrom(data.toByteArray());
-            switch (opcode) {
-                case MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpcode :
-                    handleLoadNotiMsg(message.getPluid, messageLite);
-                case MessageEnum.CL_UPDATE_MSG_STATUS_REQ.getOpcode :
-                    handleUpdateMsg(message.getPluid, messageLite);
-                case MessageEnum.CL_GET_MSG_COUNT_REQ.getOpcode :
-                    handleGetMsgCount(message.getPluid, messageLite);
 
+            if (opcode == MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpCode()) {
+                handleLoadNotiMsg(message.getPlyGuid(), (LoginMessage.proto_cl_load_noti_msg_req)parser.parseFrom(data.toByteArray()));
+            } else if (opcode == MessageEnum.CL_UPDATE_MSG_STATUS_REQ.getOpCode()) {
+                handleUpdateMsg(message.getPlyGuid(), (LoginMessage.proto_cl_update_msg_status_req)parser.parseFrom(data.toByteArray()));
+            } else if (opcode == MessageEnum.CL_GET_MSG_COUNT_REQ.getOpCode()) {
+                handleGetMsgCount(message.getPlyGuid(), (LoginMessage.proto_cl_get_msg_count_req)parser.parseFrom(data.toByteArray()));
             }
         });
 
@@ -348,8 +346,42 @@ public class MessageServer extends NettyTcpServer {
 //            }
         });
     }
+    /**
+     * 处理拉取消息
+     */
+    private void handleLoadNotiMsg(long plyGuid, LoginMessage.proto_cl_load_noti_msg_req message) {
 
-    handleLoadNotiMsg()
+        //拉取消息记录
+        int type = message.getType();
+        long autoid = message.getAutoId();
+        int clubId = message.getClubId();
+        int limit = message.getMaxCount();
+        Query query = new Query();
+
+
+
+        // 根据条件查询所有消息
+        List<SystemMessage> list = systemMessageDao.find(query);
+
+
+        // 封装公共回执
+        LoginMessage.proto_fc_message_wrap_sync.Builder commRes = LoginMessage.
+                proto_fc_message_wrap_sync.newBuilder();
+        // 消息包装
+        LoginMessage.proto_lc_load_noti_msg_ack.Builder response = LoginMessage
+                .proto_lc_load_noti_msg_ack.newBuilder();
+        // 消息体
+        LoginMessage.proto_NotiMsgInfo.Builder notiMsg = LoginMessage.proto_NotiMsgInfo.newBuilder();
+        //response.setNotiMsgInfo(notiMsg);
+        //response.setAutoId();
+
+        commRes.setOpcode(MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpCode());
+        commRes.setData(response.build().toByteString());
+        //commRes.setPlyGuid();
+
+        // channel.writeAndFlush(response.build());
+    }
+
 
     /**
      *  @param sendId
@@ -441,49 +473,14 @@ public class MessageServer extends NettyTcpServer {
         sendProtoPack(MessageEnum.FL_NOTI_MSG.getOpCode(), fnm.build(), recieverId);
     }
 
-    /**
-     * 处理拉取消息
-     */
-    handleLoadNotiMsg(long uid, MessageLite message) {
-        //拉取消息记录
-        long plyguid = message.getPlyGuid();
-        int type = message.getType();
-        long autoid = message.getAutoId();
-        int clubId = message.getClubId();
-        int limit = message.getMaxCount();
-        Query query = new Query();
 
-
-
-        // 根据条件查询所有消息
-        List<SystemMessage> list = systemMessageDao.find(query);
-
-
-        // 封装公共回执
-        LoginMessage.proto_fc_message_wrap_sync.Builder commRes = LoginMessage.
-                proto_fc_message_wrap_sync.newBuilder();
-        // 消息包装
-        LoginMessage.proto_lc_load_noti_msg_ack.Builder response = LoginMessage
-                .proto_lc_load_noti_msg_ack.newBuilder();
-        // 消息体
-        LoginMessage.proto_NotiMsgInfo.Builder notiMsg = LoginMessage.proto_NotiMsgInfo.newBuilder();
-        //response.setNotiMsgInfo(notiMsg);
-        //response.setAutoId();
-
-        commRes.setOpcode(MessageEnum.CL_LOAD_NOTI_MSG_REQ.getOpCode());
-        commRes.setData(response.build().toByteString());
-        //commRes.setPlyGuid();
-
-        channel.writeAndFlush(response.build());
-
-    }
 
     /**
      * 处理修改消息状态
-     * @param uid
-     * @param messageLite
+     * @param plyGuid
+     * @param message
      */
-    handleUpdateMsg(long uid, MessageLite message) {
+    private void handleUpdateMsg(long plyGuid, LoginMessage.proto_cl_update_msg_status_req message) {
         List<Long> autoList = message.getAutoIdListList();
 
         //修改mongo状态
@@ -505,11 +502,11 @@ public class MessageServer extends NettyTcpServer {
     }
 
     /**
-     * 处理获取消息数目
+     *
      * @param uid
-     * @param messageLite
+     * @param message
      */
-    handleGetMsgCount(long uid, MessageLite message) {
+     private void handleGetMsgCount(long uid, LoginMessage.proto_cl_get_msg_count_req message) {
         // 查找数目
 
         // 回执
@@ -519,8 +516,6 @@ public class MessageServer extends NettyTcpServer {
         sendProtoPack(MessageEnum.LC_GET_MSG_COUNT_ACK.getOpCode(), response, 1);
 
     }
-
-
 
     /**
      * 最终结果封装
