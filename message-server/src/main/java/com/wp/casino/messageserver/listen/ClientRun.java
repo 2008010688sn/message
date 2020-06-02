@@ -43,12 +43,14 @@ public class ClientRun implements ApplicationRunner {
                     try {
                         client.stop();
                     } catch (Exception e) {
-                        log.error(" server stop ex", e);
+                        log.error(" clent stop ex", e);
                     }
                     log.info("jvm exit, all service stopped.");
 
-                }, "messageserver-shutdown-hook-thread")
+                }, "messageclent-shutdown-hook-thread")
         );
     }
+
+
 
 }

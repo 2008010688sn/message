@@ -48,6 +48,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
                         .setServerId(1).build();
         ctx.writeAndFlush(msg);
 
+        //如果注册成功，Login所有连接到它的玩家信息告知Message-----opcode:22002
         LoginMessage.proto_lf_update_ply_login_status_not msgUser =
                 LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
                         .setPlyGuid(777).build();

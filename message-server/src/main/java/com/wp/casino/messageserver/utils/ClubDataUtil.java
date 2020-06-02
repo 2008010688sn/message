@@ -1,15 +1,10 @@
 package com.wp.casino.messageserver.utils;
 
+import com.wp.casino.messagenetty.utils.MessageEnum;
 import com.wp.casino.messageserver.dao.mysql.accout.AccountDetailRepository;
-import com.wp.casino.messageserver.dao.mysql.casino.ClubChatInfoRepository;
-import com.wp.casino.messageserver.dao.mysql.casino.ClubMembersRepository;
-import com.wp.casino.messageserver.dao.mysql.casino.MessageFriendListRepository;
-import com.wp.casino.messageserver.dao.mysql.casino.MessageUserDataRepository;
+import com.wp.casino.messageserver.dao.mysql.casino.*;
 import com.wp.casino.messageserver.domain.mysql.account.AccountDetail;
-import com.wp.casino.messageserver.domain.mysql.casino.ClubChatInfo;
-import com.wp.casino.messageserver.domain.mysql.casino.MessageFriendList;
-import com.wp.casino.messageserver.domain.mysql.casino.MessageUserData;
-import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
+import com.wp.casino.messageserver.domain.mysql.casino.*;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -53,6 +48,24 @@ public class ClubDataUtil {
         ClubDataUtil.messageFriendListRepository = messageFriendListRepository;
     }
 
+    private static ConfigGlobalStringRepository configGlobalStringRepository;
+
+    public static void setConfigGlobalStringRepository(ConfigGlobalStringRepository configGlobalStringRepository) {
+        ClubDataUtil.configGlobalStringRepository = configGlobalStringRepository;
+    }
+
+    private static  ConfigStringDataRepository configStringDataRepository;
+
+    public static void setConfigStringDataRepository(ConfigStringDataRepository configStringDataRepository) {
+        ClubDataUtil.configStringDataRepository = configStringDataRepository;
+    }
+
+    private static MessageFriendAutoIdRepository messageFriendAutoIdRepository;
+
+    public static void setMessageFriendAutoIdRepository(MessageFriendAutoIdRepository messageFriendAutoIdRepository) {
+        ClubDataUtil.messageFriendAutoIdRepository = messageFriendAutoIdRepository;
+    }
+
     /**
      * 根据clubId获取俱乐部创建者和管理员信息
      * @param clubId
@@ -67,11 +80,39 @@ public class ClubDataUtil {
     }
 
     /**
+     * 根据clubid查询俱乐部成员
+     * @param clubId
+     * @return
+     */
+    public static List<PyqClubMembers> findClubMembersByClubId(Integer clubId){
+        if (clubRepository==null){
+            clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubMembersRepository.class);
+        }
+        //状态为有效的俱乐部的成员信息
+        List<PyqClubMembers> clubMembers = clubRepository.findAllByCmClubIdAndCmStatus(clubId,0);
+        return clubMembers;
+    }
+
+    /**
+     * 根据clubId和uid查询俱乐部成员信息
+     * @param clubId
+     * @param uid
+     * @return
+     */
+    public static PyqClubMembers findClubMemberByClubIdAndUid(Integer clubId,Long uid){
+        if (clubRepository==null){
+            clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubMembersRepository.class);
+        }
+        PyqClubMembers clubMember = clubRepository.findByCmClubIdAndCmPlyGuid(clubId,uid);
+        return clubMember;
+    }
+
+    /**
      * 根据uid查询messageUuserdata信息
      * @param uid
      * @return
      */
-    public static MessageUserData findByUid(Long uid){
+    public static MessageUserData findMessageUserDataByUid(Long uid){
         if (messageUserDataRepository==null){
             messageUserDataRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageUserDataRepository.class);
         }
@@ -84,7 +125,7 @@ public class ClubDataUtil {
      * @param messageUserData
      * @return
      */
-    public static MessageUserData saveUserData(MessageUserData messageUserData){
+    public static MessageUserData saveMessageUserData(MessageUserData messageUserData){
 
         if (messageUserDataRepository==null){
             messageUserDataRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageUserDataRepository.class);
@@ -143,7 +184,30 @@ public class ClubDataUtil {
         }
         Integer countByClubId = clubChatInfoRepository.findCountByClubId(clubId);
         return  countByClubId;
+
     }
+
+    /**
+     * 获取俱乐部聊天记录
+     * @param clubId
+     * @param autoId
+     * @param joinTime
+     * @param countNum
+     * @return
+     */
+    public static List<ClubChatInfo>  findClubChatInfos(Integer clubId,Integer autoId,Integer joinTime,Integer countNum){
+        if (clubChatInfoRepository==null){
+            clubChatInfoRepository=ApplicationContextProvider.getApplicationContext().getBean(ClubChatInfoRepository.class);
+        }
+        List<ClubChatInfo> chats=null;
+        if (autoId==0){
+            chats = clubChatInfoRepository.findChats(clubId, joinTime, countNum);
+        }else{
+            chats= clubChatInfoRepository.findLtChats(clubId, autoId, joinTime, countNum);
+        }
+        return  chats;
+    }
+
 
 
     /**
@@ -160,29 +224,48 @@ public class ClubDataUtil {
     }
 
     /**
-     *
-     * 查找消息
-     * @param plyGuid
-     * @param autoid
-     * @param reqNum
-     * @param clubUid
+     *加载configglobalstring数据
      * @return
      */
-    public static List<ClubChatInfo> syncClubChatRecord(long plyGuid, int autoid, int reqNum, int clubUid) {
-        // TODO
-        return null;
+    public static List<ConfigGlobalString> findConfigGlobalList(){
+        if (configGlobalStringRepository==null){
+            configGlobalStringRepository=ApplicationContextProvider.getApplicationContext().getBean(ConfigGlobalStringRepository.class);
+        }
+        List<ConfigGlobalString> configGlobalStringList = configGlobalStringRepository.findConfigGlobalStringList();
+        return  configGlobalStringList;
     }
 
     /**
-     *
-     * @param plyGuid
-     * @param clubUid
-     * @param gameId
-     * @param chatMsg
-     * @param type
+     * 加载ConfigStringData数据
      * @return
      */
-    public static ClubChatInfo addClubChatRecord(long plyGuid, int clubUid, int gameId, String chatMsg, int type) {
-        return null;
+    public static List<ConfigStringData> findConfigStringDataList(){
+        if (configStringDataRepository==null){
+            configStringDataRepository=ApplicationContextProvider.getApplicationContext().getBean(ConfigStringDataRepository.class);
+        }
+        List<ConfigStringData> configStringDataList = configStringDataRepository.findConfigStringDataList();
+        return  configStringDataList;
     }
+
+    /**
+     * 查询MessageFriendAutoId
+     * @return
+     */
+    public static MessageFriendAutoId findMessageFriendAutoId(){
+        if (messageFriendAutoIdRepository==null){
+            messageFriendAutoIdRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageFriendAutoIdRepository.class);
+        }
+        MessageFriendAutoId messageFriendAutoId = messageFriendAutoIdRepository.findAll().get(0);
+        return  messageFriendAutoId;
+    }
+
+
+
+
+
+
+
+
+
+
 }

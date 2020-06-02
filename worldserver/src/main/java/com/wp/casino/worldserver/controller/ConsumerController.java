@@ -21,7 +21,7 @@ public class ConsumerController {
                 .proto_wl_noti_msg_data.newBuilder();
 
         msgBody.setRecieverId(777);
-        msgBody.setSenderId(111);
+        msgBody.setSenderId(222);
         msgBody.setMsgType(2);
         msgBody.setShowMsgType(1);
         msgBody.setMsgContent("hahahahahah");
