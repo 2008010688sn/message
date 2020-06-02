@@ -4,7 +4,9 @@ import com.wp.casino.messageserver.common.MsgConstants;
 import com.wp.casino.messageserver.domain.ClubMsgCount;
 import com.wp.casino.messageserver.domain.QuerySystemMessage;
 import com.wp.casino.messageserver.domain.SystemMessage;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.aggregation.Aggregation;
+import org.springframework.data.mongodb.core.aggregation.AggregationOptions;
 import org.springframework.data.mongodb.core.aggregation.AggregationResults;
 import org.springframework.data.mongodb.core.aggregation.TypedAggregation;
 import org.springframework.data.mongodb.core.query.Criteria;
@@ -28,18 +30,21 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
      * @return
      */
     public List<ClubMsgCount> getMsgCount(long plyGuid, int clubId) {
-        Criteria cri = Criteria.where("cm_reciver_ids.$.id").is(plyGuid).and("cm_reciver_ids.$.status").is(MsgConstants.MSG_STATUS_UNREAD);
+        Criteria criteria = Criteria.where("id").is(plyGuid).and("status").is(MsgConstants.MSG_STATUS_UNREAD);
+
+        Criteria cri = Criteria.where("cm_reciver_ids").elemMatch(criteria);
         if (clubId > 0) {
             cri.and("cm_club_id").is(clubId);
         }
 
-        Aggregation aggregation = Aggregation.newAggregation(
+        Aggregation aggregation =  Aggregation.newAggregation(
                 Aggregation.match(cri),
-                Aggregation.group("cm_club_id").count().as("count"),
+                Aggregation.group("cm_club_id").count().as("count")
+                            .last("cm_club_id").as("clubId"),
                 Aggregation.project("clubId", "count")
         );
-        AggregationResults<ClubMsgCount> outputType = mongoTemplate
-                .aggregate(aggregation, "system_message", ClubMsgCount.class);
+
+        AggregationResults<ClubMsgCount> outputType = mongoTemplate.aggregate(aggregation,"system_message",ClubMsgCount.class);
         return outputType.getMappedResults();
     }
 
@@ -50,13 +55,62 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
      * @param whoGuid
      */
     public void updateMsgCode(long messageId, int code, long whoGuid) {
-        Query query = new Query();
-        Criteria criteria = new Criteria();
-        criteria.where("_auto_id").is(messageId).and("cm_reciver_ids.$.id")
-                .is(whoGuid).and("cm_reciver_ids.$.status").ne(MsgConstants.MSG_STATUS_DELETED);
-        query.addCriteria(criteria);
+        Criteria criteria1 = Criteria.where("_id").is(whoGuid).and("status").ne(MsgConstants.MSG_STATUS_DELETED);
+        Criteria criteria = Criteria.where("_auto_id").is(messageId).and("cm_reciver_ids").elemMatch(criteria1);
+        Query query = new Query(criteria);
         Update update = new Update().set("cm_message.code", code).set("cm_global_status", -1).set("cm_operator", whoGuid)
                 .set("cm_magic_id", "").set("cm_reciver_ids.$.status", MsgConstants.MSG_STATUS_READ);
+        super.update(query, update);
+    }
+
+    /**
+     * 查找用户的消息，不包含删除的
+     * @param plyGuid
+     * @param type
+     * @param clubId
+     * @param autoId
+     * @param maxCount
+     * @return
+     */
+    public List<SystemMessage> findNotiMsg(long plyGuid, int type, int clubId, long autoId, int maxCount) {
+        Query query = new Query();
+        // 消息接收人和消息
+        Criteria criteria1 = Criteria.where("_id").is(plyGuid).and("status").
+                ne(MsgConstants.MSG_STATUS_DELETED);
+
+        Criteria criteria = Criteria.where("cm_reciver_ids").elemMatch(criteria1);
+        if (type != -1) {
+            criteria.and("cm_message_typ").is(type);
+        }
+        if (clubId > -1) {
+            criteria.and("cm_club_id").is(clubId);
+        }
+        if (maxCount <= 0) {
+            maxCount = 30;
+        }
+        if (autoId > 0) {
+            criteria.and("_auto_id").gte(autoId - maxCount).lt(autoId);
+        }
+        query.with(Sort.by(Sort.Order.desc("_auto_id")));
+        query.addCriteria(criteria);
+
+        // 根据条件查询所有消息
+        List<SystemMessage> list =  super.find(query);
+        return list;
+    }
+
+    /**
+     * 修改消息状态
+     * @param autoList
+     * @param plyGuid
+     * @param statusValue
+     */
+    public void updateReceiveStatus(List<Long> autoList, long plyGuid, int statusValue) {
+        Query query = new Query();
+        Criteria criteria1 = Criteria.where("id").is(plyGuid).and("status").lt(statusValue);
+        Criteria criteria = Criteria.where("_auto_id").in(autoList).and("cm_reciver_ids").elemMatch(criteria1);
+        query.addCriteria(criteria);
+        Update update = new Update().set("cm_reciver_ids.$.status", statusValue);
         super.update(query, update);
     }
 }

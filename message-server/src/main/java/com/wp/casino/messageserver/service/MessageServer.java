@@ -15,10 +15,7 @@ import com.wp.casino.messageserver.common.MsgConstants;
 import com.wp.casino.messageserver.common.MsgContentType;
 import com.wp.casino.messageserver.common.MsgType;
 import com.wp.casino.messageserver.dao.mongodb.message.SystemMessageDao;
-import com.wp.casino.messageserver.domain.ClubMessageContext;
-import com.wp.casino.messageserver.domain.ClubMsgCount;
-import com.wp.casino.messageserver.domain.ReceiveObj;
-import com.wp.casino.messageserver.domain.SystemMessage;
+import com.wp.casino.messageserver.domain.*;
 import com.wp.casino.messageserver.domain.mysql.casino.ClubChatInfo;
 import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.*;
@@ -26,11 +23,8 @@ import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
-import org.springframework.data.mongodb.core.query.Criteria;
-import org.springframework.data.mongodb.core.query.Query;
-import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -135,7 +129,17 @@ public class MessageServer extends NettyTcpServer {
                 (channel,message)->{
             // 用户注册，维护用户和地址
             String channelId=channel.remoteAddress().toString();
-            HandlerServerContext.getInstance().addChannel(message.getPlyGuid(), channelId);
+
+            LoginPlayer loginPlayer = new LoginPlayer();
+            loginPlayer.setHeadImg(message.getHeadImg());
+            loginPlayer.setNickName(message.getNickName());
+            loginPlayer.setPlyGuid(message.getPlyGuid());
+            loginPlayer.setPlyLevel(message.getPlyLevel());
+            loginPlayer.setUserLanguage(message.getUserLanguage());
+            loginPlayer.setPlyVip(message.getPlyVip());
+            loginPlayer.setServerId(channelId);
+
+            HandlerServerContext.getInstance().addChannel(message.getPlyGuid(), loginPlayer);
         });
 
         // 玩家下线移除关系
@@ -228,9 +232,23 @@ public class MessageServer extends NettyTcpServer {
             ackBuilder.setErrMsg("");
             List<LoginMessage.proto_ClubChatRecordInfoStruct> recordInfoList = new ArrayList<>();
 
-            ClubChatInfo clubChatInfo = ClubDataUtil.addClubChatRecord(message.getPlyGuid(),
-                    message.getClubUid(), message.getGameId(), message.getChatMsg(), message.getType());
+            // 聊天数据插入mysql
+            Integer count = ClubDataUtil.findClubChatInfoCountByClubId(message.getClubUid());
+            Integer recordNum = 0;
+            if (count > 0) {
+                recordNum = ClubDataUtil.findMaxClubMessageIdByClubId(message.getClubUid());
+            }
+            ClubChatInfo cci = new ClubChatInfo();
+            cci.setClClubMessageId(recordNum + 1);
+            cci.setClMemberUid(message.getPlyGuid());
+            cci.setClGameId(message.getGameId());
+            cci.setClClubId(message.getClubUid());
+            cci.setClChatMessage(message.getChatMsg());
+            cci.setClMsgType(message.getType());
+            cci.setClMessageSendTime(Integer.valueOf(String.valueOf(System.currentTimeMillis() / 1000)));
+            ClubChatInfo clubChatInfo = ClubDataUtil.saveClubChatInfo(cci);
 
+            //协议转发
             LoginMessage.proto_ClubChatRecordInfoStruct.Builder recordInfo = LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder();
             recordInfo.setAutoId(clubChatInfo.getClAutoId());
             recordInfo.setPlyId(message.getPlyGuid());
@@ -244,7 +262,7 @@ public class MessageServer extends NettyTcpServer {
 
             ackBuilder.addAllClubChatRecordInfo(recordInfoList);
             // 封装记录回执
-            SendMsgUtil.sendProtoPack(MessageEnum.CF_ADD_CLUB_CHAT_RECORD_REQ.getOpCode(), ackBuilder.build(), message.getPlyGuid());
+            SendMsgUtil.sendProtoPack(MessageEnum.FC_ADD_CLUB_CHAT_RECORD_ACK.getOpCode(), ackBuilder.build(), message.getPlyGuid());
 
             //fc_add_club_chat_record_noti广播
             LoginMessage.proto_fl_club_notify.Builder notify = LoginMessage.proto_fl_club_notify.newBuilder();
@@ -263,7 +281,6 @@ public class MessageServer extends NettyTcpServer {
             }
         });
 
-
         // 俱乐部聊天
         messageDispatcher.registerHandler(LoginMessage.proto_cf_sync_club_chat_record_req.class,
                 (channel, message) -> {
@@ -276,22 +293,29 @@ public class MessageServer extends NettyTcpServer {
 
             List<LoginMessage.proto_ClubChatRecordInfoStruct> recordInfoList = new ArrayList<>();
 
-            List<ClubChatInfo> syncClubChatRecords = ClubDataUtil.syncClubChatRecord(message.getPlyGuid(),
-                    message.getAutoid(),message.getReqNum(), message.getClubUid());
+            PyqClubMembers pyqClubMembers = ClubDataUtil.findClubMemberByClubIdAndUid( message.getClubUid(), message.getPlyGuid());
+            if (pyqClubMembers == null) {
+                log.error("pyqClubMembers is null");
+                return;
+            }
+            List<ClubChatInfo> syncClubChatRecords = ClubDataUtil.findClubChatInfos(message.getClubUid(),
+                    message.getAutoid(),pyqClubMembers.getCmJoinTime(), message.getReqNum());
+            if (syncClubChatRecords == null || syncClubChatRecords.size() == 0) {
+                log.error("syncClubChatRecords list is null");
+                return;
+            }
 
-            if (syncClubChatRecords != null && syncClubChatRecords.size() > 0) {
-                for (ClubChatInfo clubChatInfo: syncClubChatRecords) {
-                    LoginMessage.proto_ClubChatRecordInfoStruct.Builder recordInfo = LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder();
-                    recordInfo.setAutoId(clubChatInfo.getClAutoId());
-                    recordInfo.setPlyId(message.getPlyGuid());
-                    recordInfo.setGameId(clubChatInfo.getClGameId());
-                    recordInfo.setClubUid(clubChatInfo.getClClubId());
-                    recordInfo.setSendMsgTime(clubChatInfo.getClMessageSendTime());
-                    recordInfo.setChatMsg(clubChatInfo.getClChatMessage());
-                    recordInfo.setType(clubChatInfo.getClMsgType());
-                    recordInfo.setClubMessageId(clubChatInfo.getClClubMessageId());
-                    recordInfoList.add(recordInfo.build());
-                }
+            for (ClubChatInfo clubChatInfo: syncClubChatRecords) {
+                LoginMessage.proto_ClubChatRecordInfoStruct.Builder recordInfo = LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder();
+                recordInfo.setAutoId(clubChatInfo.getClAutoId());
+                recordInfo.setPlyId(message.getPlyGuid());
+                recordInfo.setGameId(clubChatInfo.getClGameId());
+                recordInfo.setClubUid(clubChatInfo.getClClubId());
+                recordInfo.setSendMsgTime(clubChatInfo.getClMessageSendTime());
+                recordInfo.setChatMsg(clubChatInfo.getClChatMessage());
+                recordInfo.setType(clubChatInfo.getClMsgType());
+                recordInfo.setClubMessageId(clubChatInfo.getClClubMessageId());
+                recordInfoList.add(recordInfo.build());
             }
             ackBuilder.addAllClubChatRecordInfo(recordInfoList);
             // 回执
@@ -304,29 +328,8 @@ public class MessageServer extends NettyTcpServer {
     private void handleLoadNotiMsg(long plyGuid, LoginMessage.proto_cl_load_noti_msg_req message) {
 
         //拉取消息记录
-        int limit = message.getMaxCount();
-        Query query = new Query();
-        // 消息接收人和消息
-        Criteria criteria = Criteria.where("cm_reciver_ids.id").is(message.getPlyGuid()).
-                and("cm_reciver_ids.status").ne(MsgConstants.MSG_STATUS_DELETED);
-        if (message.getType() != -1) {
-            criteria.and("cm_message_typ").is(message.getType());
-        }
-        if (message.getClubId() > -1) {
-            criteria.and("cm_club_id").is(message.getClubId());
-        }
-        if (limit <= 0) {
-            limit = 30;
-        }
-        if (message.getAutoId() > 0) {
-            criteria.and("_auto_id").gte(message.getAutoId() - limit).lt(message.getAutoId());
-        }
-        query.with(Sort.by(Sort.Order.desc("_auto_id")));
-        query.addCriteria(criteria);
-
-        // 根据条件查询所有消息
-        List<SystemMessage> list = systemMessageDao.find(query);
-
+        List<SystemMessage> list = systemMessageDao.findNotiMsg(message.getPlyGuid(), message.getType(),
+                message.getClubId(), message.getAutoId(), message.getMaxCount());
         // 封装消息回执
         LoginMessage.proto_lc_load_noti_msg_ack.Builder response = LoginMessage
                 .proto_lc_load_noti_msg_ack.newBuilder();
@@ -334,17 +337,23 @@ public class MessageServer extends NettyTcpServer {
         for (SystemMessage sm: list) {
             for (Object obj : sm.getReceiveObjList()) {
                 ReceiveObj ro = (ReceiveObj) obj;
+
+                LoginPlayer player = HandlerServerContext.getInstance().getChannel(ro.getId());
+                if (player == null || StringUtils.isBlank(player.getServerId())) {
+                    log.info("ply_guid:%lld offline, jsonStr:%s", ro.getId(), ro);
+                    continue;
+                }
+
                 LoginMessage.proto_NotiMsgInfo.Builder msgInfo = LoginMessage.proto_NotiMsgInfo.newBuilder();
                 msgInfo.setAutoid(sm.getAutoId());
                 msgInfo.setSenderId(sm.getSendId());
-                msgInfo.setRecieverId(ro.getId());
                 msgInfo.setMsgType(sm.getMessageType());
                 msgInfo.setMsgShowType(sm.getShowMessageType());
                 msgInfo.setMsgStatus(sm.getMessageStatus());
 
                 msgInfo.setSendTime(sm.getSendTime());
                 msgInfo.setClubId(sm.getClubId());
-                msgInfo.setMsg(JSON.toJSONString(sm.getMessageContext()));
+
                 msgInfo.setExpireTime(sm.getExpireTime());
                 if (ro.getStatus() == LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD_VALUE) {
                     msgInfo.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
@@ -353,7 +362,13 @@ public class MessageServer extends NettyTcpServer {
                 } else if (ro.getStatus() == LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD_VALUE) {
                     msgInfo.setStatus(LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD);
                 }
-                msgInfo.setTitle(String.format("title_%s", sm.getMagicId()));
+                // 多语言处理
+                String jsonMsg = SendMsgUtil.parseMsgContent(sm.getMagicId(),JSON.toJSONString(sm.getMessageContext()),
+                        player.getUserLanguage());
+                msgInfo.setMsg(jsonMsg);
+                msgInfo.setTitle(SendMsgUtil.getConfigString(String.format("title_%s", sm.getMagicId()),
+                        player.getUserLanguage()));
+                msgInfo.setRecieverId(ro.getId());
                 msgInfoList.add(msgInfo.build());
             }
             response.addAllNotiMsgInfo(msgInfoList);
@@ -423,14 +438,7 @@ public class MessageServer extends NettyTcpServer {
         }
 
         //修改mongo状态
-        Query query = new Query();
-        Criteria criteria = Criteria.where("_auto_id").in(autoList)
-                .and("cm_reciver_ids.$.id").is(plyGuid)
-                .and("cm_reciver_ids.$.status").lt(message.getStatusValue());
-        query.addCriteria(criteria);
-
-        Update update = new Update().set("cm_reciver_ids.$.status", message.getStatusValue());
-        systemMessageDao.update(query, update);
+        systemMessageDao.updateReceiveStatus(autoList,plyGuid, message.getStatusValue());
 
         // 回执
         LoginMessage.proto_lc_update_msg_status_ack response = LoginMessage
@@ -445,8 +453,16 @@ public class MessageServer extends NettyTcpServer {
      * @param message
      */
     private void handleGetMsgCount(long plyGuid, LoginMessage.proto_cl_get_msg_count_req message) {
+        int clubId = -1;
+        if (message.getClubId() > 0) {
+            clubId = message.getClubId();
+        }
+            
         // 查找数目
-        List<ClubMsgCount> list = systemMessageDao.getMsgCount(plyGuid, message.getClubId());
+        List<ClubMsgCount> list = systemMessageDao.getMsgCount(plyGuid, clubId);
+        if (list == null || list.size() <= 0) {
+            return;
+        }
 
         // 回执
         LoginMessage.proto_lc_get_msg_count_ack.Builder response = LoginMessage

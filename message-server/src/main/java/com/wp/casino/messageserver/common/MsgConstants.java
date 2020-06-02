@@ -11,6 +11,11 @@ public interface MsgConstants {
     public static final int MSG_STATUS_READ = 1;
     public static final int MSG_STATUS_DELETED = 2;
 
+    //用户语言
+    public static final int  EN_US_LANGUAGE = 1033;
+    public static final int  ZH_CN_LANGUAGE = 2052;
+    public static final int  ZH_TW_LANGUAGE = 1028;
+
 
 
 }

@@ -208,6 +208,18 @@ public class ClubDataUtil {
         return  chats;
     }
 
+    /**
+     * 查询最大messageId
+     * @param clubUid
+     * @return
+     */
+    public static Integer findMaxClubMessageIdByClubId(int clubUid) {
+        if (clubChatInfoRepository==null){
+            clubChatInfoRepository=ApplicationContextProvider.getApplicationContext().getBean(ClubChatInfoRepository.class);
+        }
+        return clubChatInfoRepository.findMaxMessageId(clubUid);
+    }
+
 
 
     /**
@@ -258,14 +270,5 @@ public class ClubDataUtil {
         MessageFriendAutoId messageFriendAutoId = messageFriendAutoIdRepository.findAll().get(0);
         return  messageFriendAutoId;
     }
-
-
-
-
-
-
-
-
-
 
 }

@@ -44,10 +44,6 @@ import java.util.concurrent.atomic.AtomicInteger;
         log.info("worldserver接收到连接的客户端地址:" + ctx.channel().remoteAddress());
         String channelId=ctx.channel().remoteAddress().toString();
         HandlerWorldContext.getInstance().addChannel("9832",ctx);
-        /*PBCSMessage.proto_ww_user_data_change_req msg =
-                PBCSMessage.proto_ww_user_data_change_req.newBuilder()
-                        .setPlyGuid(777).build();
-        ctx.writeAndFlush(msg);*/
         log.info("WorldServerHandler---active---");
 
     }

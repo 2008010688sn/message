@@ -13,6 +13,6 @@ public class ClubMsgCount implements Serializable {
 
     private int clubId;
 
-    private int Count;
+    private int count;
 
 }

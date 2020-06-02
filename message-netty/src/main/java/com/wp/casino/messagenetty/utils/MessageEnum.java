@@ -41,6 +41,8 @@ public enum  MessageEnum {
     FC_SYNC_CLUB_CHAT_RECORD_ACK(22030,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_sync_club_chat_record_ack"),
 
     CF_MESSAGE_WRAP_SYNC(22031,"com.wp.casino.messagenetty.proto","LoginMessage","proto_cf_message_wrap_sync"),
+    FC_MESSAGE_WRAP_SYNC(22032,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fc_message_wrap_sync"),
+
     FL_CLUB_NOTIFY(22033,"com.wp.casino.messagenetty.proto","LoginMessage","proto_fl_club_notify"),
 
 

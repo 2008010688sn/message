@@ -76,7 +76,7 @@ public class MessageClient extends NettyTcpClient {
         messageDispatcher.registerHandler(WorldMessage.proto_wf_system_chat_req.class, (channel, message) -> {
             /*log.info("messageserver客户端端接收到proto_ww_system_chat_req.并回执给worldserver",channel.remoteAddress().toString());
             channel.writeAndFlush(WorldMessage.proto_wf_system_chat_req.newBuilder()
-                    .setPlyGuid(message.getPlyGuid()).build());
+                    .setPlyGuid( message.getPlyGuid()).build());
             // 获取通道
             Channel ch = getChannel(message.getPlyGuid());
             if (ch != null) {
@@ -125,7 +125,7 @@ public class MessageClient extends NettyTcpClient {
             RoomMessageContext rmc = new RoomMessageContext();
             rmc.setTableId(message.getTableId());
             rmc.setTableName(message.getTableName());
-            rmc.setPlyguid(Integer.valueOf(String.valueOf(message.getPlyGuid())));
+            rmc.setPlyguid(message.getPlyGuid());
             rmc.setPlynickname(message.getPlyNickname());
             rmc.setGameid(message.getGameId());
             rmc.setServerId(message.getServerId());
@@ -263,16 +263,15 @@ public class MessageClient extends NettyTcpClient {
 
 
     /**
-     *  @param sendId
-     * @param receiveObjList
-     * @param messageType
-     * @param showMessageType
-     * @param messageContext
-     * @param messageStatus
-     * @param clubId
-     * @param magicId
-     * @param expireTime
-     * @return
+     *  @param sendId 发送人
+     * @param receiveObjList 接收人集合
+     * @param messageType 消息类型
+     * @param showMessageType 消息操作类型
+     * @param messageContext 消息内容
+     * @param messageStatus 状态
+     * @param clubId 俱乐部
+     * @param magicId 标识字符串
+     * @param expireTime  过期时间
      */
     private SystemMessage save2Mongo (long sendId, List<ReceiveObj> receiveObjList, Integer messageType,
                                 Integer showMessageType, Object messageContext, Integer messageStatus,

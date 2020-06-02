@@ -1,6 +1,7 @@
 package com.wp.casino.login.service;
 
 import com.google.protobuf.MessageLite;
+import com.wp.casino.login.utils.HandlerLoginContext;
 import com.wp.casino.messagenetty.proto.LoginMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import io.netty.channel.ChannelHandler;
@@ -37,10 +38,9 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("login和message建立连接时：" + new Date());
-//        PBCSMessage.proto_ww_user_data_change_req msg = PBCSMessage.proto_ww_user_data_change_req.newBuilder().setPlyGuid(10).setType(2).build();
-//
-//        ctx.writeAndFlush( msg);
-//        ctx.fireChannelActive();
+
+        String channelId=ctx.channel().remoteAddress().toString();
+        HandlerLoginContext.getInstance().addChannel("1111",ctx);
 
         //请求注册server
         LoginMessage.proto_lf_register_req msg =
@@ -51,12 +51,12 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
         //如果注册成功，Login所有连接到它的玩家信息告知Message-----opcode:22002
         LoginMessage.proto_lf_update_ply_login_status_not msgUser =
                 LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
-                        .setPlyGuid(777).build();
+                        .setPlyGuid(777).setUserLanguage(1033).build();
         ctx.writeAndFlush(msgUser);
 
         LoginMessage.proto_lf_update_ply_login_status_not msgUser1 =
                 LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
-                        .setPlyGuid(888).build();
+                        .setPlyGuid(888).setUserLanguage(1033).build();
         ctx.writeAndFlush(msgUser1);
     }
 
@@ -94,8 +94,5 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
         log.info("login客户端接受到msgserver的信息1:{},message:{}",
                 ctx.channel().remoteAddress().toString(), messageLite.toString());
-        //获取login的channel
-//        ChannelHandlerContext loginCtx= HandlerContext.getInstance().getChannel("login-serverid");
-        //messageDispatcher.onMessage(ctx.channel(),messageLite);
     }
 }

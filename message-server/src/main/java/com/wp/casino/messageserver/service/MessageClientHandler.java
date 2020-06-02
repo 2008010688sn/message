@@ -96,30 +96,5 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
         log.info("messageserver客户端接受到worldserver信息:{}",ctx.channel().remoteAddress().toString());
         messageDispatcher.onMessage(ctx.channel(),messageLite);
-        //将消息转发至login
-//        log.info("messageserver客户端将接受到worldserver的信息转发至loginserver");
-//        ConcurrentHashMap<String, ChannelHandlerContext> maps= HandlerContext.getInstance().getMaps();
-//        if (maps!=null){
-//            for (Map.Entry<String,ChannelHandlerContext> entry: maps.entrySet()){
-//               ChannelHandlerContext channelHandlerContext= entry.getValue();
-//               log.info("channelHandlerContext--remoteAddress---",channelHandlerContext.channel().remoteAddress().toString());
-//               messageDispatcher.onMessage(channelHandlerContext.channel(),messageLite);
-//            }
-//        }
-
-
-//        int size = HandlerContext.getInstance().getSize();
-//        if (size>0){
-//            log.info("获取login的连接，将接收到的wordserver消息转发给login");
-//            ChannelHandlerContext channelContext = HandlerContext.getInstance().getChannel("login-server");
-//            log.info("loign的连接为--"+channelContext.channel().remoteAddress());
-//            messageDispatcher.onMessage(channelContext.channel(),messageLite);
-//        }else{
-//            log.info("无login连接");
-//        }
-
-        /*MessageQueue.addMessageLite(messageLite);
-        isBegin=true;*/
-
     }
 }

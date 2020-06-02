@@ -20,7 +20,7 @@ public class RoomMessageContext implements Serializable {
 
     private String plynickname;
 
-    private Integer plyguid;
+    private long plyguid;
 
     private String magic_id;
 
