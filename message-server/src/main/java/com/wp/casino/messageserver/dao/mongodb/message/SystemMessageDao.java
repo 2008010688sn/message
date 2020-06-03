@@ -40,7 +40,7 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
         Aggregation aggregation =  Aggregation.newAggregation(
                 Aggregation.match(cri),
                 Aggregation.group("cm_club_id").count().as("count")
-                            .last("cm_club_id").as("clubId"),
+                        .last("cm_club_id").as("clubId"),
                 Aggregation.project("clubId", "count")
         );
 
@@ -114,16 +114,27 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
         super.update(query, update);
     }
 
-    public int findApplyJoinNoticeCount(long plyUid,int clubId,int messageType,int showMessageType,int sendTime){
-        int count=0;
-        Query query=new Query();
-        query.addCriteria(Criteria.where("cm_sender_id").is(plyUid)).addCriteria(Criteria.where("cm_club_id").is(clubId))
-                .addCriteria(Criteria.where("cm_message_typ").is(messageType)).addCriteria(Criteria.where("cm_show_message_typ").is(showMessageType))
-                .addCriteria(Criteria.where("cm_send_time").gte(sendTime));
-        List<SystemMessage> systemMessages = super.find(query);
-        if (systemMessages!=null&&systemMessages.size()>0){
-            count=systemMessages.size();
-        }
-        return count;
+    /**
+     * 查找申请俱乐部次数
+     * @param cmSendId 申请人
+     * @param clubId 俱乐部
+     * @param messageType 消息类型
+     * @param showMessageType 消息展示类型
+     * @param time 当天0点时间戳
+     * @return
+     */
+    public Integer findApplyClubCount (long cmSendId, int clubId, int messageType, int showMessageType, int time) {
+        Query query = new Query();
+        Criteria criteria = Criteria.where("cm_sender_id").is(cmSendId).and("cm_club_id").is(clubId)
+                .and("cm_message_typ").is(messageType).and("cm_show_message_typ").is(showMessageType)
+                .and("cm_send_time").gte(time);
+        query.addCriteria(criteria);
+
+        Aggregation aggregation =  Aggregation.newAggregation(
+                Aggregation.match(criteria),
+                Aggregation.count().as("count")
+        );
+        AggregationResults<Integer> outputType = mongoTemplate.aggregate(aggregation,"system_message",Integer.class);
+        return outputType.getMappedResults().get(0);
     }
 }

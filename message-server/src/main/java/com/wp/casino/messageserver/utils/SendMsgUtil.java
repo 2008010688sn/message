@@ -14,8 +14,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -35,7 +33,7 @@ public class SendMsgUtil {
      * @param magicId
      */
     public static void sendNotiMsg(long autoId, long sendId, List<ReceiveObj> receiveObjs, int msgType, int msgShowType,
-                             int msgStatus, int clubId, String jsonStr, int expireTime, String magicId) {
+                                   int msgStatus, int clubId, String jsonStr, int expireTime, String magicId) {
         LoginMessage.proto_fl_noti_msg.Builder fnm = LoginMessage.proto_fl_noti_msg.newBuilder();
 
         LoginMessage.proto_NotiMsgInfo.Builder msgInfo = LoginMessage.proto_NotiMsgInfo.newBuilder();
@@ -97,14 +95,16 @@ public class SendMsgUtil {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("plynickname")));
         } else if (magicId.equals(MagicId.DISMISS_CLUB_MSG.getMagicId())) {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
-        } else {
-            jsonObject.put("content", formatStr);
+        } else if (magicId.equals(MagicId.AGREE_JOIN_TABLE_MSG.getMagicId())) {
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("tablename")));
+        } else if (magicId.equals(MagicId.REFUSE_JOIN_TABLE_MSG.getMagicId())) {
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("tablename")));
         }
         return jsonObject.toJSONString();
     }
 
     /**
-     * 获取具体语言版本的消息内容
+     * 获取配置
      * @param magicId
      * @param userLanguage
      * @return
@@ -119,6 +119,25 @@ public class SendMsgUtil {
                 return UserLanguageContext.twMaps.get(magicId);
         }
         return "";
+    }
+
+    /**
+     * 获得错误信息
+     * @param userLanguage
+     * @param ret
+     * @return
+     */
+    public static String getErrorMsg(int userLanguage, int ret) {
+        switch (userLanguage) {
+            case MsgConstants.EN_US_LANGUAGE:
+                return UserLanguageContext.enErrMaps.get(ret);
+            case MsgConstants.ZH_CN_LANGUAGE:
+                return UserLanguageContext.cnErrMaps.get(ret);
+            case MsgConstants.ZH_TW_LANGUAGE:
+                return UserLanguageContext.twErrMaps.get(ret);
+            default:
+                return "999:未知错误";
+        }
     }
 
     /**

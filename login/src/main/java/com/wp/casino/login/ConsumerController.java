@@ -34,6 +34,26 @@ public class ConsumerController {
         return "send ok";
     }
 
+    /**
+     * 申请加入俱乐部
+     * @return
+     */
+    @GetMapping("/join/club")
+    public String joinClubNotify() {
+        LoginMessage.proto_lf_club_apply_join_noti.Builder msgBody = LoginMessage
+                .proto_lf_club_apply_join_noti.newBuilder();
+
+        msgBody.setClubId(1);
+        msgBody.setClubName("");
+        msgBody.setApplyPlyGuid(1);
+        msgBody.setApplyPlyName("1");
+        msgBody.setReferrerGuid(1);
+
+        ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
+        context.writeAndFlush(msgBody.build());
+        return "send ok";
+    }
+
     @GetMapping("/load/msg")
     public String loadMsg() {
 

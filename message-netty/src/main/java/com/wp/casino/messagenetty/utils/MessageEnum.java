@@ -19,7 +19,7 @@ public enum  MessageEnum {
 
 //loginMessage
 
-    CLUB_APPLY_JOIN_ACK(20149,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_club_apply_join_ack"),
+    LC_CLUB_APPLY_JOIN_ACK(20149,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lc_club_apply_join_ack"),
     LF_CLUB_APPLY_JOIN_NOTI(20150,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_club_apply_join_noti"),
     LF_JOIN_ROOM_REPLY_NOTI(20161,"com.wp.casino.messagenetty.proto","LoginMessage","proto_lf_join_room_reply_noti"),
 

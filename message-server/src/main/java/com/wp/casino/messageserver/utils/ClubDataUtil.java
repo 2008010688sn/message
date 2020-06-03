@@ -54,6 +54,11 @@ public class ClubDataUtil {
         ClubDataUtil.configGlobalStringRepository = configGlobalStringRepository;
     }
 
+    private static GlobalErrorDescRepository globalErrorDescRepository;
+    public static void setGlobalErrorDescRepository(GlobalErrorDescRepository globalErrorDescRepository) {
+        ClubDataUtil.globalErrorDescRepository = globalErrorDescRepository;
+    }
+
     private static  ConfigStringDataRepository configStringDataRepository;
 
     public static void setConfigStringDataRepository(ConfigStringDataRepository configStringDataRepository) {
@@ -118,6 +123,22 @@ public class ClubDataUtil {
         }
         MessageUserData messageUserData = messageUserDataRepository.findById(uid).get();
         return messageUserData;
+    }
+
+    /**
+     *
+     * @param mdNickname
+     * @param mdVip
+     * @param mdLevel
+     * @param mdLoginTime
+     * @param mdPlyGuid
+     * @return
+     */
+    public static Integer updateMessageUserData (String mdNickname, Integer mdVip, Integer mdLevel, Integer mdLoginTime, long mdPlyGuid) {
+        if (messageUserDataRepository==null){
+            messageUserDataRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageUserDataRepository.class);
+        }
+        return messageUserDataRepository.updateMessageUser(mdNickname, mdVip, mdLevel, mdLoginTime, mdPlyGuid);
     }
 
     /**
@@ -245,6 +266,18 @@ public class ClubDataUtil {
         }
         List<ConfigGlobalString> configGlobalStringList = configGlobalStringRepository.findConfigGlobalStringList();
         return  configGlobalStringList;
+    }
+
+    /**
+     *加载GlobalErrorDesc数据
+     * @return
+     */
+    public static List<GlobalErrorDesc> findGlobalErrorDescList(){
+        if (globalErrorDescRepository==null){
+            globalErrorDescRepository=ApplicationContextProvider.getApplicationContext().getBean(GlobalErrorDescRepository.class);
+        }
+        List<GlobalErrorDesc> globalErrorDescList = globalErrorDescRepository.findGlobalErrorDescList();
+        return  globalErrorDescList;
     }
 
     /**

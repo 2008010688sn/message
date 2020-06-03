@@ -142,9 +142,11 @@ public class MessageClient extends NettyTcpClient {
             receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
             list.add(receiveObj);
 
+            Integer expireTime = Integer.valueOf(String.valueOf(System.currentTimeMillis() / 1000)) + MsgConstants.CLUB_REQUEST_JOIN_ROOM_EXPIRE_TIME;
+
             SystemMessage sm = save2Mongo (message.getPlyGuid(), list, MsgType.GAME_NOTI_MSG.getMsgType(),
                     MsgContentType.ACK_MSG.getMsgContentType(), rmc, MsgConstants.SENDED,
-                    0, MagicId.APPLY_JOIN_ROOM_MSG.getMagicId(), -1);
+                    0, MagicId.APPLY_JOIN_ROOM_MSG.getMagicId(), expireTime);
 
             SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
                     sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
@@ -184,79 +186,79 @@ public class MessageClient extends NettyTcpClient {
         messageDispatcher.registerHandler(WorldMessage.proto_wf_club_member_update_noti.class,
                 (channel, message) -> {
 
-            WorldMessage.ClubMemberUpdateInfo clubMemberUpdateInfo = message.getInfo();
-            int reason = clubMemberUpdateInfo.getReason().getNumber();
+                    WorldMessage.ClubMemberUpdateInfo clubMemberUpdateInfo = message.getInfo();
+                    int reason = clubMemberUpdateInfo.getReason().getNumber();
 
-            ClubMessageContext clubMessageContext = new ClubMessageContext();
-            clubMessageContext.setClubId(clubMemberUpdateInfo.getClubId());
-            clubMessageContext.setClubName(clubMemberUpdateInfo.getClubName());
-            clubMessageContext.setContent("");
-            clubMessageContext.setText("");
-            clubMessageContext.setPlyId(clubMemberUpdateInfo.getPlyGuid());
-            clubMessageContext.setNickName(clubMemberUpdateInfo.getPlyNickname());
-            SystemMessage sm = null;
-            List<ReceiveObj> list = new ArrayList<>();
-            ReceiveObj receiveObj = null;
-            switch (reason) {
-                case WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE:
-                case WorldMessage.ClubMemberUpdateInfo.TYPE.RefuseJoin_VALUE:
-                    // 申请通过或拒绝
-                    clubMessageContext.setText("reply join club");
-                    // 申请结果
-                    int result = reason == WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE ? 1 : 0;
-                    // 接收人
-                    receiveObj = new ReceiveObj();
-                    receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                    receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
-                    list.add(receiveObj);
+                    ClubMessageContext clubMessageContext = new ClubMessageContext();
+                    clubMessageContext.setClubId(clubMemberUpdateInfo.getClubId());
+                    clubMessageContext.setClubName(clubMemberUpdateInfo.getClubName());
+                    clubMessageContext.setContent("");
+                    clubMessageContext.setText("");
+                    clubMessageContext.setPlyId(clubMemberUpdateInfo.getPlyGuid());
+                    clubMessageContext.setNickName(clubMemberUpdateInfo.getPlyNickname());
+                    SystemMessage sm = null;
+                    List<ReceiveObj> list = new ArrayList<>();
+                    ReceiveObj receiveObj = null;
+                    switch (reason) {
+                        case WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE:
+                        case WorldMessage.ClubMemberUpdateInfo.TYPE.RefuseJoin_VALUE:
+                            // 申请通过或拒绝
+                            clubMessageContext.setText("reply join club");
+                            // 申请结果
+                            int result = reason == WorldMessage.ClubMemberUpdateInfo.TYPE.JoinClub_VALUE ? 1 : 0;
+                            // 接收人
+                            receiveObj = new ReceiveObj();
+                            receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                            receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
+                            list.add(receiveObj);
 
-                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
-                            result == 1 ? MagicId.AGREE_JOIN_CLUB_MSG.getMagicId() : MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId(),
-                            -1);
+                            sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
+                                    result == 1 ? MagicId.AGREE_JOIN_CLUB_MSG.getMagicId() : MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId(),
+                                    -1);
 
-                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
-                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
-                            sm.getMagicId());
+                            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                                    sm.getMagicId());
 
-                    //修改 根据result修改请求的消息体的code值
-                    systemMessageDao.updateMsgCode(clubMemberUpdateInfo.getMessageId(),
-                            result == 0 ? 0 : 1, clubMemberUpdateInfo.getWhoGuid());
+                            //修改 根据result修改请求的消息体的code值
+                            systemMessageDao.updateMsgCode(clubMemberUpdateInfo.getMessageId(),
+                                    result == 0 ? 0 : 1, clubMemberUpdateInfo.getWhoGuid());
 
-                    break;
-                case WorldMessage.ClubMemberUpdateInfo.TYPE.LeaveClub_VALUE:
-                    //退出俱乐部 通知所有管理员
-                    List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(clubMemberUpdateInfo.getClubId());
-                    for (PyqClubMembers pcm: members) {
-                        receiveObj = new ReceiveObj();
-                        receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                        receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
-                        list.add(receiveObj);
+                            break;
+                        case WorldMessage.ClubMemberUpdateInfo.TYPE.LeaveClub_VALUE:
+                            //退出俱乐部 通知所有管理员
+                            List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(clubMemberUpdateInfo.getClubId());
+                            for (PyqClubMembers pcm: members) {
+                                receiveObj = new ReceiveObj();
+                                receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                                receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
+                                list.add(receiveObj);
+                            }
+                            sm = save2Mongo(clubMemberUpdateInfo.getPlyGuid(), list ,MsgType.CLUB_NOTI_MSG.getMsgType(),
+                                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
+                                    MagicId.DROP_OUT_CLUB_MSG.getMagicId(), -1);
+                            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                                    sm.getMagicId());
+                            break;
+                        case WorldMessage.ClubMemberUpdateInfo.TYPE.KickOut_VALUE:
+                            //被踢出俱乐部
+                            // 接收人
+                            receiveObj = new ReceiveObj();
+                            receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                            receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
+                            list.add(receiveObj);
+                            // 数据落地
+                            sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                                    MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
+                                    MagicId.KICK_OUT_CLUB_MSG.getMagicId(), -1);
+                            SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
+                                    sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
+                                    sm.getMagicId());
+                            break;
                     }
-                    sm = save2Mongo(clubMemberUpdateInfo.getPlyGuid(), list ,MsgType.CLUB_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
-                            MagicId.DROP_OUT_CLUB_MSG.getMagicId(), -1);
-                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
-                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
-                            sm.getMagicId());
-                    break;
-                case WorldMessage.ClubMemberUpdateInfo.TYPE.KickOut_VALUE:
-                    //被踢出俱乐部
-                    // 接收人
-                    receiveObj = new ReceiveObj();
-                    receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
-                    receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
-                    list.add(receiveObj);
-                    // 数据落地
-                    sm = save2Mongo(clubMemberUpdateInfo.getWhoGuid(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
-                            MsgContentType.TEXT_MSG.getMsgContentType(), clubMessageContext, MsgConstants.SENDED, clubMemberUpdateInfo.getClubId(),
-                            MagicId.KICK_OUT_CLUB_MSG.getMagicId(), -1);
-                    SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list, sm.getMessageType(),sm.getShowMessageType(),
-                            sm.getMessageStatus(),sm.getClubId(),JSON.toJSONString(sm.getMessageContext()),sm.getExpireTime(),
-                            sm.getMagicId());
-                    break;
-            }
-        });
+                });
 
 
     }
@@ -274,8 +276,8 @@ public class MessageClient extends NettyTcpClient {
      * @param expireTime  过期时间
      */
     private SystemMessage save2Mongo (long sendId, List<ReceiveObj> receiveObjList, Integer messageType,
-                                Integer showMessageType, Object messageContext, Integer messageStatus,
-                                Integer clubId, String magicId, Integer expireTime) {
+                                      Integer showMessageType, Object messageContext, Integer messageStatus,
+                                      Integer clubId, String magicId, Integer expireTime) {
         SystemMessage systemMessage = new SystemMessage();
         systemMessage.setSendId(sendId);
 
@@ -308,7 +310,7 @@ public class MessageClient extends NettyTcpClient {
     @Override
     protected void initPipeline(ChannelPipeline pipeline) {
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-//        pipeline.addLast(new IdleStateHandler(0, 1000, 0, TimeUnit.MICROSECONDS));
+        pipeline.addLast(new IdleStateHandler(0, 10, 0, TimeUnit.MICROSECONDS));
         super.initPipeline(pipeline);
     }
 }
