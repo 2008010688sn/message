@@ -10,6 +10,7 @@ import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messagenetty.utils.MessageEnum;
 import com.wp.casino.messagenetty.utils.MessageMappingHolder;
+import com.wp.casino.messagenetty.utils.MessageShowTypeEnum;
 import com.wp.casino.messageserver.common.MagicId;
 import com.wp.casino.messageserver.common.MsgConstants;
 import com.wp.casino.messageserver.common.MsgContentType;
@@ -148,16 +149,34 @@ public class MessageServer extends NettyTcpServer {
                 HandlerServerContext.getInstance().removeChannel(message.getPlyGuid());
         });
 
-        //申请加入俱乐部
+        //申请加入俱乐部--opcode:20150
         messageDispatcher.registerHandler(LoginMessage.proto_lf_club_apply_join_noti.class,(channel, message) -> {
+
+            //获取当天零点的时间戳
+            int timeZero=DateUtil.getTodayStartTime();
+            //查询符合发送时间是今天的俱乐部为clubid，申请者为plyguid的消息的数目
+            long plyGuid= message.getApplyPlyGuid();
+            int clubId=message.getClubId();
+            String clubName=message.getClubName();
+            String nickName=message.getApplyPlyName();
+            long referrerGuid=message.getReferrerGuid();
+            int applyJoinNoticeCount = systemMessageDao.findApplyJoinNoticeCount(plyGuid, clubId, MessageTypeEnum.CLUB_MSG.getValue(), MessageShowTypeEnum.OPERATION_MSG.getValue(), timeZero);
+            if (applyJoinNoticeCount>=3){// 申请消息只能发送 3次
+                //回复消息 proto_lc_club_apply_join_ack todo
+
+            }else{//申请加入俱乐部 todo
+
+            }
+
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("club_id", message.getClubId());
-            jsonObject.put("club_name", message.getClubName());
-            jsonObject.put("ply_id", message.getApplyPlyGuid());
-            jsonObject.put("nick_name", message.getApplyPlyName());
+
+            jsonObject.put("club_id", clubId);
+            jsonObject.put("club_name", clubName);
+            jsonObject.put("ply_id", plyGuid);
+            jsonObject.put("nick_name", nickName);
             jsonObject.put("who_do_id", 0);
             jsonObject.put("type", 1); // 1:申请 2：离开3：添加管理员 4：删除管理员
-            jsonObject.put("referrer_guid", message.getReferrerGuid());
+            jsonObject.put("referrer_guid", referrerGuid);
 
             // 入表
             ClubMessageContext cmc = new ClubMessageContext();

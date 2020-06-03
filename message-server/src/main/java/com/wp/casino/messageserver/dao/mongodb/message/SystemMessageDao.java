@@ -113,4 +113,17 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
         Update update = new Update().set("cm_reciver_ids.$.status", statusValue);
         super.update(query, update);
     }
+
+    public int findApplyJoinNoticeCount(long plyUid,int clubId,int messageType,int showMessageType,int sendTime){
+        int count=0;
+        Query query=new Query();
+        query.addCriteria(Criteria.where("cm_sender_id").is(plyUid)).addCriteria(Criteria.where("cm_club_id").is(clubId))
+                .addCriteria(Criteria.where("cm_message_typ").is(messageType)).addCriteria(Criteria.where("cm_show_message_typ").is(showMessageType))
+                .addCriteria(Criteria.where("cm_send_time").gte(sendTime));
+        List<SystemMessage> systemMessages = super.find(query);
+        if (systemMessages!=null&&systemMessages.size()>0){
+            count=systemMessages.size();
+        }
+        return count;
+    }
 }

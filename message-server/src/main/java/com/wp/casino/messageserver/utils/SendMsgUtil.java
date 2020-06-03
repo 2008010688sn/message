@@ -14,6 +14,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Slf4j
@@ -102,7 +104,7 @@ public class SendMsgUtil {
     }
 
     /**
-     * 获取配置
+     * 获取具体语言版本的消息内容
      * @param magicId
      * @param userLanguage
      * @return

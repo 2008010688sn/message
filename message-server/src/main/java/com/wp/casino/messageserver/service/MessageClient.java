@@ -308,7 +308,7 @@ public class MessageClient extends NettyTcpClient {
     @Override
     protected void initPipeline(ChannelPipeline pipeline) {
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-        pipeline.addLast(new IdleStateHandler(0, 10, 0, TimeUnit.MICROSECONDS));
+//        pipeline.addLast(new IdleStateHandler(0, 1000, 0, TimeUnit.MICROSECONDS));
         super.initPipeline(pipeline);
     }
 }
