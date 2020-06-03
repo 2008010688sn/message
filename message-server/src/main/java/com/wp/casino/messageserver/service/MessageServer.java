@@ -178,6 +178,7 @@ public class MessageServer extends NettyTcpServer {
             jsonObject.put("type", 1); // 1:申请 2：离开3：添加管理员 4：删除管理员
             jsonObject.put("referrer_guid", referrerGuid);
 
+
             // 入表
             ClubMessageContext cmc = new ClubMessageContext();
             cmc.setClubId(message.getClubId());
