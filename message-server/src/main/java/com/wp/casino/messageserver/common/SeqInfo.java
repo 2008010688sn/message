@@ -14,7 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Getter
 @Setter
 @ToString
-@Document(collection = "sequence")
+@Document(collection = "mongo_collection_info")
 public class SeqInfo {
 
     @Id

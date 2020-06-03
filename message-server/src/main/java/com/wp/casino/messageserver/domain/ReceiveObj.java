@@ -1,6 +1,7 @@
 package com.wp.casino.messageserver.domain;
 
 import lombok.Data;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
 @Data
 public class ReceiveObj implements Serializable {
 
+    @Field(name = "id")
     private long id;
 
     private Integer status;
