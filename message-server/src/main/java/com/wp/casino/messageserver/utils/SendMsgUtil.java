@@ -51,7 +51,7 @@ public class SendMsgUtil {
             ReceiveObj receiveObj = (ReceiveObj) obj;
             LoginPlayer player = HandlerServerContext.getInstance().getChannel(receiveObj.getId());
             if (player == null || StringUtils.isBlank(player.getServerId())) {
-                log.info("ply_guid:%lld offline, jsonStr:%s", receiveObj.getId(), jsonStr);
+                log.info("ply_guid:{} offline, jsonStr:{}", receiveObj.getId(), jsonStr);
                 continue;
             }
             msgInfo.setRecieverId(receiveObj.getId());
@@ -82,19 +82,19 @@ public class SendMsgUtil {
         }
 
         if (magicId.equals(MagicId.APPLY_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickName")));
         } else if (magicId.equals(MagicId.AGREE_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
         } else if (magicId.equals(MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
         } else if (magicId.equals(MagicId.KICK_OUT_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
         } else if (magicId.equals(MagicId.DROP_OUT_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickName")));
         } else if (magicId.equals(MagicId.APPLY_JOIN_ROOM_MSG.getMagicId())) {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("plynickname")));
         } else if (magicId.equals(MagicId.DISMISS_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
         } else if (magicId.equals(MagicId.AGREE_JOIN_TABLE_MSG.getMagicId())) {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("tablename")));
         } else if (magicId.equals(MagicId.REFUSE_JOIN_TABLE_MSG.getMagicId())) {

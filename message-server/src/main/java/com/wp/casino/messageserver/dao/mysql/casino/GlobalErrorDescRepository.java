@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface GlobalErrorDescRepository extends JpaRepository<GlobalErrorDesc,Integer> {
 
-    @Query(value = "select gd_auto_id,CONCAT(gd_en_us_desc ,\"(\",CONCAT(gd_auto_id,\"\"),\")\"),CONCAT(gd_zh_cn_desc ,\"(\",CONCAT(gd_auto_id,\"\"),\")\"),CONCAT(gd_zh_tw_desc ,\"(\",CONCAT(gd_auto_id,\"\"),\")\") from tb_global_error_desc",nativeQuery = true)
+    @Query(value = "select gd_auto_id, CONCAT(convert(unhex(hex(convert(gd_en_us_desc using latin1))) using utf8) ,'(',CONCAT(gd_auto_id),')') gd_en_us_desc, CONCAT(convert(unhex(hex(convert(gd_zh_cn_desc using latin1))) using utf8) ,'(',CONCAT(gd_auto_id),')') gd_zh_cn_desc, CONCAT(convert(unhex(hex(convert(gd_zh_tw_desc using latin1))) using utf8) ,'(',CONCAT(gd_auto_id),')') gd_zh_tw_desc from tb_global_error_desc where gd_type = 9 or gd_type = 10",nativeQuery = true)
     List<GlobalErrorDesc> findGlobalErrorDescList();
 
 }

@@ -55,8 +55,8 @@ public class UserLanguageContext implements ApplicationRunner {
         if (errlist != null && errlist.size() > 0) {
             for (GlobalErrorDesc gd : errlist) {
                 enErrMaps.put(gd.getGdAutoId(), gd.getGdEnUsDesc());
-                cnErrMaps.put(gd.getGdAutoId(), gd.getGdEnUsDesc());
-                twErrMaps.put(gd.getGdAutoId(), gd.getGdEnUsDesc());
+                cnErrMaps.put(gd.getGdAutoId(), gd.getGdZhCnDesc());
+                twErrMaps.put(gd.getGdAutoId(), gd.getGdZhTwDesc());
             }
         }
     }

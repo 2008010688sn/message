@@ -24,9 +24,9 @@ public class ConsumerController {
 
         msgBody.setRet(1);
         msgBody.setOwnerGuid(777);
-        msgBody.setMessageId(10);
-        msgBody.setPlyGuid(777);
-        msgBody.setTableName("1");
+        msgBody.setMessageId(28);
+        msgBody.setPlyGuid(10000353);
+        msgBody.setTableName("测试桌号");
 
 
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
@@ -43,11 +43,11 @@ public class ConsumerController {
         LoginMessage.proto_lf_club_apply_join_noti.Builder msgBody = LoginMessage
                 .proto_lf_club_apply_join_noti.newBuilder();
 
-        msgBody.setClubId(1);
-        msgBody.setClubName("");
-        msgBody.setApplyPlyGuid(1);
-        msgBody.setApplyPlyName("1");
-        msgBody.setReferrerGuid(1);
+        msgBody.setClubId(123);
+        msgBody.setClubName("天天向上");
+        msgBody.setApplyPlyGuid(777);
+        msgBody.setApplyPlyName("测试777");
+        msgBody.setReferrerGuid(0);
 
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
         context.writeAndFlush(msgBody.build());
@@ -63,15 +63,15 @@ public class ConsumerController {
         LoginMessage.proto_cl_load_noti_msg_req.Builder msgBody = LoginMessage
                 .proto_cl_load_noti_msg_req.newBuilder();
 
-        msgBody.setAutoId(10);
-        msgBody.setClubId(-1);
-        msgBody.setMaxCount(10);
-        msgBody.setPlyGuid(777);
-        msgBody.setType(-1);
+        msgBody.setAutoId(500);
+        msgBody.setClubId(123);
+        msgBody.setMaxCount(500);
+        msgBody.setPlyGuid(10000025);
+        msgBody.setType(2);
 
         msg.setData(msgBody.build().toByteString());
         msg.setOpcode(20163);
-        msg.setPlyGuid(10000353);
+        msg.setPlyGuid(10000025);
 
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
         context.writeAndFlush(msg.build());
@@ -91,7 +91,7 @@ public class ConsumerController {
 
         msg.setData(msgBody.build().toByteString());
         msg.setOpcode(20181);
-        msg.setPlyGuid(777);
+        msg.setPlyGuid(10000025);
 
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
         context.writeAndFlush(msg.build());
@@ -109,12 +109,12 @@ public class ConsumerController {
 
         msgBody.setStatus(LoginMessage.proto_cl_update_msg_status_req.STATUS.READ);
         List<Long> list = new ArrayList<>();
-        list.add(10L);
+        list.add(32L);
         msgBody.addAllAutoIdList(list);
 
         msg.setData(msgBody.build().toByteString());
         msg.setOpcode(20179);
-        msg.setPlyGuid(777);
+        msg.setPlyGuid(10000025);
 
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
         context.writeAndFlush(msg.build());

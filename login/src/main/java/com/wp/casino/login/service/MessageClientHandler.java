@@ -56,8 +56,20 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
 
         LoginMessage.proto_lf_update_ply_login_status_not msgUser1 =
                 LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
-                        .setPlyGuid(888).setUserLanguage(1033).build();
+                        .setPlyGuid(888).setUserLanguage(2052).build();
         ctx.writeAndFlush(msgUser1);
+
+        LoginMessage.proto_lf_update_ply_login_status_not msgUser2 =
+                LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
+                        .setPlyGuid(10000353).setUserLanguage(1028).build();
+        ctx.writeAndFlush(msgUser2);
+
+        LoginMessage.proto_lf_update_ply_login_status_not msgUser3 =
+                LoginMessage.proto_lf_update_ply_login_status_not.newBuilder()
+                        .setPlyGuid(10000025).setUserLanguage(1028).build();
+        ctx.writeAndFlush(msgUser3);
+
+
     }
 
     /**

@@ -19,12 +19,6 @@ public class GlobalErrorDesc implements Serializable {
     @Id
     Integer gdAutoId;
 
-    Integer gdType;
-
-    String gdIdentify;
-
-    Integer gdPriority;
-
     String gdEnUsDesc;
 
     String gdZhCnDesc;

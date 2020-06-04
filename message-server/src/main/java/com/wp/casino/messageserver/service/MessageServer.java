@@ -27,7 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import sun.rmi.runtime.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -194,16 +193,6 @@ public class MessageServer extends NettyTcpServer {
                 return;
             }
 
-            // 申请消息未到 3次
-            JSONObject jsonObject = new JSONObject();
-            jsonObject.put("club_id", message.getClubId());
-            jsonObject.put("club_name", message.getClubName());
-            jsonObject.put("ply_id", message.getApplyPlyGuid());
-            jsonObject.put("nick_name", message.getApplyPlyName());
-            jsonObject.put("who_do_id", 0);
-            jsonObject.put("type", 1); // 1:申请 2：离开3：添加管理员 4：删除管理员
-            jsonObject.put("referrer_guid", message.getReferrerGuid());
-
             // 入表
             ClubMessageContext cmc = new ClubMessageContext();
             cmc.setClubId(message.getClubId());
@@ -304,7 +293,7 @@ public class MessageServer extends NettyTcpServer {
         });
 
 
-        //获取俱乐部聊天记录-
+        //获取俱乐部聊天记录-玩家聊天消息处理， 先记录，然后返回给客户端
         messageDispatcher.registerHandler(LoginMessage.proto_cf_add_club_chat_record_req.class,
                 (channel, message) -> {
                     // 拉取聊天记录 存储过程：PYQ_ADD_CLUB_CHAT_RECORD
@@ -366,12 +355,6 @@ public class MessageServer extends NettyTcpServer {
         // 俱乐部聊天
         messageDispatcher.registerHandler(LoginMessage.proto_cf_sync_club_chat_record_req.class,
                 (channel, message) -> {
-                    //PYQ_SYNC_CLUB_CHAT_RECORD
-                    LoginMessage.proto_fc_sync_club_chat_record_ack.Builder ackBuilder = LoginMessage.
-                            proto_fc_sync_club_chat_record_ack.newBuilder();
-                    ackBuilder.setRet(0);
-                    ackBuilder.setErrMsg("");
-                    ackBuilder.setPlyGuid(message.getPlyGuid());
 
                     List<LoginMessage.proto_ClubChatRecordInfoStruct> recordInfoList = new ArrayList<>();
 
@@ -387,6 +370,13 @@ public class MessageServer extends NettyTcpServer {
                         return;
                     }
 
+                    //PYQ_SYNC_CLUB_CHAT_RECORD
+                    LoginMessage.proto_fc_sync_club_chat_record_ack.Builder ackBuilder = LoginMessage.
+                            proto_fc_sync_club_chat_record_ack.newBuilder();
+                    ackBuilder.setRet(0);
+                    ackBuilder.setErrMsg("");
+                    ackBuilder.setPlyGuid(message.getPlyGuid());
+
                     for (ClubChatInfo clubChatInfo: syncClubChatRecords) {
                         LoginMessage.proto_ClubChatRecordInfoStruct.Builder recordInfo = LoginMessage.proto_ClubChatRecordInfoStruct.newBuilder();
                         recordInfo.setAutoId(clubChatInfo.getClAutoId());
@@ -399,6 +389,7 @@ public class MessageServer extends NettyTcpServer {
                         recordInfo.setClubMessageId(clubChatInfo.getClClubMessageId());
                         recordInfoList.add(recordInfo.build());
                     }
+
                     ackBuilder.addAllClubChatRecordInfo(recordInfoList);
                     // 回执
                     SendMsgUtil.sendProtoPack(MessageEnum.FC_SYNC_CLUB_CHAT_RECORD_ACK.getOpCode(), ackBuilder.build(), message.getPlyGuid());
@@ -422,7 +413,7 @@ public class MessageServer extends NettyTcpServer {
 
                 LoginPlayer player = HandlerServerContext.getInstance().getChannel(ro.getId());
                 if (player == null || StringUtils.isBlank(player.getServerId())) {
-                    log.info("ply_guid:%lld offline, jsonStr:%s", ro.getId(), ro);
+                    log.info("ply_guid:{} offline, jsonStr:{}", ro.getId(), ro);
                     continue;
                 }
 
@@ -509,18 +500,14 @@ public class MessageServer extends NettyTcpServer {
     private void handleUpdateMsg(long plyGuid, LoginMessage.proto_cl_update_msg_status_req message) {
         List<Long> autoList = message.getAutoIdListList();
 
-        int cond_status = MsgConstants.MSG_STATUS_UNREAD;
-        if (MsgConstants.MSG_STATUS_READ == message.getStatusValue()) {
-            cond_status = MsgConstants.MSG_STATUS_UNREAD;
-        } else if (MsgConstants.MSG_STATUS_DELETED == message.getStatusValue()) {
-            cond_status = MsgConstants.MSG_STATUS_READ;
-        } else {
-            log.info("UpdateMsgStatus ply_guid:%lld invalid status:%d", plyGuid, message.getStatus());
-            return;
-        }
-
         //修改mongo状态
         systemMessageDao.updateReceiveStatus(autoList,plyGuid, message.getStatusValue());
+
+        LoginPlayer player = HandlerServerContext.getInstance().getChannel(plyGuid);
+        if (player == null || StringUtils.isBlank(player.getServerId())) {
+        log.error("plyGuid:%d, offline,proto_lc_update_msg_status_ack fail", plyGuid);
+            return;
+        }
 
         // 回执
         LoginMessage.proto_lc_update_msg_status_ack response = LoginMessage
@@ -540,9 +527,16 @@ public class MessageServer extends NettyTcpServer {
             clubId = message.getClubId();
         }
 
+        LoginPlayer player = HandlerServerContext.getInstance().getChannel(plyGuid);
+        if (player == null || StringUtils.isBlank(player.getServerId())) {
+            log.error("plyGuid:%d, offline,proto_lc_get_msg_count_ack fail", plyGuid);
+            return;
+        }
+
         // 查找数目
         List<ClubMsgCount> list = systemMessageDao.getMsgCount(plyGuid, clubId);
         if (list == null || list.size() <= 0) {
+            log.error("ClubMsgCount list is null");
             return;
         }
 

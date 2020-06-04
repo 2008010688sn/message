@@ -2,6 +2,7 @@ package com.wp.casino.messageserver.domain;
 
 import lombok.Data;
 
+import javax.persistence.Transient;
 import java.io.Serializable;
 
 /**

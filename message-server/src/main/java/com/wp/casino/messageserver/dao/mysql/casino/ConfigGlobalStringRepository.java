@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface ConfigGlobalStringRepository extends JpaRepository<ConfigGlobalString,Integer> {
 
-    @Query(value = "select gs_auto_id,gs_lang,gs_name,gs_context from tb_config_global_string order by gs_name ASC, gs_lang asc ",nativeQuery = true)
+    @Query(value = "select gs_auto_id,gs_lang,gs_name,convert(unhex(hex(convert(gs_context using latin1))) using utf8) as gs_context from tb_config_global_string order by gs_name ASC, gs_lang asc ",nativeQuery = true)
     List<ConfigGlobalString> findConfigGlobalStringList();
 
 }

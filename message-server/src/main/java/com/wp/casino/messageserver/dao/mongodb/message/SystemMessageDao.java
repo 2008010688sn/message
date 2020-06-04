@@ -55,11 +55,11 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
      * @param whoGuid
      */
     public void updateMsgCode(long messageId, int code, long whoGuid) {
-        Criteria criteria1 = Criteria.where("_id").is(whoGuid).and("status").ne(MsgConstants.MSG_STATUS_DELETED);
+        Criteria criteria1 = Criteria.where("id").is(whoGuid).and("status").ne(MsgConstants.MSG_STATUS_DELETED);
         Criteria criteria = Criteria.where("_auto_id").is(messageId).and("cm_reciver_ids").elemMatch(criteria1);
         Query query = new Query(criteria);
         Update update = new Update().set("cm_message.code", code).set("cm_global_status", -1).set("cm_operator", whoGuid)
-                .set("cm_magic_id", "").set("cm_reciver_ids.$.status", MsgConstants.MSG_STATUS_READ);
+                .set("cm_reciver_ids.$.status", MsgConstants.MSG_STATUS_READ);
         super.update(query, update);
     }
 
@@ -75,7 +75,7 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
     public List<SystemMessage> findNotiMsg(long plyGuid, int type, int clubId, long autoId, int maxCount) {
         Query query = new Query();
         // 消息接收人和消息
-        Criteria criteria1 = Criteria.where("_id").is(plyGuid).and("status").
+        Criteria criteria1 = Criteria.where("id").is(plyGuid).and("status").
                 ne(MsgConstants.MSG_STATUS_DELETED);
 
         Criteria criteria = Criteria.where("cm_reciver_ids").elemMatch(criteria1);
@@ -129,12 +129,6 @@ public class SystemMessageDao extends MessageMongodbBaseDao<SystemMessage, Query
                 .and("cm_message_typ").is(messageType).and("cm_show_message_typ").is(showMessageType)
                 .and("cm_send_time").gte(time);
         query.addCriteria(criteria);
-
-        Aggregation aggregation =  Aggregation.newAggregation(
-                Aggregation.match(criteria),
-                Aggregation.count().as("count")
-        );
-        AggregationResults<Integer> outputType = mongoTemplate.aggregate(aggregation,"system_message",Integer.class);
-        return outputType.getMappedResults().get(0);
+        return super.find(query).size();
     }
 }
