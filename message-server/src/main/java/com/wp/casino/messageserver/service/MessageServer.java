@@ -172,11 +172,6 @@ public class MessageServer extends NettyTcpServer {
         //申请加入俱乐部
         messageDispatcher.registerHandler(LoginMessage.proto_lf_club_apply_join_noti.class,(channel, message) -> {
 
-            //"cm_sender_id", BCON_INT64(ply_id)
-            //		, "cm_club_id", BCON_INT32(club_id)
-            //		, "cm_message_typ", BCON_INT32(CLUB_NOTI_MSG)
-            //		, "cm_show_message_typ", BCON_INT32(ACK_MSG)
-            //		, "cm_send_time", "{", "$gte", BCON_INT32(day_sec), "}"
             // 查找改天申请俱乐部次数是否达到三次
             long nowTime =System.currentTimeMillis();
             // 当前0点时间戳

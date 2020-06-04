@@ -72,7 +72,7 @@ public class ClubDataUtil {
     }
 
     /**
-     * 根据clubId获取俱乐部创建者和管理员信息
+     * 根据clubId获取有添加权限的俱乐部创建者和管理员信息
      * @param clubId
      * @return
      */
@@ -81,6 +81,19 @@ public class ClubDataUtil {
             clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubMembersRepository.class);
         }
         List<PyqClubMembers> clubAdminLlist = clubRepository.findClubAdmin(clubId);
+        return clubAdminLlist;
+    }
+
+    /**
+     * 根据clubId获取所有俱乐部创建者和管理员信息
+     * @param clubId
+     * @return
+     */
+    public static List<PyqClubMembers> getAllClubAdminList(Integer clubId){
+        if (clubRepository==null){
+            clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubMembersRepository.class);
+        }
+        List<PyqClubMembers> clubAdminLlist = clubRepository.findAllClubAdmin(clubId);
         return clubAdminLlist;
     }
 

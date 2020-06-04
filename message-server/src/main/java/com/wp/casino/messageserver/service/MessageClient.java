@@ -161,7 +161,7 @@ public class MessageClient extends NettyTcpClient {
             clubMessageContext.setContent("");
             clubMessageContext.setText("");
             clubMessageContext.setNickName("");
-            List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(message.getClubId());
+            List<PyqClubMembers> members = ClubDataUtil.getAllClubAdminList(message.getClubId());
 
             List<ReceiveObj> list = new ArrayList<>();
             for (PyqClubMembers pcm : members) {
@@ -223,15 +223,16 @@ public class MessageClient extends NettyTcpClient {
 
                             //修改 根据result修改请求的消息体的code值
                             systemMessageDao.updateMsgCode(clubMemberUpdateInfo.getMessageId(),
-                                    result == 0 ? 0 : 1, clubMemberUpdateInfo.getWhoGuid());
+                                    result == 0 ? MsgConstants.MSG_REPLY_CODE_NO : MsgConstants.MSG_REPLY_CODE_OK,
+                                    clubMemberUpdateInfo.getWhoGuid());
 
                             break;
                         case WorldMessage.ClubMemberUpdateInfo.TYPE.LeaveClub_VALUE:
                             //退出俱乐部 通知所有管理员
-                            List<PyqClubMembers> members = ClubDataUtil.getClubAdminList(clubMemberUpdateInfo.getClubId());
+                            List<PyqClubMembers> members = ClubDataUtil.getAllClubAdminList(clubMemberUpdateInfo.getClubId());
                             for (PyqClubMembers pcm: members) {
                                 receiveObj = new ReceiveObj();
-                                receiveObj.setId(clubMemberUpdateInfo.getPlyGuid());
+                                receiveObj.setId(pcm.getCmPlyGuid());
                                 receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                                 list.add(receiveObj);
                             }
