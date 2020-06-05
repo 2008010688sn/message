@@ -2,7 +2,6 @@ package com.wp.casino.messageserver.domain;
 
 import lombok.Data;
 
-import javax.persistence.Transient;
 import java.io.Serializable;
 
 /**
@@ -12,15 +11,15 @@ import java.io.Serializable;
 @Data
 public class ClubMessageContext implements Serializable {
 
-    private Integer clubId;
+    private Integer clubid;
 
-    private String clubName;
+    private String clubname;
 
     private String content;
 
-    private String nickName;
+    private String nickname;
 
-    private long plyId;
+    private long plyid;
 
     private String text;
 

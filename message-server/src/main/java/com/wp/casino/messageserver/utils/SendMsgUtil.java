@@ -82,19 +82,19 @@ public class SendMsgUtil {
         }
 
         if (magicId.equals(MagicId.APPLY_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickname")));
         } else if (magicId.equals(MagicId.AGREE_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
         } else if (magicId.equals(MagicId.REFUSE_JOIN_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
         } else if (magicId.equals(MagicId.KICK_OUT_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
         } else if (magicId.equals(MagicId.DROP_OUT_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("nickname")));
         } else if (magicId.equals(MagicId.APPLY_JOIN_ROOM_MSG.getMagicId())) {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("plynickname")));
         } else if (magicId.equals(MagicId.DISMISS_CLUB_MSG.getMagicId())) {
-            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubName")));
+            jsonObject.put("content", String.format(formatStr, jsonObject.get("clubname")));
         } else if (magicId.equals(MagicId.AGREE_JOIN_TABLE_MSG.getMagicId())) {
             jsonObject.put("content", String.format(formatStr, jsonObject.get("tablename")));
         } else if (magicId.equals(MagicId.REFUSE_JOIN_TABLE_MSG.getMagicId())) {

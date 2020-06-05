@@ -123,17 +123,17 @@ public class MessageClient extends NettyTcpClient {
         messageDispatcher.registerHandler(WorldMessage.proto_wf_join_room_noti.class, (channel, message) -> {
             // 申请加入房间的message
             RoomMessageContext rmc = new RoomMessageContext();
-            rmc.setTableId(message.getTableId());
-            rmc.setTableName(message.getTableName());
+            rmc.setTableid(message.getTableId());
+            rmc.setTablename(message.getTableName());
             rmc.setPlyguid(message.getPlyGuid());
             rmc.setPlynickname(message.getPlyNickname());
             rmc.setGameid(message.getGameId());
-            rmc.setServerId(message.getServerId());
+            rmc.setServerid(message.getServerId());
             rmc.setText("join room req");
             rmc.setContent("");
             rmc.setCode(0);
             rmc.setMagic_id(MagicId.APPLY_JOIN_ROOM_MSG.getMagicId());
-            rmc.setTableCreateTime(message.getTableCreateTime());
+            rmc.setTablecreatetime(message.getTableCreateTime());
             rmc.setInvitecode(message.getInviteCode());
 
             List<ReceiveObj> list = new ArrayList<>();
@@ -156,11 +156,11 @@ public class MessageClient extends NettyTcpClient {
         // 俱乐部解散---------------opcode:20540
         messageDispatcher.registerHandler(WorldMessage.proto_wf_break_up_club_noti.class, (channel, message) -> {
             ClubMessageContext clubMessageContext = new ClubMessageContext();
-            clubMessageContext.setClubId(message.getClubId());
-            clubMessageContext.setClubName(message.getClubName());
+            clubMessageContext.setClubid(message.getClubId());
+            clubMessageContext.setClubname(message.getClubName());
             clubMessageContext.setContent("");
             clubMessageContext.setText("");
-            clubMessageContext.setNickName("");
+            clubMessageContext.setNickname("");
             List<PyqClubMembers> members = ClubDataUtil.getAllClubAdminList(message.getClubId());
 
             List<ReceiveObj> list = new ArrayList<>();
@@ -170,7 +170,7 @@ public class MessageClient extends NettyTcpClient {
                 receiveObj.setStatus(MsgConstants.MSG_STATUS_UNREAD);
                 list.add(receiveObj);
             }
-            clubMessageContext.setPlyId(message.getPlyGuid());
+            clubMessageContext.setPlyid(message.getPlyGuid());
 
             // 落表
             SystemMessage sm = save2Mongo(message.getPlyGuid(), list, MsgType.PLAYER_NOTI_MSG.getMsgType(),
@@ -190,12 +190,12 @@ public class MessageClient extends NettyTcpClient {
                     int reason = clubMemberUpdateInfo.getReason().getNumber();
 
                     ClubMessageContext clubMessageContext = new ClubMessageContext();
-                    clubMessageContext.setClubId(clubMemberUpdateInfo.getClubId());
-                    clubMessageContext.setClubName(clubMemberUpdateInfo.getClubName());
+                    clubMessageContext.setClubid(clubMemberUpdateInfo.getClubId());
+                    clubMessageContext.setClubname(clubMemberUpdateInfo.getClubName());
                     clubMessageContext.setContent("");
                     clubMessageContext.setText("");
-                    clubMessageContext.setPlyId(clubMemberUpdateInfo.getPlyGuid());
-                    clubMessageContext.setNickName(clubMemberUpdateInfo.getPlyNickname());
+                    clubMessageContext.setPlyid(clubMemberUpdateInfo.getPlyGuid());
+                    clubMessageContext.setNickname(clubMemberUpdateInfo.getPlyNickname());
                     SystemMessage sm = null;
                     List<ReceiveObj> list = new ArrayList<>();
                     ReceiveObj receiveObj = null;

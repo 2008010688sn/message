@@ -182,7 +182,7 @@ public class MessageServer extends NettyTcpServer {
             LoginPlayer loginPlayer = HandlerServerContext.getInstance().getChannel(message.getApplyPlyGuid());
             if (count >= 3) {
                 if (loginPlayer == null || StringUtils.isBlank(loginPlayer.getServerId())) {
-                    log.info("ply_guid:%lld offline", message.getApplyPlyGuid());
+                    log.info("ply_guid:{} offline", message.getApplyPlyGuid());
                     return;
                 }
                 // 错误信息
@@ -195,10 +195,10 @@ public class MessageServer extends NettyTcpServer {
 
             // 入表
             ClubMessageContext cmc = new ClubMessageContext();
-            cmc.setClubId(message.getClubId());
-            cmc.setNickName(message.getApplyPlyName());
-            cmc.setClubName(message.getClubName());
-            cmc.setPlyId(message.getApplyPlyGuid());
+            cmc.setClubid(message.getClubId());
+            cmc.setNickname(message.getApplyPlyName());
+            cmc.setClubname(message.getClubName());
+            cmc.setPlyid(message.getApplyPlyGuid());
             cmc.setText("join req");
             cmc.setCode(0);
             cmc.setContent("");
@@ -258,7 +258,7 @@ public class MessageServer extends NettyTcpServer {
 
             LoginPlayer player = HandlerServerContext.getInstance().getChannel(message.getPlyGuid());
             if (player == null || StringUtils.isBlank(player.getServerId())) {
-                log.error("warning AddRoomAckNoti ply_guid:%lld offline", message.getPlyGuid());
+                log.error("warning AddRoomAckNoti ply_guid:{} offline", message.getPlyGuid());
                 return;
             }
 
@@ -505,7 +505,7 @@ public class MessageServer extends NettyTcpServer {
 
         LoginPlayer player = HandlerServerContext.getInstance().getChannel(plyGuid);
         if (player == null || StringUtils.isBlank(player.getServerId())) {
-        log.error("plyGuid:%d, offline,proto_lc_update_msg_status_ack fail", plyGuid);
+        log.error("plyGuid:{}, offline,proto_lc_update_msg_status_ack fail", plyGuid);
             return;
         }
 
@@ -529,7 +529,7 @@ public class MessageServer extends NettyTcpServer {
 
         LoginPlayer player = HandlerServerContext.getInstance().getChannel(plyGuid);
         if (player == null || StringUtils.isBlank(player.getServerId())) {
-            log.error("plyGuid:%d, offline,proto_lc_get_msg_count_ack fail", plyGuid);
+            log.error("plyGuid:{}, offline,proto_lc_get_msg_count_ack fail", plyGuid);
             return;
         }
 

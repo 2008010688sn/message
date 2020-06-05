@@ -2,7 +2,6 @@ package com.wp.casino.login;
 
 import com.wp.casino.login.utils.HandlerLoginContext;
 import com.wp.casino.messagenetty.proto.LoginMessage;
-import com.wp.casino.messagenetty.proto.WorldMessage;
 import io.netty.channel.ChannelHandlerContext;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -116,6 +115,38 @@ public class ConsumerController {
         msg.setOpcode(20179);
         msg.setPlyGuid(10000025);
 
+        ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
+        context.writeAndFlush(msg.build());
+        return "send ok";
+    }
+
+    @GetMapping("/add/chat")
+    public String addClubChat() {
+
+        LoginMessage.proto_cf_add_club_chat_record_req.Builder msg = LoginMessage
+                .proto_cf_add_club_chat_record_req.newBuilder();
+
+        msg.setChatMsg("你好");
+        msg.setClubUid(123);
+        msg.setGameId(111);
+        msg.setType(5);
+        msg.setPlyGuid(10000025);
+
+        ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
+        context.writeAndFlush(msg.build());
+        return "send ok";
+    }
+
+    @GetMapping("/sync/chat")
+    public String syncClubChat() {
+
+        LoginMessage.proto_cf_sync_club_chat_record_req.Builder msg = LoginMessage
+                .proto_cf_sync_club_chat_record_req.newBuilder();
+
+        msg.setPlyGuid(10000025);
+        msg.setClubUid(123);
+        msg.setAutoid(100000);
+        msg.setReqNum(20);
         ChannelHandlerContext context = HandlerLoginContext.getInstance().getChannel("1111");
         context.writeAndFlush(msg.build());
         return "send ok";

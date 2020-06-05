@@ -10,13 +10,13 @@ import java.io.Serializable;
 @Data
 public class RoomMessageContext implements Serializable {
 
-    private Integer tableId;
+    private Integer tableid;
 
-    private String tableName;
+    private String tablename;
 
-    private Integer tableCreateTime;
+    private Integer tablecreatetime;
 
-    private Integer serverId;
+    private Integer serverid;
 
     private String plynickname;
 

@@ -1,12 +1,8 @@
 package com.wp.casino.messageserver.domain.mysql.casino;
 
 import lombok.Data;
-import sun.awt.image.IntegerInterleavedRaster;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.print.DocFlavor;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -19,6 +15,7 @@ import java.io.Serializable;
 public class ClubChatInfo implements Serializable {
 
     @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     Integer clAutoId;
 
     Integer clClubMessageId;
