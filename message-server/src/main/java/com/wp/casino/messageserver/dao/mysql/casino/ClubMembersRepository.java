@@ -24,5 +24,14 @@ public interface ClubMembersRepository extends JpaRepository<PyqClubMembers,Inte
 
     PyqClubMembers findByCmClubIdAndCmPlyGuid(Integer clubId,Long uid);
 
+    /**
+     * 查询一定条数的俱乐部成员信息集合
+     * @param clubId
+     * @param num
+     * @return
+     */
+    @Query(value = "select cm_auto_id,cm_club_id,cm_ply_guid,cm_role,cm_join_time,cm_status,cm_push_status  from tb_pyq_club_members   where  cm_club_id=?1 and cm_status=0  limit ?2",nativeQuery = true)
+    List<PyqClubMembers> findAllByCmClubIdAndCmStatusLimitNum(Integer clubId,Integer num);
+
 
 }

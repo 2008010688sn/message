@@ -18,6 +18,7 @@ import com.wp.casino.messageserver.domain.*;
 import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.ClubDataUtil;
+import com.wp.casino.messageserver.utils.RedisUtil;
 import com.wp.casino.messageserver.utils.SendMsgUtil;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
@@ -43,11 +44,17 @@ public class MessageClient extends NettyTcpClient {
 
     private SystemMessageDao systemMessageDao;
 
+    private RedisUtil redisUtil;
+
     public MessageClient() {
         this.messageDispatcher = new MessageDispatcher();
-        this.channelHandler = new MessageClientHandler(messageDispatcher);
+        this.channelHandler = new MessageClientHandler(messageDispatcher,this);
         this.systemMessageDao= ApplicationContextProvider.getApplicationContext()
                 .getBean(SystemMessageDao.class);
+        if (this.redisUtil==null){
+            this.redisUtil= ApplicationContextProvider.getApplicationContext()
+                    .getBean(RedisUtil.class);
+        }
     }
     public ChannelFuture connect(String host, int port, int heartbeat, int interval) {
         return super.connect(host, port).addListener((ChannelFuture f)->{
@@ -311,7 +318,7 @@ public class MessageClient extends NettyTcpClient {
     @Override
     protected void initPipeline(ChannelPipeline pipeline) {
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-        pipeline.addLast(new IdleStateHandler(0, 10, 0, TimeUnit.MICROSECONDS));
+        pipeline.addLast(new IdleStateHandler(0, 100, 0, TimeUnit.MICROSECONDS));
         super.initPipeline(pipeline);
     }
 }

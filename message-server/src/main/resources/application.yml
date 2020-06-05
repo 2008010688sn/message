@@ -6,31 +6,33 @@ server:
     #作为客户端连接的服务端的地址和端口
     client_address: 127.0.0.1
     client_port: 9123
-    client_heartbeat: 1 #1为断线重连，其他值不重连
-    client_interval: 10 #断线重连的心跳间隔，单位s
+    #1为断线重连，其他值不重连
+    client_heartbeat: 1
+    #断线重连的心跳间隔，单位s
+    client_interval: 100
 mongodb:
     message:
         database: message
-        host: 192.168.0.123
+        host: 3.6.110.15    #192.168.0.123
         port: 27017
     replay:
         database: db_replay
-        host: 192.168.0.123
+        host: 3.6.110.15    #192.168.0.123
         port: 27017
     record:
         database: db_record
-        host: 192.168.0.123
+        host: 3.6.110.15    #192.168.0.123
         port: 27017
 spring:
     datasource:
         casino:
-            jdbc-url: jdbc:mysql://192.168.0.123:3306/db_casino?useUnicode=true&characterEncoding=utf-8
+            jdbc-url: jdbc:mysql://3.6.110.15:3306/db_casino?useUnicode=true&characterEncoding=utf-8
             username: wolfplus
             password: passthis
             driverClassName: com.mysql.jdbc.Driver
             #type: com.alibaba.druid.pool.DruidDataSource
         account:
-            jdbc-url: jdbc:mysql://192.168.0.123:3306/db_account_detail?useUnicode=true&characterEncoding=utf-8
+            jdbc-url: jdbc:mysql://3.6.110.15:3306/db_account_detail?useUnicode=true&characterEncoding=utf-8
             username: wolfplus
             password: passthis
             driverClassName: com.mysql.jdbc.Driver
@@ -42,3 +44,15 @@ spring:
         show-sql: true
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
         open-in-view: false
+    redis:
+        host: 3.6.110.15    #192.168.0.123
+        port: 6379
+        database: 0
+        password: 123456
+        timeout: 3000   #ms
+        lettuce:
+            pool:
+                max-active: 8
+                max-wait: -1
+                max-idle: 8
+                min-idle: 0

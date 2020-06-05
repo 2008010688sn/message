@@ -106,8 +106,13 @@ public class ClubDataUtil {
         if (clubRepository==null){
             clubRepository = ApplicationContextProvider.getApplicationContext().getBean(ClubMembersRepository.class);
         }
-        //状态为有效的俱乐部的成员信息
-        List<PyqClubMembers> clubMembers = clubRepository.findAllByCmClubIdAndCmStatus(clubId,0);
+        List<PyqClubMembers> clubMembers=null;
+        if (clubId==10000){//俱乐部10000为大俱乐部，成员太多，根据业务返回50条数据
+           clubMembers=clubRepository.findAllByCmClubIdAndCmStatusLimitNum(clubId,50);
+        }else{
+            //状态为有效的俱乐部的成员信息
+            clubMembers = clubRepository.findAllByCmClubIdAndCmStatus(clubId,0);
+        }
         return clubMembers;
     }
 
