@@ -7,6 +7,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
+import lombok.extern.slf4j.Slf4j;
 
 import java.nio.ByteBuffer;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.List;
  * @author sn
  * @date 2020/5/15 16:11
  */
+@Slf4j
 public class MessageDecoder extends ByteToMessageDecoder {
 
     ByteBuf buf = Unpooled.buffer(1024 * 40);
@@ -22,6 +24,7 @@ public class MessageDecoder extends ByteToMessageDecoder {
 
     @Override
     protected void decode(ChannelHandlerContext ctx, ByteBuf in, List<Object> list) throws Exception {
+        log.info("decode---start");
         buf.writeBytes(in);
         while (buf.readableBytes() > 0) {
             if (currentPackageLength == 0) {
@@ -44,6 +47,7 @@ public class MessageDecoder extends ByteToMessageDecoder {
                 byte[] bytes = new byte[currentPackageLength - 4];
                 body.readBytes(bytes);
                 MessageLite messageLite= (MessageLite) parser.parseFrom(bytes);
+                log.info("decode-----messageLite:{}",messageLite);
                 currentPackageLength = 0;
                 buf.discardReadBytes();
                 ctx.fireChannelRead(messageLite);//将消息传递下去，或者在这里将消息发布出去

@@ -56,8 +56,10 @@ public class MessageClient extends NettyTcpClient {
                     .getBean(RedisUtil.class);
         }
     }
+
     public ChannelFuture connect(String host, int port, int heartbeat, int interval) {
         return super.connect(host, port).addListener((ChannelFuture f)->{
+            log.info("MessageClient---connect---start");
             if (heartbeat==1){//保持心跳
                 EventLoop eventLoop = f.channel().eventLoop();
                 if (!f.isSuccess()) {//断线重连
@@ -93,6 +95,7 @@ public class MessageClient extends NettyTcpClient {
 
         // wordServer的web通知20538
         messageDispatcher.registerHandler(WorldMessage.proto_wf_web_msg_noti.class, (channel, message) -> {
+            log.info("proto_wf_web_msg_noti web通知----callback");
             Integer type = message.getMsgType();
             ByteString data  = message.getMsgData();
             Parser<?> parser= MessageMappingHolder.getParser(MessageEnum.WL_NOTI_MSG_DATA.getOpCode());
@@ -105,6 +108,7 @@ public class MessageClient extends NettyTcpClient {
 
         // wordServer的web通知20539
         messageDispatcher.registerHandler(WorldMessage.proto_wl_noti_msg_data.class, (channel, message) -> {
+            log.info("proto_wl_noti_msg_data web通知----callback");
             // 解析消息并入表数据落地
             MessageContext messageContext = new MessageContext();
             messageContext.setContent(message.getMsgContent());
@@ -318,7 +322,7 @@ public class MessageClient extends NettyTcpClient {
     @Override
     protected void initPipeline(ChannelPipeline pipeline) {
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-        pipeline.addLast(new IdleStateHandler(0, 100, 0, TimeUnit.MICROSECONDS));
+//        pipeline.addLast(new IdleStateHandler(0, 10000, 0, TimeUnit.MICROSECONDS));
         super.initPipeline(pipeline);
     }
 }

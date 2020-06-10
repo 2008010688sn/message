@@ -15,7 +15,7 @@ public enum  MessageEnum {
 
     WF_CLUB_MEMBER_UPDATE_NOTI(20541,"com.wp.casino.messagenetty.proto","WorldMessage","proto_wf_club_member_update_noti"),
     PING(7200,"com.wp.casino.messagenetty.proto","WorldMessage","prt_ping"),
-    PONG(7201,"com.wp.casino.messagenetty.proto","WorldMessage","prt_ping"),
+    PONG(7201,"com.wp.casino.messagenetty.proto","WorldMessage","prt_pong"),
 
 //loginMessage
 

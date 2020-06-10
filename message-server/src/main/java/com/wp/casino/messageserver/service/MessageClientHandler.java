@@ -59,9 +59,6 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("和worldserver建立连接时：" + new Date());
-        if (connected.compareAndSet(false, true)) {
-            
-        }
         ctx.fireChannelActive();
     }
 
@@ -70,7 +67,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        log.info("关闭连接时：" + new Date());
+        log.info("messageclient-----关闭连接时：" + new Date());
         Map<String,Object> map=getClientConfigPro();
         if (map!=null){
             String host =map.get("host").toString();
@@ -140,6 +137,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
         log.info("messageserver客户端接受到worldserver信息:{}",ctx.channel().remoteAddress().toString());
+        log.info("messageLite----"+messageLite.toString());
         messageDispatcher.onMessage(ctx.channel(),messageLite);
     }
 

@@ -1,6 +1,7 @@
 package com.wp.casino.messageserver.service;
 
 
+import com.alibaba.fastjson.JSON;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messageserver.utils.HandlerContext;
@@ -58,7 +59,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
     @Override
     public void channelInactive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("channel通道注销-"+ctx.channel());
+//        System.out.println("channel通道注销-"+ctx.channel());
         String channelId=ctx.channel().remoteAddress().toString();
         HandlerContext.getInstance().removeChannel(channelId);
         log.info("MessageServerHandler---channelInactive---");
@@ -89,6 +90,7 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
         log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，客户端地址："+ctx.channel().remoteAddress().toString()+"进行消息处理..."  );
+        log.info("messageLite---"+messageLite.toString());
         messageDispatcher.onMessage(ctx.channel(),messageLite);
         count.incrementAndGet();
         //HandlerContext.getInstance().addChannel("login-server",ctx);

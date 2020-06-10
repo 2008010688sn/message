@@ -20,10 +20,10 @@ public class SeqInfo {
     @Id
     private String id;// 主键
 
-    @Field
+    @Field(value = "collection")
     private String collName;// 集合名称
 
-    @Field
+    @Field(value = "auto_id")
     private Long seqId;// 序列值
 
 }

@@ -91,6 +91,7 @@ public class MessageServer extends NettyTcpServer {
         //proto_cl_get_msg_count_req
         messageDispatcher.registerHandler(LoginMessage.proto_cf_message_wrap_sync.class,
                 (channel, message) -> {
+                    log.info("proto_cf_message_wrap_sync----callback");
                     int opcode = message.getOpcode();
                     ByteString data =  message.getData();
                     Parser<?> parser= MessageMappingHolder.getParser(opcode);
@@ -111,13 +112,14 @@ public class MessageServer extends NettyTcpServer {
         // message回复login注册结果
         messageDispatcher.registerHandler(LoginMessage.proto_lf_register_req.class,
                 (channel, message)->{
+                 log.info("proto_lf_register_req----callback");
                     //维护channel
                     String channelId = channel.remoteAddress().toString();
                     HandlerContext.getInstance().addChannel(channelId,channel);
 
                     //Message回复Login注册结果
                     LoginMessage.proto_fl_register_ack response=LoginMessage.proto_fl_register_ack
-                            .newBuilder().setRet(1).build();
+                            .newBuilder().setRet(0).build();
 
                     LoginMessage.proto_fc_message_wrap_sync.Builder sync = LoginMessage.proto_fc_message_wrap_sync.newBuilder();
                     sync.setPlyGuid(0);
@@ -129,6 +131,7 @@ public class MessageServer extends NettyTcpServer {
         //Login所有连接到它的玩家信息告知Message;
         messageDispatcher.registerHandler(LoginMessage.proto_lf_update_ply_login_status_not.class,
                 (channel,message)->{
+                    log.info("proto_lf_update_ply_login_status_not----callback");
                     //用户注册,登录用户信息入表
                     // 修改用户
                     Integer result = ClubDataUtil.updateMessageUserData(message.getNickName(), message.getPlyVip(),
@@ -149,15 +152,22 @@ public class MessageServer extends NettyTcpServer {
 
                     //维护用户和地址
                     String channelId=channel.remoteAddress().toString();
-
+                    Map<String, Object> map = ClubDataUtil.loadPlyData(message.getPlyGuid());
+                    String face=map.get("face").toString();
+                    int approveNoti=(Integer) map.get("approveNoti");
+                    int friendLimit=(Integer)map.get("friendLimit");
+                    int friendNum=(Integer)map.get("friendNum");
                     LoginPlayer loginPlayer = new LoginPlayer();
-                    loginPlayer.setHeadImg(message.getHeadImg());
+                    loginPlayer.setHeadImg(face);
                     loginPlayer.setNickName(message.getNickName());
                     loginPlayer.setPlyGuid(message.getPlyGuid());
                     loginPlayer.setPlyLevel(message.getPlyLevel());
                     loginPlayer.setUserLanguage(message.getUserLanguage());
                     loginPlayer.setPlyVip(message.getPlyVip());
                     loginPlayer.setServerId(channelId);
+                    loginPlayer.setApproveNoti(approveNoti);
+                    loginPlayer.setFriendLimit(friendLimit);
+                    loginPlayer.setFriendNum(friendNum);
 
                     HandlerServerContext.getInstance().addChannel(message.getPlyGuid(), loginPlayer);
                 });

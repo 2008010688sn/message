@@ -9,19 +9,23 @@ import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * @author sn
  * @date 2020/5/15 16:11
  */
+@Slf4j
 @ChannelHandler.Sharable
 public final class MessageEncoder extends MessageToByteEncoder<MessageLite> {
     public static final MessageEncoder INSTANCE=new MessageEncoder();
     @Override
     protected void encode(ChannelHandlerContext ctx, MessageLite msg, ByteBuf buf) throws Exception {
+        log.info("Encode---satrt---");
         //先获取消息对应的opCode编号
         int openCode = MessageMappingHolder.getopCode(msg);
-
+        log.info("encode---opcode:{}",openCode);
+        log.info("encode---msg----{}",msg);
 //        ByteBuf buf = Unpooled.buffer(1024 * 40);
         byte[] body = msg.toByteArray();
         int bodyLen = body.length + 4;

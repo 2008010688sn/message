@@ -7,7 +7,9 @@ import com.wp.casino.messageserver.domain.mysql.account.AccountDetail;
 import com.wp.casino.messageserver.domain.mysql.casino.*;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -275,6 +277,22 @@ public class ClubDataUtil {
     }
 
     /**
+     * 根据uid查询数量
+     * @param uid
+     * @return
+     */
+    public static Integer findMessageFriendListCountByUID(Long uid){
+        if (messageFriendListRepository==null){
+            messageFriendListRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageFriendListRepository.class);
+        }
+        Integer count = messageFriendListRepository.findCountByGuid(uid);
+        if (count==null){
+            return 0;
+        }
+        return  count;
+    }
+
+    /**
      *加载configglobalstring数据
      * @return
      */
@@ -320,6 +338,28 @@ public class ClubDataUtil {
         }
         MessageFriendAutoId messageFriendAutoId = messageFriendAutoIdRepository.findAll().get(0);
         return  messageFriendAutoId;
+    }
+
+    public static Map<String,Object> loadPlyData(long uid){
+        Map<String,Object> map=new HashMap<>();
+        Integer messageFriendListCount = findMessageFriendListCountByUID(uid);
+        String face="";
+        AccountDetail accountByUid = findAccountByUid(uid);
+        if (accountByUid!=null){
+            face=accountByUid.getAFace();
+        }
+        MessageUserData messageUserDataByUid = findMessageUserDataByUid(uid);
+        Integer mdApproveNoti=0;
+        Integer mdFriendLimit=0;
+        if (messageUserDataByUid!=null){
+             mdApproveNoti = messageUserDataByUid.getMdApproveNoti();
+             mdFriendLimit = messageUserDataByUid.getMdFriendLimit();
+        }
+        map.put("face",face);
+        map.put("approveNoti",mdApproveNoti);
+        map.put("friendLimit",mdFriendLimit);
+        map.put("friendNum",messageFriendListCount);
+        return map;
     }
 
 }

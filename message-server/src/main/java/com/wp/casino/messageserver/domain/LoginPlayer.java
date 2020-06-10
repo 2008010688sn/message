@@ -23,4 +23,10 @@ public class LoginPlayer implements Serializable {
     private Integer userLanguage;
 
     private String serverId;
+
+    private Integer approveNoti;
+
+    private Integer friendNum;
+
+    private Integer friendLimit;
 }

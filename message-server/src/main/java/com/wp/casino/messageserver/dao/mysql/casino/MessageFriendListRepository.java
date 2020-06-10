@@ -18,4 +18,7 @@ public interface MessageFriendListRepository extends JpaRepository<MessageFriend
     @Query(value = "UPDATE tb_message_friend_list SET ml_unread_num=0, ml_max_read_msg_id=?1 WHERE ml_ply_guid=?2 and ml_friend_guid=?3",nativeQuery = true)
     Integer updateByPlyGuidAndFriendGuid(Integer autoId,Long plyGuid,Long friendGuid);
 
+    @Query(value = "SELECT count(*) from tb_message_friend_list where ml_ply_guid=?1 and ml_flag = 1",nativeQuery = true)
+    Integer findCountByGuid(long guid);
+
 }
