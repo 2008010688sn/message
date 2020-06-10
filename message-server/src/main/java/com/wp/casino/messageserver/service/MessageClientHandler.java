@@ -59,7 +59,9 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         log.info("和worldserver建立连接时：" + new Date());
-        ctx.fireChannelActive();
+        WorldMessage.proto_fw_register_req msg = WorldMessage.proto_fw_register_req.newBuilder()
+                .setServerId(111).build();
+        ctx.writeAndFlush(msg);
     }
 
     /**
