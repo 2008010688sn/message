@@ -1,62 +1,64 @@
-syntax = "proto3";
 
 option optimize_for=SPEED;
 
 option java_package = "com.wp.casino.messagenetty.proto";
 option java_outer_classname = "LoginMessage";
 
+
+
 //==============login2message============================
 
 // 俱乐部管理者接收成员申请消息-----------opcode:20150
 message proto_lf_club_apply_join_noti {
-  int32  club_id      = 1;  // 俱乐部ID
-  string  club_name    = 2;  // 俱乐部名称
-  int64  apply_ply_guid  = 3;  // 申请者guid
-  string  apply_ply_name  = 4;  // 申请加入者昵称
-  int64  referrer_guid  = 5;  // 推荐人ID
+  required int32  club_id      = 1;  // 俱乐部ID
+  optional string  club_name    = 2;  // 俱乐部名称
+  required int64  apply_ply_guid  = 3;  // 申请者guid
+  optional string  apply_ply_name  = 4;  // 申请加入者昵称
+  optional int64  referrer_guid  = 5;  // 推荐人ID
 }
 
 // 房主回复加入通知-------------------------opcode:20161
 message proto_lf_join_room_reply_noti {
-  int32  table_id = 1;
-  int32  ret = 2;    // 0拒绝加入 1同意入桌
-  int32  game_id = 3;
-  int32  server_id = 4;
-  int64  ply_guid = 5;
-  int64  owner_guid = 6;
-  string  table_name = 7;
-  int64  message_id = 8;
-  int32  reply_code = 9;
+    required  int32  table_id = 1;
+    required  int32  ret = 2;    // 0拒绝加入 1同意入桌
+    required  int32  game_id = 3;
+    required  int32  server_id = 4;
+    required  int64  ply_guid = 5;
+    required  int64  owner_guid = 6;
+    optional  string  table_name = 7;
+    required  int64  message_id = 8;
+    required  int32  reply_code = 9;
 }
 
 // //消息通知请求----------------------opcode:20163
 message proto_cl_load_noti_msg_req{
-  int32  type = 1;    //消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
-  int32  club_id = 2;  //游戏消息和个人消息为0
-  int64  ply_guid = 3;  //请求消息的人
-  int64  auto_id = 4;  //-1表示拉取最新数据
-  int32  max_count = 5;  //一次获取消息的数量，默认一次100条
+    required  int32  type = 1;    //消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
+    required  int32  club_id = 2;  //游戏消息和个人消息为0
+    required  int64  ply_guid = 3;  //请求消息的人
+    required  int64  auto_id = 4;  //-1表示拉取最新数据
+    optional  int32  max_count = 5;  //一次获取消息的数量，默认一次100条
 }
 //20164
 message proto_lc_load_noti_msg_ack{
-	repeated proto_NotiMsgInfo noti_msg_info = 1;
-	int64	auto_id = 2;	// 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
+    repeated	proto_NotiMsgInfo noti_msg_info = 1;
+    optional	int64	auto_id = 2;	// 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
+
 }
 
 //俱乐部聊天记录-----opcode:22026---------有回执，如下
 message proto_cf_add_club_chat_record_req{
+    required  int32  club_uid = 1;
+    required  int64  ply_guid = 2;
+    required  string  chat_msg = 3;
+    required  int32  game_id = 4;
+    required  int32  type = 5;
 
-  int32  club_uid = 1;
-  int64  ply_guid = 2;
-  string  chat_msg = 3;
-  int32  game_id = 4;
-  int32  type = 5;
 }
 //回执的协议为：-------opcode:22027
 message proto_fc_add_club_chat_record_ack{
-    int32		ret = 1;   //0   sucess
-    repeated proto_ClubChatRecordInfoStruct  club_chat_record_info = 2;
-    string	err_msg = 3;
+    required	int32		ret = 1;   //0   sucess
+    repeated	proto_ClubChatRecordInfoStruct  club_chat_record_info = 2;
+    optional 	string	err_msg = 3;
 }
 
 // 通知广播 需要用proto_fl_club_notify封装
@@ -66,112 +68,113 @@ message proto_fc_add_club_chat_record_noti{
 
 //俱乐部聊天-----opcode:22029------------有回执，如下
 message proto_cf_sync_club_chat_record_req{
-  int32    club_uid = 1;
-  int64    ply_guid = 2;
-  int32    autoid = 3;
-  int32    req_num = 4;
-
+    required  int32    club_uid = 1;
+    required  int64    ply_guid = 2;
+    required  int32    autoid = 3;
+    optional  int32    req_num = 4;
 }
 //回执：---opcode:22030
 message proto_fc_sync_club_chat_record_ack{
-	int32		ret = 1;
-	int64		ply_guid = 2;
-	repeated proto_ClubChatRecordInfoStruct  club_chat_record_info = 3;
-	string	err_msg = 4;
+	required	int32		ret = 1;
+    required	int64		ply_guid = 2;
+    repeated	proto_ClubChatRecordInfoStruct  club_chat_record_info = 3;
+    optional 	string	err_msg = 4;
+
 }
 
 //ClubChatRecordInfoStruct
 message proto_ClubChatRecordInfoStruct {
-	int32 club_uid = 1;
-	int32 game_id = 2;
-	int32 send_msg_time = 3;
-	int32 auto_id = 4;
-	int64 ply_id = 5;
-	string chat_msg = 6;
-	int32 type = 7;
-	int32 club_message_id = 8;
+	required int32 club_uid = 1;
+    required int32 game_id = 2;
+    required int32 send_msg_time = 3;
+    required int32 auto_id = 4;
+    required int64 ply_id = 5;
+    required string chat_msg = 6;
+    required int32 type = 7;
+    required int32 club_message_id = 8;
 };
 
 // 修改消息状态--opcode: 20179 ---------------有回执，如下
 message proto_cl_update_msg_status_req {
-  enum STATUS
-  {
-    nullValue = 0; // 无用
-    READ = 1;    // 已读
-    DELETED = 2;  // 删除
-  }
-  repeated  int64  auto_id_list  = 1;
-  STATUS  status    = 2;  // 消息标记状态
+      enum STATUS
+      {
+        READ = 1;    // 已读
+        DELETED = 2;  // 删除
+      }
+    repeated  int64  auto_id_list  = 1;
+    required  STATUS  status    = 2;  // 消息标记状态
+
 }
 //回执：---opcode: 20180
 message proto_lc_update_msg_status_ack {
-	int32	ret	= 1;
-	string	err_msg	= 2;
+	required	int32	ret	= 1;
+    required	string	err_msg	= 2;
+
 }
 
 // 获取未读消息条数----opcode: 20181 -----------有回执
 message proto_cl_get_msg_count_req {
-  int32  club_id = 1;  // 如果不指定，则查询所有
+  optional  int32  club_id = 1;  // 如果不指定，则查询所有
 }
 //回执：---opcode: 20182
 message proto_lc_get_msg_count_ack {
 	message Result{
-			int32	club_id = 1;
-			int32	count = 2;
-	}
-	repeated Result 	result_set = 1;
+        required		int32	club_id = 1;
+        required		int32	count = 2;
+    }
+    repeated	Result 	result_set = 1;
 }
 
 
 // login发送给消息服务器的消息包装---opcode:22031
 message proto_cf_message_wrap_sync {
-    int64 ply_guid = 1;
-    int32 opcode = 2;
-    bytes data = 3;
+    required 	int64		ply_guid = 1;
+    required 	int32		opcode = 2;
+    required 	bytes		data = 3;
 }
 
 // message让login原封不动的转发给客户端的消息封装
 message proto_fc_message_wrap_sync
 {
-	int64		ply_guid = 1;
-	int32		opcode = 2;
-	bytes		data = 3;
+	required 	int64		ply_guid = 1;
+    required 	int32		opcode = 2;
+    required 	bytes		data = 3;
 }
 
 
 //==============message2login============================
 //Login去Message注册  22000
 message proto_lf_register_req {
-	 int32 server_id = 1;
+	 required int32 server_id = 1;
 };
 //message回复login注册结果  22001
 message proto_fl_register_ack {
-	 int32 ret = 1;
+      required  int32 ret = 1;
 };
 
 //玩家上线：Login所有连接到它的玩家信息告知Message 22002
 message proto_lf_update_ply_login_status_not {
-	 int64 ply_guid = 1;
-	 int32 ply_vip = 2;
-	 int32 ply_level = 3;
-	 string nick_name = 4;
-	 string head_img = 5;
-	 int32 user_language = 6;
+    required int64 ply_guid = 1;
+    required int32 ply_vip = 2;
+    required int32 ply_level = 3;
+    required string nick_name = 4;
+    required string head_img = 5;
+    required int32 user_language = 6;
 };
 
 // 玩家下线通知
 message proto_lf_update_ply_logout_status_not {
-    int64 ply_guid = 1;
+    required int64 ply_guid = 1;
 }
 
 
 //-----opcode:22033
 message proto_fl_club_notify
 {
-   int32    club_id = 1;
-   int32    opcode = 2;
-   bytes    data = 3;
-  int64    except_ply_guid = 4;
+    required   int32    club_id = 1;
+    required   int32    opcode = 2;
+    required   bytes    data = 3;
+    optional  int64    except_ply_guid = 4;
 }
 
 
@@ -188,23 +191,23 @@ message proto_NotiMsgInfo
 		READ = 1;    // 已读
 		DELETED = 2;  // 已删除
 	}
-	  int64  autoid =1;        //自增id
-	  int64  sender_id =2;      //发送消息的人的guid
-	  int64  reciever_id =3;      //接收者的guid
-	  int32  msg_type =4;      //消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
-	  int32  msg_show_type=5;    //消息显示类型  '1.文本消息 2.操作类型消息'
-	  string  msg=6;          //消息 code 0表示未处理，1表示已拒绝，2表示已同意
-	  int32  msg_status=7;      //收取状态    1.已发送 2.未发送
-	  int32  send_time=8;       //消息的发送时间
-	  int32  club_id = 9;      //俱乐部id    游戏消息和个人消息为0
-	  int32  expire_time = 10;    //消息过期时间 -1表示永不过期 其它为到期时间戳
-	  STATUS  status = 11;      //状态
-	  string  title = 12;        //消息标题
+    required  int64  autoid =1;        //自增id
+    required  int64  sender_id =2;      //发送消息的人的guid
+    required  int64  reciever_id =3;      //接收者的guid
+    required  int32  msg_type =4;      //消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
+    required  int32  msg_show_type=5;    //消息显示类型  '1.文本消息 2.操作类型消息'
+    required  string  msg=6;          //消息 code 0表示未处理，1表示已拒绝，2表示已同意
+    required  int32  msg_status=7;      //收取状态    1.已发送 2.未发送
+    required  int32  send_time=8;       //消息的发送时间
+    required  int32  club_id = 9;      //俱乐部id    游戏消息和个人消息为0
+    optional  int32  expire_time = 10;    //消息过期时间 -1表示永不过期 其它为到期时间戳
+    optional  STATUS  status = 11;      //状态
+    optional  string  title = 12;
 }
 
 // 俱乐部消息申请回执-20149
 message proto_lc_club_apply_join_ack {
-    string err_msg = 1; // 错误消息，为空时表示正确
-    int32 ret = 2; // 0 成功
+    optional  string err_msg = 1; // 错误消息，为空时表示正确
+    optional  int32 ret = 2; // 0 成功
 }
 

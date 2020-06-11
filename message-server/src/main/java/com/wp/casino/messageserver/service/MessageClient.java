@@ -24,7 +24,6 @@ import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoop;
-import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -132,6 +131,7 @@ public class MessageClient extends NettyTcpClient {
 
         // 玩家请求加入房间通知-----opcode：20529
         messageDispatcher.registerHandler(WorldMessage.proto_wf_join_room_noti.class, (channel, message) -> {
+            log.info("------proto_wf_join_room_noti:{}", message.toString());
             // 申请加入房间的message
             RoomMessageContext rmc = new RoomMessageContext();
             rmc.setTableid(message.getTableId());
@@ -166,6 +166,8 @@ public class MessageClient extends NettyTcpClient {
 
         // 俱乐部解散---------------opcode:20540
         messageDispatcher.registerHandler(WorldMessage.proto_wf_break_up_club_noti.class, (channel, message) -> {
+            log.info("------proto_wf_break_up_club_noti:{}", message.toString());
+
             ClubMessageContext clubMessageContext = new ClubMessageContext();
             clubMessageContext.setClubid(message.getClubId());
             clubMessageContext.setClubname(message.getClubName());
@@ -196,6 +198,7 @@ public class MessageClient extends NettyTcpClient {
         //俱乐部成员变更---opcode:20541
         messageDispatcher.registerHandler(WorldMessage.proto_wf_club_member_update_noti.class,
                 (channel, message) -> {
+                    log.info("------proto_wf_club_member_update_noti:{}", message.toString());
 
                     WorldMessage.ClubMemberUpdateInfo clubMemberUpdateInfo = message.getInfo();
                     int reason = clubMemberUpdateInfo.getReason().getNumber();

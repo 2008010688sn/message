@@ -117,8 +117,9 @@ public class SendMsgUtil {
                 return UserLanguageContext.cnMaps.get(magicId);
             case MsgConstants.ZH_TW_LANGUAGE:
                 return UserLanguageContext.twMaps.get(magicId);
+            default:
+                return UserLanguageContext.enMaps.get(magicId);
         }
-        return "";
     }
 
     /**

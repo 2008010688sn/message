@@ -23,7 +23,15 @@ public final class LoginMessage {
      * 俱乐部ID
      * </pre>
      *
-     * <code>int32 club_id = 1;</code>
+     * <code>required int32 club_id = 1;</code>
+     */
+    boolean hasClubId();
+    /**
+     * <pre>
+     * 俱乐部ID
+     * </pre>
+     *
+     * <code>required int32 club_id = 1;</code>
      */
     int getClubId();
 
@@ -32,7 +40,15 @@ public final class LoginMessage {
      * 俱乐部名称
      * </pre>
      *
-     * <code>string club_name = 2;</code>
+     * <code>optional string club_name = 2;</code>
+     */
+    boolean hasClubName();
+    /**
+     * <pre>
+     * 俱乐部名称
+     * </pre>
+     *
+     * <code>optional string club_name = 2;</code>
      */
     java.lang.String getClubName();
     /**
@@ -40,7 +56,7 @@ public final class LoginMessage {
      * 俱乐部名称
      * </pre>
      *
-     * <code>string club_name = 2;</code>
+     * <code>optional string club_name = 2;</code>
      */
     com.google.protobuf.ByteString
         getClubNameBytes();
@@ -50,7 +66,15 @@ public final class LoginMessage {
      * 申请者guid
      * </pre>
      *
-     * <code>int64 apply_ply_guid = 3;</code>
+     * <code>required int64 apply_ply_guid = 3;</code>
+     */
+    boolean hasApplyPlyGuid();
+    /**
+     * <pre>
+     * 申请者guid
+     * </pre>
+     *
+     * <code>required int64 apply_ply_guid = 3;</code>
      */
     long getApplyPlyGuid();
 
@@ -59,7 +83,15 @@ public final class LoginMessage {
      * 申请加入者昵称
      * </pre>
      *
-     * <code>string apply_ply_name = 4;</code>
+     * <code>optional string apply_ply_name = 4;</code>
+     */
+    boolean hasApplyPlyName();
+    /**
+     * <pre>
+     * 申请加入者昵称
+     * </pre>
+     *
+     * <code>optional string apply_ply_name = 4;</code>
      */
     java.lang.String getApplyPlyName();
     /**
@@ -67,7 +99,7 @@ public final class LoginMessage {
      * 申请加入者昵称
      * </pre>
      *
-     * <code>string apply_ply_name = 4;</code>
+     * <code>optional string apply_ply_name = 4;</code>
      */
     com.google.protobuf.ByteString
         getApplyPlyNameBytes();
@@ -77,7 +109,15 @@ public final class LoginMessage {
      * 推荐人ID
      * </pre>
      *
-     * <code>int64 referrer_guid = 5;</code>
+     * <code>optional int64 referrer_guid = 5;</code>
+     */
+    boolean hasReferrerGuid();
+    /**
+     * <pre>
+     * 推荐人ID
+     * </pre>
+     *
+     * <code>optional int64 referrer_guid = 5;</code>
      */
     long getReferrerGuid();
   }
@@ -130,34 +170,34 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubId_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              clubName_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              clubName_ = bs;
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               applyPlyGuid_ = input.readInt64();
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              applyPlyName_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              applyPlyName_ = bs;
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               referrerGuid_ = input.readInt64();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -188,6 +228,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_ID_FIELD_NUMBER = 1;
     private int clubId_;
     /**
@@ -195,7 +236,17 @@ public final class LoginMessage {
      * 俱乐部ID
      * </pre>
      *
-     * <code>int32 club_id = 1;</code>
+     * <code>required int32 club_id = 1;</code>
+     */
+    public boolean hasClubId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 俱乐部ID
+     * </pre>
+     *
+     * <code>required int32 club_id = 1;</code>
      */
     public int getClubId() {
       return clubId_;
@@ -208,7 +259,17 @@ public final class LoginMessage {
      * 俱乐部名称
      * </pre>
      *
-     * <code>string club_name = 2;</code>
+     * <code>optional string club_name = 2;</code>
+     */
+    public boolean hasClubName() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 俱乐部名称
+     * </pre>
+     *
+     * <code>optional string club_name = 2;</code>
      */
     public java.lang.String getClubName() {
       java.lang.Object ref = clubName_;
@@ -218,7 +279,9 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        clubName_ = s;
+        if (bs.isValidUtf8()) {
+          clubName_ = s;
+        }
         return s;
       }
     }
@@ -227,7 +290,7 @@ public final class LoginMessage {
      * 俱乐部名称
      * </pre>
      *
-     * <code>string club_name = 2;</code>
+     * <code>optional string club_name = 2;</code>
      */
     public com.google.protobuf.ByteString
         getClubNameBytes() {
@@ -250,7 +313,17 @@ public final class LoginMessage {
      * 申请者guid
      * </pre>
      *
-     * <code>int64 apply_ply_guid = 3;</code>
+     * <code>required int64 apply_ply_guid = 3;</code>
+     */
+    public boolean hasApplyPlyGuid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 申请者guid
+     * </pre>
+     *
+     * <code>required int64 apply_ply_guid = 3;</code>
      */
     public long getApplyPlyGuid() {
       return applyPlyGuid_;
@@ -263,7 +336,17 @@ public final class LoginMessage {
      * 申请加入者昵称
      * </pre>
      *
-     * <code>string apply_ply_name = 4;</code>
+     * <code>optional string apply_ply_name = 4;</code>
+     */
+    public boolean hasApplyPlyName() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * 申请加入者昵称
+     * </pre>
+     *
+     * <code>optional string apply_ply_name = 4;</code>
      */
     public java.lang.String getApplyPlyName() {
       java.lang.Object ref = applyPlyName_;
@@ -273,7 +356,9 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        applyPlyName_ = s;
+        if (bs.isValidUtf8()) {
+          applyPlyName_ = s;
+        }
         return s;
       }
     }
@@ -282,7 +367,7 @@ public final class LoginMessage {
      * 申请加入者昵称
      * </pre>
      *
-     * <code>string apply_ply_name = 4;</code>
+     * <code>optional string apply_ply_name = 4;</code>
      */
     public com.google.protobuf.ByteString
         getApplyPlyNameBytes() {
@@ -305,7 +390,17 @@ public final class LoginMessage {
      * 推荐人ID
      * </pre>
      *
-     * <code>int64 referrer_guid = 5;</code>
+     * <code>optional int64 referrer_guid = 5;</code>
+     */
+    public boolean hasReferrerGuid() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * 推荐人ID
+     * </pre>
+     *
+     * <code>optional int64 referrer_guid = 5;</code>
      */
     public long getReferrerGuid() {
       return referrerGuid_;
@@ -318,6 +413,14 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasClubId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasApplyPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -325,19 +428,19 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubId_);
       }
-      if (!getClubNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, clubName_);
       }
-      if (applyPlyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, applyPlyGuid_);
       }
-      if (!getApplyPlyNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, applyPlyName_);
       }
-      if (referrerGuid_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(5, referrerGuid_);
       }
       unknownFields.writeTo(output);
@@ -349,21 +452,21 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubId_);
       }
-      if (!getClubNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, clubName_);
       }
-      if (applyPlyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, applyPlyGuid_);
       }
-      if (!getApplyPlyNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, applyPlyName_);
       }
-      if (referrerGuid_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, referrerGuid_);
       }
@@ -383,16 +486,31 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti) obj;
 
       boolean result = true;
-      result = result && (getClubId()
-          == other.getClubId());
-      result = result && getClubName()
-          .equals(other.getClubName());
-      result = result && (getApplyPlyGuid()
-          == other.getApplyPlyGuid());
-      result = result && getApplyPlyName()
-          .equals(other.getApplyPlyName());
-      result = result && (getReferrerGuid()
-          == other.getReferrerGuid());
+      result = result && (hasClubId() == other.hasClubId());
+      if (hasClubId()) {
+        result = result && (getClubId()
+            == other.getClubId());
+      }
+      result = result && (hasClubName() == other.hasClubName());
+      if (hasClubName()) {
+        result = result && getClubName()
+            .equals(other.getClubName());
+      }
+      result = result && (hasApplyPlyGuid() == other.hasApplyPlyGuid());
+      if (hasApplyPlyGuid()) {
+        result = result && (getApplyPlyGuid()
+            == other.getApplyPlyGuid());
+      }
+      result = result && (hasApplyPlyName() == other.hasApplyPlyName());
+      if (hasApplyPlyName()) {
+        result = result && getApplyPlyName()
+            .equals(other.getApplyPlyName());
+      }
+      result = result && (hasReferrerGuid() == other.hasReferrerGuid());
+      if (hasReferrerGuid()) {
+        result = result && (getReferrerGuid()
+            == other.getReferrerGuid());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -404,18 +522,28 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubId();
-      hash = (37 * hash) + CLUB_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getClubName().hashCode();
-      hash = (37 * hash) + APPLY_PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getApplyPlyGuid());
-      hash = (37 * hash) + APPLY_PLY_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getApplyPlyName().hashCode();
-      hash = (37 * hash) + REFERRER_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getReferrerGuid());
+      if (hasClubId()) {
+        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubId();
+      }
+      if (hasClubName()) {
+        hash = (37 * hash) + CLUB_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getClubName().hashCode();
+      }
+      if (hasApplyPlyGuid()) {
+        hash = (37 * hash) + APPLY_PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getApplyPlyGuid());
+      }
+      if (hasApplyPlyName()) {
+        hash = (37 * hash) + APPLY_PLY_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getApplyPlyName().hashCode();
+      }
+      if (hasReferrerGuid()) {
+        hash = (37 * hash) + REFERRER_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getReferrerGuid());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -554,15 +682,15 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         applyPlyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         applyPlyName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         referrerGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -589,11 +717,29 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubId_ = clubId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.clubName_ = clubName_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.applyPlyGuid_ = applyPlyGuid_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.applyPlyName_ = applyPlyName_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.referrerGuid_ = referrerGuid_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -642,21 +788,23 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_club_apply_join_noti.getDefaultInstance()) return this;
-        if (other.getClubId() != 0) {
+        if (other.hasClubId()) {
           setClubId(other.getClubId());
         }
-        if (!other.getClubName().isEmpty()) {
+        if (other.hasClubName()) {
+          bitField0_ |= 0x00000002;
           clubName_ = other.clubName_;
           onChanged();
         }
-        if (other.getApplyPlyGuid() != 0L) {
+        if (other.hasApplyPlyGuid()) {
           setApplyPlyGuid(other.getApplyPlyGuid());
         }
-        if (!other.getApplyPlyName().isEmpty()) {
+        if (other.hasApplyPlyName()) {
+          bitField0_ |= 0x00000008;
           applyPlyName_ = other.applyPlyName_;
           onChanged();
         }
-        if (other.getReferrerGuid() != 0L) {
+        if (other.hasReferrerGuid()) {
           setReferrerGuid(other.getReferrerGuid());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -666,6 +814,12 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasClubId()) {
+          return false;
+        }
+        if (!hasApplyPlyGuid()) {
+          return false;
+        }
         return true;
       }
 
@@ -687,6 +841,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubId_ ;
       /**
@@ -694,7 +849,17 @@ public final class LoginMessage {
        * 俱乐部ID
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 俱乐部ID
+       * </pre>
+       *
+       * <code>required int32 club_id = 1;</code>
        */
       public int getClubId() {
         return clubId_;
@@ -704,10 +869,10 @@ public final class LoginMessage {
        * 俱乐部ID
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
        */
       public Builder setClubId(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubId_ = value;
         onChanged();
         return this;
@@ -717,10 +882,10 @@ public final class LoginMessage {
        * 俱乐部ID
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
        */
       public Builder clearClubId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubId_ = 0;
         onChanged();
         return this;
@@ -732,7 +897,17 @@ public final class LoginMessage {
        * 俱乐部名称
        * </pre>
        *
-       * <code>string club_name = 2;</code>
+       * <code>optional string club_name = 2;</code>
+       */
+      public boolean hasClubName() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 俱乐部名称
+       * </pre>
+       *
+       * <code>optional string club_name = 2;</code>
        */
       public java.lang.String getClubName() {
         java.lang.Object ref = clubName_;
@@ -740,7 +915,9 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          clubName_ = s;
+          if (bs.isValidUtf8()) {
+            clubName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -751,7 +928,7 @@ public final class LoginMessage {
        * 俱乐部名称
        * </pre>
        *
-       * <code>string club_name = 2;</code>
+       * <code>optional string club_name = 2;</code>
        */
       public com.google.protobuf.ByteString
           getClubNameBytes() {
@@ -771,14 +948,14 @@ public final class LoginMessage {
        * 俱乐部名称
        * </pre>
        *
-       * <code>string club_name = 2;</code>
+       * <code>optional string club_name = 2;</code>
        */
       public Builder setClubName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         clubName_ = value;
         onChanged();
         return this;
@@ -788,10 +965,10 @@ public final class LoginMessage {
        * 俱乐部名称
        * </pre>
        *
-       * <code>string club_name = 2;</code>
+       * <code>optional string club_name = 2;</code>
        */
       public Builder clearClubName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         clubName_ = getDefaultInstance().getClubName();
         onChanged();
         return this;
@@ -801,15 +978,14 @@ public final class LoginMessage {
        * 俱乐部名称
        * </pre>
        *
-       * <code>string club_name = 2;</code>
+       * <code>optional string club_name = 2;</code>
        */
       public Builder setClubNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000002;
         clubName_ = value;
         onChanged();
         return this;
@@ -821,7 +997,17 @@ public final class LoginMessage {
        * 申请者guid
        * </pre>
        *
-       * <code>int64 apply_ply_guid = 3;</code>
+       * <code>required int64 apply_ply_guid = 3;</code>
+       */
+      public boolean hasApplyPlyGuid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 申请者guid
+       * </pre>
+       *
+       * <code>required int64 apply_ply_guid = 3;</code>
        */
       public long getApplyPlyGuid() {
         return applyPlyGuid_;
@@ -831,10 +1017,10 @@ public final class LoginMessage {
        * 申请者guid
        * </pre>
        *
-       * <code>int64 apply_ply_guid = 3;</code>
+       * <code>required int64 apply_ply_guid = 3;</code>
        */
       public Builder setApplyPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000004;
         applyPlyGuid_ = value;
         onChanged();
         return this;
@@ -844,10 +1030,10 @@ public final class LoginMessage {
        * 申请者guid
        * </pre>
        *
-       * <code>int64 apply_ply_guid = 3;</code>
+       * <code>required int64 apply_ply_guid = 3;</code>
        */
       public Builder clearApplyPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         applyPlyGuid_ = 0L;
         onChanged();
         return this;
@@ -859,7 +1045,17 @@ public final class LoginMessage {
        * 申请加入者昵称
        * </pre>
        *
-       * <code>string apply_ply_name = 4;</code>
+       * <code>optional string apply_ply_name = 4;</code>
+       */
+      public boolean hasApplyPlyName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * 申请加入者昵称
+       * </pre>
+       *
+       * <code>optional string apply_ply_name = 4;</code>
        */
       public java.lang.String getApplyPlyName() {
         java.lang.Object ref = applyPlyName_;
@@ -867,7 +1063,9 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          applyPlyName_ = s;
+          if (bs.isValidUtf8()) {
+            applyPlyName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -878,7 +1076,7 @@ public final class LoginMessage {
        * 申请加入者昵称
        * </pre>
        *
-       * <code>string apply_ply_name = 4;</code>
+       * <code>optional string apply_ply_name = 4;</code>
        */
       public com.google.protobuf.ByteString
           getApplyPlyNameBytes() {
@@ -898,14 +1096,14 @@ public final class LoginMessage {
        * 申请加入者昵称
        * </pre>
        *
-       * <code>string apply_ply_name = 4;</code>
+       * <code>optional string apply_ply_name = 4;</code>
        */
       public Builder setApplyPlyName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000008;
         applyPlyName_ = value;
         onChanged();
         return this;
@@ -915,10 +1113,10 @@ public final class LoginMessage {
        * 申请加入者昵称
        * </pre>
        *
-       * <code>string apply_ply_name = 4;</code>
+       * <code>optional string apply_ply_name = 4;</code>
        */
       public Builder clearApplyPlyName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         applyPlyName_ = getDefaultInstance().getApplyPlyName();
         onChanged();
         return this;
@@ -928,15 +1126,14 @@ public final class LoginMessage {
        * 申请加入者昵称
        * </pre>
        *
-       * <code>string apply_ply_name = 4;</code>
+       * <code>optional string apply_ply_name = 4;</code>
        */
       public Builder setApplyPlyNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000008;
         applyPlyName_ = value;
         onChanged();
         return this;
@@ -948,7 +1145,17 @@ public final class LoginMessage {
        * 推荐人ID
        * </pre>
        *
-       * <code>int64 referrer_guid = 5;</code>
+       * <code>optional int64 referrer_guid = 5;</code>
+       */
+      public boolean hasReferrerGuid() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * 推荐人ID
+       * </pre>
+       *
+       * <code>optional int64 referrer_guid = 5;</code>
        */
       public long getReferrerGuid() {
         return referrerGuid_;
@@ -958,10 +1165,10 @@ public final class LoginMessage {
        * 推荐人ID
        * </pre>
        *
-       * <code>int64 referrer_guid = 5;</code>
+       * <code>optional int64 referrer_guid = 5;</code>
        */
       public Builder setReferrerGuid(long value) {
-        
+        bitField0_ |= 0x00000010;
         referrerGuid_ = value;
         onChanged();
         return this;
@@ -971,10 +1178,10 @@ public final class LoginMessage {
        * 推荐人ID
        * </pre>
        *
-       * <code>int64 referrer_guid = 5;</code>
+       * <code>optional int64 referrer_guid = 5;</code>
        */
       public Builder clearReferrerGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         referrerGuid_ = 0L;
         onChanged();
         return this;
@@ -982,7 +1189,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1005,7 +1212,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lf_club_apply_join_noti>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lf_club_apply_join_noti>
         PARSER = new com.google.protobuf.AbstractParser<proto_lf_club_apply_join_noti>() {
       @java.lang.Override
       public proto_lf_club_apply_join_noti parsePartialFrom(
@@ -1037,7 +1244,11 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 table_id = 1;</code>
+     * <code>required int32 table_id = 1;</code>
+     */
+    boolean hasTableId();
+    /**
+     * <code>required int32 table_id = 1;</code>
      */
     int getTableId();
 
@@ -1046,47 +1257,83 @@ public final class LoginMessage {
      * 0拒绝加入 1同意入桌
      * </pre>
      *
-     * <code>int32 ret = 2;</code>
+     * <code>required int32 ret = 2;</code>
+     */
+    boolean hasRet();
+    /**
+     * <pre>
+     * 0拒绝加入 1同意入桌
+     * </pre>
+     *
+     * <code>required int32 ret = 2;</code>
      */
     int getRet();
 
     /**
-     * <code>int32 game_id = 3;</code>
+     * <code>required int32 game_id = 3;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int32 game_id = 3;</code>
      */
     int getGameId();
 
     /**
-     * <code>int32 server_id = 4;</code>
+     * <code>required int32 server_id = 4;</code>
+     */
+    boolean hasServerId();
+    /**
+     * <code>required int32 server_id = 4;</code>
      */
     int getServerId();
 
     /**
-     * <code>int64 ply_guid = 5;</code>
+     * <code>required int64 ply_guid = 5;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 5;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>int64 owner_guid = 6;</code>
+     * <code>required int64 owner_guid = 6;</code>
+     */
+    boolean hasOwnerGuid();
+    /**
+     * <code>required int64 owner_guid = 6;</code>
      */
     long getOwnerGuid();
 
     /**
-     * <code>string table_name = 7;</code>
+     * <code>optional string table_name = 7;</code>
+     */
+    boolean hasTableName();
+    /**
+     * <code>optional string table_name = 7;</code>
      */
     java.lang.String getTableName();
     /**
-     * <code>string table_name = 7;</code>
+     * <code>optional string table_name = 7;</code>
      */
     com.google.protobuf.ByteString
         getTableNameBytes();
 
     /**
-     * <code>int64 message_id = 8;</code>
+     * <code>required int64 message_id = 8;</code>
+     */
+    boolean hasMessageId();
+    /**
+     * <code>required int64 message_id = 8;</code>
      */
     long getMessageId();
 
     /**
-     * <code>int32 reply_code = 9;</code>
+     * <code>required int32 reply_code = 9;</code>
+     */
+    boolean hasReplyCode();
+    /**
+     * <code>required int32 reply_code = 9;</code>
      */
     int getReplyCode();
   }
@@ -1143,53 +1390,53 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               tableId_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               ret_ = input.readInt32();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               gameId_ = input.readInt32();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               serverId_ = input.readInt32();
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               plyGuid_ = input.readInt64();
               break;
             }
             case 48: {
-
+              bitField0_ |= 0x00000020;
               ownerGuid_ = input.readInt64();
               break;
             }
             case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              tableName_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000040;
+              tableName_ = bs;
               break;
             }
             case 64: {
-
+              bitField0_ |= 0x00000080;
               messageId_ = input.readInt64();
               break;
             }
             case 72: {
-
+              bitField0_ |= 0x00000100;
               replyCode_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1220,10 +1467,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti.Builder.class);
     }
 
+    private int bitField0_;
     public static final int TABLE_ID_FIELD_NUMBER = 1;
     private int tableId_;
     /**
-     * <code>int32 table_id = 1;</code>
+     * <code>required int32 table_id = 1;</code>
+     */
+    public boolean hasTableId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 table_id = 1;</code>
      */
     public int getTableId() {
       return tableId_;
@@ -1236,7 +1490,17 @@ public final class LoginMessage {
      * 0拒绝加入 1同意入桌
      * </pre>
      *
-     * <code>int32 ret = 2;</code>
+     * <code>required int32 ret = 2;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 0拒绝加入 1同意入桌
+     * </pre>
+     *
+     * <code>required int32 ret = 2;</code>
      */
     public int getRet() {
       return ret_;
@@ -1245,7 +1509,13 @@ public final class LoginMessage {
     public static final int GAME_ID_FIELD_NUMBER = 3;
     private int gameId_;
     /**
-     * <code>int32 game_id = 3;</code>
+     * <code>required int32 game_id = 3;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 game_id = 3;</code>
      */
     public int getGameId() {
       return gameId_;
@@ -1254,7 +1524,13 @@ public final class LoginMessage {
     public static final int SERVER_ID_FIELD_NUMBER = 4;
     private int serverId_;
     /**
-     * <code>int32 server_id = 4;</code>
+     * <code>required int32 server_id = 4;</code>
+     */
+    public boolean hasServerId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int32 server_id = 4;</code>
      */
     public int getServerId() {
       return serverId_;
@@ -1263,7 +1539,13 @@ public final class LoginMessage {
     public static final int PLY_GUID_FIELD_NUMBER = 5;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 5;</code>
+     * <code>required int64 ply_guid = 5;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required int64 ply_guid = 5;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -1272,7 +1554,13 @@ public final class LoginMessage {
     public static final int OWNER_GUID_FIELD_NUMBER = 6;
     private long ownerGuid_;
     /**
-     * <code>int64 owner_guid = 6;</code>
+     * <code>required int64 owner_guid = 6;</code>
+     */
+    public boolean hasOwnerGuid() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required int64 owner_guid = 6;</code>
      */
     public long getOwnerGuid() {
       return ownerGuid_;
@@ -1281,7 +1569,13 @@ public final class LoginMessage {
     public static final int TABLE_NAME_FIELD_NUMBER = 7;
     private volatile java.lang.Object tableName_;
     /**
-     * <code>string table_name = 7;</code>
+     * <code>optional string table_name = 7;</code>
+     */
+    public boolean hasTableName() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>optional string table_name = 7;</code>
      */
     public java.lang.String getTableName() {
       java.lang.Object ref = tableName_;
@@ -1291,12 +1585,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        tableName_ = s;
+        if (bs.isValidUtf8()) {
+          tableName_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string table_name = 7;</code>
+     * <code>optional string table_name = 7;</code>
      */
     public com.google.protobuf.ByteString
         getTableNameBytes() {
@@ -1315,7 +1611,13 @@ public final class LoginMessage {
     public static final int MESSAGE_ID_FIELD_NUMBER = 8;
     private long messageId_;
     /**
-     * <code>int64 message_id = 8;</code>
+     * <code>required int64 message_id = 8;</code>
+     */
+    public boolean hasMessageId() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required int64 message_id = 8;</code>
      */
     public long getMessageId() {
       return messageId_;
@@ -1324,7 +1626,13 @@ public final class LoginMessage {
     public static final int REPLY_CODE_FIELD_NUMBER = 9;
     private int replyCode_;
     /**
-     * <code>int32 reply_code = 9;</code>
+     * <code>required int32 reply_code = 9;</code>
+     */
+    public boolean hasReplyCode() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <code>required int32 reply_code = 9;</code>
      */
     public int getReplyCode() {
       return replyCode_;
@@ -1337,6 +1645,38 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasTableId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRet()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasServerId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOwnerGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMessageId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasReplyCode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -1344,31 +1684,31 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (tableId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, tableId_);
       }
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, ret_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, gameId_);
       }
-      if (serverId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, serverId_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(5, plyGuid_);
       }
-      if (ownerGuid_ != 0L) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt64(6, ownerGuid_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, tableName_);
       }
-      if (messageId_ != 0L) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeInt64(8, messageId_);
       }
-      if (replyCode_ != 0) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeInt32(9, replyCode_);
       }
       unknownFields.writeTo(output);
@@ -1380,38 +1720,38 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (tableId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, tableId_);
       }
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, ret_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, gameId_);
       }
-      if (serverId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, serverId_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, plyGuid_);
       }
-      if (ownerGuid_ != 0L) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, ownerGuid_);
       }
-      if (!getTableNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, tableName_);
       }
-      if (messageId_ != 0L) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(8, messageId_);
       }
-      if (replyCode_ != 0) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, replyCode_);
       }
@@ -1431,24 +1771,51 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti) obj;
 
       boolean result = true;
-      result = result && (getTableId()
-          == other.getTableId());
-      result = result && (getRet()
-          == other.getRet());
-      result = result && (getGameId()
-          == other.getGameId());
-      result = result && (getServerId()
-          == other.getServerId());
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getOwnerGuid()
-          == other.getOwnerGuid());
-      result = result && getTableName()
-          .equals(other.getTableName());
-      result = result && (getMessageId()
-          == other.getMessageId());
-      result = result && (getReplyCode()
-          == other.getReplyCode());
+      result = result && (hasTableId() == other.hasTableId());
+      if (hasTableId()) {
+        result = result && (getTableId()
+            == other.getTableId());
+      }
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
+      result = result && (hasGameId() == other.hasGameId());
+      if (hasGameId()) {
+        result = result && (getGameId()
+            == other.getGameId());
+      }
+      result = result && (hasServerId() == other.hasServerId());
+      if (hasServerId()) {
+        result = result && (getServerId()
+            == other.getServerId());
+      }
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasOwnerGuid() == other.hasOwnerGuid());
+      if (hasOwnerGuid()) {
+        result = result && (getOwnerGuid()
+            == other.getOwnerGuid());
+      }
+      result = result && (hasTableName() == other.hasTableName());
+      if (hasTableName()) {
+        result = result && getTableName()
+            .equals(other.getTableName());
+      }
+      result = result && (hasMessageId() == other.hasMessageId());
+      if (hasMessageId()) {
+        result = result && (getMessageId()
+            == other.getMessageId());
+      }
+      result = result && (hasReplyCode() == other.hasReplyCode());
+      if (hasReplyCode()) {
+        result = result && (getReplyCode()
+            == other.getReplyCode());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1460,27 +1827,45 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getTableId();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
-      hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getGameId();
-      hash = (37 * hash) + SERVER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getServerId();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + OWNER_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getOwnerGuid());
-      hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getTableName().hashCode();
-      hash = (37 * hash) + MESSAGE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getMessageId());
-      hash = (37 * hash) + REPLY_CODE_FIELD_NUMBER;
-      hash = (53 * hash) + getReplyCode();
+      if (hasTableId()) {
+        hash = (37 * hash) + TABLE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getTableId();
+      }
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
+      if (hasGameId()) {
+        hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getGameId();
+      }
+      if (hasServerId()) {
+        hash = (37 * hash) + SERVER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getServerId();
+      }
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasOwnerGuid()) {
+        hash = (37 * hash) + OWNER_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getOwnerGuid());
+      }
+      if (hasTableName()) {
+        hash = (37 * hash) + TABLE_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getTableName().hashCode();
+      }
+      if (hasMessageId()) {
+        hash = (37 * hash) + MESSAGE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getMessageId());
+      }
+      if (hasReplyCode()) {
+        hash = (37 * hash) + REPLY_CODE_FIELD_NUMBER;
+        hash = (53 * hash) + getReplyCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1619,23 +2004,23 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         tableId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         gameId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         serverId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         ownerGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         tableName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000040);
         messageId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000080);
         replyCode_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000100);
         return this;
       }
 
@@ -1662,15 +2047,45 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.tableId_ = tableId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.ret_ = ret_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.serverId_ = serverId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.ownerGuid_ = ownerGuid_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         result.tableName_ = tableName_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
         result.messageId_ = messageId_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
         result.replyCode_ = replyCode_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -1719,32 +2134,33 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_join_room_reply_noti.getDefaultInstance()) return this;
-        if (other.getTableId() != 0) {
+        if (other.hasTableId()) {
           setTableId(other.getTableId());
         }
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
-        if (other.getGameId() != 0) {
+        if (other.hasGameId()) {
           setGameId(other.getGameId());
         }
-        if (other.getServerId() != 0) {
+        if (other.hasServerId()) {
           setServerId(other.getServerId());
         }
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getOwnerGuid() != 0L) {
+        if (other.hasOwnerGuid()) {
           setOwnerGuid(other.getOwnerGuid());
         }
-        if (!other.getTableName().isEmpty()) {
+        if (other.hasTableName()) {
+          bitField0_ |= 0x00000040;
           tableName_ = other.tableName_;
           onChanged();
         }
-        if (other.getMessageId() != 0L) {
+        if (other.hasMessageId()) {
           setMessageId(other.getMessageId());
         }
-        if (other.getReplyCode() != 0) {
+        if (other.hasReplyCode()) {
           setReplyCode(other.getReplyCode());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1754,6 +2170,30 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasTableId()) {
+          return false;
+        }
+        if (!hasRet()) {
+          return false;
+        }
+        if (!hasGameId()) {
+          return false;
+        }
+        if (!hasServerId()) {
+          return false;
+        }
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasOwnerGuid()) {
+          return false;
+        }
+        if (!hasMessageId()) {
+          return false;
+        }
+        if (!hasReplyCode()) {
+          return false;
+        }
         return true;
       }
 
@@ -1775,28 +2215,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int tableId_ ;
       /**
-       * <code>int32 table_id = 1;</code>
+       * <code>required int32 table_id = 1;</code>
+       */
+      public boolean hasTableId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 table_id = 1;</code>
        */
       public int getTableId() {
         return tableId_;
       }
       /**
-       * <code>int32 table_id = 1;</code>
+       * <code>required int32 table_id = 1;</code>
        */
       public Builder setTableId(int value) {
-        
+        bitField0_ |= 0x00000001;
         tableId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 table_id = 1;</code>
+       * <code>required int32 table_id = 1;</code>
        */
       public Builder clearTableId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         tableId_ = 0;
         onChanged();
         return this;
@@ -1808,7 +2255,17 @@ public final class LoginMessage {
        * 0拒绝加入 1同意入桌
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>required int32 ret = 2;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 0拒绝加入 1同意入桌
+       * </pre>
+       *
+       * <code>required int32 ret = 2;</code>
        */
       public int getRet() {
         return ret_;
@@ -1818,10 +2275,10 @@ public final class LoginMessage {
        * 0拒绝加入 1同意入桌
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>required int32 ret = 2;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000002;
         ret_ = value;
         onChanged();
         return this;
@@ -1831,10 +2288,10 @@ public final class LoginMessage {
        * 0拒绝加入 1同意入桌
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>required int32 ret = 2;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         ret_ = 0;
         onChanged();
         return this;
@@ -1842,25 +2299,31 @@ public final class LoginMessage {
 
       private int gameId_ ;
       /**
-       * <code>int32 game_id = 3;</code>
+       * <code>required int32 game_id = 3;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 game_id = 3;</code>
        */
       public int getGameId() {
         return gameId_;
       }
       /**
-       * <code>int32 game_id = 3;</code>
+       * <code>required int32 game_id = 3;</code>
        */
       public Builder setGameId(int value) {
-        
+        bitField0_ |= 0x00000004;
         gameId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 game_id = 3;</code>
+       * <code>required int32 game_id = 3;</code>
        */
       public Builder clearGameId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         gameId_ = 0;
         onChanged();
         return this;
@@ -1868,25 +2331,31 @@ public final class LoginMessage {
 
       private int serverId_ ;
       /**
-       * <code>int32 server_id = 4;</code>
+       * <code>required int32 server_id = 4;</code>
+       */
+      public boolean hasServerId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int32 server_id = 4;</code>
        */
       public int getServerId() {
         return serverId_;
       }
       /**
-       * <code>int32 server_id = 4;</code>
+       * <code>required int32 server_id = 4;</code>
        */
       public Builder setServerId(int value) {
-        
+        bitField0_ |= 0x00000008;
         serverId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 server_id = 4;</code>
+       * <code>required int32 server_id = 4;</code>
        */
       public Builder clearServerId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         serverId_ = 0;
         onChanged();
         return this;
@@ -1894,25 +2363,31 @@ public final class LoginMessage {
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 5;</code>
+       * <code>required int64 ply_guid = 5;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required int64 ply_guid = 5;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 5;</code>
+       * <code>required int64 ply_guid = 5;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000010;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 5;</code>
+       * <code>required int64 ply_guid = 5;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -1920,25 +2395,31 @@ public final class LoginMessage {
 
       private long ownerGuid_ ;
       /**
-       * <code>int64 owner_guid = 6;</code>
+       * <code>required int64 owner_guid = 6;</code>
+       */
+      public boolean hasOwnerGuid() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required int64 owner_guid = 6;</code>
        */
       public long getOwnerGuid() {
         return ownerGuid_;
       }
       /**
-       * <code>int64 owner_guid = 6;</code>
+       * <code>required int64 owner_guid = 6;</code>
        */
       public Builder setOwnerGuid(long value) {
-        
+        bitField0_ |= 0x00000020;
         ownerGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 owner_guid = 6;</code>
+       * <code>required int64 owner_guid = 6;</code>
        */
       public Builder clearOwnerGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         ownerGuid_ = 0L;
         onChanged();
         return this;
@@ -1946,7 +2427,13 @@ public final class LoginMessage {
 
       private java.lang.Object tableName_ = "";
       /**
-       * <code>string table_name = 7;</code>
+       * <code>optional string table_name = 7;</code>
+       */
+      public boolean hasTableName() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>optional string table_name = 7;</code>
        */
       public java.lang.String getTableName() {
         java.lang.Object ref = tableName_;
@@ -1954,14 +2441,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          tableName_ = s;
+          if (bs.isValidUtf8()) {
+            tableName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string table_name = 7;</code>
+       * <code>optional string table_name = 7;</code>
        */
       public com.google.protobuf.ByteString
           getTableNameBytes() {
@@ -1977,37 +2466,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string table_name = 7;</code>
+       * <code>optional string table_name = 7;</code>
        */
       public Builder setTableName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000040;
         tableName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string table_name = 7;</code>
+       * <code>optional string table_name = 7;</code>
        */
       public Builder clearTableName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         tableName_ = getDefaultInstance().getTableName();
         onChanged();
         return this;
       }
       /**
-       * <code>string table_name = 7;</code>
+       * <code>optional string table_name = 7;</code>
        */
       public Builder setTableNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000040;
         tableName_ = value;
         onChanged();
         return this;
@@ -2015,25 +2503,31 @@ public final class LoginMessage {
 
       private long messageId_ ;
       /**
-       * <code>int64 message_id = 8;</code>
+       * <code>required int64 message_id = 8;</code>
+       */
+      public boolean hasMessageId() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required int64 message_id = 8;</code>
        */
       public long getMessageId() {
         return messageId_;
       }
       /**
-       * <code>int64 message_id = 8;</code>
+       * <code>required int64 message_id = 8;</code>
        */
       public Builder setMessageId(long value) {
-        
+        bitField0_ |= 0x00000080;
         messageId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 message_id = 8;</code>
+       * <code>required int64 message_id = 8;</code>
        */
       public Builder clearMessageId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         messageId_ = 0L;
         onChanged();
         return this;
@@ -2041,25 +2535,31 @@ public final class LoginMessage {
 
       private int replyCode_ ;
       /**
-       * <code>int32 reply_code = 9;</code>
+       * <code>required int32 reply_code = 9;</code>
+       */
+      public boolean hasReplyCode() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <code>required int32 reply_code = 9;</code>
        */
       public int getReplyCode() {
         return replyCode_;
       }
       /**
-       * <code>int32 reply_code = 9;</code>
+       * <code>required int32 reply_code = 9;</code>
        */
       public Builder setReplyCode(int value) {
-        
+        bitField0_ |= 0x00000100;
         replyCode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 reply_code = 9;</code>
+       * <code>required int32 reply_code = 9;</code>
        */
       public Builder clearReplyCode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         replyCode_ = 0;
         onChanged();
         return this;
@@ -2067,7 +2567,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2090,7 +2590,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lf_join_room_reply_noti>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lf_join_room_reply_noti>
         PARSER = new com.google.protobuf.AbstractParser<proto_lf_join_room_reply_noti>() {
       @java.lang.Override
       public proto_lf_join_room_reply_noti parsePartialFrom(
@@ -2126,7 +2626,15 @@ public final class LoginMessage {
      *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
      * </pre>
      *
-     * <code>int32 type = 1;</code>
+     * <code>required int32 type = 1;</code>
+     */
+    boolean hasType();
+    /**
+     * <pre>
+     *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
+     * </pre>
+     *
+     * <code>required int32 type = 1;</code>
      */
     int getType();
 
@@ -2135,7 +2643,15 @@ public final class LoginMessage {
      *游戏消息和个人消息为0
      * </pre>
      *
-     * <code>int32 club_id = 2;</code>
+     * <code>required int32 club_id = 2;</code>
+     */
+    boolean hasClubId();
+    /**
+     * <pre>
+     *游戏消息和个人消息为0
+     * </pre>
+     *
+     * <code>required int32 club_id = 2;</code>
      */
     int getClubId();
 
@@ -2144,7 +2660,15 @@ public final class LoginMessage {
      *请求消息的人
      * </pre>
      *
-     * <code>int64 ply_guid = 3;</code>
+     * <code>required int64 ply_guid = 3;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <pre>
+     *请求消息的人
+     * </pre>
+     *
+     * <code>required int64 ply_guid = 3;</code>
      */
     long getPlyGuid();
 
@@ -2153,7 +2677,15 @@ public final class LoginMessage {
      *-1表示拉取最新数据
      * </pre>
      *
-     * <code>int64 auto_id = 4;</code>
+     * <code>required int64 auto_id = 4;</code>
+     */
+    boolean hasAutoId();
+    /**
+     * <pre>
+     *-1表示拉取最新数据
+     * </pre>
+     *
+     * <code>required int64 auto_id = 4;</code>
      */
     long getAutoId();
 
@@ -2162,7 +2694,15 @@ public final class LoginMessage {
      *一次获取消息的数量，默认一次100条
      * </pre>
      *
-     * <code>int32 max_count = 5;</code>
+     * <code>optional int32 max_count = 5;</code>
+     */
+    boolean hasMaxCount();
+    /**
+     * <pre>
+     *一次获取消息的数量，默认一次100条
+     * </pre>
+     *
+     * <code>optional int32 max_count = 5;</code>
      */
     int getMaxCount();
   }
@@ -2215,32 +2755,32 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               type_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               clubId_ = input.readInt32();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               plyGuid_ = input.readInt64();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               autoId_ = input.readInt64();
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               maxCount_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -2271,6 +2811,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req.Builder.class);
     }
 
+    private int bitField0_;
     public static final int TYPE_FIELD_NUMBER = 1;
     private int type_;
     /**
@@ -2278,7 +2819,17 @@ public final class LoginMessage {
      *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
      * </pre>
      *
-     * <code>int32 type = 1;</code>
+     * <code>required int32 type = 1;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
+     * </pre>
+     *
+     * <code>required int32 type = 1;</code>
      */
     public int getType() {
       return type_;
@@ -2291,7 +2842,17 @@ public final class LoginMessage {
      *游戏消息和个人消息为0
      * </pre>
      *
-     * <code>int32 club_id = 2;</code>
+     * <code>required int32 club_id = 2;</code>
+     */
+    public boolean hasClubId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *游戏消息和个人消息为0
+     * </pre>
+     *
+     * <code>required int32 club_id = 2;</code>
      */
     public int getClubId() {
       return clubId_;
@@ -2304,7 +2865,17 @@ public final class LoginMessage {
      *请求消息的人
      * </pre>
      *
-     * <code>int64 ply_guid = 3;</code>
+     * <code>required int64 ply_guid = 3;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *请求消息的人
+     * </pre>
+     *
+     * <code>required int64 ply_guid = 3;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -2317,7 +2888,17 @@ public final class LoginMessage {
      *-1表示拉取最新数据
      * </pre>
      *
-     * <code>int64 auto_id = 4;</code>
+     * <code>required int64 auto_id = 4;</code>
+     */
+    public boolean hasAutoId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *-1表示拉取最新数据
+     * </pre>
+     *
+     * <code>required int64 auto_id = 4;</code>
      */
     public long getAutoId() {
       return autoId_;
@@ -2330,7 +2911,17 @@ public final class LoginMessage {
      *一次获取消息的数量，默认一次100条
      * </pre>
      *
-     * <code>int32 max_count = 5;</code>
+     * <code>optional int32 max_count = 5;</code>
+     */
+    public boolean hasMaxCount() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *一次获取消息的数量，默认一次100条
+     * </pre>
+     *
+     * <code>optional int32 max_count = 5;</code>
      */
     public int getMaxCount() {
       return maxCount_;
@@ -2343,6 +2934,22 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasClubId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAutoId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -2350,19 +2957,19 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, type_);
       }
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, clubId_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, plyGuid_);
       }
-      if (autoId_ != 0L) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt64(4, autoId_);
       }
-      if (maxCount_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, maxCount_);
       }
       unknownFields.writeTo(output);
@@ -2374,23 +2981,23 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, type_);
       }
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, clubId_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, plyGuid_);
       }
-      if (autoId_ != 0L) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, autoId_);
       }
-      if (maxCount_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, maxCount_);
       }
@@ -2410,16 +3017,31 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req) obj;
 
       boolean result = true;
-      result = result && (getType()
-          == other.getType());
-      result = result && (getClubId()
-          == other.getClubId());
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getAutoId()
-          == other.getAutoId());
-      result = result && (getMaxCount()
-          == other.getMaxCount());
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && (getType()
+            == other.getType());
+      }
+      result = result && (hasClubId() == other.hasClubId());
+      if (hasClubId()) {
+        result = result && (getClubId()
+            == other.getClubId());
+      }
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasAutoId() == other.hasAutoId());
+      if (hasAutoId()) {
+        result = result && (getAutoId()
+            == other.getAutoId());
+      }
+      result = result && (hasMaxCount() == other.hasMaxCount());
+      if (hasMaxCount()) {
+        result = result && (getMaxCount()
+            == other.getMaxCount());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2431,18 +3053,28 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType();
-      hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubId();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAutoId());
-      hash = (37 * hash) + MAX_COUNT_FIELD_NUMBER;
-      hash = (53 * hash) + getMaxCount();
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType();
+      }
+      if (hasClubId()) {
+        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubId();
+      }
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasAutoId()) {
+        hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getAutoId());
+      }
+      if (hasMaxCount()) {
+        hash = (37 * hash) + MAX_COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + getMaxCount();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2581,15 +3213,15 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         type_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         autoId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         maxCount_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -2616,11 +3248,29 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.type_ = type_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.clubId_ = clubId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.autoId_ = autoId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.maxCount_ = maxCount_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2669,19 +3319,19 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_load_noti_msg_req.getDefaultInstance()) return this;
-        if (other.getType() != 0) {
+        if (other.hasType()) {
           setType(other.getType());
         }
-        if (other.getClubId() != 0) {
+        if (other.hasClubId()) {
           setClubId(other.getClubId());
         }
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getAutoId() != 0L) {
+        if (other.hasAutoId()) {
           setAutoId(other.getAutoId());
         }
-        if (other.getMaxCount() != 0) {
+        if (other.hasMaxCount()) {
           setMaxCount(other.getMaxCount());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -2691,6 +3341,18 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasType()) {
+          return false;
+        }
+        if (!hasClubId()) {
+          return false;
+        }
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasAutoId()) {
+          return false;
+        }
         return true;
       }
 
@@ -2712,6 +3374,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int type_ ;
       /**
@@ -2719,7 +3382,17 @@ public final class LoginMessage {
        *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 type = 1;</code>
+       * <code>required int32 type = 1;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
+       * </pre>
+       *
+       * <code>required int32 type = 1;</code>
        */
       public int getType() {
         return type_;
@@ -2729,10 +3402,10 @@ public final class LoginMessage {
        *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 type = 1;</code>
+       * <code>required int32 type = 1;</code>
        */
       public Builder setType(int value) {
-        
+        bitField0_ |= 0x00000001;
         type_ = value;
         onChanged();
         return this;
@@ -2742,10 +3415,10 @@ public final class LoginMessage {
        *消息类型   1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 type = 1;</code>
+       * <code>required int32 type = 1;</code>
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         type_ = 0;
         onChanged();
         return this;
@@ -2757,7 +3430,17 @@ public final class LoginMessage {
        *游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 2;</code>
+       * <code>required int32 club_id = 2;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *游戏消息和个人消息为0
+       * </pre>
+       *
+       * <code>required int32 club_id = 2;</code>
        */
       public int getClubId() {
         return clubId_;
@@ -2767,10 +3450,10 @@ public final class LoginMessage {
        *游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 2;</code>
+       * <code>required int32 club_id = 2;</code>
        */
       public Builder setClubId(int value) {
-        
+        bitField0_ |= 0x00000002;
         clubId_ = value;
         onChanged();
         return this;
@@ -2780,10 +3463,10 @@ public final class LoginMessage {
        *游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 2;</code>
+       * <code>required int32 club_id = 2;</code>
        */
       public Builder clearClubId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         clubId_ = 0;
         onChanged();
         return this;
@@ -2795,7 +3478,17 @@ public final class LoginMessage {
        *请求消息的人
        * </pre>
        *
-       * <code>int64 ply_guid = 3;</code>
+       * <code>required int64 ply_guid = 3;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *请求消息的人
+       * </pre>
+       *
+       * <code>required int64 ply_guid = 3;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
@@ -2805,10 +3498,10 @@ public final class LoginMessage {
        *请求消息的人
        * </pre>
        *
-       * <code>int64 ply_guid = 3;</code>
+       * <code>required int64 ply_guid = 3;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000004;
         plyGuid_ = value;
         onChanged();
         return this;
@@ -2818,10 +3511,10 @@ public final class LoginMessage {
        *请求消息的人
        * </pre>
        *
-       * <code>int64 ply_guid = 3;</code>
+       * <code>required int64 ply_guid = 3;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -2833,7 +3526,17 @@ public final class LoginMessage {
        *-1表示拉取最新数据
        * </pre>
        *
-       * <code>int64 auto_id = 4;</code>
+       * <code>required int64 auto_id = 4;</code>
+       */
+      public boolean hasAutoId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *-1表示拉取最新数据
+       * </pre>
+       *
+       * <code>required int64 auto_id = 4;</code>
        */
       public long getAutoId() {
         return autoId_;
@@ -2843,10 +3546,10 @@ public final class LoginMessage {
        *-1表示拉取最新数据
        * </pre>
        *
-       * <code>int64 auto_id = 4;</code>
+       * <code>required int64 auto_id = 4;</code>
        */
       public Builder setAutoId(long value) {
-        
+        bitField0_ |= 0x00000008;
         autoId_ = value;
         onChanged();
         return this;
@@ -2856,10 +3559,10 @@ public final class LoginMessage {
        *-1表示拉取最新数据
        * </pre>
        *
-       * <code>int64 auto_id = 4;</code>
+       * <code>required int64 auto_id = 4;</code>
        */
       public Builder clearAutoId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         autoId_ = 0L;
         onChanged();
         return this;
@@ -2871,7 +3574,17 @@ public final class LoginMessage {
        *一次获取消息的数量，默认一次100条
        * </pre>
        *
-       * <code>int32 max_count = 5;</code>
+       * <code>optional int32 max_count = 5;</code>
+       */
+      public boolean hasMaxCount() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *一次获取消息的数量，默认一次100条
+       * </pre>
+       *
+       * <code>optional int32 max_count = 5;</code>
        */
       public int getMaxCount() {
         return maxCount_;
@@ -2881,10 +3594,10 @@ public final class LoginMessage {
        *一次获取消息的数量，默认一次100条
        * </pre>
        *
-       * <code>int32 max_count = 5;</code>
+       * <code>optional int32 max_count = 5;</code>
        */
       public Builder setMaxCount(int value) {
-        
+        bitField0_ |= 0x00000010;
         maxCount_ = value;
         onChanged();
         return this;
@@ -2894,10 +3607,10 @@ public final class LoginMessage {
        *一次获取消息的数量，默认一次100条
        * </pre>
        *
-       * <code>int32 max_count = 5;</code>
+       * <code>optional int32 max_count = 5;</code>
        */
       public Builder clearMaxCount() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         maxCount_ = 0;
         onChanged();
         return this;
@@ -2905,7 +3618,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2928,7 +3641,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cl_load_noti_msg_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cl_load_noti_msg_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_cl_load_noti_msg_req>() {
       @java.lang.Override
       public proto_cl_load_noti_msg_req parsePartialFrom(
@@ -2988,7 +3701,15 @@ public final class LoginMessage {
      * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
      * </pre>
      *
-     * <code>int64 auto_id = 2;</code>
+     * <code>optional int64 auto_id = 2;</code>
+     */
+    boolean hasAutoId();
+    /**
+     * <pre>
+     * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
+     * </pre>
+     *
+     * <code>optional int64 auto_id = 2;</code>
      */
     long getAutoId();
   }
@@ -3043,16 +3764,16 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000001;
               }
               notiMsgInfo_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.PARSER, extensionRegistry));
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000001;
               autoId_ = input.readInt64();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3129,7 +3850,17 @@ public final class LoginMessage {
      * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
      * </pre>
      *
-     * <code>int64 auto_id = 2;</code>
+     * <code>optional int64 auto_id = 2;</code>
+     */
+    public boolean hasAutoId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
+     * </pre>
+     *
+     * <code>optional int64 auto_id = 2;</code>
      */
     public long getAutoId() {
       return autoId_;
@@ -3142,6 +3873,12 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getNotiMsgInfoCount(); i++) {
+        if (!getNotiMsgInfo(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -3152,7 +3889,7 @@ public final class LoginMessage {
       for (int i = 0; i < notiMsgInfo_.size(); i++) {
         output.writeMessage(1, notiMsgInfo_.get(i));
       }
-      if (autoId_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(2, autoId_);
       }
       unknownFields.writeTo(output);
@@ -3168,7 +3905,7 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, notiMsgInfo_.get(i));
       }
-      if (autoId_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, autoId_);
       }
@@ -3190,8 +3927,11 @@ public final class LoginMessage {
       boolean result = true;
       result = result && getNotiMsgInfoList()
           .equals(other.getNotiMsgInfoList());
-      result = result && (getAutoId()
-          == other.getAutoId());
+      result = result && (hasAutoId() == other.hasAutoId());
+      if (hasAutoId()) {
+        result = result && (getAutoId()
+            == other.getAutoId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -3207,9 +3947,11 @@ public final class LoginMessage {
         hash = (37 * hash) + NOTI_MSG_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getNotiMsgInfoList().hashCode();
       }
-      hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAutoId());
+      if (hasAutoId()) {
+        hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getAutoId());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -3355,7 +4097,7 @@ public final class LoginMessage {
           notiMsgInfoBuilder_.clear();
         }
         autoId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -3392,6 +4134,9 @@ public final class LoginMessage {
           result.notiMsgInfo_ = notiMsgInfo_;
         } else {
           result.notiMsgInfo_ = notiMsgInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
         }
         result.autoId_ = autoId_;
         result.bitField0_ = to_bitField0_;
@@ -3469,7 +4214,7 @@ public final class LoginMessage {
             }
           }
         }
-        if (other.getAutoId() != 0L) {
+        if (other.hasAutoId()) {
           setAutoId(other.getAutoId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -3479,6 +4224,11 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getNotiMsgInfoCount(); i++) {
+          if (!getNotiMsgInfo(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -3748,7 +4498,17 @@ public final class LoginMessage {
        * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
        * </pre>
        *
-       * <code>int64 auto_id = 2;</code>
+       * <code>optional int64 auto_id = 2;</code>
+       */
+      public boolean hasAutoId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
+       * </pre>
+       *
+       * <code>optional int64 auto_id = 2;</code>
        */
       public long getAutoId() {
         return autoId_;
@@ -3758,10 +4518,10 @@ public final class LoginMessage {
        * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
        * </pre>
        *
-       * <code>int64 auto_id = 2;</code>
+       * <code>optional int64 auto_id = 2;</code>
        */
       public Builder setAutoId(long value) {
-        
+        bitField0_ |= 0x00000002;
         autoId_ = value;
         onChanged();
         return this;
@@ -3771,10 +4531,10 @@ public final class LoginMessage {
        * 该ID使用来迭代的。下次请求时，需要带上。返回-1表示没有数据了
        * </pre>
        *
-       * <code>int64 auto_id = 2;</code>
+       * <code>optional int64 auto_id = 2;</code>
        */
       public Builder clearAutoId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         autoId_ = 0L;
         onChanged();
         return this;
@@ -3782,7 +4542,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -3805,7 +4565,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lc_load_noti_msg_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lc_load_noti_msg_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_lc_load_noti_msg_ack>() {
       @java.lang.Override
       public proto_lc_load_noti_msg_ack parsePartialFrom(
@@ -3837,32 +4597,52 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    boolean hasClubUid();
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     int getClubUid();
 
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>string chat_msg = 3;</code>
+     * <code>required string chat_msg = 3;</code>
+     */
+    boolean hasChatMsg();
+    /**
+     * <code>required string chat_msg = 3;</code>
      */
     java.lang.String getChatMsg();
     /**
-     * <code>string chat_msg = 3;</code>
+     * <code>required string chat_msg = 3;</code>
      */
     com.google.protobuf.ByteString
         getChatMsgBytes();
 
     /**
-     * <code>int32 game_id = 4;</code>
+     * <code>required int32 game_id = 4;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int32 game_id = 4;</code>
      */
     int getGameId();
 
     /**
-     * <code>int32 type = 5;</code>
+     * <code>required int32 type = 5;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required int32 type = 5;</code>
      */
     int getType();
   }
@@ -3915,33 +4695,33 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubUid_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               plyGuid_ = input.readInt64();
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              chatMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              chatMsg_ = bs;
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               gameId_ = input.readInt32();
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               type_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -3972,10 +4752,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_UID_FIELD_NUMBER = 1;
     private int clubUid_;
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    public boolean hasClubUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     public int getClubUid() {
       return clubUid_;
@@ -3984,7 +4771,13 @@ public final class LoginMessage {
     public static final int PLY_GUID_FIELD_NUMBER = 2;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -3993,7 +4786,13 @@ public final class LoginMessage {
     public static final int CHAT_MSG_FIELD_NUMBER = 3;
     private volatile java.lang.Object chatMsg_;
     /**
-     * <code>string chat_msg = 3;</code>
+     * <code>required string chat_msg = 3;</code>
+     */
+    public boolean hasChatMsg() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required string chat_msg = 3;</code>
      */
     public java.lang.String getChatMsg() {
       java.lang.Object ref = chatMsg_;
@@ -4003,12 +4802,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        chatMsg_ = s;
+        if (bs.isValidUtf8()) {
+          chatMsg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string chat_msg = 3;</code>
+     * <code>required string chat_msg = 3;</code>
      */
     public com.google.protobuf.ByteString
         getChatMsgBytes() {
@@ -4027,7 +4828,13 @@ public final class LoginMessage {
     public static final int GAME_ID_FIELD_NUMBER = 4;
     private int gameId_;
     /**
-     * <code>int32 game_id = 4;</code>
+     * <code>required int32 game_id = 4;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int32 game_id = 4;</code>
      */
     public int getGameId() {
       return gameId_;
@@ -4036,7 +4843,13 @@ public final class LoginMessage {
     public static final int TYPE_FIELD_NUMBER = 5;
     private int type_;
     /**
-     * <code>int32 type = 5;</code>
+     * <code>required int32 type = 5;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required int32 type = 5;</code>
      */
     public int getType() {
       return type_;
@@ -4049,6 +4862,26 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasClubUid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChatMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -4056,19 +4889,19 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubUid_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, plyGuid_);
       }
-      if (!getChatMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, chatMsg_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, gameId_);
       }
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, type_);
       }
       unknownFields.writeTo(output);
@@ -4080,22 +4913,22 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubUid_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, plyGuid_);
       }
-      if (!getChatMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, chatMsg_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, gameId_);
       }
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, type_);
       }
@@ -4115,16 +4948,31 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req) obj;
 
       boolean result = true;
-      result = result && (getClubUid()
-          == other.getClubUid());
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && getChatMsg()
-          .equals(other.getChatMsg());
-      result = result && (getGameId()
-          == other.getGameId());
-      result = result && (getType()
-          == other.getType());
+      result = result && (hasClubUid() == other.hasClubUid());
+      if (hasClubUid()) {
+        result = result && (getClubUid()
+            == other.getClubUid());
+      }
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasChatMsg() == other.hasChatMsg());
+      if (hasChatMsg()) {
+        result = result && getChatMsg()
+            .equals(other.getChatMsg());
+      }
+      result = result && (hasGameId() == other.hasGameId());
+      if (hasGameId()) {
+        result = result && (getGameId()
+            == other.getGameId());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && (getType()
+            == other.getType());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4136,17 +4984,27 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubUid();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + CHAT_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getChatMsg().hashCode();
-      hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getGameId();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType();
+      if (hasClubUid()) {
+        hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubUid();
+      }
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasChatMsg()) {
+        hash = (37 * hash) + CHAT_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getChatMsg().hashCode();
+      }
+      if (hasGameId()) {
+        hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getGameId();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4285,15 +5143,15 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubUid_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         chatMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         gameId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         type_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -4320,11 +5178,29 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubUid_ = clubUid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.chatMsg_ = chatMsg_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.type_ = type_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -4373,20 +5249,21 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_add_club_chat_record_req.getDefaultInstance()) return this;
-        if (other.getClubUid() != 0) {
+        if (other.hasClubUid()) {
           setClubUid(other.getClubUid());
         }
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (!other.getChatMsg().isEmpty()) {
+        if (other.hasChatMsg()) {
+          bitField0_ |= 0x00000004;
           chatMsg_ = other.chatMsg_;
           onChanged();
         }
-        if (other.getGameId() != 0) {
+        if (other.hasGameId()) {
           setGameId(other.getGameId());
         }
-        if (other.getType() != 0) {
+        if (other.hasType()) {
           setType(other.getType());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -4396,6 +5273,21 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasClubUid()) {
+          return false;
+        }
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasChatMsg()) {
+          return false;
+        }
+        if (!hasGameId()) {
+          return false;
+        }
+        if (!hasType()) {
+          return false;
+        }
         return true;
       }
 
@@ -4417,28 +5309,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubUid_ ;
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
+       */
+      public boolean hasClubUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 club_uid = 1;</code>
        */
       public int getClubUid() {
         return clubUid_;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder setClubUid(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder clearClubUid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubUid_ = 0;
         onChanged();
         return this;
@@ -4446,25 +5345,31 @@ public final class LoginMessage {
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 ply_guid = 2;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000002;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -4472,7 +5377,13 @@ public final class LoginMessage {
 
       private java.lang.Object chatMsg_ = "";
       /**
-       * <code>string chat_msg = 3;</code>
+       * <code>required string chat_msg = 3;</code>
+       */
+      public boolean hasChatMsg() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required string chat_msg = 3;</code>
        */
       public java.lang.String getChatMsg() {
         java.lang.Object ref = chatMsg_;
@@ -4480,14 +5391,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          chatMsg_ = s;
+          if (bs.isValidUtf8()) {
+            chatMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string chat_msg = 3;</code>
+       * <code>required string chat_msg = 3;</code>
        */
       public com.google.protobuf.ByteString
           getChatMsgBytes() {
@@ -4503,37 +5416,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string chat_msg = 3;</code>
+       * <code>required string chat_msg = 3;</code>
        */
       public Builder setChatMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         chatMsg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string chat_msg = 3;</code>
+       * <code>required string chat_msg = 3;</code>
        */
       public Builder clearChatMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         chatMsg_ = getDefaultInstance().getChatMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>string chat_msg = 3;</code>
+       * <code>required string chat_msg = 3;</code>
        */
       public Builder setChatMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000004;
         chatMsg_ = value;
         onChanged();
         return this;
@@ -4541,25 +5453,31 @@ public final class LoginMessage {
 
       private int gameId_ ;
       /**
-       * <code>int32 game_id = 4;</code>
+       * <code>required int32 game_id = 4;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int32 game_id = 4;</code>
        */
       public int getGameId() {
         return gameId_;
       }
       /**
-       * <code>int32 game_id = 4;</code>
+       * <code>required int32 game_id = 4;</code>
        */
       public Builder setGameId(int value) {
-        
+        bitField0_ |= 0x00000008;
         gameId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 game_id = 4;</code>
+       * <code>required int32 game_id = 4;</code>
        */
       public Builder clearGameId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         gameId_ = 0;
         onChanged();
         return this;
@@ -4567,25 +5485,31 @@ public final class LoginMessage {
 
       private int type_ ;
       /**
-       * <code>int32 type = 5;</code>
+       * <code>required int32 type = 5;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required int32 type = 5;</code>
        */
       public int getType() {
         return type_;
       }
       /**
-       * <code>int32 type = 5;</code>
+       * <code>required int32 type = 5;</code>
        */
       public Builder setType(int value) {
-        
+        bitField0_ |= 0x00000010;
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 type = 5;</code>
+       * <code>required int32 type = 5;</code>
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         type_ = 0;
         onChanged();
         return this;
@@ -4593,7 +5517,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -4616,7 +5540,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cf_add_club_chat_record_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cf_add_club_chat_record_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_cf_add_club_chat_record_req>() {
       @java.lang.Override
       public proto_cf_add_club_chat_record_req parsePartialFrom(
@@ -4652,7 +5576,15 @@ public final class LoginMessage {
      *0   sucess
      * </pre>
      *
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    boolean hasRet();
+    /**
+     * <pre>
+     *0   sucess
+     * </pre>
+     *
+     * <code>required int32 ret = 1;</code>
      */
     int getRet();
 
@@ -4681,11 +5613,15 @@ public final class LoginMessage {
         int index);
 
     /**
-     * <code>string err_msg = 3;</code>
+     * <code>optional string err_msg = 3;</code>
+     */
+    boolean hasErrMsg();
+    /**
+     * <code>optional string err_msg = 3;</code>
      */
     java.lang.String getErrMsg();
     /**
-     * <code>string err_msg = 3;</code>
+     * <code>optional string err_msg = 3;</code>
      */
     com.google.protobuf.ByteString
         getErrMsgBytes();
@@ -4737,7 +5673,7 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               ret_ = input.readInt32();
               break;
             }
@@ -4747,17 +5683,17 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000002;
               }
               clubChatRecordInfo_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.PARSER, extensionRegistry));
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              errMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              errMsg_ = bs;
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -4799,7 +5735,17 @@ public final class LoginMessage {
      *0   sucess
      * </pre>
      *
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *0   sucess
+     * </pre>
+     *
+     * <code>required int32 ret = 1;</code>
      */
     public int getRet() {
       return ret_;
@@ -4843,7 +5789,13 @@ public final class LoginMessage {
     public static final int ERR_MSG_FIELD_NUMBER = 3;
     private volatile java.lang.Object errMsg_;
     /**
-     * <code>string err_msg = 3;</code>
+     * <code>optional string err_msg = 3;</code>
+     */
+    public boolean hasErrMsg() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>optional string err_msg = 3;</code>
      */
     public java.lang.String getErrMsg() {
       java.lang.Object ref = errMsg_;
@@ -4853,12 +5805,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        errMsg_ = s;
+        if (bs.isValidUtf8()) {
+          errMsg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string err_msg = 3;</code>
+     * <code>optional string err_msg = 3;</code>
      */
     public com.google.protobuf.ByteString
         getErrMsgBytes() {
@@ -4881,6 +5835,16 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasRet()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+        if (!getClubChatRecordInfo(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -4888,13 +5852,13 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, ret_);
       }
       for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
         output.writeMessage(2, clubChatRecordInfo_.get(i));
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, errMsg_);
       }
       unknownFields.writeTo(output);
@@ -4906,7 +5870,7 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, ret_);
       }
@@ -4914,7 +5878,7 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, clubChatRecordInfo_.get(i));
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, errMsg_);
       }
       size += unknownFields.getSerializedSize();
@@ -4933,12 +5897,18 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack) obj;
 
       boolean result = true;
-      result = result && (getRet()
-          == other.getRet());
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
       result = result && getClubChatRecordInfoList()
           .equals(other.getClubChatRecordInfoList());
-      result = result && getErrMsg()
-          .equals(other.getErrMsg());
+      result = result && (hasErrMsg() == other.hasErrMsg());
+      if (hasErrMsg()) {
+        result = result && getErrMsg()
+            .equals(other.getErrMsg());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -4950,14 +5920,18 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
       if (getClubChatRecordInfoCount() > 0) {
         hash = (37 * hash) + CLUB_CHAT_RECORD_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getClubChatRecordInfoList().hashCode();
       }
-      hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getErrMsg().hashCode();
+      if (hasErrMsg()) {
+        hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getErrMsg().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -5097,7 +6071,7 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (clubChatRecordInfoBuilder_ == null) {
           clubChatRecordInfo_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000002);
@@ -5105,7 +6079,7 @@ public final class LoginMessage {
           clubChatRecordInfoBuilder_.clear();
         }
         errMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -5134,6 +6108,9 @@ public final class LoginMessage {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.ret_ = ret_;
         if (clubChatRecordInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000002) == 0x00000002)) {
@@ -5143,6 +6120,9 @@ public final class LoginMessage {
           result.clubChatRecordInfo_ = clubChatRecordInfo_;
         } else {
           result.clubChatRecordInfo_ = clubChatRecordInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
         }
         result.errMsg_ = errMsg_;
         result.bitField0_ = to_bitField0_;
@@ -5194,7 +6174,7 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_add_club_chat_record_ack.getDefaultInstance()) return this;
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
         if (clubChatRecordInfoBuilder_ == null) {
@@ -5223,7 +6203,8 @@ public final class LoginMessage {
             }
           }
         }
-        if (!other.getErrMsg().isEmpty()) {
+        if (other.hasErrMsg()) {
+          bitField0_ |= 0x00000004;
           errMsg_ = other.errMsg_;
           onChanged();
         }
@@ -5234,6 +6215,14 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasRet()) {
+          return false;
+        }
+        for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+          if (!getClubChatRecordInfo(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -5263,7 +6252,17 @@ public final class LoginMessage {
        *0   sucess
        * </pre>
        *
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *0   sucess
+       * </pre>
+       *
+       * <code>required int32 ret = 1;</code>
        */
       public int getRet() {
         return ret_;
@@ -5273,10 +6272,10 @@ public final class LoginMessage {
        *0   sucess
        * </pre>
        *
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000001;
         ret_ = value;
         onChanged();
         return this;
@@ -5286,10 +6285,10 @@ public final class LoginMessage {
        *0   sucess
        * </pre>
        *
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
         onChanged();
         return this;
@@ -5537,7 +6536,13 @@ public final class LoginMessage {
 
       private java.lang.Object errMsg_ = "";
       /**
-       * <code>string err_msg = 3;</code>
+       * <code>optional string err_msg = 3;</code>
+       */
+      public boolean hasErrMsg() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string err_msg = 3;</code>
        */
       public java.lang.String getErrMsg() {
         java.lang.Object ref = errMsg_;
@@ -5545,14 +6550,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          errMsg_ = s;
+          if (bs.isValidUtf8()) {
+            errMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string err_msg = 3;</code>
+       * <code>optional string err_msg = 3;</code>
        */
       public com.google.protobuf.ByteString
           getErrMsgBytes() {
@@ -5568,37 +6575,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string err_msg = 3;</code>
+       * <code>optional string err_msg = 3;</code>
        */
       public Builder setErrMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         errMsg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 3;</code>
+       * <code>optional string err_msg = 3;</code>
        */
       public Builder clearErrMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         errMsg_ = getDefaultInstance().getErrMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 3;</code>
+       * <code>optional string err_msg = 3;</code>
        */
       public Builder setErrMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000004;
         errMsg_ = value;
         onChanged();
         return this;
@@ -5606,7 +6612,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -5629,7 +6635,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fc_add_club_chat_record_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fc_add_club_chat_record_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_fc_add_club_chat_record_ack>() {
       @java.lang.Override
       public proto_fc_add_club_chat_record_ack parsePartialFrom(
@@ -5754,11 +6760,11 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000001;
               }
               clubChatRecordInfo_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.PARSER, extensionRegistry));
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -5854,6 +6860,12 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+        if (!getClubChatRecordInfo(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -6171,6 +7183,11 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+          if (!getClubChatRecordInfo(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -6508,7 +7525,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -6531,7 +7548,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fc_add_club_chat_record_noti>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fc_add_club_chat_record_noti>
         PARSER = new com.google.protobuf.AbstractParser<proto_fc_add_club_chat_record_noti>() {
       @java.lang.Override
       public proto_fc_add_club_chat_record_noti parsePartialFrom(
@@ -6563,22 +7580,38 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    boolean hasClubUid();
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     int getClubUid();
 
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>int32 autoid = 3;</code>
+     * <code>required int32 autoid = 3;</code>
+     */
+    boolean hasAutoid();
+    /**
+     * <code>required int32 autoid = 3;</code>
      */
     int getAutoid();
 
     /**
-     * <code>int32 req_num = 4;</code>
+     * <code>optional int32 req_num = 4;</code>
+     */
+    boolean hasReqNum();
+    /**
+     * <code>optional int32 req_num = 4;</code>
      */
     int getReqNum();
   }
@@ -6630,27 +7663,27 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubUid_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               plyGuid_ = input.readInt64();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               autoid_ = input.readInt32();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               reqNum_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -6681,10 +7714,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_UID_FIELD_NUMBER = 1;
     private int clubUid_;
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    public boolean hasClubUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     public int getClubUid() {
       return clubUid_;
@@ -6693,7 +7733,13 @@ public final class LoginMessage {
     public static final int PLY_GUID_FIELD_NUMBER = 2;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -6702,7 +7748,13 @@ public final class LoginMessage {
     public static final int AUTOID_FIELD_NUMBER = 3;
     private int autoid_;
     /**
-     * <code>int32 autoid = 3;</code>
+     * <code>required int32 autoid = 3;</code>
+     */
+    public boolean hasAutoid() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 autoid = 3;</code>
      */
     public int getAutoid() {
       return autoid_;
@@ -6711,7 +7763,13 @@ public final class LoginMessage {
     public static final int REQ_NUM_FIELD_NUMBER = 4;
     private int reqNum_;
     /**
-     * <code>int32 req_num = 4;</code>
+     * <code>optional int32 req_num = 4;</code>
+     */
+    public boolean hasReqNum() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int32 req_num = 4;</code>
      */
     public int getReqNum() {
       return reqNum_;
@@ -6724,6 +7782,18 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasClubUid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAutoid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -6731,16 +7801,16 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubUid_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, plyGuid_);
       }
-      if (autoid_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, autoid_);
       }
-      if (reqNum_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, reqNum_);
       }
       unknownFields.writeTo(output);
@@ -6752,19 +7822,19 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubUid_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, plyGuid_);
       }
-      if (autoid_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, autoid_);
       }
-      if (reqNum_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, reqNum_);
       }
@@ -6784,14 +7854,26 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req) obj;
 
       boolean result = true;
-      result = result && (getClubUid()
-          == other.getClubUid());
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getAutoid()
-          == other.getAutoid());
-      result = result && (getReqNum()
-          == other.getReqNum());
+      result = result && (hasClubUid() == other.hasClubUid());
+      if (hasClubUid()) {
+        result = result && (getClubUid()
+            == other.getClubUid());
+      }
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasAutoid() == other.hasAutoid());
+      if (hasAutoid()) {
+        result = result && (getAutoid()
+            == other.getAutoid());
+      }
+      result = result && (hasReqNum() == other.hasReqNum());
+      if (hasReqNum()) {
+        result = result && (getReqNum()
+            == other.getReqNum());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6803,15 +7885,23 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubUid();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + AUTOID_FIELD_NUMBER;
-      hash = (53 * hash) + getAutoid();
-      hash = (37 * hash) + REQ_NUM_FIELD_NUMBER;
-      hash = (53 * hash) + getReqNum();
+      if (hasClubUid()) {
+        hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubUid();
+      }
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasAutoid()) {
+        hash = (37 * hash) + AUTOID_FIELD_NUMBER;
+        hash = (53 * hash) + getAutoid();
+      }
+      if (hasReqNum()) {
+        hash = (37 * hash) + REQ_NUM_FIELD_NUMBER;
+        hash = (53 * hash) + getReqNum();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6950,13 +8040,13 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubUid_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         autoid_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         reqNum_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -6983,10 +8073,25 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubUid_ = clubUid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.autoid_ = autoid_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.reqNum_ = reqNum_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -7035,16 +8140,16 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_sync_club_chat_record_req.getDefaultInstance()) return this;
-        if (other.getClubUid() != 0) {
+        if (other.hasClubUid()) {
           setClubUid(other.getClubUid());
         }
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getAutoid() != 0) {
+        if (other.hasAutoid()) {
           setAutoid(other.getAutoid());
         }
-        if (other.getReqNum() != 0) {
+        if (other.hasReqNum()) {
           setReqNum(other.getReqNum());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -7054,6 +8159,15 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasClubUid()) {
+          return false;
+        }
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasAutoid()) {
+          return false;
+        }
         return true;
       }
 
@@ -7075,28 +8189,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubUid_ ;
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
+       */
+      public boolean hasClubUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 club_uid = 1;</code>
        */
       public int getClubUid() {
         return clubUid_;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder setClubUid(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder clearClubUid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubUid_ = 0;
         onChanged();
         return this;
@@ -7104,25 +8225,31 @@ public final class LoginMessage {
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 ply_guid = 2;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000002;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -7130,25 +8257,31 @@ public final class LoginMessage {
 
       private int autoid_ ;
       /**
-       * <code>int32 autoid = 3;</code>
+       * <code>required int32 autoid = 3;</code>
+       */
+      public boolean hasAutoid() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 autoid = 3;</code>
        */
       public int getAutoid() {
         return autoid_;
       }
       /**
-       * <code>int32 autoid = 3;</code>
+       * <code>required int32 autoid = 3;</code>
        */
       public Builder setAutoid(int value) {
-        
+        bitField0_ |= 0x00000004;
         autoid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 autoid = 3;</code>
+       * <code>required int32 autoid = 3;</code>
        */
       public Builder clearAutoid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         autoid_ = 0;
         onChanged();
         return this;
@@ -7156,25 +8289,31 @@ public final class LoginMessage {
 
       private int reqNum_ ;
       /**
-       * <code>int32 req_num = 4;</code>
+       * <code>optional int32 req_num = 4;</code>
+       */
+      public boolean hasReqNum() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int32 req_num = 4;</code>
        */
       public int getReqNum() {
         return reqNum_;
       }
       /**
-       * <code>int32 req_num = 4;</code>
+       * <code>optional int32 req_num = 4;</code>
        */
       public Builder setReqNum(int value) {
-        
+        bitField0_ |= 0x00000008;
         reqNum_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 req_num = 4;</code>
+       * <code>optional int32 req_num = 4;</code>
        */
       public Builder clearReqNum() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         reqNum_ = 0;
         onChanged();
         return this;
@@ -7182,7 +8321,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -7205,7 +8344,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cf_sync_club_chat_record_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cf_sync_club_chat_record_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_cf_sync_club_chat_record_req>() {
       @java.lang.Override
       public proto_cf_sync_club_chat_record_req parsePartialFrom(
@@ -7237,12 +8376,20 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    boolean hasRet();
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     int getRet();
 
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     long getPlyGuid();
 
@@ -7271,11 +8418,15 @@ public final class LoginMessage {
         int index);
 
     /**
-     * <code>string err_msg = 4;</code>
+     * <code>optional string err_msg = 4;</code>
+     */
+    boolean hasErrMsg();
+    /**
+     * <code>optional string err_msg = 4;</code>
      */
     java.lang.String getErrMsg();
     /**
-     * <code>string err_msg = 4;</code>
+     * <code>optional string err_msg = 4;</code>
      */
     com.google.protobuf.ByteString
         getErrMsgBytes();
@@ -7328,12 +8479,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               ret_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               plyGuid_ = input.readInt64();
               break;
             }
@@ -7343,17 +8494,17 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000004;
               }
               clubChatRecordInfo_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.PARSER, extensionRegistry));
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              errMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000004;
+              errMsg_ = bs;
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -7391,7 +8542,13 @@ public final class LoginMessage {
     public static final int RET_FIELD_NUMBER = 1;
     private int ret_;
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     public int getRet() {
       return ret_;
@@ -7400,7 +8557,13 @@ public final class LoginMessage {
     public static final int PLY_GUID_FIELD_NUMBER = 2;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 2;</code>
+     * <code>required int64 ply_guid = 2;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int64 ply_guid = 2;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -7444,7 +8607,13 @@ public final class LoginMessage {
     public static final int ERR_MSG_FIELD_NUMBER = 4;
     private volatile java.lang.Object errMsg_;
     /**
-     * <code>string err_msg = 4;</code>
+     * <code>optional string err_msg = 4;</code>
+     */
+    public boolean hasErrMsg() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string err_msg = 4;</code>
      */
     public java.lang.String getErrMsg() {
       java.lang.Object ref = errMsg_;
@@ -7454,12 +8623,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        errMsg_ = s;
+        if (bs.isValidUtf8()) {
+          errMsg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string err_msg = 4;</code>
+     * <code>optional string err_msg = 4;</code>
      */
     public com.google.protobuf.ByteString
         getErrMsgBytes() {
@@ -7482,6 +8653,20 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasRet()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+        if (!getClubChatRecordInfo(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -7489,16 +8674,16 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, ret_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, plyGuid_);
       }
       for (int i = 0; i < clubChatRecordInfo_.size(); i++) {
         output.writeMessage(3, clubChatRecordInfo_.get(i));
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, errMsg_);
       }
       unknownFields.writeTo(output);
@@ -7510,11 +8695,11 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, ret_);
       }
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, plyGuid_);
       }
@@ -7522,7 +8707,7 @@ public final class LoginMessage {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, clubChatRecordInfo_.get(i));
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, errMsg_);
       }
       size += unknownFields.getSerializedSize();
@@ -7541,14 +8726,23 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack) obj;
 
       boolean result = true;
-      result = result && (getRet()
-          == other.getRet());
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
       result = result && getClubChatRecordInfoList()
           .equals(other.getClubChatRecordInfoList());
-      result = result && getErrMsg()
-          .equals(other.getErrMsg());
+      result = result && (hasErrMsg() == other.hasErrMsg());
+      if (hasErrMsg()) {
+        result = result && getErrMsg()
+            .equals(other.getErrMsg());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -7560,17 +8754,23 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
       if (getClubChatRecordInfoCount() > 0) {
         hash = (37 * hash) + CLUB_CHAT_RECORD_INFO_FIELD_NUMBER;
         hash = (53 * hash) + getClubChatRecordInfoList().hashCode();
       }
-      hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getErrMsg().hashCode();
+      if (hasErrMsg()) {
+        hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getErrMsg().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7710,9 +8910,9 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         if (clubChatRecordInfoBuilder_ == null) {
           clubChatRecordInfo_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000004);
@@ -7720,7 +8920,7 @@ public final class LoginMessage {
           clubChatRecordInfoBuilder_.clear();
         }
         errMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -7749,7 +8949,13 @@ public final class LoginMessage {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.ret_ = ret_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.plyGuid_ = plyGuid_;
         if (clubChatRecordInfoBuilder_ == null) {
           if (((bitField0_ & 0x00000004) == 0x00000004)) {
@@ -7759,6 +8965,9 @@ public final class LoginMessage {
           result.clubChatRecordInfo_ = clubChatRecordInfo_;
         } else {
           result.clubChatRecordInfo_ = clubChatRecordInfoBuilder_.build();
+        }
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000004;
         }
         result.errMsg_ = errMsg_;
         result.bitField0_ = to_bitField0_;
@@ -7810,10 +9019,10 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_sync_club_chat_record_ack.getDefaultInstance()) return this;
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
         if (clubChatRecordInfoBuilder_ == null) {
@@ -7842,7 +9051,8 @@ public final class LoginMessage {
             }
           }
         }
-        if (!other.getErrMsg().isEmpty()) {
+        if (other.hasErrMsg()) {
+          bitField0_ |= 0x00000008;
           errMsg_ = other.errMsg_;
           onChanged();
         }
@@ -7853,6 +9063,17 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasRet()) {
+          return false;
+        }
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        for (int i = 0; i < getClubChatRecordInfoCount(); i++) {
+          if (!getClubChatRecordInfo(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -7878,25 +9099,31 @@ public final class LoginMessage {
 
       private int ret_ ;
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 ret = 1;</code>
        */
       public int getRet() {
         return ret_;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000001;
         ret_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
         onChanged();
         return this;
@@ -7904,25 +9131,31 @@ public final class LoginMessage {
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int64 ply_guid = 2;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000002;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 2;</code>
+       * <code>required int64 ply_guid = 2;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -8170,7 +9403,13 @@ public final class LoginMessage {
 
       private java.lang.Object errMsg_ = "";
       /**
-       * <code>string err_msg = 4;</code>
+       * <code>optional string err_msg = 4;</code>
+       */
+      public boolean hasErrMsg() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional string err_msg = 4;</code>
        */
       public java.lang.String getErrMsg() {
         java.lang.Object ref = errMsg_;
@@ -8178,14 +9417,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          errMsg_ = s;
+          if (bs.isValidUtf8()) {
+            errMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string err_msg = 4;</code>
+       * <code>optional string err_msg = 4;</code>
        */
       public com.google.protobuf.ByteString
           getErrMsgBytes() {
@@ -8201,37 +9442,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string err_msg = 4;</code>
+       * <code>optional string err_msg = 4;</code>
        */
       public Builder setErrMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000008;
         errMsg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 4;</code>
+       * <code>optional string err_msg = 4;</code>
        */
       public Builder clearErrMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         errMsg_ = getDefaultInstance().getErrMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 4;</code>
+       * <code>optional string err_msg = 4;</code>
        */
       public Builder setErrMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000008;
         errMsg_ = value;
         onChanged();
         return this;
@@ -8239,7 +9479,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -8262,7 +9502,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fc_sync_club_chat_record_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fc_sync_club_chat_record_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_fc_sync_club_chat_record_ack>() {
       @java.lang.Override
       public proto_fc_sync_club_chat_record_ack parsePartialFrom(
@@ -8294,47 +9534,79 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    boolean hasClubUid();
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     int getClubUid();
 
     /**
-     * <code>int32 game_id = 2;</code>
+     * <code>required int32 game_id = 2;</code>
+     */
+    boolean hasGameId();
+    /**
+     * <code>required int32 game_id = 2;</code>
      */
     int getGameId();
 
     /**
-     * <code>int32 send_msg_time = 3;</code>
+     * <code>required int32 send_msg_time = 3;</code>
+     */
+    boolean hasSendMsgTime();
+    /**
+     * <code>required int32 send_msg_time = 3;</code>
      */
     int getSendMsgTime();
 
     /**
-     * <code>int32 auto_id = 4;</code>
+     * <code>required int32 auto_id = 4;</code>
+     */
+    boolean hasAutoId();
+    /**
+     * <code>required int32 auto_id = 4;</code>
      */
     int getAutoId();
 
     /**
-     * <code>int64 ply_id = 5;</code>
+     * <code>required int64 ply_id = 5;</code>
+     */
+    boolean hasPlyId();
+    /**
+     * <code>required int64 ply_id = 5;</code>
      */
     long getPlyId();
 
     /**
-     * <code>string chat_msg = 6;</code>
+     * <code>required string chat_msg = 6;</code>
+     */
+    boolean hasChatMsg();
+    /**
+     * <code>required string chat_msg = 6;</code>
      */
     java.lang.String getChatMsg();
     /**
-     * <code>string chat_msg = 6;</code>
+     * <code>required string chat_msg = 6;</code>
      */
     com.google.protobuf.ByteString
         getChatMsgBytes();
 
     /**
-     * <code>int32 type = 7;</code>
+     * <code>required int32 type = 7;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required int32 type = 7;</code>
      */
     int getType();
 
     /**
-     * <code>int32 club_message_id = 8;</code>
+     * <code>required int32 club_message_id = 8;</code>
+     */
+    boolean hasClubMessageId();
+    /**
+     * <code>required int32 club_message_id = 8;</code>
      */
     int getClubMessageId();
   }
@@ -8390,48 +9662,48 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubUid_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               gameId_ = input.readInt32();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               sendMsgTime_ = input.readInt32();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               autoId_ = input.readInt32();
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               plyId_ = input.readInt64();
               break;
             }
             case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              chatMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              chatMsg_ = bs;
               break;
             }
             case 56: {
-
+              bitField0_ |= 0x00000040;
               type_ = input.readInt32();
               break;
             }
             case 64: {
-
+              bitField0_ |= 0x00000080;
               clubMessageId_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -8462,10 +9734,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_UID_FIELD_NUMBER = 1;
     private int clubUid_;
     /**
-     * <code>int32 club_uid = 1;</code>
+     * <code>required int32 club_uid = 1;</code>
+     */
+    public boolean hasClubUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 club_uid = 1;</code>
      */
     public int getClubUid() {
       return clubUid_;
@@ -8474,7 +9753,13 @@ public final class LoginMessage {
     public static final int GAME_ID_FIELD_NUMBER = 2;
     private int gameId_;
     /**
-     * <code>int32 game_id = 2;</code>
+     * <code>required int32 game_id = 2;</code>
+     */
+    public boolean hasGameId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 game_id = 2;</code>
      */
     public int getGameId() {
       return gameId_;
@@ -8483,7 +9768,13 @@ public final class LoginMessage {
     public static final int SEND_MSG_TIME_FIELD_NUMBER = 3;
     private int sendMsgTime_;
     /**
-     * <code>int32 send_msg_time = 3;</code>
+     * <code>required int32 send_msg_time = 3;</code>
+     */
+    public boolean hasSendMsgTime() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 send_msg_time = 3;</code>
      */
     public int getSendMsgTime() {
       return sendMsgTime_;
@@ -8492,7 +9783,13 @@ public final class LoginMessage {
     public static final int AUTO_ID_FIELD_NUMBER = 4;
     private int autoId_;
     /**
-     * <code>int32 auto_id = 4;</code>
+     * <code>required int32 auto_id = 4;</code>
+     */
+    public boolean hasAutoId() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int32 auto_id = 4;</code>
      */
     public int getAutoId() {
       return autoId_;
@@ -8501,7 +9798,13 @@ public final class LoginMessage {
     public static final int PLY_ID_FIELD_NUMBER = 5;
     private long plyId_;
     /**
-     * <code>int64 ply_id = 5;</code>
+     * <code>required int64 ply_id = 5;</code>
+     */
+    public boolean hasPlyId() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required int64 ply_id = 5;</code>
      */
     public long getPlyId() {
       return plyId_;
@@ -8510,7 +9813,13 @@ public final class LoginMessage {
     public static final int CHAT_MSG_FIELD_NUMBER = 6;
     private volatile java.lang.Object chatMsg_;
     /**
-     * <code>string chat_msg = 6;</code>
+     * <code>required string chat_msg = 6;</code>
+     */
+    public boolean hasChatMsg() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required string chat_msg = 6;</code>
      */
     public java.lang.String getChatMsg() {
       java.lang.Object ref = chatMsg_;
@@ -8520,12 +9829,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        chatMsg_ = s;
+        if (bs.isValidUtf8()) {
+          chatMsg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string chat_msg = 6;</code>
+     * <code>required string chat_msg = 6;</code>
      */
     public com.google.protobuf.ByteString
         getChatMsgBytes() {
@@ -8544,7 +9855,13 @@ public final class LoginMessage {
     public static final int TYPE_FIELD_NUMBER = 7;
     private int type_;
     /**
-     * <code>int32 type = 7;</code>
+     * <code>required int32 type = 7;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <code>required int32 type = 7;</code>
      */
     public int getType() {
       return type_;
@@ -8553,7 +9870,13 @@ public final class LoginMessage {
     public static final int CLUB_MESSAGE_ID_FIELD_NUMBER = 8;
     private int clubMessageId_;
     /**
-     * <code>int32 club_message_id = 8;</code>
+     * <code>required int32 club_message_id = 8;</code>
+     */
+    public boolean hasClubMessageId() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <code>required int32 club_message_id = 8;</code>
      */
     public int getClubMessageId() {
       return clubMessageId_;
@@ -8566,6 +9889,38 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasClubUid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasGameId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSendMsgTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasAutoId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasChatMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasClubMessageId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -8573,28 +9928,28 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubUid_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, gameId_);
       }
-      if (sendMsgTime_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, sendMsgTime_);
       }
-      if (autoId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, autoId_);
       }
-      if (plyId_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt64(5, plyId_);
       }
-      if (!getChatMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, chatMsg_);
       }
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeInt32(7, type_);
       }
-      if (clubMessageId_ != 0) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeInt32(8, clubMessageId_);
       }
       unknownFields.writeTo(output);
@@ -8606,34 +9961,34 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubUid_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubUid_);
       }
-      if (gameId_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, gameId_);
       }
-      if (sendMsgTime_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, sendMsgTime_);
       }
-      if (autoId_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, autoId_);
       }
-      if (plyId_ != 0L) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(5, plyId_);
       }
-      if (!getChatMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, chatMsg_);
       }
-      if (type_ != 0) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(7, type_);
       }
-      if (clubMessageId_ != 0) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, clubMessageId_);
       }
@@ -8653,22 +10008,46 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct) obj;
 
       boolean result = true;
-      result = result && (getClubUid()
-          == other.getClubUid());
-      result = result && (getGameId()
-          == other.getGameId());
-      result = result && (getSendMsgTime()
-          == other.getSendMsgTime());
-      result = result && (getAutoId()
-          == other.getAutoId());
-      result = result && (getPlyId()
-          == other.getPlyId());
-      result = result && getChatMsg()
-          .equals(other.getChatMsg());
-      result = result && (getType()
-          == other.getType());
-      result = result && (getClubMessageId()
-          == other.getClubMessageId());
+      result = result && (hasClubUid() == other.hasClubUid());
+      if (hasClubUid()) {
+        result = result && (getClubUid()
+            == other.getClubUid());
+      }
+      result = result && (hasGameId() == other.hasGameId());
+      if (hasGameId()) {
+        result = result && (getGameId()
+            == other.getGameId());
+      }
+      result = result && (hasSendMsgTime() == other.hasSendMsgTime());
+      if (hasSendMsgTime()) {
+        result = result && (getSendMsgTime()
+            == other.getSendMsgTime());
+      }
+      result = result && (hasAutoId() == other.hasAutoId());
+      if (hasAutoId()) {
+        result = result && (getAutoId()
+            == other.getAutoId());
+      }
+      result = result && (hasPlyId() == other.hasPlyId());
+      if (hasPlyId()) {
+        result = result && (getPlyId()
+            == other.getPlyId());
+      }
+      result = result && (hasChatMsg() == other.hasChatMsg());
+      if (hasChatMsg()) {
+        result = result && getChatMsg()
+            .equals(other.getChatMsg());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && (getType()
+            == other.getType());
+      }
+      result = result && (hasClubMessageId() == other.hasClubMessageId());
+      if (hasClubMessageId()) {
+        result = result && (getClubMessageId()
+            == other.getClubMessageId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -8680,23 +10059,39 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubUid();
-      hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getGameId();
-      hash = (37 * hash) + SEND_MSG_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getSendMsgTime();
-      hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getAutoId();
-      hash = (37 * hash) + PLY_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyId());
-      hash = (37 * hash) + CHAT_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getChatMsg().hashCode();
-      hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType();
-      hash = (37 * hash) + CLUB_MESSAGE_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubMessageId();
+      if (hasClubUid()) {
+        hash = (37 * hash) + CLUB_UID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubUid();
+      }
+      if (hasGameId()) {
+        hash = (37 * hash) + GAME_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getGameId();
+      }
+      if (hasSendMsgTime()) {
+        hash = (37 * hash) + SEND_MSG_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getSendMsgTime();
+      }
+      if (hasAutoId()) {
+        hash = (37 * hash) + AUTO_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getAutoId();
+      }
+      if (hasPlyId()) {
+        hash = (37 * hash) + PLY_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyId());
+      }
+      if (hasChatMsg()) {
+        hash = (37 * hash) + CHAT_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getChatMsg().hashCode();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getType();
+      }
+      if (hasClubMessageId()) {
+        hash = (37 * hash) + CLUB_MESSAGE_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubMessageId();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -8835,21 +10230,21 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubUid_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         gameId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         sendMsgTime_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         autoId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         plyId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         chatMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         type_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000040);
         clubMessageId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -8876,14 +10271,41 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubUid_ = clubUid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.gameId_ = gameId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.sendMsgTime_ = sendMsgTime_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.autoId_ = autoId_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.plyId_ = plyId_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.chatMsg_ = chatMsg_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         result.type_ = type_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
         result.clubMessageId_ = clubMessageId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -8932,29 +10354,30 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_ClubChatRecordInfoStruct.getDefaultInstance()) return this;
-        if (other.getClubUid() != 0) {
+        if (other.hasClubUid()) {
           setClubUid(other.getClubUid());
         }
-        if (other.getGameId() != 0) {
+        if (other.hasGameId()) {
           setGameId(other.getGameId());
         }
-        if (other.getSendMsgTime() != 0) {
+        if (other.hasSendMsgTime()) {
           setSendMsgTime(other.getSendMsgTime());
         }
-        if (other.getAutoId() != 0) {
+        if (other.hasAutoId()) {
           setAutoId(other.getAutoId());
         }
-        if (other.getPlyId() != 0L) {
+        if (other.hasPlyId()) {
           setPlyId(other.getPlyId());
         }
-        if (!other.getChatMsg().isEmpty()) {
+        if (other.hasChatMsg()) {
+          bitField0_ |= 0x00000020;
           chatMsg_ = other.chatMsg_;
           onChanged();
         }
-        if (other.getType() != 0) {
+        if (other.hasType()) {
           setType(other.getType());
         }
-        if (other.getClubMessageId() != 0) {
+        if (other.hasClubMessageId()) {
           setClubMessageId(other.getClubMessageId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -8964,6 +10387,30 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasClubUid()) {
+          return false;
+        }
+        if (!hasGameId()) {
+          return false;
+        }
+        if (!hasSendMsgTime()) {
+          return false;
+        }
+        if (!hasAutoId()) {
+          return false;
+        }
+        if (!hasPlyId()) {
+          return false;
+        }
+        if (!hasChatMsg()) {
+          return false;
+        }
+        if (!hasType()) {
+          return false;
+        }
+        if (!hasClubMessageId()) {
+          return false;
+        }
         return true;
       }
 
@@ -8985,28 +10432,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubUid_ ;
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
+       */
+      public boolean hasClubUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 club_uid = 1;</code>
        */
       public int getClubUid() {
         return clubUid_;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder setClubUid(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubUid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 club_uid = 1;</code>
+       * <code>required int32 club_uid = 1;</code>
        */
       public Builder clearClubUid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubUid_ = 0;
         onChanged();
         return this;
@@ -9014,25 +10468,31 @@ public final class LoginMessage {
 
       private int gameId_ ;
       /**
-       * <code>int32 game_id = 2;</code>
+       * <code>required int32 game_id = 2;</code>
+       */
+      public boolean hasGameId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 game_id = 2;</code>
        */
       public int getGameId() {
         return gameId_;
       }
       /**
-       * <code>int32 game_id = 2;</code>
+       * <code>required int32 game_id = 2;</code>
        */
       public Builder setGameId(int value) {
-        
+        bitField0_ |= 0x00000002;
         gameId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 game_id = 2;</code>
+       * <code>required int32 game_id = 2;</code>
        */
       public Builder clearGameId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         gameId_ = 0;
         onChanged();
         return this;
@@ -9040,25 +10500,31 @@ public final class LoginMessage {
 
       private int sendMsgTime_ ;
       /**
-       * <code>int32 send_msg_time = 3;</code>
+       * <code>required int32 send_msg_time = 3;</code>
+       */
+      public boolean hasSendMsgTime() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 send_msg_time = 3;</code>
        */
       public int getSendMsgTime() {
         return sendMsgTime_;
       }
       /**
-       * <code>int32 send_msg_time = 3;</code>
+       * <code>required int32 send_msg_time = 3;</code>
        */
       public Builder setSendMsgTime(int value) {
-        
+        bitField0_ |= 0x00000004;
         sendMsgTime_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 send_msg_time = 3;</code>
+       * <code>required int32 send_msg_time = 3;</code>
        */
       public Builder clearSendMsgTime() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         sendMsgTime_ = 0;
         onChanged();
         return this;
@@ -9066,25 +10532,31 @@ public final class LoginMessage {
 
       private int autoId_ ;
       /**
-       * <code>int32 auto_id = 4;</code>
+       * <code>required int32 auto_id = 4;</code>
+       */
+      public boolean hasAutoId() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int32 auto_id = 4;</code>
        */
       public int getAutoId() {
         return autoId_;
       }
       /**
-       * <code>int32 auto_id = 4;</code>
+       * <code>required int32 auto_id = 4;</code>
        */
       public Builder setAutoId(int value) {
-        
+        bitField0_ |= 0x00000008;
         autoId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 auto_id = 4;</code>
+       * <code>required int32 auto_id = 4;</code>
        */
       public Builder clearAutoId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         autoId_ = 0;
         onChanged();
         return this;
@@ -9092,25 +10564,31 @@ public final class LoginMessage {
 
       private long plyId_ ;
       /**
-       * <code>int64 ply_id = 5;</code>
+       * <code>required int64 ply_id = 5;</code>
+       */
+      public boolean hasPlyId() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required int64 ply_id = 5;</code>
        */
       public long getPlyId() {
         return plyId_;
       }
       /**
-       * <code>int64 ply_id = 5;</code>
+       * <code>required int64 ply_id = 5;</code>
        */
       public Builder setPlyId(long value) {
-        
+        bitField0_ |= 0x00000010;
         plyId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_id = 5;</code>
+       * <code>required int64 ply_id = 5;</code>
        */
       public Builder clearPlyId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         plyId_ = 0L;
         onChanged();
         return this;
@@ -9118,7 +10596,13 @@ public final class LoginMessage {
 
       private java.lang.Object chatMsg_ = "";
       /**
-       * <code>string chat_msg = 6;</code>
+       * <code>required string chat_msg = 6;</code>
+       */
+      public boolean hasChatMsg() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required string chat_msg = 6;</code>
        */
       public java.lang.String getChatMsg() {
         java.lang.Object ref = chatMsg_;
@@ -9126,14 +10610,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          chatMsg_ = s;
+          if (bs.isValidUtf8()) {
+            chatMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string chat_msg = 6;</code>
+       * <code>required string chat_msg = 6;</code>
        */
       public com.google.protobuf.ByteString
           getChatMsgBytes() {
@@ -9149,37 +10635,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string chat_msg = 6;</code>
+       * <code>required string chat_msg = 6;</code>
        */
       public Builder setChatMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000020;
         chatMsg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string chat_msg = 6;</code>
+       * <code>required string chat_msg = 6;</code>
        */
       public Builder clearChatMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         chatMsg_ = getDefaultInstance().getChatMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>string chat_msg = 6;</code>
+       * <code>required string chat_msg = 6;</code>
        */
       public Builder setChatMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000020;
         chatMsg_ = value;
         onChanged();
         return this;
@@ -9187,25 +10672,31 @@ public final class LoginMessage {
 
       private int type_ ;
       /**
-       * <code>int32 type = 7;</code>
+       * <code>required int32 type = 7;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <code>required int32 type = 7;</code>
        */
       public int getType() {
         return type_;
       }
       /**
-       * <code>int32 type = 7;</code>
+       * <code>required int32 type = 7;</code>
        */
       public Builder setType(int value) {
-        
+        bitField0_ |= 0x00000040;
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 type = 7;</code>
+       * <code>required int32 type = 7;</code>
        */
       public Builder clearType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         type_ = 0;
         onChanged();
         return this;
@@ -9213,25 +10704,31 @@ public final class LoginMessage {
 
       private int clubMessageId_ ;
       /**
-       * <code>int32 club_message_id = 8;</code>
+       * <code>required int32 club_message_id = 8;</code>
+       */
+      public boolean hasClubMessageId() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <code>required int32 club_message_id = 8;</code>
        */
       public int getClubMessageId() {
         return clubMessageId_;
       }
       /**
-       * <code>int32 club_message_id = 8;</code>
+       * <code>required int32 club_message_id = 8;</code>
        */
       public Builder setClubMessageId(int value) {
-        
+        bitField0_ |= 0x00000080;
         clubMessageId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 club_message_id = 8;</code>
+       * <code>required int32 club_message_id = 8;</code>
        */
       public Builder clearClubMessageId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         clubMessageId_ = 0;
         onChanged();
         return this;
@@ -9239,7 +10736,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -9262,7 +10759,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_ClubChatRecordInfoStruct>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_ClubChatRecordInfoStruct>
         PARSER = new com.google.protobuf.AbstractParser<proto_ClubChatRecordInfoStruct>() {
       @java.lang.Override
       public proto_ClubChatRecordInfoStruct parsePartialFrom(
@@ -9311,15 +10808,15 @@ public final class LoginMessage {
      * 消息标记状态
      * </pre>
      *
-     * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+     * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
      */
-    int getStatusValue();
+    boolean hasStatus();
     /**
      * <pre>
      * 消息标记状态
      * </pre>
      *
-     * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+     * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
      */
     com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS getStatus();
   }
@@ -9341,7 +10838,7 @@ public final class LoginMessage {
     }
     private proto_cl_update_msg_status_req() {
       autoIdList_ = java.util.Collections.emptyList();
-      status_ = 0;
+      status_ = 1;
     }
 
     @java.lang.Override
@@ -9391,12 +10888,18 @@ public final class LoginMessage {
             }
             case 16: {
               int rawValue = input.readEnum();
-
-              status_ = rawValue;
+                @SuppressWarnings("deprecation")
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS value = com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                status_ = rawValue;
+              }
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -9437,14 +10940,6 @@ public final class LoginMessage {
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
        * <pre>
-       * 无用
-       * </pre>
-       *
-       * <code>nullValue = 0;</code>
-       */
-      nullValue(0),
-      /**
-       * <pre>
        * 已读
        * </pre>
        *
@@ -9459,17 +10954,8 @@ public final class LoginMessage {
        * <code>DELETED = 2;</code>
        */
       DELETED(2),
-      UNRECOGNIZED(-1),
       ;
 
-      /**
-       * <pre>
-       * 无用
-       * </pre>
-       *
-       * <code>nullValue = 0;</code>
-       */
-      public static final int nullValue_VALUE = 0;
       /**
        * <pre>
        * 已读
@@ -9489,10 +10975,6 @@ public final class LoginMessage {
 
 
       public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
         return value;
       }
 
@@ -9506,7 +10988,6 @@ public final class LoginMessage {
 
       public static STATUS forNumber(int value) {
         switch (value) {
-          case 0: return nullValue;
           case 1: return READ;
           case 2: return DELETED;
           default: return null;
@@ -9546,9 +11027,6 @@ public final class LoginMessage {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
         return VALUES[desc.getIndex()];
       }
 
@@ -9583,7 +11061,6 @@ public final class LoginMessage {
     public long getAutoIdList(int index) {
       return autoIdList_.get(index);
     }
-    private int autoIdListMemoizedSerializedSize = -1;
 
     public static final int STATUS_FIELD_NUMBER = 2;
     private int status_;
@@ -9592,22 +11069,22 @@ public final class LoginMessage {
      * 消息标记状态
      * </pre>
      *
-     * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+     * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
      */
-    public int getStatusValue() {
-      return status_;
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
      * <pre>
      * 消息标记状态
      * </pre>
      *
-     * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+     * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
      */
     public com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS getStatus() {
       @SuppressWarnings("deprecation")
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS result = com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.valueOf(status_);
-      return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.UNRECOGNIZED : result;
+      return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.READ : result;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -9617,6 +11094,10 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasStatus()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -9624,15 +11105,10 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      getSerializedSize();
-      if (getAutoIdListList().size() > 0) {
-        output.writeUInt32NoTag(10);
-        output.writeUInt32NoTag(autoIdListMemoizedSerializedSize);
-      }
       for (int i = 0; i < autoIdList_.size(); i++) {
-        output.writeInt64NoTag(autoIdList_.get(i));
+        output.writeInt64(1, autoIdList_.get(i));
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.nullValue.getNumber()) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeEnum(2, status_);
       }
       unknownFields.writeTo(output);
@@ -9651,14 +11127,9 @@ public final class LoginMessage {
             .computeInt64SizeNoTag(autoIdList_.get(i));
         }
         size += dataSize;
-        if (!getAutoIdListList().isEmpty()) {
-          size += 1;
-          size += com.google.protobuf.CodedOutputStream
-              .computeInt32SizeNoTag(dataSize);
-        }
-        autoIdListMemoizedSerializedSize = dataSize;
+        size += 1 * getAutoIdListList().size();
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.nullValue.getNumber()) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, status_);
       }
@@ -9680,7 +11151,10 @@ public final class LoginMessage {
       boolean result = true;
       result = result && getAutoIdListList()
           .equals(other.getAutoIdListList());
-      result = result && status_ == other.status_;
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && status_ == other.status_;
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -9696,8 +11170,10 @@ public final class LoginMessage {
         hash = (37 * hash) + AUTO_ID_LIST_FIELD_NUMBER;
         hash = (53 * hash) + getAutoIdListList().hashCode();
       }
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + status_;
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + status_;
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -9837,8 +11313,8 @@ public final class LoginMessage {
         super.clear();
         autoIdList_ = java.util.Collections.emptyList();
         bitField0_ = (bitField0_ & ~0x00000001);
-        status_ = 0;
-
+        status_ = 1;
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -9872,6 +11348,9 @@ public final class LoginMessage {
           bitField0_ = (bitField0_ & ~0x00000001);
         }
         result.autoIdList_ = autoIdList_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.status_ = status_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -9932,8 +11411,8 @@ public final class LoginMessage {
           }
           onChanged();
         }
-        if (other.status_ != 0) {
-          setStatusValue(other.getStatusValue());
+        if (other.hasStatus()) {
+          setStatus(other.getStatus());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -9942,6 +11421,9 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasStatus()) {
+          return false;
+        }
         return true;
       }
 
@@ -10031,53 +11513,41 @@ public final class LoginMessage {
         return this;
       }
 
-      private int status_ = 0;
+      private int status_ = 1;
       /**
        * <pre>
        * 消息标记状态
        * </pre>
        *
-       * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+       * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
        */
-      public int getStatusValue() {
-        return status_;
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
        * <pre>
        * 消息标记状态
        * </pre>
        *
-       * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
-       */
-      public Builder setStatusValue(int value) {
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 消息标记状态
-       * </pre>
-       *
-       * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+       * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
        */
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS getStatus() {
         @SuppressWarnings("deprecation")
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS result = com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.valueOf(status_);
-        return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.UNRECOGNIZED : result;
+        return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS.READ : result;
       }
       /**
        * <pre>
        * 消息标记状态
        * </pre>
        *
-       * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+       * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
        */
       public Builder setStatus(com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_update_msg_status_req.STATUS value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000002;
         status_ = value.getNumber();
         onChanged();
         return this;
@@ -10087,18 +11557,18 @@ public final class LoginMessage {
        * 消息标记状态
        * </pre>
        *
-       * <code>.proto_cl_update_msg_status_req.STATUS status = 2;</code>
+       * <code>required .proto_cl_update_msg_status_req.STATUS status = 2;</code>
        */
       public Builder clearStatus() {
-        
-        status_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        status_ = 1;
         onChanged();
         return this;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -10121,7 +11591,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cl_update_msg_status_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cl_update_msg_status_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_cl_update_msg_status_req>() {
       @java.lang.Override
       public proto_cl_update_msg_status_req parsePartialFrom(
@@ -10153,16 +11623,24 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    boolean hasRet();
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     int getRet();
 
     /**
-     * <code>string err_msg = 2;</code>
+     * <code>required string err_msg = 2;</code>
+     */
+    boolean hasErrMsg();
+    /**
+     * <code>required string err_msg = 2;</code>
      */
     java.lang.String getErrMsg();
     /**
-     * <code>string err_msg = 2;</code>
+     * <code>required string err_msg = 2;</code>
      */
     com.google.protobuf.ByteString
         getErrMsgBytes();
@@ -10213,18 +11691,18 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               ret_ = input.readInt32();
               break;
             }
             case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              errMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000002;
+              errMsg_ = bs;
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -10255,10 +11733,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RET_FIELD_NUMBER = 1;
     private int ret_;
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     public int getRet() {
       return ret_;
@@ -10267,7 +11752,13 @@ public final class LoginMessage {
     public static final int ERR_MSG_FIELD_NUMBER = 2;
     private volatile java.lang.Object errMsg_;
     /**
-     * <code>string err_msg = 2;</code>
+     * <code>required string err_msg = 2;</code>
+     */
+    public boolean hasErrMsg() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required string err_msg = 2;</code>
      */
     public java.lang.String getErrMsg() {
       java.lang.Object ref = errMsg_;
@@ -10277,12 +11768,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        errMsg_ = s;
+        if (bs.isValidUtf8()) {
+          errMsg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string err_msg = 2;</code>
+     * <code>required string err_msg = 2;</code>
      */
     public com.google.protobuf.ByteString
         getErrMsgBytes() {
@@ -10305,6 +11798,14 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasRet()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasErrMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -10312,10 +11813,10 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, ret_);
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, errMsg_);
       }
       unknownFields.writeTo(output);
@@ -10327,11 +11828,11 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, ret_);
       }
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, errMsg_);
       }
       size += unknownFields.getSerializedSize();
@@ -10350,10 +11851,16 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack) obj;
 
       boolean result = true;
-      result = result && (getRet()
-          == other.getRet());
-      result = result && getErrMsg()
-          .equals(other.getErrMsg());
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
+      result = result && (hasErrMsg() == other.hasErrMsg());
+      if (hasErrMsg()) {
+        result = result && getErrMsg()
+            .equals(other.getErrMsg());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10365,10 +11872,14 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
-      hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getErrMsg().hashCode();
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
+      if (hasErrMsg()) {
+        hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getErrMsg().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -10507,9 +12018,9 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         errMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -10536,8 +12047,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.ret_ = ret_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.errMsg_ = errMsg_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -10586,10 +12106,11 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_update_msg_status_ack.getDefaultInstance()) return this;
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
-        if (!other.getErrMsg().isEmpty()) {
+        if (other.hasErrMsg()) {
+          bitField0_ |= 0x00000002;
           errMsg_ = other.errMsg_;
           onChanged();
         }
@@ -10600,6 +12121,12 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasRet()) {
+          return false;
+        }
+        if (!hasErrMsg()) {
+          return false;
+        }
         return true;
       }
 
@@ -10621,28 +12148,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int ret_ ;
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 ret = 1;</code>
        */
       public int getRet() {
         return ret_;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000001;
         ret_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
         onChanged();
         return this;
@@ -10650,7 +12184,13 @@ public final class LoginMessage {
 
       private java.lang.Object errMsg_ = "";
       /**
-       * <code>string err_msg = 2;</code>
+       * <code>required string err_msg = 2;</code>
+       */
+      public boolean hasErrMsg() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required string err_msg = 2;</code>
        */
       public java.lang.String getErrMsg() {
         java.lang.Object ref = errMsg_;
@@ -10658,14 +12198,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          errMsg_ = s;
+          if (bs.isValidUtf8()) {
+            errMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string err_msg = 2;</code>
+       * <code>required string err_msg = 2;</code>
        */
       public com.google.protobuf.ByteString
           getErrMsgBytes() {
@@ -10681,37 +12223,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string err_msg = 2;</code>
+       * <code>required string err_msg = 2;</code>
        */
       public Builder setErrMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000002;
         errMsg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 2;</code>
+       * <code>required string err_msg = 2;</code>
        */
       public Builder clearErrMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         errMsg_ = getDefaultInstance().getErrMsg();
         onChanged();
         return this;
       }
       /**
-       * <code>string err_msg = 2;</code>
+       * <code>required string err_msg = 2;</code>
        */
       public Builder setErrMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000002;
         errMsg_ = value;
         onChanged();
         return this;
@@ -10719,7 +12260,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -10742,7 +12283,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lc_update_msg_status_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lc_update_msg_status_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_lc_update_msg_status_ack>() {
       @java.lang.Override
       public proto_lc_update_msg_status_ack parsePartialFrom(
@@ -10778,7 +12319,15 @@ public final class LoginMessage {
      * 如果不指定，则查询所有
      * </pre>
      *
-     * <code>int32 club_id = 1;</code>
+     * <code>optional int32 club_id = 1;</code>
+     */
+    boolean hasClubId();
+    /**
+     * <pre>
+     * 如果不指定，则查询所有
+     * </pre>
+     *
+     * <code>optional int32 club_id = 1;</code>
      */
     int getClubId();
   }
@@ -10827,12 +12376,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubId_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -10863,6 +12412,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_ID_FIELD_NUMBER = 1;
     private int clubId_;
     /**
@@ -10870,7 +12420,17 @@ public final class LoginMessage {
      * 如果不指定，则查询所有
      * </pre>
      *
-     * <code>int32 club_id = 1;</code>
+     * <code>optional int32 club_id = 1;</code>
+     */
+    public boolean hasClubId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 如果不指定，则查询所有
+     * </pre>
+     *
+     * <code>optional int32 club_id = 1;</code>
      */
     public int getClubId() {
       return clubId_;
@@ -10890,7 +12450,7 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubId_);
       }
       unknownFields.writeTo(output);
@@ -10902,7 +12462,7 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubId_);
       }
@@ -10922,8 +12482,11 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req) obj;
 
       boolean result = true;
-      result = result && (getClubId()
-          == other.getClubId());
+      result = result && (hasClubId() == other.hasClubId());
+      if (hasClubId()) {
+        result = result && (getClubId()
+            == other.getClubId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -10935,8 +12498,10 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubId();
+      if (hasClubId()) {
+        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubId();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -11075,7 +12640,7 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -11102,7 +12667,13 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubId_ = clubId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -11151,7 +12722,7 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cl_get_msg_count_req.getDefaultInstance()) return this;
-        if (other.getClubId() != 0) {
+        if (other.hasClubId()) {
           setClubId(other.getClubId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -11182,6 +12753,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubId_ ;
       /**
@@ -11189,7 +12761,17 @@ public final class LoginMessage {
        * 如果不指定，则查询所有
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>optional int32 club_id = 1;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 如果不指定，则查询所有
+       * </pre>
+       *
+       * <code>optional int32 club_id = 1;</code>
        */
       public int getClubId() {
         return clubId_;
@@ -11199,10 +12781,10 @@ public final class LoginMessage {
        * 如果不指定，则查询所有
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>optional int32 club_id = 1;</code>
        */
       public Builder setClubId(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubId_ = value;
         onChanged();
         return this;
@@ -11212,10 +12794,10 @@ public final class LoginMessage {
        * 如果不指定，则查询所有
        * </pre>
        *
-       * <code>int32 club_id = 1;</code>
+       * <code>optional int32 club_id = 1;</code>
        */
       public Builder clearClubId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubId_ = 0;
         onChanged();
         return this;
@@ -11223,7 +12805,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -11246,7 +12828,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cl_get_msg_count_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cl_get_msg_count_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_cl_get_msg_count_req>() {
       @java.lang.Override
       public proto_cl_get_msg_count_req parsePartialFrom(
@@ -11351,11 +12933,11 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000001;
               }
               resultSet_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.PARSER, extensionRegistry));
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -11394,12 +12976,20 @@ public final class LoginMessage {
         com.google.protobuf.MessageOrBuilder {
 
       /**
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
+       */
+      boolean hasClubId();
+      /**
+       * <code>required int32 club_id = 1;</code>
        */
       int getClubId();
 
       /**
-       * <code>int32 count = 2;</code>
+       * <code>required int32 count = 2;</code>
+       */
+      boolean hasCount();
+      /**
+       * <code>required int32 count = 2;</code>
        */
       int getCount();
     }
@@ -11445,17 +13035,17 @@ public final class LoginMessage {
                 done = true;
                 break;
               case 8: {
-
+                bitField0_ |= 0x00000001;
                 clubId_ = input.readInt32();
                 break;
               }
               case 16: {
-
+                bitField0_ |= 0x00000002;
                 count_ = input.readInt32();
                 break;
               }
               default: {
-                if (!parseUnknownFieldProto3(
+                if (!parseUnknownField(
                     input, unknownFields, extensionRegistry, tag)) {
                   done = true;
                 }
@@ -11486,10 +13076,17 @@ public final class LoginMessage {
                 com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.Builder.class);
       }
 
+      private int bitField0_;
       public static final int CLUB_ID_FIELD_NUMBER = 1;
       private int clubId_;
       /**
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 club_id = 1;</code>
        */
       public int getClubId() {
         return clubId_;
@@ -11498,7 +13095,13 @@ public final class LoginMessage {
       public static final int COUNT_FIELD_NUMBER = 2;
       private int count_;
       /**
-       * <code>int32 count = 2;</code>
+       * <code>required int32 count = 2;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 count = 2;</code>
        */
       public int getCount() {
         return count_;
@@ -11511,6 +13114,14 @@ public final class LoginMessage {
         if (isInitialized == 1) return true;
         if (isInitialized == 0) return false;
 
+        if (!hasClubId()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+        if (!hasCount()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
         memoizedIsInitialized = 1;
         return true;
       }
@@ -11518,10 +13129,10 @@ public final class LoginMessage {
       @java.lang.Override
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
-        if (clubId_ != 0) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           output.writeInt32(1, clubId_);
         }
-        if (count_ != 0) {
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
           output.writeInt32(2, count_);
         }
         unknownFields.writeTo(output);
@@ -11533,11 +13144,11 @@ public final class LoginMessage {
         if (size != -1) return size;
 
         size = 0;
-        if (clubId_ != 0) {
+        if (((bitField0_ & 0x00000001) == 0x00000001)) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(1, clubId_);
         }
-        if (count_ != 0) {
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
           size += com.google.protobuf.CodedOutputStream
             .computeInt32Size(2, count_);
         }
@@ -11557,10 +13168,16 @@ public final class LoginMessage {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result) obj;
 
         boolean result = true;
-        result = result && (getClubId()
-            == other.getClubId());
-        result = result && (getCount()
-            == other.getCount());
+        result = result && (hasClubId() == other.hasClubId());
+        if (hasClubId()) {
+          result = result && (getClubId()
+              == other.getClubId());
+        }
+        result = result && (hasCount() == other.hasCount());
+        if (hasCount()) {
+          result = result && (getCount()
+              == other.getCount());
+        }
         result = result && unknownFields.equals(other.unknownFields);
         return result;
       }
@@ -11572,10 +13189,14 @@ public final class LoginMessage {
         }
         int hash = 41;
         hash = (19 * hash) + getDescriptor().hashCode();
-        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-        hash = (53 * hash) + getClubId();
-        hash = (37 * hash) + COUNT_FIELD_NUMBER;
-        hash = (53 * hash) + getCount();
+        if (hasClubId()) {
+          hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+          hash = (53 * hash) + getClubId();
+        }
+        if (hasCount()) {
+          hash = (37 * hash) + COUNT_FIELD_NUMBER;
+          hash = (53 * hash) + getCount();
+        }
         hash = (29 * hash) + unknownFields.hashCode();
         memoizedHashCode = hash;
         return hash;
@@ -11710,9 +13331,9 @@ public final class LoginMessage {
         public Builder clear() {
           super.clear();
           clubId_ = 0;
-
+          bitField0_ = (bitField0_ & ~0x00000001);
           count_ = 0;
-
+          bitField0_ = (bitField0_ & ~0x00000002);
           return this;
         }
 
@@ -11739,8 +13360,17 @@ public final class LoginMessage {
         @java.lang.Override
         public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result buildPartial() {
           com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result(this);
+          int from_bitField0_ = bitField0_;
+          int to_bitField0_ = 0;
+          if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+            to_bitField0_ |= 0x00000001;
+          }
           result.clubId_ = clubId_;
+          if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+            to_bitField0_ |= 0x00000002;
+          }
           result.count_ = count_;
+          result.bitField0_ = to_bitField0_;
           onBuilt();
           return result;
         }
@@ -11789,10 +13419,10 @@ public final class LoginMessage {
 
         public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result other) {
           if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_get_msg_count_ack.Result.getDefaultInstance()) return this;
-          if (other.getClubId() != 0) {
+          if (other.hasClubId()) {
             setClubId(other.getClubId());
           }
-          if (other.getCount() != 0) {
+          if (other.hasCount()) {
             setCount(other.getCount());
           }
           this.mergeUnknownFields(other.unknownFields);
@@ -11802,6 +13432,12 @@ public final class LoginMessage {
 
         @java.lang.Override
         public final boolean isInitialized() {
+          if (!hasClubId()) {
+            return false;
+          }
+          if (!hasCount()) {
+            return false;
+          }
           return true;
         }
 
@@ -11823,28 +13459,35 @@ public final class LoginMessage {
           }
           return this;
         }
+        private int bitField0_;
 
         private int clubId_ ;
         /**
-         * <code>int32 club_id = 1;</code>
+         * <code>required int32 club_id = 1;</code>
+         */
+        public boolean hasClubId() {
+          return ((bitField0_ & 0x00000001) == 0x00000001);
+        }
+        /**
+         * <code>required int32 club_id = 1;</code>
          */
         public int getClubId() {
           return clubId_;
         }
         /**
-         * <code>int32 club_id = 1;</code>
+         * <code>required int32 club_id = 1;</code>
          */
         public Builder setClubId(int value) {
-          
+          bitField0_ |= 0x00000001;
           clubId_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 club_id = 1;</code>
+         * <code>required int32 club_id = 1;</code>
          */
         public Builder clearClubId() {
-          
+          bitField0_ = (bitField0_ & ~0x00000001);
           clubId_ = 0;
           onChanged();
           return this;
@@ -11852,25 +13495,31 @@ public final class LoginMessage {
 
         private int count_ ;
         /**
-         * <code>int32 count = 2;</code>
+         * <code>required int32 count = 2;</code>
+         */
+        public boolean hasCount() {
+          return ((bitField0_ & 0x00000002) == 0x00000002);
+        }
+        /**
+         * <code>required int32 count = 2;</code>
          */
         public int getCount() {
           return count_;
         }
         /**
-         * <code>int32 count = 2;</code>
+         * <code>required int32 count = 2;</code>
          */
         public Builder setCount(int value) {
-          
+          bitField0_ |= 0x00000002;
           count_ = value;
           onChanged();
           return this;
         }
         /**
-         * <code>int32 count = 2;</code>
+         * <code>required int32 count = 2;</code>
          */
         public Builder clearCount() {
-          
+          bitField0_ = (bitField0_ & ~0x00000002);
           count_ = 0;
           onChanged();
           return this;
@@ -11878,7 +13527,7 @@ public final class LoginMessage {
         @java.lang.Override
         public final Builder setUnknownFields(
             final com.google.protobuf.UnknownFieldSet unknownFields) {
-          return super.setUnknownFieldsProto3(unknownFields);
+          return super.setUnknownFields(unknownFields);
         }
 
         @java.lang.Override
@@ -11901,7 +13550,7 @@ public final class LoginMessage {
         return DEFAULT_INSTANCE;
       }
 
-      private static final com.google.protobuf.Parser<Result>
+      @java.lang.Deprecated public static final com.google.protobuf.Parser<Result>
           PARSER = new com.google.protobuf.AbstractParser<Result>() {
         @java.lang.Override
         public Result parsePartialFrom(
@@ -11970,6 +13619,12 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getResultSetCount(); i++) {
+        if (!getResultSet(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -12287,6 +13942,11 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getResultSetCount(); i++) {
+          if (!getResultSet(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -12552,7 +14212,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -12575,7 +14235,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lc_get_msg_count_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lc_get_msg_count_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_lc_get_msg_count_ack>() {
       @java.lang.Override
       public proto_lc_get_msg_count_ack parsePartialFrom(
@@ -12607,17 +14267,29 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    boolean hasOpcode();
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     int getOpcode();
 
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>required bytes data = 3;</code>
      */
     com.google.protobuf.ByteString getData();
   }
@@ -12668,22 +14340,22 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               plyGuid_ = input.readInt64();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               opcode_ = input.readInt32();
               break;
             }
             case 26: {
-
+              bitField0_ |= 0x00000004;
               data_ = input.readBytes();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -12714,10 +14386,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync.Builder.class);
     }
 
+    private int bitField0_;
     public static final int PLY_GUID_FIELD_NUMBER = 1;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -12726,7 +14405,13 @@ public final class LoginMessage {
     public static final int OPCODE_FIELD_NUMBER = 2;
     private int opcode_;
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    public boolean hasOpcode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     public int getOpcode() {
       return opcode_;
@@ -12735,7 +14420,13 @@ public final class LoginMessage {
     public static final int DATA_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString data_;
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required bytes data = 3;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
@@ -12748,6 +14439,18 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOpcode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -12755,13 +14458,13 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, plyGuid_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, data_);
       }
       unknownFields.writeTo(output);
@@ -12773,15 +14476,15 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, plyGuid_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, data_);
       }
@@ -12801,12 +14504,21 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync) obj;
 
       boolean result = true;
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getOpcode()
-          == other.getOpcode());
-      result = result && getData()
-          .equals(other.getData());
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasOpcode() == other.hasOpcode());
+      if (hasOpcode()) {
+        result = result && (getOpcode()
+            == other.getOpcode());
+      }
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+            .equals(other.getData());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -12818,13 +14530,19 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + OPCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getOpcode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasOpcode()) {
+        hash = (37 * hash) + OPCODE_FIELD_NUMBER;
+        hash = (53 * hash) + getOpcode();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -12963,11 +14681,11 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         opcode_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         data_ = com.google.protobuf.ByteString.EMPTY;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -12994,9 +14712,21 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.opcode_ = opcode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.data_ = data_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -13045,13 +14775,13 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_cf_message_wrap_sync.getDefaultInstance()) return this;
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getOpcode() != 0) {
+        if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
-        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+        if (other.hasData()) {
           setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -13061,6 +14791,15 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasOpcode()) {
+          return false;
+        }
+        if (!hasData()) {
+          return false;
+        }
         return true;
       }
 
@@ -13082,28 +14821,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 ply_guid = 1;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000001;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -13111,25 +14857,31 @@ public final class LoginMessage {
 
       private int opcode_ ;
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
+       */
+      public boolean hasOpcode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 opcode = 2;</code>
        */
       public int getOpcode() {
         return opcode_;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder setOpcode(int value) {
-        
+        bitField0_ |= 0x00000002;
         opcode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder clearOpcode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         opcode_ = 0;
         onChanged();
         return this;
@@ -13137,28 +14889,34 @@ public final class LoginMessage {
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bytes data = 3;</code>
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder clearData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -13166,7 +14924,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -13189,7 +14947,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_cf_message_wrap_sync>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_cf_message_wrap_sync>
         PARSER = new com.google.protobuf.AbstractParser<proto_cf_message_wrap_sync>() {
       @java.lang.Override
       public proto_cf_message_wrap_sync parsePartialFrom(
@@ -13221,17 +14979,29 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    boolean hasOpcode();
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     int getOpcode();
 
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>required bytes data = 3;</code>
      */
     com.google.protobuf.ByteString getData();
   }
@@ -13282,22 +15052,22 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               plyGuid_ = input.readInt64();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               opcode_ = input.readInt32();
               break;
             }
             case 26: {
-
+              bitField0_ |= 0x00000004;
               data_ = input.readBytes();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -13328,10 +15098,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync.Builder.class);
     }
 
+    private int bitField0_;
     public static final int PLY_GUID_FIELD_NUMBER = 1;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -13340,7 +15117,13 @@ public final class LoginMessage {
     public static final int OPCODE_FIELD_NUMBER = 2;
     private int opcode_;
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    public boolean hasOpcode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     public int getOpcode() {
       return opcode_;
@@ -13349,7 +15132,13 @@ public final class LoginMessage {
     public static final int DATA_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString data_;
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required bytes data = 3;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
@@ -13362,6 +15151,18 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOpcode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -13369,13 +15170,13 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, plyGuid_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, data_);
       }
       unknownFields.writeTo(output);
@@ -13387,15 +15188,15 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, plyGuid_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, data_);
       }
@@ -13415,12 +15216,21 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync) obj;
 
       boolean result = true;
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getOpcode()
-          == other.getOpcode());
-      result = result && getData()
-          .equals(other.getData());
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasOpcode() == other.hasOpcode());
+      if (hasOpcode()) {
+        result = result && (getOpcode()
+            == other.getOpcode());
+      }
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+            .equals(other.getData());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -13432,13 +15242,19 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + OPCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getOpcode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasOpcode()) {
+        hash = (37 * hash) + OPCODE_FIELD_NUMBER;
+        hash = (53 * hash) + getOpcode();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -13577,11 +15393,11 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         opcode_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         data_ = com.google.protobuf.ByteString.EMPTY;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -13608,9 +15424,21 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.opcode_ = opcode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.data_ = data_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -13659,13 +15487,13 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fc_message_wrap_sync.getDefaultInstance()) return this;
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getOpcode() != 0) {
+        if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
-        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+        if (other.hasData()) {
           setData(other.getData());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -13675,6 +15503,15 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasOpcode()) {
+          return false;
+        }
+        if (!hasData()) {
+          return false;
+        }
         return true;
       }
 
@@ -13696,28 +15533,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 ply_guid = 1;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000001;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -13725,25 +15569,31 @@ public final class LoginMessage {
 
       private int opcode_ ;
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
+       */
+      public boolean hasOpcode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 opcode = 2;</code>
        */
       public int getOpcode() {
         return opcode_;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder setOpcode(int value) {
-        
+        bitField0_ |= 0x00000002;
         opcode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder clearOpcode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         opcode_ = 0;
         onChanged();
         return this;
@@ -13751,28 +15601,34 @@ public final class LoginMessage {
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bytes data = 3;</code>
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder clearData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -13780,7 +15636,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -13803,7 +15659,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fc_message_wrap_sync>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fc_message_wrap_sync>
         PARSER = new com.google.protobuf.AbstractParser<proto_fc_message_wrap_sync>() {
       @java.lang.Override
       public proto_fc_message_wrap_sync parsePartialFrom(
@@ -13835,7 +15691,11 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 server_id = 1;</code>
+     * <code>required int32 server_id = 1;</code>
+     */
+    boolean hasServerId();
+    /**
+     * <code>required int32 server_id = 1;</code>
      */
     int getServerId();
   }
@@ -13885,12 +15745,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               serverId_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -13921,10 +15781,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.Builder.class);
     }
 
+    private int bitField0_;
     public static final int SERVER_ID_FIELD_NUMBER = 1;
     private int serverId_;
     /**
-     * <code>int32 server_id = 1;</code>
+     * <code>required int32 server_id = 1;</code>
+     */
+    public boolean hasServerId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 server_id = 1;</code>
      */
     public int getServerId() {
       return serverId_;
@@ -13937,6 +15804,10 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasServerId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -13944,7 +15815,7 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (serverId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, serverId_);
       }
       unknownFields.writeTo(output);
@@ -13956,7 +15827,7 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (serverId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, serverId_);
       }
@@ -13976,8 +15847,11 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req) obj;
 
       boolean result = true;
-      result = result && (getServerId()
-          == other.getServerId());
+      result = result && (hasServerId() == other.hasServerId());
+      if (hasServerId()) {
+        result = result && (getServerId()
+            == other.getServerId());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -13989,8 +15863,10 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + SERVER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getServerId();
+      if (hasServerId()) {
+        hash = (37 * hash) + SERVER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getServerId();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14130,7 +16006,7 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         serverId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -14157,7 +16033,13 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.serverId_ = serverId_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -14206,7 +16088,7 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_register_req.getDefaultInstance()) return this;
-        if (other.getServerId() != 0) {
+        if (other.hasServerId()) {
           setServerId(other.getServerId());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -14216,6 +16098,9 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasServerId()) {
+          return false;
+        }
         return true;
       }
 
@@ -14237,28 +16122,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int serverId_ ;
       /**
-       * <code>int32 server_id = 1;</code>
+       * <code>required int32 server_id = 1;</code>
+       */
+      public boolean hasServerId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 server_id = 1;</code>
        */
       public int getServerId() {
         return serverId_;
       }
       /**
-       * <code>int32 server_id = 1;</code>
+       * <code>required int32 server_id = 1;</code>
        */
       public Builder setServerId(int value) {
-        
+        bitField0_ |= 0x00000001;
         serverId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 server_id = 1;</code>
+       * <code>required int32 server_id = 1;</code>
        */
       public Builder clearServerId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         serverId_ = 0;
         onChanged();
         return this;
@@ -14266,7 +16158,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -14289,7 +16181,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lf_register_req>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lf_register_req>
         PARSER = new com.google.protobuf.AbstractParser<proto_lf_register_req>() {
       @java.lang.Override
       public proto_lf_register_req parsePartialFrom(
@@ -14321,7 +16213,11 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    boolean hasRet();
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     int getRet();
   }
@@ -14370,12 +16266,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               ret_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -14406,10 +16302,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int RET_FIELD_NUMBER = 1;
     private int ret_;
     /**
-     * <code>int32 ret = 1;</code>
+     * <code>required int32 ret = 1;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 ret = 1;</code>
      */
     public int getRet() {
       return ret_;
@@ -14422,6 +16325,10 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasRet()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -14429,7 +16336,7 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, ret_);
       }
       unknownFields.writeTo(output);
@@ -14441,7 +16348,7 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, ret_);
       }
@@ -14461,8 +16368,11 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack) obj;
 
       boolean result = true;
-      result = result && (getRet()
-          == other.getRet());
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -14474,8 +16384,10 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -14614,7 +16526,7 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -14641,7 +16553,13 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.ret_ = ret_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -14690,7 +16608,7 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_register_ack.getDefaultInstance()) return this;
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -14700,6 +16618,9 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasRet()) {
+          return false;
+        }
         return true;
       }
 
@@ -14721,28 +16642,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int ret_ ;
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 ret = 1;</code>
        */
       public int getRet() {
         return ret_;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000001;
         ret_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ret = 1;</code>
+       * <code>required int32 ret = 1;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
         onChanged();
         return this;
@@ -14750,7 +16678,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -14773,7 +16701,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fl_register_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fl_register_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_fl_register_ack>() {
       @java.lang.Override
       public proto_fl_register_ack parsePartialFrom(
@@ -14805,42 +16733,66 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     long getPlyGuid();
 
     /**
-     * <code>int32 ply_vip = 2;</code>
+     * <code>required int32 ply_vip = 2;</code>
+     */
+    boolean hasPlyVip();
+    /**
+     * <code>required int32 ply_vip = 2;</code>
      */
     int getPlyVip();
 
     /**
-     * <code>int32 ply_level = 3;</code>
+     * <code>required int32 ply_level = 3;</code>
+     */
+    boolean hasPlyLevel();
+    /**
+     * <code>required int32 ply_level = 3;</code>
      */
     int getPlyLevel();
 
     /**
-     * <code>string nick_name = 4;</code>
+     * <code>required string nick_name = 4;</code>
+     */
+    boolean hasNickName();
+    /**
+     * <code>required string nick_name = 4;</code>
      */
     java.lang.String getNickName();
     /**
-     * <code>string nick_name = 4;</code>
+     * <code>required string nick_name = 4;</code>
      */
     com.google.protobuf.ByteString
         getNickNameBytes();
 
     /**
-     * <code>string head_img = 5;</code>
+     * <code>required string head_img = 5;</code>
+     */
+    boolean hasHeadImg();
+    /**
+     * <code>required string head_img = 5;</code>
      */
     java.lang.String getHeadImg();
     /**
-     * <code>string head_img = 5;</code>
+     * <code>required string head_img = 5;</code>
      */
     com.google.protobuf.ByteString
         getHeadImgBytes();
 
     /**
-     * <code>int32 user_language = 6;</code>
+     * <code>required int32 user_language = 6;</code>
+     */
+    boolean hasUserLanguage();
+    /**
+     * <code>required int32 user_language = 6;</code>
      */
     int getUserLanguage();
   }
@@ -14894,39 +16846,39 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               plyGuid_ = input.readInt64();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               plyVip_ = input.readInt32();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               plyLevel_ = input.readInt32();
               break;
             }
             case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              nickName_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              nickName_ = bs;
               break;
             }
             case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              headImg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000010;
+              headImg_ = bs;
               break;
             }
             case 48: {
-
+              bitField0_ |= 0x00000020;
               userLanguage_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -14957,10 +16909,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.Builder.class);
     }
 
+    private int bitField0_;
     public static final int PLY_GUID_FIELD_NUMBER = 1;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -14969,7 +16928,13 @@ public final class LoginMessage {
     public static final int PLY_VIP_FIELD_NUMBER = 2;
     private int plyVip_;
     /**
-     * <code>int32 ply_vip = 2;</code>
+     * <code>required int32 ply_vip = 2;</code>
+     */
+    public boolean hasPlyVip() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 ply_vip = 2;</code>
      */
     public int getPlyVip() {
       return plyVip_;
@@ -14978,7 +16943,13 @@ public final class LoginMessage {
     public static final int PLY_LEVEL_FIELD_NUMBER = 3;
     private int plyLevel_;
     /**
-     * <code>int32 ply_level = 3;</code>
+     * <code>required int32 ply_level = 3;</code>
+     */
+    public boolean hasPlyLevel() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int32 ply_level = 3;</code>
      */
     public int getPlyLevel() {
       return plyLevel_;
@@ -14987,7 +16958,13 @@ public final class LoginMessage {
     public static final int NICK_NAME_FIELD_NUMBER = 4;
     private volatile java.lang.Object nickName_;
     /**
-     * <code>string nick_name = 4;</code>
+     * <code>required string nick_name = 4;</code>
+     */
+    public boolean hasNickName() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required string nick_name = 4;</code>
      */
     public java.lang.String getNickName() {
       java.lang.Object ref = nickName_;
@@ -14997,12 +16974,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        nickName_ = s;
+        if (bs.isValidUtf8()) {
+          nickName_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string nick_name = 4;</code>
+     * <code>required string nick_name = 4;</code>
      */
     public com.google.protobuf.ByteString
         getNickNameBytes() {
@@ -15021,7 +17000,13 @@ public final class LoginMessage {
     public static final int HEAD_IMG_FIELD_NUMBER = 5;
     private volatile java.lang.Object headImg_;
     /**
-     * <code>string head_img = 5;</code>
+     * <code>required string head_img = 5;</code>
+     */
+    public boolean hasHeadImg() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <code>required string head_img = 5;</code>
      */
     public java.lang.String getHeadImg() {
       java.lang.Object ref = headImg_;
@@ -15031,12 +17016,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        headImg_ = s;
+        if (bs.isValidUtf8()) {
+          headImg_ = s;
+        }
         return s;
       }
     }
     /**
-     * <code>string head_img = 5;</code>
+     * <code>required string head_img = 5;</code>
      */
     public com.google.protobuf.ByteString
         getHeadImgBytes() {
@@ -15055,7 +17042,13 @@ public final class LoginMessage {
     public static final int USER_LANGUAGE_FIELD_NUMBER = 6;
     private int userLanguage_;
     /**
-     * <code>int32 user_language = 6;</code>
+     * <code>required int32 user_language = 6;</code>
+     */
+    public boolean hasUserLanguage() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <code>required int32 user_language = 6;</code>
      */
     public int getUserLanguage() {
       return userLanguage_;
@@ -15068,6 +17061,30 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyVip()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasPlyLevel()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasNickName()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasHeadImg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasUserLanguage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -15075,22 +17092,22 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, plyGuid_);
       }
-      if (plyVip_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, plyVip_);
       }
-      if (plyLevel_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt32(3, plyLevel_);
       }
-      if (!getNickNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, nickName_);
       }
-      if (!getHeadImgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, headImg_);
       }
-      if (userLanguage_ != 0) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         output.writeInt32(6, userLanguage_);
       }
       unknownFields.writeTo(output);
@@ -15102,25 +17119,25 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, plyGuid_);
       }
-      if (plyVip_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, plyVip_);
       }
-      if (plyLevel_ != 0) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(3, plyLevel_);
       }
-      if (!getNickNameBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, nickName_);
       }
-      if (!getHeadImgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, headImg_);
       }
-      if (userLanguage_ != 0) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(6, userLanguage_);
       }
@@ -15140,18 +17157,36 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not) obj;
 
       boolean result = true;
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
-      result = result && (getPlyVip()
-          == other.getPlyVip());
-      result = result && (getPlyLevel()
-          == other.getPlyLevel());
-      result = result && getNickName()
-          .equals(other.getNickName());
-      result = result && getHeadImg()
-          .equals(other.getHeadImg());
-      result = result && (getUserLanguage()
-          == other.getUserLanguage());
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
+      result = result && (hasPlyVip() == other.hasPlyVip());
+      if (hasPlyVip()) {
+        result = result && (getPlyVip()
+            == other.getPlyVip());
+      }
+      result = result && (hasPlyLevel() == other.hasPlyLevel());
+      if (hasPlyLevel()) {
+        result = result && (getPlyLevel()
+            == other.getPlyLevel());
+      }
+      result = result && (hasNickName() == other.hasNickName());
+      if (hasNickName()) {
+        result = result && getNickName()
+            .equals(other.getNickName());
+      }
+      result = result && (hasHeadImg() == other.hasHeadImg());
+      if (hasHeadImg()) {
+        result = result && getHeadImg()
+            .equals(other.getHeadImg());
+      }
+      result = result && (hasUserLanguage() == other.hasUserLanguage());
+      if (hasUserLanguage()) {
+        result = result && (getUserLanguage()
+            == other.getUserLanguage());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -15163,19 +17198,31 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
-      hash = (37 * hash) + PLY_VIP_FIELD_NUMBER;
-      hash = (53 * hash) + getPlyVip();
-      hash = (37 * hash) + PLY_LEVEL_FIELD_NUMBER;
-      hash = (53 * hash) + getPlyLevel();
-      hash = (37 * hash) + NICK_NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getNickName().hashCode();
-      hash = (37 * hash) + HEAD_IMG_FIELD_NUMBER;
-      hash = (53 * hash) + getHeadImg().hashCode();
-      hash = (37 * hash) + USER_LANGUAGE_FIELD_NUMBER;
-      hash = (53 * hash) + getUserLanguage();
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
+      if (hasPlyVip()) {
+        hash = (37 * hash) + PLY_VIP_FIELD_NUMBER;
+        hash = (53 * hash) + getPlyVip();
+      }
+      if (hasPlyLevel()) {
+        hash = (37 * hash) + PLY_LEVEL_FIELD_NUMBER;
+        hash = (53 * hash) + getPlyLevel();
+      }
+      if (hasNickName()) {
+        hash = (37 * hash) + NICK_NAME_FIELD_NUMBER;
+        hash = (53 * hash) + getNickName().hashCode();
+      }
+      if (hasHeadImg()) {
+        hash = (37 * hash) + HEAD_IMG_FIELD_NUMBER;
+        hash = (53 * hash) + getHeadImg().hashCode();
+      }
+      if (hasUserLanguage()) {
+        hash = (37 * hash) + USER_LANGUAGE_FIELD_NUMBER;
+        hash = (53 * hash) + getUserLanguage();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -15314,17 +17361,17 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyVip_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyLevel_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         nickName_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         headImg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         userLanguage_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         return this;
       }
 
@@ -15351,12 +17398,33 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.plyGuid_ = plyGuid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.plyVip_ = plyVip_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.plyLevel_ = plyLevel_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.nickName_ = nickName_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.headImg_ = headImg_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.userLanguage_ = userLanguage_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -15405,24 +17473,26 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_login_status_not.getDefaultInstance()) return this;
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
-        if (other.getPlyVip() != 0) {
+        if (other.hasPlyVip()) {
           setPlyVip(other.getPlyVip());
         }
-        if (other.getPlyLevel() != 0) {
+        if (other.hasPlyLevel()) {
           setPlyLevel(other.getPlyLevel());
         }
-        if (!other.getNickName().isEmpty()) {
+        if (other.hasNickName()) {
+          bitField0_ |= 0x00000008;
           nickName_ = other.nickName_;
           onChanged();
         }
-        if (!other.getHeadImg().isEmpty()) {
+        if (other.hasHeadImg()) {
+          bitField0_ |= 0x00000010;
           headImg_ = other.headImg_;
           onChanged();
         }
-        if (other.getUserLanguage() != 0) {
+        if (other.hasUserLanguage()) {
           setUserLanguage(other.getUserLanguage());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -15432,6 +17502,24 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasPlyGuid()) {
+          return false;
+        }
+        if (!hasPlyVip()) {
+          return false;
+        }
+        if (!hasPlyLevel()) {
+          return false;
+        }
+        if (!hasNickName()) {
+          return false;
+        }
+        if (!hasHeadImg()) {
+          return false;
+        }
+        if (!hasUserLanguage()) {
+          return false;
+        }
         return true;
       }
 
@@ -15453,28 +17541,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 ply_guid = 1;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000001;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -15482,25 +17577,31 @@ public final class LoginMessage {
 
       private int plyVip_ ;
       /**
-       * <code>int32 ply_vip = 2;</code>
+       * <code>required int32 ply_vip = 2;</code>
+       */
+      public boolean hasPlyVip() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 ply_vip = 2;</code>
        */
       public int getPlyVip() {
         return plyVip_;
       }
       /**
-       * <code>int32 ply_vip = 2;</code>
+       * <code>required int32 ply_vip = 2;</code>
        */
       public Builder setPlyVip(int value) {
-        
+        bitField0_ |= 0x00000002;
         plyVip_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ply_vip = 2;</code>
+       * <code>required int32 ply_vip = 2;</code>
        */
       public Builder clearPlyVip() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         plyVip_ = 0;
         onChanged();
         return this;
@@ -15508,25 +17609,31 @@ public final class LoginMessage {
 
       private int plyLevel_ ;
       /**
-       * <code>int32 ply_level = 3;</code>
+       * <code>required int32 ply_level = 3;</code>
+       */
+      public boolean hasPlyLevel() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int32 ply_level = 3;</code>
        */
       public int getPlyLevel() {
         return plyLevel_;
       }
       /**
-       * <code>int32 ply_level = 3;</code>
+       * <code>required int32 ply_level = 3;</code>
        */
       public Builder setPlyLevel(int value) {
-        
+        bitField0_ |= 0x00000004;
         plyLevel_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 ply_level = 3;</code>
+       * <code>required int32 ply_level = 3;</code>
        */
       public Builder clearPlyLevel() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         plyLevel_ = 0;
         onChanged();
         return this;
@@ -15534,7 +17641,13 @@ public final class LoginMessage {
 
       private java.lang.Object nickName_ = "";
       /**
-       * <code>string nick_name = 4;</code>
+       * <code>required string nick_name = 4;</code>
+       */
+      public boolean hasNickName() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required string nick_name = 4;</code>
        */
       public java.lang.String getNickName() {
         java.lang.Object ref = nickName_;
@@ -15542,14 +17655,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          nickName_ = s;
+          if (bs.isValidUtf8()) {
+            nickName_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string nick_name = 4;</code>
+       * <code>required string nick_name = 4;</code>
        */
       public com.google.protobuf.ByteString
           getNickNameBytes() {
@@ -15565,37 +17680,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string nick_name = 4;</code>
+       * <code>required string nick_name = 4;</code>
        */
       public Builder setNickName(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000008;
         nickName_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string nick_name = 4;</code>
+       * <code>required string nick_name = 4;</code>
        */
       public Builder clearNickName() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         nickName_ = getDefaultInstance().getNickName();
         onChanged();
         return this;
       }
       /**
-       * <code>string nick_name = 4;</code>
+       * <code>required string nick_name = 4;</code>
        */
       public Builder setNickNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000008;
         nickName_ = value;
         onChanged();
         return this;
@@ -15603,7 +17717,13 @@ public final class LoginMessage {
 
       private java.lang.Object headImg_ = "";
       /**
-       * <code>string head_img = 5;</code>
+       * <code>required string head_img = 5;</code>
+       */
+      public boolean hasHeadImg() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <code>required string head_img = 5;</code>
        */
       public java.lang.String getHeadImg() {
         java.lang.Object ref = headImg_;
@@ -15611,14 +17731,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          headImg_ = s;
+          if (bs.isValidUtf8()) {
+            headImg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string head_img = 5;</code>
+       * <code>required string head_img = 5;</code>
        */
       public com.google.protobuf.ByteString
           getHeadImgBytes() {
@@ -15634,37 +17756,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <code>string head_img = 5;</code>
+       * <code>required string head_img = 5;</code>
        */
       public Builder setHeadImg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000010;
         headImg_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string head_img = 5;</code>
+       * <code>required string head_img = 5;</code>
        */
       public Builder clearHeadImg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         headImg_ = getDefaultInstance().getHeadImg();
         onChanged();
         return this;
       }
       /**
-       * <code>string head_img = 5;</code>
+       * <code>required string head_img = 5;</code>
        */
       public Builder setHeadImgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000010;
         headImg_ = value;
         onChanged();
         return this;
@@ -15672,25 +17793,31 @@ public final class LoginMessage {
 
       private int userLanguage_ ;
       /**
-       * <code>int32 user_language = 6;</code>
+       * <code>required int32 user_language = 6;</code>
+       */
+      public boolean hasUserLanguage() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <code>required int32 user_language = 6;</code>
        */
       public int getUserLanguage() {
         return userLanguage_;
       }
       /**
-       * <code>int32 user_language = 6;</code>
+       * <code>required int32 user_language = 6;</code>
        */
       public Builder setUserLanguage(int value) {
-        
+        bitField0_ |= 0x00000020;
         userLanguage_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 user_language = 6;</code>
+       * <code>required int32 user_language = 6;</code>
        */
       public Builder clearUserLanguage() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         userLanguage_ = 0;
         onChanged();
         return this;
@@ -15698,7 +17825,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -15721,7 +17848,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lf_update_ply_login_status_not>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lf_update_ply_login_status_not>
         PARSER = new com.google.protobuf.AbstractParser<proto_lf_update_ply_login_status_not>() {
       @java.lang.Override
       public proto_lf_update_ply_login_status_not parsePartialFrom(
@@ -15753,7 +17880,11 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    boolean hasPlyGuid();
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     long getPlyGuid();
   }
@@ -15802,12 +17933,12 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               plyGuid_ = input.readInt64();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -15838,10 +17969,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.Builder.class);
     }
 
+    private int bitField0_;
     public static final int PLY_GUID_FIELD_NUMBER = 1;
     private long plyGuid_;
     /**
-     * <code>int64 ply_guid = 1;</code>
+     * <code>required int64 ply_guid = 1;</code>
+     */
+    public boolean hasPlyGuid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 ply_guid = 1;</code>
      */
     public long getPlyGuid() {
       return plyGuid_;
@@ -15854,6 +17992,10 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasPlyGuid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -15861,7 +18003,7 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, plyGuid_);
       }
       unknownFields.writeTo(output);
@@ -15873,7 +18015,7 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (plyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, plyGuid_);
       }
@@ -15893,8 +18035,11 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not) obj;
 
       boolean result = true;
-      result = result && (getPlyGuid()
-          == other.getPlyGuid());
+      result = result && (hasPlyGuid() == other.hasPlyGuid());
+      if (hasPlyGuid()) {
+        result = result && (getPlyGuid()
+            == other.getPlyGuid());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -15906,9 +18051,11 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getPlyGuid());
+      if (hasPlyGuid()) {
+        hash = (37 * hash) + PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getPlyGuid());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -16047,7 +18194,7 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         plyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         return this;
       }
 
@@ -16074,7 +18221,13 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.plyGuid_ = plyGuid_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -16123,7 +18276,7 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lf_update_ply_logout_status_not.getDefaultInstance()) return this;
-        if (other.getPlyGuid() != 0L) {
+        if (other.hasPlyGuid()) {
           setPlyGuid(other.getPlyGuid());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -16133,6 +18286,9 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasPlyGuid()) {
+          return false;
+        }
         return true;
       }
 
@@ -16154,28 +18310,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private long plyGuid_ ;
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
+       */
+      public boolean hasPlyGuid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 ply_guid = 1;</code>
        */
       public long getPlyGuid() {
         return plyGuid_;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder setPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000001;
         plyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 ply_guid = 1;</code>
+       * <code>required int64 ply_guid = 1;</code>
        */
       public Builder clearPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         plyGuid_ = 0L;
         onChanged();
         return this;
@@ -16183,7 +18346,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -16206,7 +18369,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lf_update_ply_logout_status_not>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lf_update_ply_logout_status_not>
         PARSER = new com.google.protobuf.AbstractParser<proto_lf_update_ply_logout_status_not>() {
       @java.lang.Override
       public proto_lf_update_ply_logout_status_not parsePartialFrom(
@@ -16238,22 +18401,38 @@ public final class LoginMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int32 club_id = 1;</code>
+     * <code>required int32 club_id = 1;</code>
+     */
+    boolean hasClubId();
+    /**
+     * <code>required int32 club_id = 1;</code>
      */
     int getClubId();
 
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    boolean hasOpcode();
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     int getOpcode();
 
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    boolean hasData();
+    /**
+     * <code>required bytes data = 3;</code>
      */
     com.google.protobuf.ByteString getData();
 
     /**
-     * <code>int64 except_ply_guid = 4;</code>
+     * <code>optional int64 except_ply_guid = 4;</code>
+     */
+    boolean hasExceptPlyGuid();
+    /**
+     * <code>optional int64 except_ply_guid = 4;</code>
      */
     long getExceptPlyGuid();
   }
@@ -16305,27 +18484,27 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               clubId_ = input.readInt32();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               opcode_ = input.readInt32();
               break;
             }
             case 26: {
-
+              bitField0_ |= 0x00000004;
               data_ = input.readBytes();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               exceptPlyGuid_ = input.readInt64();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -16356,10 +18535,17 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify.Builder.class);
     }
 
+    private int bitField0_;
     public static final int CLUB_ID_FIELD_NUMBER = 1;
     private int clubId_;
     /**
-     * <code>int32 club_id = 1;</code>
+     * <code>required int32 club_id = 1;</code>
+     */
+    public boolean hasClubId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 club_id = 1;</code>
      */
     public int getClubId() {
       return clubId_;
@@ -16368,7 +18554,13 @@ public final class LoginMessage {
     public static final int OPCODE_FIELD_NUMBER = 2;
     private int opcode_;
     /**
-     * <code>int32 opcode = 2;</code>
+     * <code>required int32 opcode = 2;</code>
+     */
+    public boolean hasOpcode() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 opcode = 2;</code>
      */
     public int getOpcode() {
       return opcode_;
@@ -16377,7 +18569,13 @@ public final class LoginMessage {
     public static final int DATA_FIELD_NUMBER = 3;
     private com.google.protobuf.ByteString data_;
     /**
-     * <code>bytes data = 3;</code>
+     * <code>required bytes data = 3;</code>
+     */
+    public boolean hasData() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required bytes data = 3;</code>
      */
     public com.google.protobuf.ByteString getData() {
       return data_;
@@ -16386,7 +18584,13 @@ public final class LoginMessage {
     public static final int EXCEPT_PLY_GUID_FIELD_NUMBER = 4;
     private long exceptPlyGuid_;
     /**
-     * <code>int64 except_ply_guid = 4;</code>
+     * <code>optional int64 except_ply_guid = 4;</code>
+     */
+    public boolean hasExceptPlyGuid() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>optional int64 except_ply_guid = 4;</code>
      */
     public long getExceptPlyGuid() {
       return exceptPlyGuid_;
@@ -16399,6 +18603,18 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasClubId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasOpcode()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasData()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -16406,16 +18622,16 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, clubId_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeBytes(3, data_);
       }
-      if (exceptPlyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt64(4, exceptPlyGuid_);
       }
       unknownFields.writeTo(output);
@@ -16427,19 +18643,19 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, clubId_);
       }
-      if (opcode_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, opcode_);
       }
-      if (!data_.isEmpty()) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(3, data_);
       }
-      if (exceptPlyGuid_ != 0L) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, exceptPlyGuid_);
       }
@@ -16459,14 +18675,26 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify) obj;
 
       boolean result = true;
-      result = result && (getClubId()
-          == other.getClubId());
-      result = result && (getOpcode()
-          == other.getOpcode());
-      result = result && getData()
-          .equals(other.getData());
-      result = result && (getExceptPlyGuid()
-          == other.getExceptPlyGuid());
+      result = result && (hasClubId() == other.hasClubId());
+      if (hasClubId()) {
+        result = result && (getClubId()
+            == other.getClubId());
+      }
+      result = result && (hasOpcode() == other.hasOpcode());
+      if (hasOpcode()) {
+        result = result && (getOpcode()
+            == other.getOpcode());
+      }
+      result = result && (hasData() == other.hasData());
+      if (hasData()) {
+        result = result && getData()
+            .equals(other.getData());
+      }
+      result = result && (hasExceptPlyGuid() == other.hasExceptPlyGuid());
+      if (hasExceptPlyGuid()) {
+        result = result && (getExceptPlyGuid()
+            == other.getExceptPlyGuid());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -16478,15 +18706,23 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubId();
-      hash = (37 * hash) + OPCODE_FIELD_NUMBER;
-      hash = (53 * hash) + getOpcode();
-      hash = (37 * hash) + DATA_FIELD_NUMBER;
-      hash = (53 * hash) + getData().hashCode();
-      hash = (37 * hash) + EXCEPT_PLY_GUID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getExceptPlyGuid());
+      if (hasClubId()) {
+        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubId();
+      }
+      if (hasOpcode()) {
+        hash = (37 * hash) + OPCODE_FIELD_NUMBER;
+        hash = (53 * hash) + getOpcode();
+      }
+      if (hasData()) {
+        hash = (37 * hash) + DATA_FIELD_NUMBER;
+        hash = (53 * hash) + getData().hashCode();
+      }
+      if (hasExceptPlyGuid()) {
+        hash = (37 * hash) + EXCEPT_PLY_GUID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getExceptPlyGuid());
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -16625,13 +18861,13 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         clubId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         opcode_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         data_ = com.google.protobuf.ByteString.EMPTY;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         exceptPlyGuid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -16658,10 +18894,25 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.clubId_ = clubId_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.opcode_ = opcode_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.data_ = data_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.exceptPlyGuid_ = exceptPlyGuid_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -16710,16 +18961,16 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_fl_club_notify.getDefaultInstance()) return this;
-        if (other.getClubId() != 0) {
+        if (other.hasClubId()) {
           setClubId(other.getClubId());
         }
-        if (other.getOpcode() != 0) {
+        if (other.hasOpcode()) {
           setOpcode(other.getOpcode());
         }
-        if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+        if (other.hasData()) {
           setData(other.getData());
         }
-        if (other.getExceptPlyGuid() != 0L) {
+        if (other.hasExceptPlyGuid()) {
           setExceptPlyGuid(other.getExceptPlyGuid());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -16729,6 +18980,15 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasClubId()) {
+          return false;
+        }
+        if (!hasOpcode()) {
+          return false;
+        }
+        if (!hasData()) {
+          return false;
+        }
         return true;
       }
 
@@ -16750,28 +19010,35 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private int clubId_ ;
       /**
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 club_id = 1;</code>
        */
       public int getClubId() {
         return clubId_;
       }
       /**
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
        */
       public Builder setClubId(int value) {
-        
+        bitField0_ |= 0x00000001;
         clubId_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 club_id = 1;</code>
+       * <code>required int32 club_id = 1;</code>
        */
       public Builder clearClubId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         clubId_ = 0;
         onChanged();
         return this;
@@ -16779,25 +19046,31 @@ public final class LoginMessage {
 
       private int opcode_ ;
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
+       */
+      public boolean hasOpcode() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 opcode = 2;</code>
        */
       public int getOpcode() {
         return opcode_;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder setOpcode(int value) {
-        
+        bitField0_ |= 0x00000002;
         opcode_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int32 opcode = 2;</code>
+       * <code>required int32 opcode = 2;</code>
        */
       public Builder clearOpcode() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         opcode_ = 0;
         onChanged();
         return this;
@@ -16805,28 +19078,34 @@ public final class LoginMessage {
 
       private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
+       */
+      public boolean hasData() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required bytes data = 3;</code>
        */
       public com.google.protobuf.ByteString getData() {
         return data_;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder setData(com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000004;
         data_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>bytes data = 3;</code>
+       * <code>required bytes data = 3;</code>
        */
       public Builder clearData() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         data_ = getDefaultInstance().getData();
         onChanged();
         return this;
@@ -16834,25 +19113,31 @@ public final class LoginMessage {
 
       private long exceptPlyGuid_ ;
       /**
-       * <code>int64 except_ply_guid = 4;</code>
+       * <code>optional int64 except_ply_guid = 4;</code>
+       */
+      public boolean hasExceptPlyGuid() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>optional int64 except_ply_guid = 4;</code>
        */
       public long getExceptPlyGuid() {
         return exceptPlyGuid_;
       }
       /**
-       * <code>int64 except_ply_guid = 4;</code>
+       * <code>optional int64 except_ply_guid = 4;</code>
        */
       public Builder setExceptPlyGuid(long value) {
-        
+        bitField0_ |= 0x00000008;
         exceptPlyGuid_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>int64 except_ply_guid = 4;</code>
+       * <code>optional int64 except_ply_guid = 4;</code>
        */
       public Builder clearExceptPlyGuid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         exceptPlyGuid_ = 0L;
         onChanged();
         return this;
@@ -16860,7 +19145,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -16883,7 +19168,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fl_club_notify>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fl_club_notify>
         PARSER = new com.google.protobuf.AbstractParser<proto_fl_club_notify>() {
       @java.lang.Override
       public proto_fl_club_notify parsePartialFrom(
@@ -16988,11 +19273,11 @@ public final class LoginMessage {
                 mutable_bitField0_ |= 0x00000001;
               }
               notiMsgInfo_.add(
-                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.parser(), extensionRegistry));
+                  input.readMessage(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.PARSER, extensionRegistry));
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -17068,6 +19353,12 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      for (int i = 0; i < getNotiMsgInfoCount(); i++) {
+        if (!getNotiMsgInfo(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -17385,6 +19676,11 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        for (int i = 0; i < getNotiMsgInfoCount(); i++) {
+          if (!getNotiMsgInfo(i).isInitialized()) {
+            return false;
+          }
+        }
         return true;
       }
 
@@ -17650,7 +19946,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -17673,7 +19969,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_fl_noti_msg>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_fl_noti_msg>
         PARSER = new com.google.protobuf.AbstractParser<proto_fl_noti_msg>() {
       @java.lang.Override
       public proto_fl_noti_msg parsePartialFrom(
@@ -17709,7 +20005,15 @@ public final class LoginMessage {
      *自增id
      * </pre>
      *
-     * <code>int64 autoid = 1;</code>
+     * <code>required int64 autoid = 1;</code>
+     */
+    boolean hasAutoid();
+    /**
+     * <pre>
+     *自增id
+     * </pre>
+     *
+     * <code>required int64 autoid = 1;</code>
      */
     long getAutoid();
 
@@ -17718,7 +20022,15 @@ public final class LoginMessage {
      *发送消息的人的guid
      * </pre>
      *
-     * <code>int64 sender_id = 2;</code>
+     * <code>required int64 sender_id = 2;</code>
+     */
+    boolean hasSenderId();
+    /**
+     * <pre>
+     *发送消息的人的guid
+     * </pre>
+     *
+     * <code>required int64 sender_id = 2;</code>
      */
     long getSenderId();
 
@@ -17727,7 +20039,15 @@ public final class LoginMessage {
      *接收者的guid
      * </pre>
      *
-     * <code>int64 reciever_id = 3;</code>
+     * <code>required int64 reciever_id = 3;</code>
+     */
+    boolean hasRecieverId();
+    /**
+     * <pre>
+     *接收者的guid
+     * </pre>
+     *
+     * <code>required int64 reciever_id = 3;</code>
      */
     long getRecieverId();
 
@@ -17736,7 +20056,15 @@ public final class LoginMessage {
      *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
      * </pre>
      *
-     * <code>int32 msg_type = 4;</code>
+     * <code>required int32 msg_type = 4;</code>
+     */
+    boolean hasMsgType();
+    /**
+     * <pre>
+     *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
+     * </pre>
+     *
+     * <code>required int32 msg_type = 4;</code>
      */
     int getMsgType();
 
@@ -17745,7 +20073,15 @@ public final class LoginMessage {
      *消息显示类型  '1.文本消息 2.操作类型消息'
      * </pre>
      *
-     * <code>int32 msg_show_type = 5;</code>
+     * <code>required int32 msg_show_type = 5;</code>
+     */
+    boolean hasMsgShowType();
+    /**
+     * <pre>
+     *消息显示类型  '1.文本消息 2.操作类型消息'
+     * </pre>
+     *
+     * <code>required int32 msg_show_type = 5;</code>
      */
     int getMsgShowType();
 
@@ -17754,7 +20090,15 @@ public final class LoginMessage {
      *消息 code 0表示未处理，1表示已拒绝，2表示已同意
      * </pre>
      *
-     * <code>string msg = 6;</code>
+     * <code>required string msg = 6;</code>
+     */
+    boolean hasMsg();
+    /**
+     * <pre>
+     *消息 code 0表示未处理，1表示已拒绝，2表示已同意
+     * </pre>
+     *
+     * <code>required string msg = 6;</code>
      */
     java.lang.String getMsg();
     /**
@@ -17762,7 +20106,7 @@ public final class LoginMessage {
      *消息 code 0表示未处理，1表示已拒绝，2表示已同意
      * </pre>
      *
-     * <code>string msg = 6;</code>
+     * <code>required string msg = 6;</code>
      */
     com.google.protobuf.ByteString
         getMsgBytes();
@@ -17772,7 +20116,15 @@ public final class LoginMessage {
      *收取状态    1.已发送 2.未发送
      * </pre>
      *
-     * <code>int32 msg_status = 7;</code>
+     * <code>required int32 msg_status = 7;</code>
+     */
+    boolean hasMsgStatus();
+    /**
+     * <pre>
+     *收取状态    1.已发送 2.未发送
+     * </pre>
+     *
+     * <code>required int32 msg_status = 7;</code>
      */
     int getMsgStatus();
 
@@ -17781,7 +20133,15 @@ public final class LoginMessage {
      *消息的发送时间
      * </pre>
      *
-     * <code>int32 send_time = 8;</code>
+     * <code>required int32 send_time = 8;</code>
+     */
+    boolean hasSendTime();
+    /**
+     * <pre>
+     *消息的发送时间
+     * </pre>
+     *
+     * <code>required int32 send_time = 8;</code>
      */
     int getSendTime();
 
@@ -17790,7 +20150,15 @@ public final class LoginMessage {
      *俱乐部id    游戏消息和个人消息为0
      * </pre>
      *
-     * <code>int32 club_id = 9;</code>
+     * <code>required int32 club_id = 9;</code>
+     */
+    boolean hasClubId();
+    /**
+     * <pre>
+     *俱乐部id    游戏消息和个人消息为0
+     * </pre>
+     *
+     * <code>required int32 club_id = 9;</code>
      */
     int getClubId();
 
@@ -17799,7 +20167,15 @@ public final class LoginMessage {
      *消息过期时间 -1表示永不过期 其它为到期时间戳
      * </pre>
      *
-     * <code>int32 expire_time = 10;</code>
+     * <code>optional int32 expire_time = 10;</code>
+     */
+    boolean hasExpireTime();
+    /**
+     * <pre>
+     *消息过期时间 -1表示永不过期 其它为到期时间戳
+     * </pre>
+     *
+     * <code>optional int32 expire_time = 10;</code>
      */
     int getExpireTime();
 
@@ -17808,32 +20184,28 @@ public final class LoginMessage {
      *状态
      * </pre>
      *
-     * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+     * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
      */
-    int getStatusValue();
+    boolean hasStatus();
     /**
      * <pre>
      *状态
      * </pre>
      *
-     * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+     * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
      */
     com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS getStatus();
 
     /**
-     * <pre>
-     *消息标题
-     * </pre>
-     *
-     * <code>string title = 12;</code>
+     * <code>optional string title = 12;</code>
+     */
+    boolean hasTitle();
+    /**
+     * <code>optional string title = 12;</code>
      */
     java.lang.String getTitle();
     /**
-     * <pre>
-     *消息标题
-     * </pre>
-     *
-     * <code>string title = 12;</code>
+     * <code>optional string title = 12;</code>
      */
     com.google.protobuf.ByteString
         getTitleBytes();
@@ -17890,70 +20262,76 @@ public final class LoginMessage {
               done = true;
               break;
             case 8: {
-
+              bitField0_ |= 0x00000001;
               autoid_ = input.readInt64();
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               senderId_ = input.readInt64();
               break;
             }
             case 24: {
-
+              bitField0_ |= 0x00000004;
               recieverId_ = input.readInt64();
               break;
             }
             case 32: {
-
+              bitField0_ |= 0x00000008;
               msgType_ = input.readInt32();
               break;
             }
             case 40: {
-
+              bitField0_ |= 0x00000010;
               msgShowType_ = input.readInt32();
               break;
             }
             case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              msg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000020;
+              msg_ = bs;
               break;
             }
             case 56: {
-
+              bitField0_ |= 0x00000040;
               msgStatus_ = input.readInt32();
               break;
             }
             case 64: {
-
+              bitField0_ |= 0x00000080;
               sendTime_ = input.readInt32();
               break;
             }
             case 72: {
-
+              bitField0_ |= 0x00000100;
               clubId_ = input.readInt32();
               break;
             }
             case 80: {
-
+              bitField0_ |= 0x00000200;
               expireTime_ = input.readInt32();
               break;
             }
             case 88: {
               int rawValue = input.readEnum();
-
-              status_ = rawValue;
+                @SuppressWarnings("deprecation")
+              com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS value = com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(11, rawValue);
+              } else {
+                bitField0_ |= 0x00000400;
+                status_ = rawValue;
+              }
               break;
             }
             case 98: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              title_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000800;
+              title_ = bs;
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -18013,7 +20391,6 @@ public final class LoginMessage {
        * <code>DELETED = 2;</code>
        */
       DELETED(2),
-      UNRECOGNIZED(-1),
       ;
 
       /**
@@ -18043,10 +20420,6 @@ public final class LoginMessage {
 
 
       public final int getNumber() {
-        if (this == UNRECOGNIZED) {
-          throw new java.lang.IllegalArgumentException(
-              "Can't get the number of an unknown enum value.");
-        }
         return value;
       }
 
@@ -18100,9 +20473,6 @@ public final class LoginMessage {
           throw new java.lang.IllegalArgumentException(
             "EnumValueDescriptor is not for this type.");
         }
-        if (desc.getIndex() == -1) {
-          return UNRECOGNIZED;
-        }
         return VALUES[desc.getIndex()];
       }
 
@@ -18115,6 +20485,7 @@ public final class LoginMessage {
       // @@protoc_insertion_point(enum_scope:proto_NotiMsgInfo.STATUS)
     }
 
+    private int bitField0_;
     public static final int AUTOID_FIELD_NUMBER = 1;
     private long autoid_;
     /**
@@ -18122,7 +20493,17 @@ public final class LoginMessage {
      *自增id
      * </pre>
      *
-     * <code>int64 autoid = 1;</code>
+     * <code>required int64 autoid = 1;</code>
+     */
+    public boolean hasAutoid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     *自增id
+     * </pre>
+     *
+     * <code>required int64 autoid = 1;</code>
      */
     public long getAutoid() {
       return autoid_;
@@ -18135,7 +20516,17 @@ public final class LoginMessage {
      *发送消息的人的guid
      * </pre>
      *
-     * <code>int64 sender_id = 2;</code>
+     * <code>required int64 sender_id = 2;</code>
+     */
+    public boolean hasSenderId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     *发送消息的人的guid
+     * </pre>
+     *
+     * <code>required int64 sender_id = 2;</code>
      */
     public long getSenderId() {
       return senderId_;
@@ -18148,7 +20539,17 @@ public final class LoginMessage {
      *接收者的guid
      * </pre>
      *
-     * <code>int64 reciever_id = 3;</code>
+     * <code>required int64 reciever_id = 3;</code>
+     */
+    public boolean hasRecieverId() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     *接收者的guid
+     * </pre>
+     *
+     * <code>required int64 reciever_id = 3;</code>
      */
     public long getRecieverId() {
       return recieverId_;
@@ -18161,7 +20562,17 @@ public final class LoginMessage {
      *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
      * </pre>
      *
-     * <code>int32 msg_type = 4;</code>
+     * <code>required int32 msg_type = 4;</code>
+     */
+    public boolean hasMsgType() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
+     * </pre>
+     *
+     * <code>required int32 msg_type = 4;</code>
      */
     public int getMsgType() {
       return msgType_;
@@ -18174,7 +20585,17 @@ public final class LoginMessage {
      *消息显示类型  '1.文本消息 2.操作类型消息'
      * </pre>
      *
-     * <code>int32 msg_show_type = 5;</code>
+     * <code>required int32 msg_show_type = 5;</code>
+     */
+    public boolean hasMsgShowType() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     *消息显示类型  '1.文本消息 2.操作类型消息'
+     * </pre>
+     *
+     * <code>required int32 msg_show_type = 5;</code>
      */
     public int getMsgShowType() {
       return msgShowType_;
@@ -18187,7 +20608,17 @@ public final class LoginMessage {
      *消息 code 0表示未处理，1表示已拒绝，2表示已同意
      * </pre>
      *
-     * <code>string msg = 6;</code>
+     * <code>required string msg = 6;</code>
+     */
+    public boolean hasMsg() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     *消息 code 0表示未处理，1表示已拒绝，2表示已同意
+     * </pre>
+     *
+     * <code>required string msg = 6;</code>
      */
     public java.lang.String getMsg() {
       java.lang.Object ref = msg_;
@@ -18197,7 +20628,9 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        msg_ = s;
+        if (bs.isValidUtf8()) {
+          msg_ = s;
+        }
         return s;
       }
     }
@@ -18206,7 +20639,7 @@ public final class LoginMessage {
      *消息 code 0表示未处理，1表示已拒绝，2表示已同意
      * </pre>
      *
-     * <code>string msg = 6;</code>
+     * <code>required string msg = 6;</code>
      */
     public com.google.protobuf.ByteString
         getMsgBytes() {
@@ -18229,7 +20662,17 @@ public final class LoginMessage {
      *收取状态    1.已发送 2.未发送
      * </pre>
      *
-     * <code>int32 msg_status = 7;</code>
+     * <code>required int32 msg_status = 7;</code>
+     */
+    public boolean hasMsgStatus() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     *收取状态    1.已发送 2.未发送
+     * </pre>
+     *
+     * <code>required int32 msg_status = 7;</code>
      */
     public int getMsgStatus() {
       return msgStatus_;
@@ -18242,7 +20685,17 @@ public final class LoginMessage {
      *消息的发送时间
      * </pre>
      *
-     * <code>int32 send_time = 8;</code>
+     * <code>required int32 send_time = 8;</code>
+     */
+    public boolean hasSendTime() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     *消息的发送时间
+     * </pre>
+     *
+     * <code>required int32 send_time = 8;</code>
      */
     public int getSendTime() {
       return sendTime_;
@@ -18255,7 +20708,17 @@ public final class LoginMessage {
      *俱乐部id    游戏消息和个人消息为0
      * </pre>
      *
-     * <code>int32 club_id = 9;</code>
+     * <code>required int32 club_id = 9;</code>
+     */
+    public boolean hasClubId() {
+      return ((bitField0_ & 0x00000100) == 0x00000100);
+    }
+    /**
+     * <pre>
+     *俱乐部id    游戏消息和个人消息为0
+     * </pre>
+     *
+     * <code>required int32 club_id = 9;</code>
      */
     public int getClubId() {
       return clubId_;
@@ -18268,7 +20731,17 @@ public final class LoginMessage {
      *消息过期时间 -1表示永不过期 其它为到期时间戳
      * </pre>
      *
-     * <code>int32 expire_time = 10;</code>
+     * <code>optional int32 expire_time = 10;</code>
+     */
+    public boolean hasExpireTime() {
+      return ((bitField0_ & 0x00000200) == 0x00000200);
+    }
+    /**
+     * <pre>
+     *消息过期时间 -1表示永不过期 其它为到期时间戳
+     * </pre>
+     *
+     * <code>optional int32 expire_time = 10;</code>
      */
     public int getExpireTime() {
       return expireTime_;
@@ -18281,32 +20754,34 @@ public final class LoginMessage {
      *状态
      * </pre>
      *
-     * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+     * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
      */
-    public int getStatusValue() {
-      return status_;
+    public boolean hasStatus() {
+      return ((bitField0_ & 0x00000400) == 0x00000400);
     }
     /**
      * <pre>
      *状态
      * </pre>
      *
-     * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+     * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
      */
     public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS getStatus() {
       @SuppressWarnings("deprecation")
       com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS result = com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.valueOf(status_);
-      return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNRECOGNIZED : result;
+      return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD : result;
     }
 
     public static final int TITLE_FIELD_NUMBER = 12;
     private volatile java.lang.Object title_;
     /**
-     * <pre>
-     *消息标题
-     * </pre>
-     *
-     * <code>string title = 12;</code>
+     * <code>optional string title = 12;</code>
+     */
+    public boolean hasTitle() {
+      return ((bitField0_ & 0x00000800) == 0x00000800);
+    }
+    /**
+     * <code>optional string title = 12;</code>
      */
     public java.lang.String getTitle() {
       java.lang.Object ref = title_;
@@ -18316,16 +20791,14 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        title_ = s;
+        if (bs.isValidUtf8()) {
+          title_ = s;
+        }
         return s;
       }
     }
     /**
-     * <pre>
-     *消息标题
-     * </pre>
-     *
-     * <code>string title = 12;</code>
+     * <code>optional string title = 12;</code>
      */
     public com.google.protobuf.ByteString
         getTitleBytes() {
@@ -18348,6 +20821,42 @@ public final class LoginMessage {
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (!hasAutoid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSenderId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasRecieverId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMsgType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMsgShowType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMsg()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasMsgStatus()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasSendTime()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasClubId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -18355,40 +20864,40 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (autoid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, autoid_);
       }
-      if (senderId_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt64(2, senderId_);
       }
-      if (recieverId_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         output.writeInt64(3, recieverId_);
       }
-      if (msgType_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         output.writeInt32(4, msgType_);
       }
-      if (msgShowType_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         output.writeInt32(5, msgShowType_);
       }
-      if (!getMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, msg_);
       }
-      if (msgStatus_ != 0) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         output.writeInt32(7, msgStatus_);
       }
-      if (sendTime_ != 0) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         output.writeInt32(8, sendTime_);
       }
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         output.writeInt32(9, clubId_);
       }
-      if (expireTime_ != 0) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         output.writeInt32(10, expireTime_);
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD.getNumber()) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         output.writeEnum(11, status_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 12, title_);
       }
       unknownFields.writeTo(output);
@@ -18400,50 +20909,50 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (autoid_ != 0L) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(1, autoid_);
       }
-      if (senderId_ != 0L) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, senderId_);
       }
-      if (recieverId_ != 0L) {
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(3, recieverId_);
       }
-      if (msgType_ != 0) {
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(4, msgType_);
       }
-      if (msgShowType_ != 0) {
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, msgShowType_);
       }
-      if (!getMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, msg_);
       }
-      if (msgStatus_ != 0) {
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(7, msgStatus_);
       }
-      if (sendTime_ != 0) {
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(8, sendTime_);
       }
-      if (clubId_ != 0) {
+      if (((bitField0_ & 0x00000100) == 0x00000100)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(9, clubId_);
       }
-      if (expireTime_ != 0) {
+      if (((bitField0_ & 0x00000200) == 0x00000200)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(10, expireTime_);
       }
-      if (status_ != com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD.getNumber()) {
+      if (((bitField0_ & 0x00000400) == 0x00000400)) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(11, status_);
       }
-      if (!getTitleBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000800) == 0x00000800)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(12, title_);
       }
       size += unknownFields.getSerializedSize();
@@ -18462,29 +20971,65 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo) obj;
 
       boolean result = true;
-      result = result && (getAutoid()
-          == other.getAutoid());
-      result = result && (getSenderId()
-          == other.getSenderId());
-      result = result && (getRecieverId()
-          == other.getRecieverId());
-      result = result && (getMsgType()
-          == other.getMsgType());
-      result = result && (getMsgShowType()
-          == other.getMsgShowType());
-      result = result && getMsg()
-          .equals(other.getMsg());
-      result = result && (getMsgStatus()
-          == other.getMsgStatus());
-      result = result && (getSendTime()
-          == other.getSendTime());
-      result = result && (getClubId()
-          == other.getClubId());
-      result = result && (getExpireTime()
-          == other.getExpireTime());
-      result = result && status_ == other.status_;
-      result = result && getTitle()
-          .equals(other.getTitle());
+      result = result && (hasAutoid() == other.hasAutoid());
+      if (hasAutoid()) {
+        result = result && (getAutoid()
+            == other.getAutoid());
+      }
+      result = result && (hasSenderId() == other.hasSenderId());
+      if (hasSenderId()) {
+        result = result && (getSenderId()
+            == other.getSenderId());
+      }
+      result = result && (hasRecieverId() == other.hasRecieverId());
+      if (hasRecieverId()) {
+        result = result && (getRecieverId()
+            == other.getRecieverId());
+      }
+      result = result && (hasMsgType() == other.hasMsgType());
+      if (hasMsgType()) {
+        result = result && (getMsgType()
+            == other.getMsgType());
+      }
+      result = result && (hasMsgShowType() == other.hasMsgShowType());
+      if (hasMsgShowType()) {
+        result = result && (getMsgShowType()
+            == other.getMsgShowType());
+      }
+      result = result && (hasMsg() == other.hasMsg());
+      if (hasMsg()) {
+        result = result && getMsg()
+            .equals(other.getMsg());
+      }
+      result = result && (hasMsgStatus() == other.hasMsgStatus());
+      if (hasMsgStatus()) {
+        result = result && (getMsgStatus()
+            == other.getMsgStatus());
+      }
+      result = result && (hasSendTime() == other.hasSendTime());
+      if (hasSendTime()) {
+        result = result && (getSendTime()
+            == other.getSendTime());
+      }
+      result = result && (hasClubId() == other.hasClubId());
+      if (hasClubId()) {
+        result = result && (getClubId()
+            == other.getClubId());
+      }
+      result = result && (hasExpireTime() == other.hasExpireTime());
+      if (hasExpireTime()) {
+        result = result && (getExpireTime()
+            == other.getExpireTime());
+      }
+      result = result && (hasStatus() == other.hasStatus());
+      if (hasStatus()) {
+        result = result && status_ == other.status_;
+      }
+      result = result && (hasTitle() == other.hasTitle());
+      if (hasTitle()) {
+        result = result && getTitle()
+            .equals(other.getTitle());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -18496,33 +21041,57 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + AUTOID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getAutoid());
-      hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getSenderId());
-      hash = (37 * hash) + RECIEVER_ID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getRecieverId());
-      hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgType();
-      hash = (37 * hash) + MSG_SHOW_TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgShowType();
-      hash = (37 * hash) + MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getMsg().hashCode();
-      hash = (37 * hash) + MSG_STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + getMsgStatus();
-      hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getSendTime();
-      hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
-      hash = (53 * hash) + getClubId();
-      hash = (37 * hash) + EXPIRE_TIME_FIELD_NUMBER;
-      hash = (53 * hash) + getExpireTime();
-      hash = (37 * hash) + STATUS_FIELD_NUMBER;
-      hash = (53 * hash) + status_;
-      hash = (37 * hash) + TITLE_FIELD_NUMBER;
-      hash = (53 * hash) + getTitle().hashCode();
+      if (hasAutoid()) {
+        hash = (37 * hash) + AUTOID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getAutoid());
+      }
+      if (hasSenderId()) {
+        hash = (37 * hash) + SENDER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getSenderId());
+      }
+      if (hasRecieverId()) {
+        hash = (37 * hash) + RECIEVER_ID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getRecieverId());
+      }
+      if (hasMsgType()) {
+        hash = (37 * hash) + MSG_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgType();
+      }
+      if (hasMsgShowType()) {
+        hash = (37 * hash) + MSG_SHOW_TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgShowType();
+      }
+      if (hasMsg()) {
+        hash = (37 * hash) + MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getMsg().hashCode();
+      }
+      if (hasMsgStatus()) {
+        hash = (37 * hash) + MSG_STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + getMsgStatus();
+      }
+      if (hasSendTime()) {
+        hash = (37 * hash) + SEND_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getSendTime();
+      }
+      if (hasClubId()) {
+        hash = (37 * hash) + CLUB_ID_FIELD_NUMBER;
+        hash = (53 * hash) + getClubId();
+      }
+      if (hasExpireTime()) {
+        hash = (37 * hash) + EXPIRE_TIME_FIELD_NUMBER;
+        hash = (53 * hash) + getExpireTime();
+      }
+      if (hasStatus()) {
+        hash = (37 * hash) + STATUS_FIELD_NUMBER;
+        hash = (53 * hash) + status_;
+      }
+      if (hasTitle()) {
+        hash = (37 * hash) + TITLE_FIELD_NUMBER;
+        hash = (53 * hash) + getTitle().hashCode();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -18657,29 +21226,29 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         autoid_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         senderId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         recieverId_ = 0L;
-
+        bitField0_ = (bitField0_ & ~0x00000004);
         msgType_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000008);
         msgShowType_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000010);
         msg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000020);
         msgStatus_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000040);
         sendTime_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000080);
         clubId_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000100);
         expireTime_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000200);
         status_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000400);
         title_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000800);
         return this;
       }
 
@@ -18706,18 +21275,57 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.autoid_ = autoid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.senderId_ = senderId_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
         result.recieverId_ = recieverId_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
         result.msgType_ = msgType_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
         result.msgShowType_ = msgShowType_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.msg_ = msg_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
         result.msgStatus_ = msgStatus_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
         result.sendTime_ = sendTime_;
+        if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+          to_bitField0_ |= 0x00000100;
+        }
         result.clubId_ = clubId_;
+        if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+          to_bitField0_ |= 0x00000200;
+        }
         result.expireTime_ = expireTime_;
+        if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+          to_bitField0_ |= 0x00000400;
+        }
         result.status_ = status_;
+        if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+          to_bitField0_ |= 0x00000800;
+        }
         result.title_ = title_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -18766,41 +21374,43 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.getDefaultInstance()) return this;
-        if (other.getAutoid() != 0L) {
+        if (other.hasAutoid()) {
           setAutoid(other.getAutoid());
         }
-        if (other.getSenderId() != 0L) {
+        if (other.hasSenderId()) {
           setSenderId(other.getSenderId());
         }
-        if (other.getRecieverId() != 0L) {
+        if (other.hasRecieverId()) {
           setRecieverId(other.getRecieverId());
         }
-        if (other.getMsgType() != 0) {
+        if (other.hasMsgType()) {
           setMsgType(other.getMsgType());
         }
-        if (other.getMsgShowType() != 0) {
+        if (other.hasMsgShowType()) {
           setMsgShowType(other.getMsgShowType());
         }
-        if (!other.getMsg().isEmpty()) {
+        if (other.hasMsg()) {
+          bitField0_ |= 0x00000020;
           msg_ = other.msg_;
           onChanged();
         }
-        if (other.getMsgStatus() != 0) {
+        if (other.hasMsgStatus()) {
           setMsgStatus(other.getMsgStatus());
         }
-        if (other.getSendTime() != 0) {
+        if (other.hasSendTime()) {
           setSendTime(other.getSendTime());
         }
-        if (other.getClubId() != 0) {
+        if (other.hasClubId()) {
           setClubId(other.getClubId());
         }
-        if (other.getExpireTime() != 0) {
+        if (other.hasExpireTime()) {
           setExpireTime(other.getExpireTime());
         }
-        if (other.status_ != 0) {
-          setStatusValue(other.getStatusValue());
+        if (other.hasStatus()) {
+          setStatus(other.getStatus());
         }
-        if (!other.getTitle().isEmpty()) {
+        if (other.hasTitle()) {
+          bitField0_ |= 0x00000800;
           title_ = other.title_;
           onChanged();
         }
@@ -18811,6 +21421,33 @@ public final class LoginMessage {
 
       @java.lang.Override
       public final boolean isInitialized() {
+        if (!hasAutoid()) {
+          return false;
+        }
+        if (!hasSenderId()) {
+          return false;
+        }
+        if (!hasRecieverId()) {
+          return false;
+        }
+        if (!hasMsgType()) {
+          return false;
+        }
+        if (!hasMsgShowType()) {
+          return false;
+        }
+        if (!hasMsg()) {
+          return false;
+        }
+        if (!hasMsgStatus()) {
+          return false;
+        }
+        if (!hasSendTime()) {
+          return false;
+        }
+        if (!hasClubId()) {
+          return false;
+        }
         return true;
       }
 
@@ -18832,6 +21469,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private long autoid_ ;
       /**
@@ -18839,7 +21477,17 @@ public final class LoginMessage {
        *自增id
        * </pre>
        *
-       * <code>int64 autoid = 1;</code>
+       * <code>required int64 autoid = 1;</code>
+       */
+      public boolean hasAutoid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       *自增id
+       * </pre>
+       *
+       * <code>required int64 autoid = 1;</code>
        */
       public long getAutoid() {
         return autoid_;
@@ -18849,10 +21497,10 @@ public final class LoginMessage {
        *自增id
        * </pre>
        *
-       * <code>int64 autoid = 1;</code>
+       * <code>required int64 autoid = 1;</code>
        */
       public Builder setAutoid(long value) {
-        
+        bitField0_ |= 0x00000001;
         autoid_ = value;
         onChanged();
         return this;
@@ -18862,10 +21510,10 @@ public final class LoginMessage {
        *自增id
        * </pre>
        *
-       * <code>int64 autoid = 1;</code>
+       * <code>required int64 autoid = 1;</code>
        */
       public Builder clearAutoid() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         autoid_ = 0L;
         onChanged();
         return this;
@@ -18877,7 +21525,17 @@ public final class LoginMessage {
        *发送消息的人的guid
        * </pre>
        *
-       * <code>int64 sender_id = 2;</code>
+       * <code>required int64 sender_id = 2;</code>
+       */
+      public boolean hasSenderId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       *发送消息的人的guid
+       * </pre>
+       *
+       * <code>required int64 sender_id = 2;</code>
        */
       public long getSenderId() {
         return senderId_;
@@ -18887,10 +21545,10 @@ public final class LoginMessage {
        *发送消息的人的guid
        * </pre>
        *
-       * <code>int64 sender_id = 2;</code>
+       * <code>required int64 sender_id = 2;</code>
        */
       public Builder setSenderId(long value) {
-        
+        bitField0_ |= 0x00000002;
         senderId_ = value;
         onChanged();
         return this;
@@ -18900,10 +21558,10 @@ public final class LoginMessage {
        *发送消息的人的guid
        * </pre>
        *
-       * <code>int64 sender_id = 2;</code>
+       * <code>required int64 sender_id = 2;</code>
        */
       public Builder clearSenderId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         senderId_ = 0L;
         onChanged();
         return this;
@@ -18915,7 +21573,17 @@ public final class LoginMessage {
        *接收者的guid
        * </pre>
        *
-       * <code>int64 reciever_id = 3;</code>
+       * <code>required int64 reciever_id = 3;</code>
+       */
+      public boolean hasRecieverId() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       *接收者的guid
+       * </pre>
+       *
+       * <code>required int64 reciever_id = 3;</code>
        */
       public long getRecieverId() {
         return recieverId_;
@@ -18925,10 +21593,10 @@ public final class LoginMessage {
        *接收者的guid
        * </pre>
        *
-       * <code>int64 reciever_id = 3;</code>
+       * <code>required int64 reciever_id = 3;</code>
        */
       public Builder setRecieverId(long value) {
-        
+        bitField0_ |= 0x00000004;
         recieverId_ = value;
         onChanged();
         return this;
@@ -18938,10 +21606,10 @@ public final class LoginMessage {
        *接收者的guid
        * </pre>
        *
-       * <code>int64 reciever_id = 3;</code>
+       * <code>required int64 reciever_id = 3;</code>
        */
       public Builder clearRecieverId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000004);
         recieverId_ = 0L;
         onChanged();
         return this;
@@ -18953,7 +21621,17 @@ public final class LoginMessage {
        *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 msg_type = 4;</code>
+       * <code>required int32 msg_type = 4;</code>
+       */
+      public boolean hasMsgType() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
+       * </pre>
+       *
+       * <code>required int32 msg_type = 4;</code>
        */
       public int getMsgType() {
         return msgType_;
@@ -18963,10 +21641,10 @@ public final class LoginMessage {
        *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 msg_type = 4;</code>
+       * <code>required int32 msg_type = 4;</code>
        */
       public Builder setMsgType(int value) {
-        
+        bitField0_ |= 0x00000008;
         msgType_ = value;
         onChanged();
         return this;
@@ -18976,10 +21654,10 @@ public final class LoginMessage {
        *消息类型 1.俱乐部消息 2.个人消息 3.游戏消息
        * </pre>
        *
-       * <code>int32 msg_type = 4;</code>
+       * <code>required int32 msg_type = 4;</code>
        */
       public Builder clearMsgType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000008);
         msgType_ = 0;
         onChanged();
         return this;
@@ -18991,7 +21669,17 @@ public final class LoginMessage {
        *消息显示类型  '1.文本消息 2.操作类型消息'
        * </pre>
        *
-       * <code>int32 msg_show_type = 5;</code>
+       * <code>required int32 msg_show_type = 5;</code>
+       */
+      public boolean hasMsgShowType() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       *消息显示类型  '1.文本消息 2.操作类型消息'
+       * </pre>
+       *
+       * <code>required int32 msg_show_type = 5;</code>
        */
       public int getMsgShowType() {
         return msgShowType_;
@@ -19001,10 +21689,10 @@ public final class LoginMessage {
        *消息显示类型  '1.文本消息 2.操作类型消息'
        * </pre>
        *
-       * <code>int32 msg_show_type = 5;</code>
+       * <code>required int32 msg_show_type = 5;</code>
        */
       public Builder setMsgShowType(int value) {
-        
+        bitField0_ |= 0x00000010;
         msgShowType_ = value;
         onChanged();
         return this;
@@ -19014,10 +21702,10 @@ public final class LoginMessage {
        *消息显示类型  '1.文本消息 2.操作类型消息'
        * </pre>
        *
-       * <code>int32 msg_show_type = 5;</code>
+       * <code>required int32 msg_show_type = 5;</code>
        */
       public Builder clearMsgShowType() {
-        
+        bitField0_ = (bitField0_ & ~0x00000010);
         msgShowType_ = 0;
         onChanged();
         return this;
@@ -19029,7 +21717,17 @@ public final class LoginMessage {
        *消息 code 0表示未处理，1表示已拒绝，2表示已同意
        * </pre>
        *
-       * <code>string msg = 6;</code>
+       * <code>required string msg = 6;</code>
+       */
+      public boolean hasMsg() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       *消息 code 0表示未处理，1表示已拒绝，2表示已同意
+       * </pre>
+       *
+       * <code>required string msg = 6;</code>
        */
       public java.lang.String getMsg() {
         java.lang.Object ref = msg_;
@@ -19037,7 +21735,9 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          msg_ = s;
+          if (bs.isValidUtf8()) {
+            msg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -19048,7 +21748,7 @@ public final class LoginMessage {
        *消息 code 0表示未处理，1表示已拒绝，2表示已同意
        * </pre>
        *
-       * <code>string msg = 6;</code>
+       * <code>required string msg = 6;</code>
        */
       public com.google.protobuf.ByteString
           getMsgBytes() {
@@ -19068,14 +21768,14 @@ public final class LoginMessage {
        *消息 code 0表示未处理，1表示已拒绝，2表示已同意
        * </pre>
        *
-       * <code>string msg = 6;</code>
+       * <code>required string msg = 6;</code>
        */
       public Builder setMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000020;
         msg_ = value;
         onChanged();
         return this;
@@ -19085,10 +21785,10 @@ public final class LoginMessage {
        *消息 code 0表示未处理，1表示已拒绝，2表示已同意
        * </pre>
        *
-       * <code>string msg = 6;</code>
+       * <code>required string msg = 6;</code>
        */
       public Builder clearMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000020);
         msg_ = getDefaultInstance().getMsg();
         onChanged();
         return this;
@@ -19098,15 +21798,14 @@ public final class LoginMessage {
        *消息 code 0表示未处理，1表示已拒绝，2表示已同意
        * </pre>
        *
-       * <code>string msg = 6;</code>
+       * <code>required string msg = 6;</code>
        */
       public Builder setMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000020;
         msg_ = value;
         onChanged();
         return this;
@@ -19118,7 +21817,17 @@ public final class LoginMessage {
        *收取状态    1.已发送 2.未发送
        * </pre>
        *
-       * <code>int32 msg_status = 7;</code>
+       * <code>required int32 msg_status = 7;</code>
+       */
+      public boolean hasMsgStatus() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       *收取状态    1.已发送 2.未发送
+       * </pre>
+       *
+       * <code>required int32 msg_status = 7;</code>
        */
       public int getMsgStatus() {
         return msgStatus_;
@@ -19128,10 +21837,10 @@ public final class LoginMessage {
        *收取状态    1.已发送 2.未发送
        * </pre>
        *
-       * <code>int32 msg_status = 7;</code>
+       * <code>required int32 msg_status = 7;</code>
        */
       public Builder setMsgStatus(int value) {
-        
+        bitField0_ |= 0x00000040;
         msgStatus_ = value;
         onChanged();
         return this;
@@ -19141,10 +21850,10 @@ public final class LoginMessage {
        *收取状态    1.已发送 2.未发送
        * </pre>
        *
-       * <code>int32 msg_status = 7;</code>
+       * <code>required int32 msg_status = 7;</code>
        */
       public Builder clearMsgStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000040);
         msgStatus_ = 0;
         onChanged();
         return this;
@@ -19156,7 +21865,17 @@ public final class LoginMessage {
        *消息的发送时间
        * </pre>
        *
-       * <code>int32 send_time = 8;</code>
+       * <code>required int32 send_time = 8;</code>
+       */
+      public boolean hasSendTime() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       *消息的发送时间
+       * </pre>
+       *
+       * <code>required int32 send_time = 8;</code>
        */
       public int getSendTime() {
         return sendTime_;
@@ -19166,10 +21885,10 @@ public final class LoginMessage {
        *消息的发送时间
        * </pre>
        *
-       * <code>int32 send_time = 8;</code>
+       * <code>required int32 send_time = 8;</code>
        */
       public Builder setSendTime(int value) {
-        
+        bitField0_ |= 0x00000080;
         sendTime_ = value;
         onChanged();
         return this;
@@ -19179,10 +21898,10 @@ public final class LoginMessage {
        *消息的发送时间
        * </pre>
        *
-       * <code>int32 send_time = 8;</code>
+       * <code>required int32 send_time = 8;</code>
        */
       public Builder clearSendTime() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         sendTime_ = 0;
         onChanged();
         return this;
@@ -19194,7 +21913,17 @@ public final class LoginMessage {
        *俱乐部id    游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 9;</code>
+       * <code>required int32 club_id = 9;</code>
+       */
+      public boolean hasClubId() {
+        return ((bitField0_ & 0x00000100) == 0x00000100);
+      }
+      /**
+       * <pre>
+       *俱乐部id    游戏消息和个人消息为0
+       * </pre>
+       *
+       * <code>required int32 club_id = 9;</code>
        */
       public int getClubId() {
         return clubId_;
@@ -19204,10 +21933,10 @@ public final class LoginMessage {
        *俱乐部id    游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 9;</code>
+       * <code>required int32 club_id = 9;</code>
        */
       public Builder setClubId(int value) {
-        
+        bitField0_ |= 0x00000100;
         clubId_ = value;
         onChanged();
         return this;
@@ -19217,10 +21946,10 @@ public final class LoginMessage {
        *俱乐部id    游戏消息和个人消息为0
        * </pre>
        *
-       * <code>int32 club_id = 9;</code>
+       * <code>required int32 club_id = 9;</code>
        */
       public Builder clearClubId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         clubId_ = 0;
         onChanged();
         return this;
@@ -19232,7 +21961,17 @@ public final class LoginMessage {
        *消息过期时间 -1表示永不过期 其它为到期时间戳
        * </pre>
        *
-       * <code>int32 expire_time = 10;</code>
+       * <code>optional int32 expire_time = 10;</code>
+       */
+      public boolean hasExpireTime() {
+        return ((bitField0_ & 0x00000200) == 0x00000200);
+      }
+      /**
+       * <pre>
+       *消息过期时间 -1表示永不过期 其它为到期时间戳
+       * </pre>
+       *
+       * <code>optional int32 expire_time = 10;</code>
        */
       public int getExpireTime() {
         return expireTime_;
@@ -19242,10 +21981,10 @@ public final class LoginMessage {
        *消息过期时间 -1表示永不过期 其它为到期时间戳
        * </pre>
        *
-       * <code>int32 expire_time = 10;</code>
+       * <code>optional int32 expire_time = 10;</code>
        */
       public Builder setExpireTime(int value) {
-        
+        bitField0_ |= 0x00000200;
         expireTime_ = value;
         onChanged();
         return this;
@@ -19255,10 +21994,10 @@ public final class LoginMessage {
        *消息过期时间 -1表示永不过期 其它为到期时间戳
        * </pre>
        *
-       * <code>int32 expire_time = 10;</code>
+       * <code>optional int32 expire_time = 10;</code>
        */
       public Builder clearExpireTime() {
-        
+        bitField0_ = (bitField0_ & ~0x00000200);
         expireTime_ = 0;
         onChanged();
         return this;
@@ -19270,47 +22009,35 @@ public final class LoginMessage {
        *状态
        * </pre>
        *
-       * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+       * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
        */
-      public int getStatusValue() {
-        return status_;
+      public boolean hasStatus() {
+        return ((bitField0_ & 0x00000400) == 0x00000400);
       }
       /**
        * <pre>
        *状态
        * </pre>
        *
-       * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
-       */
-      public Builder setStatusValue(int value) {
-        status_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       *状态
-       * </pre>
-       *
-       * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+       * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
        */
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS getStatus() {
         @SuppressWarnings("deprecation")
         com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS result = com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.valueOf(status_);
-        return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNRECOGNIZED : result;
+        return result == null ? com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS.UNREAD : result;
       }
       /**
        * <pre>
        *状态
        * </pre>
        *
-       * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+       * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
        */
       public Builder setStatus(com.wp.casino.messagenetty.proto.LoginMessage.proto_NotiMsgInfo.STATUS value) {
         if (value == null) {
           throw new NullPointerException();
         }
-        
+        bitField0_ |= 0x00000400;
         status_ = value.getNumber();
         onChanged();
         return this;
@@ -19320,10 +22047,10 @@ public final class LoginMessage {
        *状态
        * </pre>
        *
-       * <code>.proto_NotiMsgInfo.STATUS status = 11;</code>
+       * <code>optional .proto_NotiMsgInfo.STATUS status = 11;</code>
        */
       public Builder clearStatus() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         status_ = 0;
         onChanged();
         return this;
@@ -19331,11 +22058,13 @@ public final class LoginMessage {
 
       private java.lang.Object title_ = "";
       /**
-       * <pre>
-       *消息标题
-       * </pre>
-       *
-       * <code>string title = 12;</code>
+       * <code>optional string title = 12;</code>
+       */
+      public boolean hasTitle() {
+        return ((bitField0_ & 0x00000800) == 0x00000800);
+      }
+      /**
+       * <code>optional string title = 12;</code>
        */
       public java.lang.String getTitle() {
         java.lang.Object ref = title_;
@@ -19343,18 +22072,16 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          title_ = s;
+          if (bs.isValidUtf8()) {
+            title_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <pre>
-       *消息标题
-       * </pre>
-       *
-       * <code>string title = 12;</code>
+       * <code>optional string title = 12;</code>
        */
       public com.google.protobuf.ByteString
           getTitleBytes() {
@@ -19370,49 +22097,36 @@ public final class LoginMessage {
         }
       }
       /**
-       * <pre>
-       *消息标题
-       * </pre>
-       *
-       * <code>string title = 12;</code>
+       * <code>optional string title = 12;</code>
        */
       public Builder setTitle(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000800;
         title_ = value;
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *消息标题
-       * </pre>
-       *
-       * <code>string title = 12;</code>
+       * <code>optional string title = 12;</code>
        */
       public Builder clearTitle() {
-        
+        bitField0_ = (bitField0_ & ~0x00000800);
         title_ = getDefaultInstance().getTitle();
         onChanged();
         return this;
       }
       /**
-       * <pre>
-       *消息标题
-       * </pre>
-       *
-       * <code>string title = 12;</code>
+       * <code>optional string title = 12;</code>
        */
       public Builder setTitleBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000800;
         title_ = value;
         onChanged();
         return this;
@@ -19420,7 +22134,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -19443,7 +22157,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_NotiMsgInfo>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_NotiMsgInfo>
         PARSER = new com.google.protobuf.AbstractParser<proto_NotiMsgInfo>() {
       @java.lang.Override
       public proto_NotiMsgInfo parsePartialFrom(
@@ -19479,7 +22193,15 @@ public final class LoginMessage {
      * 错误消息，为空时表示正确
      * </pre>
      *
-     * <code>string err_msg = 1;</code>
+     * <code>optional string err_msg = 1;</code>
+     */
+    boolean hasErrMsg();
+    /**
+     * <pre>
+     * 错误消息，为空时表示正确
+     * </pre>
+     *
+     * <code>optional string err_msg = 1;</code>
      */
     java.lang.String getErrMsg();
     /**
@@ -19487,7 +22209,7 @@ public final class LoginMessage {
      * 错误消息，为空时表示正确
      * </pre>
      *
-     * <code>string err_msg = 1;</code>
+     * <code>optional string err_msg = 1;</code>
      */
     com.google.protobuf.ByteString
         getErrMsgBytes();
@@ -19497,7 +22219,15 @@ public final class LoginMessage {
      * 0 成功
      * </pre>
      *
-     * <code>int32 ret = 2;</code>
+     * <code>optional int32 ret = 2;</code>
+     */
+    boolean hasRet();
+    /**
+     * <pre>
+     * 0 成功
+     * </pre>
+     *
+     * <code>optional int32 ret = 2;</code>
      */
     int getRet();
   }
@@ -19547,18 +22277,18 @@ public final class LoginMessage {
               done = true;
               break;
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              errMsg_ = s;
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000001;
+              errMsg_ = bs;
               break;
             }
             case 16: {
-
+              bitField0_ |= 0x00000002;
               ret_ = input.readInt32();
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -19589,6 +22319,7 @@ public final class LoginMessage {
               com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack.class, com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ERR_MSG_FIELD_NUMBER = 1;
     private volatile java.lang.Object errMsg_;
     /**
@@ -19596,7 +22327,17 @@ public final class LoginMessage {
      * 错误消息，为空时表示正确
      * </pre>
      *
-     * <code>string err_msg = 1;</code>
+     * <code>optional string err_msg = 1;</code>
+     */
+    public boolean hasErrMsg() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <pre>
+     * 错误消息，为空时表示正确
+     * </pre>
+     *
+     * <code>optional string err_msg = 1;</code>
      */
     public java.lang.String getErrMsg() {
       java.lang.Object ref = errMsg_;
@@ -19606,7 +22347,9 @@ public final class LoginMessage {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        errMsg_ = s;
+        if (bs.isValidUtf8()) {
+          errMsg_ = s;
+        }
         return s;
       }
     }
@@ -19615,7 +22358,7 @@ public final class LoginMessage {
      * 错误消息，为空时表示正确
      * </pre>
      *
-     * <code>string err_msg = 1;</code>
+     * <code>optional string err_msg = 1;</code>
      */
     public com.google.protobuf.ByteString
         getErrMsgBytes() {
@@ -19638,7 +22381,17 @@ public final class LoginMessage {
      * 0 成功
      * </pre>
      *
-     * <code>int32 ret = 2;</code>
+     * <code>optional int32 ret = 2;</code>
+     */
+    public boolean hasRet() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <pre>
+     * 0 成功
+     * </pre>
+     *
+     * <code>optional int32 ret = 2;</code>
      */
     public int getRet() {
       return ret_;
@@ -19658,10 +22411,10 @@ public final class LoginMessage {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, errMsg_);
       }
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeInt32(2, ret_);
       }
       unknownFields.writeTo(output);
@@ -19673,10 +22426,10 @@ public final class LoginMessage {
       if (size != -1) return size;
 
       size = 0;
-      if (!getErrMsgBytes().isEmpty()) {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, errMsg_);
       }
-      if (ret_ != 0) {
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(2, ret_);
       }
@@ -19696,10 +22449,16 @@ public final class LoginMessage {
       com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack other = (com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack) obj;
 
       boolean result = true;
-      result = result && getErrMsg()
-          .equals(other.getErrMsg());
-      result = result && (getRet()
-          == other.getRet());
+      result = result && (hasErrMsg() == other.hasErrMsg());
+      if (hasErrMsg()) {
+        result = result && getErrMsg()
+            .equals(other.getErrMsg());
+      }
+      result = result && (hasRet() == other.hasRet());
+      if (hasRet()) {
+        result = result && (getRet()
+            == other.getRet());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -19711,10 +22470,14 @@ public final class LoginMessage {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
-      hash = (53 * hash) + getErrMsg().hashCode();
-      hash = (37 * hash) + RET_FIELD_NUMBER;
-      hash = (53 * hash) + getRet();
+      if (hasErrMsg()) {
+        hash = (37 * hash) + ERR_MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getErrMsg().hashCode();
+      }
+      if (hasRet()) {
+        hash = (37 * hash) + RET_FIELD_NUMBER;
+        hash = (53 * hash) + getRet();
+      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -19853,9 +22616,9 @@ public final class LoginMessage {
       public Builder clear() {
         super.clear();
         errMsg_ = "";
-
+        bitField0_ = (bitField0_ & ~0x00000001);
         ret_ = 0;
-
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -19882,8 +22645,17 @@ public final class LoginMessage {
       @java.lang.Override
       public com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack buildPartial() {
         com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack result = new com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
         result.errMsg_ = errMsg_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
         result.ret_ = ret_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -19932,11 +22704,12 @@ public final class LoginMessage {
 
       public Builder mergeFrom(com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack other) {
         if (other == com.wp.casino.messagenetty.proto.LoginMessage.proto_lc_club_apply_join_ack.getDefaultInstance()) return this;
-        if (!other.getErrMsg().isEmpty()) {
+        if (other.hasErrMsg()) {
+          bitField0_ |= 0x00000001;
           errMsg_ = other.errMsg_;
           onChanged();
         }
-        if (other.getRet() != 0) {
+        if (other.hasRet()) {
           setRet(other.getRet());
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -19967,6 +22740,7 @@ public final class LoginMessage {
         }
         return this;
       }
+      private int bitField0_;
 
       private java.lang.Object errMsg_ = "";
       /**
@@ -19974,7 +22748,17 @@ public final class LoginMessage {
        * 错误消息，为空时表示正确
        * </pre>
        *
-       * <code>string err_msg = 1;</code>
+       * <code>optional string err_msg = 1;</code>
+       */
+      public boolean hasErrMsg() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <pre>
+       * 错误消息，为空时表示正确
+       * </pre>
+       *
+       * <code>optional string err_msg = 1;</code>
        */
       public java.lang.String getErrMsg() {
         java.lang.Object ref = errMsg_;
@@ -19982,7 +22766,9 @@ public final class LoginMessage {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          errMsg_ = s;
+          if (bs.isValidUtf8()) {
+            errMsg_ = s;
+          }
           return s;
         } else {
           return (java.lang.String) ref;
@@ -19993,7 +22779,7 @@ public final class LoginMessage {
        * 错误消息，为空时表示正确
        * </pre>
        *
-       * <code>string err_msg = 1;</code>
+       * <code>optional string err_msg = 1;</code>
        */
       public com.google.protobuf.ByteString
           getErrMsgBytes() {
@@ -20013,14 +22799,14 @@ public final class LoginMessage {
        * 错误消息，为空时表示正确
        * </pre>
        *
-       * <code>string err_msg = 1;</code>
+       * <code>optional string err_msg = 1;</code>
        */
       public Builder setErrMsg(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  
+  bitField0_ |= 0x00000001;
         errMsg_ = value;
         onChanged();
         return this;
@@ -20030,10 +22816,10 @@ public final class LoginMessage {
        * 错误消息，为空时表示正确
        * </pre>
        *
-       * <code>string err_msg = 1;</code>
+       * <code>optional string err_msg = 1;</code>
        */
       public Builder clearErrMsg() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         errMsg_ = getDefaultInstance().getErrMsg();
         onChanged();
         return this;
@@ -20043,15 +22829,14 @@ public final class LoginMessage {
        * 错误消息，为空时表示正确
        * </pre>
        *
-       * <code>string err_msg = 1;</code>
+       * <code>optional string err_msg = 1;</code>
        */
       public Builder setErrMsgBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
-  checkByteStringIsUtf8(value);
-        
+  bitField0_ |= 0x00000001;
         errMsg_ = value;
         onChanged();
         return this;
@@ -20063,7 +22848,17 @@ public final class LoginMessage {
        * 0 成功
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>optional int32 ret = 2;</code>
+       */
+      public boolean hasRet() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <pre>
+       * 0 成功
+       * </pre>
+       *
+       * <code>optional int32 ret = 2;</code>
        */
       public int getRet() {
         return ret_;
@@ -20073,10 +22868,10 @@ public final class LoginMessage {
        * 0 成功
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>optional int32 ret = 2;</code>
        */
       public Builder setRet(int value) {
-        
+        bitField0_ |= 0x00000002;
         ret_ = value;
         onChanged();
         return this;
@@ -20086,10 +22881,10 @@ public final class LoginMessage {
        * 0 成功
        * </pre>
        *
-       * <code>int32 ret = 2;</code>
+       * <code>optional int32 ret = 2;</code>
        */
       public Builder clearRet() {
-        
+        bitField0_ = (bitField0_ & ~0x00000002);
         ret_ = 0;
         onChanged();
         return this;
@@ -20097,7 +22892,7 @@ public final class LoginMessage {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -20120,7 +22915,7 @@ public final class LoginMessage {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<proto_lc_club_apply_join_ack>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<proto_lc_club_apply_join_ack>
         PARSER = new com.google.protobuf.AbstractParser<proto_lc_club_apply_join_ack>() {
       @java.lang.Override
       public proto_lc_club_apply_join_ack parsePartialFrom(
@@ -20282,76 +23077,75 @@ public final class LoginMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\022loginMessage.proto\"\212\001\n\035proto_lf_club_a" +
-      "pply_join_noti\022\017\n\007club_id\030\001 \001(\005\022\021\n\tclub_" +
-      "name\030\002 \001(\t\022\026\n\016apply_ply_guid\030\003 \001(\003\022\026\n\016ap" +
+      "pply_join_noti\022\017\n\007club_id\030\001 \002(\005\022\021\n\tclub_" +
+      "name\030\002 \001(\t\022\026\n\016apply_ply_guid\030\003 \002(\003\022\026\n\016ap" +
       "ply_ply_name\030\004 \001(\t\022\025\n\rreferrer_guid\030\005 \001(" +
       "\003\"\304\001\n\035proto_lf_join_room_reply_noti\022\020\n\010t" +
-      "able_id\030\001 \001(\005\022\013\n\003ret\030\002 \001(\005\022\017\n\007game_id\030\003 " +
-      "\001(\005\022\021\n\tserver_id\030\004 \001(\005\022\020\n\010ply_guid\030\005 \001(\003" +
-      "\022\022\n\nowner_guid\030\006 \001(\003\022\022\n\ntable_name\030\007 \001(\t" +
-      "\022\022\n\nmessage_id\030\010 \001(\003\022\022\n\nreply_code\030\t \001(\005" +
+      "able_id\030\001 \002(\005\022\013\n\003ret\030\002 \002(\005\022\017\n\007game_id\030\003 " +
+      "\002(\005\022\021\n\tserver_id\030\004 \002(\005\022\020\n\010ply_guid\030\005 \002(\003" +
+      "\022\022\n\nowner_guid\030\006 \002(\003\022\022\n\ntable_name\030\007 \001(\t" +
+      "\022\022\n\nmessage_id\030\010 \002(\003\022\022\n\nreply_code\030\t \002(\005" +
       "\"q\n\032proto_cl_load_noti_msg_req\022\014\n\004type\030\001" +
-      " \001(\005\022\017\n\007club_id\030\002 \001(\005\022\020\n\010ply_guid\030\003 \001(\003\022" +
-      "\017\n\007auto_id\030\004 \001(\003\022\021\n\tmax_count\030\005 \001(\005\"X\n\032p" +
+      " \002(\005\022\017\n\007club_id\030\002 \002(\005\022\020\n\010ply_guid\030\003 \002(\003\022" +
+      "\017\n\007auto_id\030\004 \002(\003\022\021\n\tmax_count\030\005 \001(\005\"X\n\032p" +
       "roto_lc_load_noti_msg_ack\022)\n\rnoti_msg_in" +
       "fo\030\001 \003(\0132\022.proto_NotiMsgInfo\022\017\n\007auto_id\030" +
       "\002 \001(\003\"x\n!proto_cf_add_club_chat_record_r" +
-      "eq\022\020\n\010club_uid\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\020" +
-      "\n\010chat_msg\030\003 \001(\t\022\017\n\007game_id\030\004 \001(\005\022\014\n\004typ" +
-      "e\030\005 \001(\005\"\201\001\n!proto_fc_add_club_chat_recor" +
-      "d_ack\022\013\n\003ret\030\001 \001(\005\022>\n\025club_chat_record_i" +
+      "eq\022\020\n\010club_uid\030\001 \002(\005\022\020\n\010ply_guid\030\002 \002(\003\022\020" +
+      "\n\010chat_msg\030\003 \002(\t\022\017\n\007game_id\030\004 \002(\005\022\014\n\004typ" +
+      "e\030\005 \002(\005\"\201\001\n!proto_fc_add_club_chat_recor" +
+      "d_ack\022\013\n\003ret\030\001 \002(\005\022>\n\025club_chat_record_i" +
       "nfo\030\002 \003(\0132\037.proto_ClubChatRecordInfoStru" +
       "ct\022\017\n\007err_msg\030\003 \001(\t\"d\n\"proto_fc_add_club" +
       "_chat_record_noti\022>\n\025club_chat_record_in" +
       "fo\030\001 \003(\0132\037.proto_ClubChatRecordInfoStruc" +
       "t\"i\n\"proto_cf_sync_club_chat_record_req\022" +
-      "\020\n\010club_uid\030\001 \001(\005\022\020\n\010ply_guid\030\002 \001(\003\022\016\n\006a" +
-      "utoid\030\003 \001(\005\022\017\n\007req_num\030\004 \001(\005\"\224\001\n\"proto_f" +
-      "c_sync_club_chat_record_ack\022\013\n\003ret\030\001 \001(\005" +
-      "\022\020\n\010ply_guid\030\002 \001(\003\022>\n\025club_chat_record_i" +
+      "\020\n\010club_uid\030\001 \002(\005\022\020\n\010ply_guid\030\002 \002(\003\022\016\n\006a" +
+      "utoid\030\003 \002(\005\022\017\n\007req_num\030\004 \001(\005\"\224\001\n\"proto_f" +
+      "c_sync_club_chat_record_ack\022\013\n\003ret\030\001 \002(\005" +
+      "\022\020\n\010ply_guid\030\002 \002(\003\022>\n\025club_chat_record_i" +
       "nfo\030\003 \003(\0132\037.proto_ClubChatRecordInfoStru" +
       "ct\022\017\n\007err_msg\030\004 \001(\t\"\264\001\n\036proto_ClubChatRe" +
-      "cordInfoStruct\022\020\n\010club_uid\030\001 \001(\005\022\017\n\007game" +
-      "_id\030\002 \001(\005\022\025\n\rsend_msg_time\030\003 \001(\005\022\017\n\007auto" +
-      "_id\030\004 \001(\005\022\016\n\006ply_id\030\005 \001(\003\022\020\n\010chat_msg\030\006 " +
-      "\001(\t\022\014\n\004type\030\007 \001(\005\022\027\n\017club_message_id\030\010 \001" +
-      "(\005\"\236\001\n\036proto_cl_update_msg_status_req\022\024\n" +
-      "\014auto_id_list\030\001 \003(\003\0226\n\006status\030\002 \001(\0162&.pr" +
-      "oto_cl_update_msg_status_req.STATUS\".\n\006S" +
-      "TATUS\022\r\n\tnullValue\020\000\022\010\n\004READ\020\001\022\013\n\007DELETE" +
-      "D\020\002\">\n\036proto_lc_update_msg_status_ack\022\013\n" +
-      "\003ret\030\001 \001(\005\022\017\n\007err_msg\030\002 \001(\t\"-\n\032proto_cl_" +
-      "get_msg_count_req\022\017\n\007club_id\030\001 \001(\005\"~\n\032pr" +
-      "oto_lc_get_msg_count_ack\0226\n\nresult_set\030\001" +
-      " \003(\0132\".proto_lc_get_msg_count_ack.Result" +
-      "\032(\n\006Result\022\017\n\007club_id\030\001 \001(\005\022\r\n\005count\030\002 \001" +
-      "(\005\"L\n\032proto_cf_message_wrap_sync\022\020\n\010ply_" +
-      "guid\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014" +
-      "\"L\n\032proto_fc_message_wrap_sync\022\020\n\010ply_gu" +
-      "id\030\001 \001(\003\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\"*" +
-      "\n\025proto_lf_register_req\022\021\n\tserver_id\030\001 \001" +
-      "(\005\"$\n\025proto_fl_register_ack\022\013\n\003ret\030\001 \001(\005" +
-      "\"\230\001\n$proto_lf_update_ply_login_status_no" +
-      "t\022\020\n\010ply_guid\030\001 \001(\003\022\017\n\007ply_vip\030\002 \001(\005\022\021\n\t" +
-      "ply_level\030\003 \001(\005\022\021\n\tnick_name\030\004 \001(\t\022\020\n\010he" +
-      "ad_img\030\005 \001(\t\022\025\n\ruser_language\030\006 \001(\005\"9\n%p" +
-      "roto_lf_update_ply_logout_status_not\022\020\n\010" +
-      "ply_guid\030\001 \001(\003\"^\n\024proto_fl_club_notify\022\017" +
-      "\n\007club_id\030\001 \001(\005\022\016\n\006opcode\030\002 \001(\005\022\014\n\004data\030" +
-      "\003 \001(\014\022\027\n\017except_ply_guid\030\004 \001(\003\">\n\021proto_" +
-      "fl_noti_msg\022)\n\rnoti_msg_info\030\001 \003(\0132\022.pro" +
-      "to_NotiMsgInfo\"\265\002\n\021proto_NotiMsgInfo\022\016\n\006" +
-      "autoid\030\001 \001(\003\022\021\n\tsender_id\030\002 \001(\003\022\023\n\013recie" +
-      "ver_id\030\003 \001(\003\022\020\n\010msg_type\030\004 \001(\005\022\025\n\rmsg_sh" +
-      "ow_type\030\005 \001(\005\022\013\n\003msg\030\006 \001(\t\022\022\n\nmsg_status" +
-      "\030\007 \001(\005\022\021\n\tsend_time\030\010 \001(\005\022\017\n\007club_id\030\t \001" +
-      "(\005\022\023\n\013expire_time\030\n \001(\005\022)\n\006status\030\013 \001(\0162" +
-      "\031.proto_NotiMsgInfo.STATUS\022\r\n\005title\030\014 \001(" +
-      "\t\"+\n\006STATUS\022\n\n\006UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DEL" +
-      "ETED\020\002\"<\n\034proto_lc_club_apply_join_ack\022\017" +
-      "\n\007err_msg\030\001 \001(\t\022\013\n\003ret\030\002 \001(\005B2\n com.wp.c" +
-      "asino.messagenetty.protoB\014LoginMessageH\001" +
-      "b\006proto3"
+      "cordInfoStruct\022\020\n\010club_uid\030\001 \002(\005\022\017\n\007game" +
+      "_id\030\002 \002(\005\022\025\n\rsend_msg_time\030\003 \002(\005\022\017\n\007auto" +
+      "_id\030\004 \002(\005\022\016\n\006ply_id\030\005 \002(\003\022\020\n\010chat_msg\030\006 " +
+      "\002(\t\022\014\n\004type\030\007 \002(\005\022\027\n\017club_message_id\030\010 \002" +
+      "(\005\"\217\001\n\036proto_cl_update_msg_status_req\022\024\n" +
+      "\014auto_id_list\030\001 \003(\003\0226\n\006status\030\002 \002(\0162&.pr" +
+      "oto_cl_update_msg_status_req.STATUS\"\037\n\006S" +
+      "TATUS\022\010\n\004READ\020\001\022\013\n\007DELETED\020\002\">\n\036proto_lc" +
+      "_update_msg_status_ack\022\013\n\003ret\030\001 \002(\005\022\017\n\007e" +
+      "rr_msg\030\002 \002(\t\"-\n\032proto_cl_get_msg_count_r" +
+      "eq\022\017\n\007club_id\030\001 \001(\005\"~\n\032proto_lc_get_msg_" +
+      "count_ack\0226\n\nresult_set\030\001 \003(\0132\".proto_lc" +
+      "_get_msg_count_ack.Result\032(\n\006Result\022\017\n\007c" +
+      "lub_id\030\001 \002(\005\022\r\n\005count\030\002 \002(\005\"L\n\032proto_cf_" +
+      "message_wrap_sync\022\020\n\010ply_guid\030\001 \002(\003\022\016\n\006o" +
+      "pcode\030\002 \002(\005\022\014\n\004data\030\003 \002(\014\"L\n\032proto_fc_me" +
+      "ssage_wrap_sync\022\020\n\010ply_guid\030\001 \002(\003\022\016\n\006opc" +
+      "ode\030\002 \002(\005\022\014\n\004data\030\003 \002(\014\"*\n\025proto_lf_regi" +
+      "ster_req\022\021\n\tserver_id\030\001 \002(\005\"$\n\025proto_fl_" +
+      "register_ack\022\013\n\003ret\030\001 \002(\005\"\230\001\n$proto_lf_u" +
+      "pdate_ply_login_status_not\022\020\n\010ply_guid\030\001" +
+      " \002(\003\022\017\n\007ply_vip\030\002 \002(\005\022\021\n\tply_level\030\003 \002(\005" +
+      "\022\021\n\tnick_name\030\004 \002(\t\022\020\n\010head_img\030\005 \002(\t\022\025\n" +
+      "\ruser_language\030\006 \002(\005\"9\n%proto_lf_update_" +
+      "ply_logout_status_not\022\020\n\010ply_guid\030\001 \002(\003\"" +
+      "^\n\024proto_fl_club_notify\022\017\n\007club_id\030\001 \002(\005" +
+      "\022\016\n\006opcode\030\002 \002(\005\022\014\n\004data\030\003 \002(\014\022\027\n\017except" +
+      "_ply_guid\030\004 \001(\003\">\n\021proto_fl_noti_msg\022)\n\r" +
+      "noti_msg_info\030\001 \003(\0132\022.proto_NotiMsgInfo\"" +
+      "\265\002\n\021proto_NotiMsgInfo\022\016\n\006autoid\030\001 \002(\003\022\021\n" +
+      "\tsender_id\030\002 \002(\003\022\023\n\013reciever_id\030\003 \002(\003\022\020\n" +
+      "\010msg_type\030\004 \002(\005\022\025\n\rmsg_show_type\030\005 \002(\005\022\013" +
+      "\n\003msg\030\006 \002(\t\022\022\n\nmsg_status\030\007 \002(\005\022\021\n\tsend_" +
+      "time\030\010 \002(\005\022\017\n\007club_id\030\t \002(\005\022\023\n\013expire_ti" +
+      "me\030\n \001(\005\022)\n\006status\030\013 \001(\0162\031.proto_NotiMsg" +
+      "Info.STATUS\022\r\n\005title\030\014 \001(\t\"+\n\006STATUS\022\n\n\006" +
+      "UNREAD\020\000\022\010\n\004READ\020\001\022\013\n\007DELETED\020\002\"<\n\034proto" +
+      "_lc_club_apply_join_ack\022\017\n\007err_msg\030\001 \001(\t" +
+      "\022\013\n\003ret\030\002 \001(\005B2\n com.wp.casino.messagene" +
+      "tty.protoB\014LoginMessageH\001"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
