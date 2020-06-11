@@ -2,6 +2,7 @@ package com.wp.casino.messagenetty.deec;
 
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
+import com.sun.org.apache.xpath.internal.operations.String;
 import com.wp.casino.messagenetty.utils.MessageMappingHolder;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -10,6 +11,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.nio.ByteBuffer;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -48,6 +50,7 @@ public class MessageDecoder extends ByteToMessageDecoder {
                 body.readBytes(bytes);
                 MessageLite messageLite= (MessageLite) parser.parseFrom(bytes);
                 log.info("decode-----messageLite:{}",messageLite);
+                log.info("decode-----messageLite333333:{}", Arrays.toString(messageLite.toByteArray()));
                 currentPackageLength = 0;
                 buf.discardReadBytes();
                 ctx.fireChannelRead(messageLite);//将消息传递下去，或者在这里将消息发布出去
@@ -81,4 +84,5 @@ public class MessageDecoder extends ByteToMessageDecoder {
 //        MessageLite messageLite= (MessageLite) parser.parseFrom(bytes);
 //        ctx.fireChannelRead(messageLite);//将消息传递下去，或者在这里将消息发布出去
     }
+
 }
