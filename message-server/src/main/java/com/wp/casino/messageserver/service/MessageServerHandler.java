@@ -12,6 +12,7 @@ import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Arrays;
 import java.util.Timer;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -90,7 +91,8 @@ import java.util.concurrent.atomic.AtomicInteger;
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageLite messageLite) throws Exception {
         log.info("第" + count.get() + "次" + ",服务端接受客户端的消息，客户端地址："+ctx.channel().remoteAddress().toString()+"进行消息处理..."  );
-        log.info("messageLite---"+messageLite.toString());
+        log.info("message--messageLite---tostrig--"+messageLite.toString());
+        log.info("message--messageLite---tobyte--"+ Arrays.toString(messageLite.toByteArray()));
         messageDispatcher.onMessage(ctx.channel(),messageLite);
         count.incrementAndGet();
         //HandlerContext.getInstance().addChannel("login-server",ctx);
@@ -126,4 +128,5 @@ import java.util.concurrent.atomic.AtomicInteger;
         ctx.close();
         log.info("exceptionCaught",cause);
     }
+
 }

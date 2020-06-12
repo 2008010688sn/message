@@ -17,6 +17,10 @@ public interface MessageUserDataRepository extends JpaRepository<MessageUserData
     @Query(value = "UPDATE tb_message_user_data set md_system_auto_id=?1 where md_ply_guid=?2",nativeQuery = true)
     Integer updateByPlyGuid(Integer autoId,Long uid);
 
+    @Query(value = "select convert(unhex(hex(convert(md_nickname  using utf8))) using latin1) as md_nickname from tb_message_user_data where md_ply_guid=?1",nativeQuery = true)
+    String selectLatinNicknameByUid(Long uid);
+
+
     @Modifying
     @Transactional
     @Query(value = "update tb_message_user_data set md_nickname = ?1, md_vip=?2,md_level=?3,md_login_time=?4 where md_ply_guid=?5", nativeQuery = true)

@@ -158,7 +158,9 @@ public class ClubDataUtil {
         if (messageUserDataRepository==null){
             messageUserDataRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageUserDataRepository.class);
         }
-        return messageUserDataRepository.updateMessageUser(mdNickname, mdVip, mdLevel, mdLoginTime, mdPlyGuid);
+        String nickname = messageUserDataRepository.selectLatinNicknameByUid(mdPlyGuid);
+
+        return messageUserDataRepository.updateMessageUser(nickname, mdVip, mdLevel, mdLoginTime, mdPlyGuid);
     }
 
     /**

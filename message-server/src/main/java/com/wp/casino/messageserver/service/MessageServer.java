@@ -7,6 +7,7 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.Parser;
 import com.wp.casino.messageapi.service.Listener;
 import com.wp.casino.messagenetty.proto.LoginMessage;
+import com.wp.casino.messagenetty.proto.WorldMessage;
 import com.wp.casino.messagenetty.server.NettyTcpServer;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
 import com.wp.casino.messagenetty.utils.MessageEnum;
@@ -21,14 +22,19 @@ import com.wp.casino.messageserver.domain.mysql.casino.ClubChatInfo;
 import com.wp.casino.messageserver.domain.mysql.casino.MessageUserData;
 import com.wp.casino.messageserver.domain.mysql.casino.PyqClubMembers;
 import com.wp.casino.messageserver.utils.*;
+import com.wp.casino.messagetools.monitor.ThreadPoolManager;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
+import org.aspectj.weaver.World;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.sql.Timestamp;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -49,6 +55,8 @@ public class MessageServer extends NettyTcpServer {
     @Autowired
     private SystemMessageDao systemMessageDao;
 
+    private ThreadPoolManager threadPoolManager;
+
 
     private String host;
 
@@ -64,6 +72,7 @@ public class MessageServer extends NettyTcpServer {
         this.channelHandler = new MessageServerHandler(messageDispatcher);
         this.systemMessageDao=ApplicationContextProvider.getApplicationContext()
                 .getBean(SystemMessageDao.class);
+        this.threadPoolManager=new ThreadPoolManager();
     }
 
     public MessageServer(String host,int port) {
@@ -74,12 +83,16 @@ public class MessageServer extends NettyTcpServer {
         this.channelHandler = new MessageServerHandler(messageDispatcher);
         this.systemMessageDao=ApplicationContextProvider.getApplicationContext()
                 .getBean(SystemMessageDao.class);
+        this.threadPoolManager=new ThreadPoolManager();
 
     }
 
     @Override
     public void start(Listener listener) {
         super.start(listener);
+        if (this.workerGroup != null) {// 增加线程池监控
+            this.threadPoolManager.register("server-conn-worker", this.workerGroup);
+        }
     }
 
     @Override
@@ -90,6 +103,15 @@ public class MessageServer extends NettyTcpServer {
         //proto_cl_load_noti_msg_req
         //proto_cl_update_msg_status_req
         //proto_cl_get_msg_count_req
+        messageDispatcher.registerHandler(WorldMessage.prt_ping.class,(channel,message)->{
+            log.info("接收login的ping------");
+            LocalDate localDate = LocalDate.now();
+            Timestamp timestamp= Timestamp.valueOf(LocalDateTime.now());
+            int nowTime=(int)(timestamp.getTime()/1000);
+            WorldMessage.prt_pong pong=WorldMessage.prt_pong
+                    .newBuilder().setNowTime(nowTime).build();
+            channel.writeAndFlush(pong);
+        });
         messageDispatcher.registerHandler(LoginMessage.proto_cf_message_wrap_sync.class,
                 (channel, message) -> {
                     log.info("proto_cf_message_wrap_sync----callback");
@@ -249,7 +271,7 @@ public class MessageServer extends NettyTcpServer {
                         message.getClubId(), MagicId.APPLY_JOIN_CLUB_MSG.getMagicId(), expireTime);
 
                 // 转发协议到login
-                SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list,MsgType.PLAYER_NOTI_MSG.getMsgType(),
+                SendMsgUtil.sendNotiMsg(sm.getAutoId(), sm.getSendId(), list,MsgType.CLUB_NOTI_MSG.getMsgType(),
                         MsgContentType.ACK_MSG.getMsgContentType(), MsgConstants.SENDED, message.getClubId(),
                         JSONObject.toJSONString(cmc),
                         Integer.valueOf(String.valueOf(System.currentTimeMillis() / 1000 + (24 * 60 * 60))),

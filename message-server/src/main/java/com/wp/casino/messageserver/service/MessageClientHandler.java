@@ -3,16 +3,12 @@ package com.wp.casino.messageserver.service;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.WorldMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
-import com.wp.casino.messageserver.utils.ApplicationContextProvider;
-import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.handler.timeout.IdleState;
 import io.netty.handler.timeout.IdleStateEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
-import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PropertiesLoaderUtils;
 
 import java.io.IOException;
@@ -95,7 +91,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
      */
     @Override
     public void userEventTriggered(ChannelHandlerContext ctx, Object obj) throws Exception {
-        log.info("心跳请求：" + new Date() + "，次数" + fcount.get());
+        log.info("client端心跳请求：" + new Date() + "，次数" + fcount.get());
         if (ctx.channel()==null){
             log.info("reconnect---start--");
             Map<String,Object> map=getClientConfigPro();
@@ -156,7 +152,7 @@ public class MessageClientHandler extends SimpleChannelInboundHandler<MessageLit
             String portStr = properties.getProperty("client_port");
             String heartbeatStr = properties.getProperty("client_heartbeat");
             String intervalStr = properties.getProperty("client_interval");
-            Integer port=9123;
+            Integer port=7100;
             Integer heartbeat=1;
             Integer interval=100;
             if (StringUtils.isNoneBlank(portStr)){

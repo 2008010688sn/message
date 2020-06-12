@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.MessageLite;
 import com.google.protobuf.Parser;
+import com.wp.casino.messageapi.service.Listener;
 import com.wp.casino.messagenetty.client.NettyTcpClient;
 import com.wp.casino.messagenetty.proto.WorldMessage;
 import com.wp.casino.messagenetty.utils.MessageDispatcher;
@@ -20,10 +21,12 @@ import com.wp.casino.messageserver.utils.ApplicationContextProvider;
 import com.wp.casino.messageserver.utils.ClubDataUtil;
 import com.wp.casino.messageserver.utils.RedisUtil;
 import com.wp.casino.messageserver.utils.SendMsgUtil;
+import com.wp.casino.messagetools.monitor.ThreadPoolManager;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.EventLoop;
+import io.netty.handler.timeout.IdleStateHandler;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
@@ -45,6 +48,8 @@ public class MessageClient extends NettyTcpClient {
 
     private RedisUtil redisUtil;
 
+    private ThreadPoolManager threadPoolManager;
+
     public MessageClient() {
         this.messageDispatcher = new MessageDispatcher();
         this.channelHandler = new MessageClientHandler(messageDispatcher,this);
@@ -53,6 +58,9 @@ public class MessageClient extends NettyTcpClient {
         if (this.redisUtil==null){
             this.redisUtil= ApplicationContextProvider.getApplicationContext()
                     .getBean(RedisUtil.class);
+        }
+        if (this.threadPoolManager==null){
+            this.threadPoolManager=new ThreadPoolManager();
         }
     }
 
@@ -66,6 +74,14 @@ public class MessageClient extends NettyTcpClient {
                 }
             }
         });
+    }
+
+    @Override
+    public void start(Listener listener) {
+        super.start(listener);
+        if (this.workerGroup != null) {// 增加线程池监控
+            this.threadPoolManager.register("client-conn-worker", this.workerGroup);
+        }
     }
 
     @Override
@@ -325,7 +341,7 @@ public class MessageClient extends NettyTcpClient {
     @Override
     protected void initPipeline(ChannelPipeline pipeline) {
         //入参说明: 读超时时间、写超时时间、所有类型的超时时间、时间格式
-//        pipeline.addLast(new IdleStateHandler(0, 10000, 0, TimeUnit.MICROSECONDS));
+//        pipeline.addLast(new IdleStateHandler(0, 100, 0, TimeUnit.MICROSECONDS));
         super.initPipeline(pipeline);
     }
 }

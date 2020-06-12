@@ -38,8 +38,8 @@ public abstract class NettyTcpServer extends BaseService {
 
     private  int port;
     private  String host;
-    private EventLoopGroup bossGroup;
-    private EventLoopGroup workerGroup;
+    protected EventLoopGroup bossGroup;
+    protected EventLoopGroup workerGroup;
 
     public NettyTcpServer() {
     }

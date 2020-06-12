@@ -1,5 +1,14 @@
 server:
     port: 8188
+    mongo_url:  127.0.0.1
+    mongo_port: 27017
+    sql_url:    127.0.0.1
+    sql_port: 3306
+    sql_username: wolfplus
+    sql_pass:   passthis
+    redis_url:  127.0.0.1
+    redis_port: 6379
+    redis_pass: 123456
     #作为服务端监听的端口
     bind_address: 127.0.0.1
     bind_port: 7601
@@ -8,33 +17,34 @@ server:
     client_port: 7100
     #1为断线重连，其他值不重连
     client_heartbeat: 1
-    #断线重连的心跳间隔，单位s
-    client_interval: 100000
+    #断线重连的心跳间隔，单位ms
+    client_interval: 100
+
 mongodb:
     message:
         database: message
-        host: 127.0.0.1
-        port: 27017
+        host: ${server.mongo_url}
+        port: ${server.mongo_port}
     replay:
         database: db_replay
-        host: 127.0.0.1
-        port: 27017
+        host: ${server.mongo_url}
+        port: ${server.mongo_port}
     record:
         database: db_record
-        host: 127.0.0.1
-        port: 27017
+        host: ${server.mongo_url}
+        port: ${server.mongo_port}
 spring:
     datasource:
         casino:
-            jdbc-url: jdbc:mysql://127.0.0.1:3306/db_casino?useUnicode=true&characterEncoding=utf-8
-            username: wolfplus
-            password: passthis
+            jdbc-url: jdbc:mysql://${server.sql_url}:${server.sql_port}/db_casino?characterEncoding=utf-8
+            username: ${server.sql_username}
+            password: ${server.sql_pass}
             driverClassName: com.mysql.jdbc.Driver
             #type: com.alibaba.druid.pool.DruidDataSource
         account:
-            jdbc-url: jdbc:mysql://127.0.0.1:3306/db_account_detail?useUnicode=true&characterEncoding=utf-8
-            username: wolfplus
-            password: passthis
+            jdbc-url: jdbc:mysql://${server.sql_url}:${server.sql_port}/db_account_detail?characterEncoding=utf-8
+            username: ${server.sql_username}
+            password: ${server.sql_pass}
             driverClassName: com.mysql.jdbc.Driver
             #type: com.alibaba.druid.pool.DruidDataSource
     jpa:
@@ -45,10 +55,10 @@ spring:
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect  #不加这句则默认为myisam引擎
         open-in-view: false
     redis:
-        host: 127.0.0.1
-        port: 6379
+        host: ${server.redis_url}
+        port: ${server.redis_port}
         database: 0
-        password: 123456
+        password: ${server.redis_pass}
         timeout: 3000   #ms
         lettuce:
             pool:

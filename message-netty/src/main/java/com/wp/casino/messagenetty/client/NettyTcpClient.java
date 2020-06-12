@@ -27,7 +27,7 @@ public abstract class NettyTcpClient extends BaseService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NettyTcpClient.class);
 
-    private EventLoopGroup workerGroup;
+    protected EventLoopGroup workerGroup;
     protected Bootstrap bootstrap;
 
     private void createClient(Listener listener, EventLoopGroup workerGroup, ChannelFactory<? extends Channel> channelFactory) {
