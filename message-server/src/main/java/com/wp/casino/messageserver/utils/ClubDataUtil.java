@@ -3,6 +3,7 @@ package com.wp.casino.messageserver.utils;
 import com.wp.casino.messagenetty.utils.MessageEnum;
 import com.wp.casino.messageserver.dao.mysql.accout.AccountDetailRepository;
 import com.wp.casino.messageserver.dao.mysql.casino.*;
+import com.wp.casino.messageserver.dao.mysql.casinolating.MessageUserDataLatingRepository;
 import com.wp.casino.messageserver.domain.mysql.account.AccountDetail;
 import com.wp.casino.messageserver.domain.mysql.casino.*;
 import org.springframework.stereotype.Component;
@@ -71,6 +72,12 @@ public class ClubDataUtil {
 
     public static void setMessageFriendAutoIdRepository(MessageFriendAutoIdRepository messageFriendAutoIdRepository) {
         ClubDataUtil.messageFriendAutoIdRepository = messageFriendAutoIdRepository;
+    }
+
+    private static MessageUserDataLatingRepository messageUserDataLatingRepository;
+
+    public static void setMessageUserDataLatingRepository(MessageUserDataLatingRepository messageUserDataLatingRepository) {
+        ClubDataUtil.messageUserDataLatingRepository = messageUserDataLatingRepository;
     }
 
     /**
@@ -161,6 +168,25 @@ public class ClubDataUtil {
         String nickname = messageUserDataRepository.selectLatinNicknameByUid(mdPlyGuid);
 
         return messageUserDataRepository.updateMessageUser(nickname, mdVip, mdLevel, mdLoginTime, mdPlyGuid);
+    }
+
+    /**
+     *
+     * @param mdNickname
+     * @param mdVip
+     * @param mdLevel
+     * @param mdLoginTime
+     * @param mdPlyGuid
+     * @return
+     */
+    public static Integer updateMessageUserDataLating (String mdNickname, Integer mdVip, Integer mdLevel, Integer mdLoginTime, long mdPlyGuid) {
+        if (messageUserDataLatingRepository==null){
+            messageUserDataLatingRepository=ApplicationContextProvider.getApplicationContext().getBean(MessageUserDataLatingRepository.class);
+        }
+//        String nickname = messageUserDataLatingRepository.selectLatinNicknameByUid(mdPlyGuid);
+        String nickname = messageUserDataLatingRepository.selectLatinNicknameByNickName(mdNickname);
+
+        return messageUserDataLatingRepository.updateMessageUser(nickname, mdVip, mdLevel, mdLoginTime, mdPlyGuid);
     }
 
     /**

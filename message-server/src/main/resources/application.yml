@@ -47,6 +47,11 @@ spring:
             password: ${server.sql_pass}
             driverClassName: com.mysql.jdbc.Driver
             #type: com.alibaba.druid.pool.DruidDataSource
+        casino-lating1:
+            jdbc-url: jdbc:mysql://${server.sql_url}:${server.sql_port}/db_casino?characterEncoding=iso8859-1
+            username: ${server.sql_username}
+            password: ${server.sql_pass}
+            driverClassName: com.mysql.jdbc.Driver
     jpa:
         database: MYSQL
         hibernate:

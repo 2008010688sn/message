@@ -156,7 +156,7 @@ public class MessageServer extends NettyTcpServer {
                     log.info("proto_lf_update_ply_login_status_not------:{}", message.toString());
                     //用户注册,登录用户信息入表
                     // 修改用户
-                    Integer result = ClubDataUtil.updateMessageUserData(message.getNickName(), message.getPlyVip(),
+                    Integer result = ClubDataUtil.updateMessageUserDataLating(message.getNickName(), message.getPlyVip(),
                             message.getPlyLevel(), Integer.valueOf(String.valueOf(System.currentTimeMillis() / 1000)), message.getPlyGuid());
                     if (result == 0) {
                         // 没有更新到，则就插入
