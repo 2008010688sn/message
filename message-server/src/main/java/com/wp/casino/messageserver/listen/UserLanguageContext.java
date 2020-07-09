@@ -15,6 +15,8 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
+import java.util.stream.Collectors;
 
 /**
  * @author sn
@@ -25,13 +27,13 @@ import java.util.concurrent.ConcurrentHashMap;
 @Order(3)
 public class UserLanguageContext implements ApplicationRunner {
 
-    public  static ConcurrentHashMap<String, String> enMaps=new ConcurrentHashMap<>(0);
-    public  static ConcurrentHashMap<String, String> cnMaps=new ConcurrentHashMap<>(0);
-    public  static ConcurrentHashMap<String, String> twMaps=new ConcurrentHashMap<>(0);
+    public  static ConcurrentHashMap<String, String> enMaps=new ConcurrentHashMap<>(100);
+    public  static ConcurrentHashMap<String, String> cnMaps=new ConcurrentHashMap<>(100);
+    public  static ConcurrentHashMap<String, String> twMaps=new ConcurrentHashMap<>(100);
 
-    public  static ConcurrentHashMap<Integer, String> enErrMaps=new ConcurrentHashMap<>(0);
-    public  static ConcurrentHashMap<Integer, String> cnErrMaps=new ConcurrentHashMap<>(0);
-    public  static ConcurrentHashMap<Integer, String> twErrMaps=new ConcurrentHashMap<>(0);
+    public  static ConcurrentHashMap<Integer, String> enErrMaps=new ConcurrentHashMap<>(100);
+    public  static ConcurrentHashMap<Integer, String> cnErrMaps=new ConcurrentHashMap<>(100);
+    public  static ConcurrentHashMap<Integer, String> twErrMaps=new ConcurrentHashMap<>(100);
 
 
     @Override
@@ -40,16 +42,23 @@ public class UserLanguageContext implements ApplicationRunner {
         List<ConfigGlobalString> list =  ClubDataUtil.findConfigGlobalList();
         List<GlobalErrorDesc> errlist =  ClubDataUtil.findGlobalErrorDescList();
         if (list != null && list.size() > 0) {
-            for (ConfigGlobalString cgs : list) {
-                switch (cgs.getGsLang()) {
-                    case MsgConstants.EN_US_LANGUAGE :
-                        enMaps.put(cgs.getGsName(), cgs.getGsContext());
-                    case MsgConstants.ZH_CN_LANGUAGE :
-                        cnMaps.put(cgs.getGsName(), cgs.getGsContext());
-                    case MsgConstants.ZH_TW_LANGUAGE:
-                        twMaps.put(cgs.getGsName(), cgs.getGsContext());
-                }
-            }
+            enMaps = (ConcurrentHashMap<String, String>) list.stream().filter(cgs ->  MsgConstants.EN_US_LANGUAGE==cgs.getGsLang()).collect(Collectors.toConcurrentMap(ConfigGlobalString::getGsName, ConfigGlobalString::getGsContext));
+            cnMaps = (ConcurrentHashMap<String, String>) list.stream().filter(cgs ->  MsgConstants.ZH_CN_LANGUAGE==cgs.getGsLang()).collect(Collectors.toConcurrentMap(ConfigGlobalString::getGsName, ConfigGlobalString::getGsContext));
+            twMaps = (ConcurrentHashMap<String, String>) list.stream().filter(cgs ->  MsgConstants.ZH_TW_LANGUAGE==cgs.getGsLang()).collect(Collectors.toConcurrentMap(ConfigGlobalString::getGsName, ConfigGlobalString::getGsContext));
+
+//            for (ConfigGlobalString cgs : list) {
+//                switch (cgs.getGsLang()) {
+//                    case MsgConstants.EN_US_LANGUAGE :
+//                        enMaps.put(cgs.getGsName(), cgs.getGsContext());
+//                    case MsgConstants.ZH_CN_LANGUAGE :
+//                        cnMaps.put(cgs.getGsName(), cgs.getGsContext());
+//                    case MsgConstants.ZH_TW_LANGUAGE:
+//                        twMaps.put(cgs.getGsName(), cgs.getGsContext());
+//                    default:
+//                        log.warn("UserLanguageContext-----no target language");
+//                        enMaps.put(cgs.getGsName(),cgs.getGsContext());
+//                }
+//            }
         }
 
         if (errlist != null && errlist.size() > 0) {
@@ -59,5 +68,7 @@ public class UserLanguageContext implements ApplicationRunner {
                 twErrMaps.put(gd.getGdAutoId(), gd.getGdZhTwDesc());
             }
         }
+
+        log.info("----");
     }
 }

@@ -171,7 +171,7 @@ public class MessageServer extends NettyTcpServer {
                         messageUserData.setMdVip(message.getPlyVip());
                         ClubDataUtil.saveMessageUserData(messageUserData);
                     }
-
+                    log.info("Login注册用户信息协议---修改用户result:{}",result);
                     //维护用户和地址
                     Map<String, Object> map = ClubDataUtil.loadPlyData(message.getPlyGuid());
                     String face=map.get("face").toString();
@@ -190,7 +190,7 @@ public class MessageServer extends NettyTcpServer {
                     loginPlayer.setApproveNoti(approveNoti);
                     loginPlayer.setFriendLimit(friendLimit);
                     loginPlayer.setFriendNum(friendNum);
-
+                    log.info("Login注册用户信息协议---loginPlayer:{}",loginPlayer);
                     HandlerServerContext.getInstance().addChannel(message.getPlyGuid(), loginPlayer);
                 });
 

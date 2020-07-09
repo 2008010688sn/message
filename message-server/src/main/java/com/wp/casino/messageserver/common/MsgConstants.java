@@ -1,6 +1,6 @@
 package com.wp.casino.messageserver.common;
 
-public interface MsgConstants {
+public final class MsgConstants {
 
     // 消息发送状态
     public static final int SENDED  = 1;

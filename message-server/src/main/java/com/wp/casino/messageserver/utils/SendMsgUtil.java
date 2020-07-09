@@ -1,5 +1,6 @@
 package com.wp.casino.messageserver.utils;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.protobuf.MessageLite;
 import com.wp.casino.messagenetty.proto.LoginMessage;
@@ -12,7 +13,6 @@ import com.wp.casino.messageserver.listen.UserLanguageContext;
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +34,7 @@ public class SendMsgUtil {
      */
     public static void sendNotiMsg(long autoId, long sendId, List<ReceiveObj> receiveObjs, int msgType, int msgShowType,
                                    int msgStatus, int clubId, String jsonStr, int expireTime, String magicId) {
+        log.info("sendNotiMsg方法----receiveObjs:{},----jsonStr:{},-----magicId:{}", JSON.toJSONString(receiveObjs),jsonStr,magicId);
         LoginMessage.proto_fl_noti_msg.Builder fnm = LoginMessage.proto_fl_noti_msg.newBuilder();
 
         LoginMessage.proto_NotiMsgInfo.Builder msgInfo = LoginMessage.proto_NotiMsgInfo.newBuilder();
@@ -50,6 +51,7 @@ public class SendMsgUtil {
         for (Object obj: receiveObjs) {
             ReceiveObj receiveObj = (ReceiveObj) obj;
             LoginPlayer player = HandlerServerContext.getInstance().getChannel(receiveObj.getId());
+            log.info("sendNotiMsg方法----player:--{}",JSON.toJSONString(player));
             if (player == null || StringUtils.isBlank(player.getServerId())) {
                 log.info("ply_guid:{} offline, jsonStr:{}", receiveObj.getId(), jsonStr);
                 continue;
@@ -60,6 +62,7 @@ public class SendMsgUtil {
             msgInfo.setMsg(jsonStr);
             // 多语言处理
             msgInfo.setTitle(getConfigString(String.format("title_%s", magicId), player.getUserLanguage()));
+            log.info("magicId--title:{}",msgInfo.getTitle());
 
             List<LoginMessage.proto_NotiMsgInfo> notiMsg = new ArrayList<>();
             notiMsg.add(msgInfo.build());
@@ -110,6 +113,7 @@ public class SendMsgUtil {
      * @return
      */
     public static String getConfigString(String magicId, Integer userLanguage) {
+        log.info("getConfigString---userLanguage:{}",userLanguage);
         switch (userLanguage) {
             case MsgConstants.EN_US_LANGUAGE:
                 return UserLanguageContext.enMaps.get(magicId);
@@ -148,6 +152,7 @@ public class SendMsgUtil {
      * @param plyGuid
      */
     public static void sendProtoPack(int opcode, MessageLite messageLite, long plyGuid) {
+        log.info("sendProtoPack方法----");
         // 发送最终协议
         LoginMessage.proto_fc_message_wrap_sync.Builder resultResp = LoginMessage.proto_fc_message_wrap_sync.newBuilder();
         resultResp.setData(messageLite.toByteString());
@@ -164,12 +169,17 @@ public class SendMsgUtil {
      * @param message
      */
     public static void transferMessage(long recieverId, LoginMessage.proto_fc_message_wrap_sync message) {
+        log.info("transferMessage方法----recieverId:{}",recieverId);
         if (recieverId == -1) {
             // 发送全部
         } else {
-            String channelId = HandlerServerContext.getInstance().getChannel(recieverId).getServerId();
+            LoginPlayer loginPlayer = HandlerServerContext.getInstance().getChannel(recieverId);
+            log.info("transferMessage方法---loginPlayer:{}",loginPlayer);
+            String channelId = loginPlayer.getServerId();
+            log.info("transferMessage方法---channelId:{}",channelId);
             if (StringUtils.isNotBlank(channelId)) {
                 Channel ch = HandlerContext.getInstance().getChannel(channelId);
+                log.info("transferMessage方法---channel:{}",ch);
                 if (ch != null) {
                     ch.writeAndFlush(message);
                 }
